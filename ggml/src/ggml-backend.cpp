@@ -702,9 +702,29 @@ GGML_CALL static const char * ggml_backend_cpu_buffer_type_get_name(ggml_backend
     GGML_UNUSED(buft);
 }
 
+#if defined(__gnu_linux__)
+#include <sys/mman.h>
+static bool r5_huge_enabled() {
+    static const bool e = [] { const char * s = getenv("IK_R5_HUGE"); return s && atoi(s) > 0; }();
+    return e;
+}
+#endif
+
 GGML_CALL static ggml_backend_buffer_t ggml_backend_cpu_buffer_type_alloc_buffer(ggml_backend_buffer_type_t buft, size_t size) {
     size += TENSOR_ALIGNMENT;   // malloc may return an address that is not aligned
-    void * data = malloc(size); // TODO: use GGML_ALIGNED_MALLOC (move to ggml-impl.h)
+    void * data = nullptr;
+#if defined(__gnu_linux__)
+    if (r5_huge_enabled() && size >= ((size_t)32 << 20)) {
+        const size_t huge = (size_t)2 << 20;
+        const size_t rounded = (size + huge - 1) & ~(huge - 1);
+        data = aligned_alloc(huge, rounded);
+        if (data) {
+            madvise(data, rounded, MADV_HUGEPAGE);
+            size = rounded;
+        }
+    }
+#endif
+    if (!data) data = malloc(size); // TODO: use GGML_ALIGNED_MALLOC (move to ggml-impl.h)
     if (data == NULL) {
         fprintf(stderr, "%s: failed to allocate buffer of size %zu\n", __func__, size);
         return NULL;
