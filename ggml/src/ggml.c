@@ -29846,6 +29846,13 @@ typedef int ggml_lock_t;
 
 // Android's libc implementation "bionic" does not support setting affinity
 #if defined(__gnu_linux__)
+static int r5_pinonce_enabled(void) {
+    static int e = -1;
+    if (e < 0) { const char * v = getenv("IK_R5_PINONCE"); e = v && atoi(v) > 0; }
+    return e;
+}
+static volatile int r5_explicit_affinity = 0;   // set per graph: cplan carries an explicit CPU list
+
 static void set_numa_thread_affinity(int thread_n, int n_threads) {
     if (!ggml_is_numa()) {
         return;
@@ -29879,6 +29886,10 @@ static void set_numa_thread_affinity(int thread_n, int n_threads) {
             return;
         default:
             return;
+    }
+
+    if (r5_pinonce_enabled() && r5_explicit_affinity) {
+        return; // node recorded above; the explicit per-thread CPU pin takes precedence
     }
 
     struct ggml_numa_node * node = &g_state.numa.nodes[node_num];
@@ -29936,6 +29947,13 @@ static void set_cpu_thread_affinity(const struct ggml_cplan * cplan, int thread_
     const int cpu = cplan->cpu_affinity[thread_n % cplan->n_cpu_affinity];
     if (cpu < 0 || cpu >= CPU_SETSIZE) {
         return;
+    }
+    static GGML_THREAD_LOCAL int r5_pinned_cpu = -1;
+    if (r5_pinonce_enabled()) {
+        if (r5_pinned_cpu == cpu) {
+            return;
+        }
+        r5_pinned_cpu = cpu;
     }
 
     cpu_set_t mask;
@@ -30772,7 +30790,9 @@ enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cpl
 #if defined(__gnu_linux__)
     // the calling thread is worker 0 and gets pinned below; remember its affinity
     cpu_set_t saved_affinity;
-    const bool restore_affinity =
+    r5_explicit_affinity = cplan->cpu_affinity != NULL && cplan->n_cpu_affinity > 0;
+    const bool r5_keep_pin = r5_pinonce_enabled() && r5_explicit_affinity;
+    const bool restore_affinity = !r5_keep_pin &&
         cplan->cpu_affinity != NULL && cplan->n_cpu_affinity > 0 &&
         pthread_getaffinity_np(pthread_self(), sizeof(saved_affinity), &saved_affinity) == 0;
 #endif
@@ -30868,7 +30888,10 @@ enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cpl
     r5p_end(cgraph, cplan, state_shared.n_threads);
 #endif
 
-    // don't leave affinity set on the main thread
+    // don't leave affinity set on the main thread (unless pinned once on purpose)
+#if defined(__gnu_linux__)
+    if (!r5_keep_pin)
+#endif
     clear_numa_thread_affinity();
 
 #if defined(__gnu_linux__)
