@@ -18583,6 +18583,42 @@ static inline uint32_t simple_gcd(uint32_t a, uint32_t b) {
     return a;
 }
 
+// ---- round-5 dynamic row scheduling for single-token dense matmuls (env IK_R5_DYN=1) -------
+#define R5D_MAX_NODES 16384
+#define R5D_STRIDE    16          // ints per counter: one cache line each
+static int          r5d_enabled = -1;
+static volatile int r5d_active  = 0;
+static atomic_int * r5d_counters;
+
+static void r5d_begin(const struct ggml_cgraph * cgraph) {
+    if (r5d_enabled < 0) {
+        const char * e = getenv("IK_R5_DYN");
+        r5d_enabled = e && atoi(e) > 0;
+        if (r5d_enabled) {
+            r5d_counters = (atomic_int *)ggml_aligned_malloc(sizeof(atomic_int)*R5D_STRIDE*R5D_MAX_NODES);
+            if (!r5d_counters) r5d_enabled = 0;
+        }
+    }
+    r5d_active = r5d_enabled && cgraph->n_batch == 1 && cgraph->n_nodes <= R5D_MAX_NODES;
+    if (r5d_active) memset((void *)r5d_counters, 0, sizeof(atomic_int)*R5D_STRIDE*cgraph->n_nodes);
+}
+
+static inline void r5d_set(int node_n, const struct ggml_tensor * src0, const struct ggml_tensor * src1) {
+#if GGML_USE_IQK_MULMAT
+    const bool ok = r5d_active && src1->ne[1] == 1 && src1->ne[2] == 1 && src1->ne[3] == 1 &&
+                    src0->ne[2] == 1 && src0->ne[3] == 1;
+    iqk_r5_set_dyn(ok ? (void *)(r5d_counters + (size_t)node_n*R5D_STRIDE) : NULL);
+#else
+    (void)node_n; (void)src0; (void)src1;
+#endif
+}
+
+static inline void r5d_clear(void) {
+#if GGML_USE_IQK_MULMAT
+    iqk_r5_set_dyn(NULL);
+#endif
+}
+
 static int ggml_compute_forward_mul_mat(
         const struct ggml_compute_params * params,
               struct ggml_tensor * dst,
@@ -18630,11 +18666,14 @@ static int ggml_compute_forward_mul_mat(
 
 #if GGML_USE_IQK_MULMAT
     if (dst->type == GGML_TYPE_F32) {
-        if (iqk_mul_mat_4d(ne01, ne11, ne00,
+        r5d_set(node_n, src0, src1);
+        const bool done = iqk_mul_mat_4d(ne01, ne11, ne00,
                     ne02, ne03, ne12, ne13, nb02, nb03, nb12, nb13, nb2/sizeof(float), nb3/sizeof(float),
                     src0->type, src0->data, nb01,
                     src1->type, src1->data, nb11,
-                    (float *)dst->data, nb1/sizeof(float), ith, nth)) return node_n;
+                    (float *)dst->data, nb1/sizeof(float), ith, nth);
+        r5d_clear();
+        if (done) return node_n;
     }
 #endif
 
@@ -18700,12 +18739,15 @@ static int ggml_compute_forward_mul_mat(
 
     if (src1->type != vec_dot_type && dst->type == GGML_TYPE_F32) {
         const size_t row_size = ggml_row_size(vec_dot_type, ne10);
-        if (iqk_mul_mat_4d(ne01, ne11, ne00,
+        r5d_set(node_n, src0, src1);
+        const bool done = iqk_mul_mat_4d(ne01, ne11, ne00,
                     ne02, ne03, ne12, ne13, nb02, nb03, row_size*ne11, row_size*ne11*ne12,
                     nb2/sizeof(float), nb3/sizeof(float),
                     src0->type, src0->data, nb01,
                     vec_dot_type, wdata, row_size,
-                    (float *)dst->data, nb1/sizeof(float), ith, nth)) {
+                    (float *)dst->data, nb1/sizeof(float), ith, nth);
+        r5d_clear();
+        if (done) {
             if (!cgraph) return node_n;
             while (node_n < cgraph->n_nodes - 1 &&
                    cgraph->nodes[node_n+1]->op == GGML_OP_MUL_MAT &&
@@ -18716,12 +18758,15 @@ static int ggml_compute_forward_mul_mat(
                 GGML_ASSERT(dst_next->type == GGML_TYPE_F32);
                 GGML_ASSERT(src0_next->ne[0] == ne00);
                 //if (ith == 0) printf("Fusing %s\n", src0_next->name);
-                if (!iqk_mul_mat_4d(src0_next->ne[1], ne11, ne00,
+                r5d_set(node_n + 1, src0_next, src1);
+                const bool done_next = iqk_mul_mat_4d(src0_next->ne[1], ne11, ne00,
                     src0_next->ne[2], src0_next->ne[3], ne12, ne13, src0_next->nb[2], src0_next->nb[3], row_size*ne11, row_size*ne11*ne12,
                     dst_next->nb[2]/sizeof(float), dst_next->nb[3]/sizeof(float),
                     src0_next->type, src0_next->data, src0_next->nb[1],
                     vec_dot_type, wdata, row_size,
-                    (float *)dst_next->data, dst_next->nb[1]/sizeof(float), ith, nth)) break;
+                    (float *)dst_next->data, dst_next->nb[1]/sizeof(float), ith, nth);
+                r5d_clear();
+                if (!done_next) break;
                 ++node_n;
             }
             return node_n;
@@ -29983,6 +30028,8 @@ static int               r5p_n_nodes = -1, r5p_nth = 0;
 static uint64_t          r5p_graphs, r5p_resets, r5p_g0;
 static double            r5p_sum_graph, r5p_sum_fork, r5p_sum_join, r5p_sum_nodes;
 static uint64_t          r5p_tsc_init;
+static double            r5p_thr_mm[R5P_MAX_THREADS], r5p_thr_all[R5P_MAX_THREADS];
+static int               r5p_thr_cpu[R5P_MAX_THREADS];
 static struct timespec   r5p_ts_init;
 
 static void r5p_init(void) {
@@ -30082,6 +30129,10 @@ static void r5p_dump(void) {
                 100.0*cls[c].wall/tw, wall > 0 ? (double)cls[c].nb0/(wall*1e3) : 0.0,
                 cls[c].type0);
     }
+    fprintf(f, "\n## per thread (us per graph): compute in dense MUL_MAT nodes, compute in all nodes\n");
+    for (int t = 0; t < r5p_nth; ++t) {
+        fprintf(f, "thr %2d cpu %3d  mul_mat %9.1f  all %9.1f\n", t, r5p_thr_cpu[t], r5p_thr_mm[t]/G/tpu, r5p_thr_all[t]/G/tpu);
+    }
     fprintf(f, "\n## by node (us per executed instance)\n");
     fprintf(f, "%5s %4s %-16s %-40s %-6s %22s %22s %8s %8s %8s %8s %8s %8s\n", "idx", "span", "op", "name", "type0",
             "ne0", "ne1", "wall", "maxc", "meanc", "tail", "lat", "latmax");
@@ -30100,8 +30151,11 @@ static void r5p_dump(void) {
     rename(tmp, r5p_path);
 }
 
-static void r5p_end(const struct ggml_cgraph * cgraph, int nth) {
+static void r5p_end(const struct ggml_cgraph * cgraph, const struct ggml_cplan * cplan, int nth) {
     if (!r5p_active) return;
+    for (int t = 0; t < nth; ++t) {
+        r5p_thr_cpu[t] = cplan->cpu_affinity && cplan->n_cpu_affinity > 0 ? cplan->cpu_affinity[t % cplan->n_cpu_affinity] : -1;
+    }
     r5p_active = 0;
     const uint64_t g1 = __rdtsc();
     const int n_nodes = cgraph->n_nodes;
@@ -30116,6 +30170,7 @@ static void r5p_end(const struct ggml_cgraph * cgraph, int nth) {
         memset(r5p_acc_buf, 0, sizeof(struct r5p_acc)*R5P_MAX_NODES);
         r5p_n_nodes = n_nodes; r5p_nth = nth;
         r5p_graphs = 0; r5p_sum_graph = r5p_sum_fork = r5p_sum_join = r5p_sum_nodes = 0;
+        memset(r5p_thr_mm, 0, sizeof(r5p_thr_mm)); memset(r5p_thr_all, 0, sizeof(r5p_thr_all));
         r5p_resets++;
     }
     uint64_t prev = r5p_g0;
@@ -30128,6 +30183,8 @@ static void r5p_end(const struct ggml_cgraph * cgraph, int nth) {
             if (r->t2 < rel) rel = r->t2;
             if (r->t1 > lastend) lastend = r->t1;
             const uint64_t c = r->t1 - r->t0;
+            r5p_thr_all[t] += (double)c;
+            if (cgraph->nodes[i]->op == GGML_OP_MUL_MAT) r5p_thr_mm[t] += (double)c;
             if (c > maxc) maxc = c;
             sumc += c;
             const uint64_t lat = r->t0 > prev ? r->t0 - prev : 0;
@@ -30266,6 +30323,7 @@ enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cpl
 #ifdef R5P
     r5p_begin(cgraph, n_threads);
 #endif
+    r5d_begin(cgraph);
 
 #ifdef GGML_USE_OPENMP
     if (n_threads > 1) {
@@ -30332,7 +30390,7 @@ enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cpl
 #endif
 
 #ifdef R5P
-    r5p_end(cgraph, state_shared.n_threads);
+    r5p_end(cgraph, cplan, state_shared.n_threads);
 #endif
 
     // don't leave affinity set on the main thread

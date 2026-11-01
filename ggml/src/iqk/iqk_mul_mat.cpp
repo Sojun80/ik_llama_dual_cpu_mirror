@@ -20,6 +20,8 @@
 #include "ggml-impl.h"
 #include "ggml-quants.h"
 #include "iqk_mul_mat.h"
+#include <atomic>
+#include <cstdlib>
 #include "iqk_quantize.h"
 #include "iqk_flash_impl.h"
 #include "iqk_gemm_floats.h"
@@ -584,6 +586,24 @@ extern "C" IQK_API int iqk_dequant_type(int type, int Ny) {
     return MulMat::is_dequant_better(ggml_type(type), Ny);
 }
 
+static thread_local std::atomic<int> * r5_dyn_counter = nullptr;
+
+extern "C" IQK_API void iqk_r5_set_dyn(void * counter) {
+    r5_dyn_counter = (std::atomic<int> *)counter;
+}
+
+namespace {
+struct R5DynConfig {
+    int static_pct = 75;
+    long min_chunk_bytes = 16384;
+    R5DynConfig() {
+        if (auto s = getenv("IK_R5_DYN_STATIC")) static_pct = std::max(0, std::min(100, atoi(s)));
+        if (auto s = getenv("IK_R5_DYN_CHUNK"))  min_chunk_bytes = std::max(1L, atol(s));
+    }
+};
+const R5DynConfig & r5_dyn_config() { static R5DynConfig c; return c; }
+}
+
 extern "C" IQK_API bool iqk_mul_mat(long Nx, long Ny, long ne00,
         int typeA, const void * A, long strideA,
         int typeB, const void * B, long strideB,
@@ -595,6 +615,35 @@ extern "C" IQK_API bool iqk_mul_mat(long Nx, long Ny, long ne00,
 
     size_t row_size_qx = strideA; //*ggml_type_size(ggml_type(typeA));
     size_t row_size_qy = strideB; //*ggml_type_size(ggml_type(typeB));
+
+    if (r5_dyn_counter && Ny == 1 && nth > 1 && MulMat::prepare(typeA, typeB, ne00, mm, Ny)) {
+        const long align = MulMat::num_rows(ggml_type(typeA));
+        if (Nx % align == 0) {
+            const auto & cfg = r5_dyn_config();
+            const long units  = Nx/align;
+            const long s      = units*cfg.static_pct/(100*nth);          // static units per thread
+            const long pool0  = s*nth;
+            long chunk = (units - pool0)/(4*nth);
+            const long min_units = (cfg.min_chunk_bytes + align*row_size_qx - 1)/(align*row_size_qx);
+            if (chunk < min_units) chunk = min_units;
+            if (chunk < 1) chunk = 1;
+            if (s > 0) {
+                const long ix = ith*s*align;
+                DataInfo info{C + ix, (const char *)B, (size_t)stride_C, row_size_qy, 0, 1, nullptr, 0};
+                mm.mul_mat_NxM(ne00, (const char *)A + ix*row_size_qx, row_size_qx, info, s*align, Ny);
+            }
+            auto counter = r5_dyn_counter;
+            while (true) {
+                const long first = pool0 + (long)counter->fetch_add(1, std::memory_order_relaxed)*chunk;
+                if (first >= units) break;
+                const long n  = std::min(chunk, units - first);
+                const long ix = first*align;
+                DataInfo info{C + ix, (const char *)B, (size_t)stride_C, row_size_qy, 0, 1, nullptr, 0};
+                mm.mul_mat_NxM(ne00, (const char *)A + ix*row_size_qx, row_size_qx, info, n*align, Ny);
+            }
+            return true;
+        }
+    }
 
     if (Nx/nth < k_min_step) {
         if (auto dequant_type = MulMat::is_dequant_better(ggml_type(typeA), Ny); Ny >= 64 && dequant_type != ggml_type(typeA) &&

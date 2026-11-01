@@ -18,6 +18,10 @@ IQK_API bool iqk_mul_mat(long Nx, long Ny, long ne00,
         int typeB, const void * B, long strideB,
         float * C, long stride_C, int ith, int nth);
 
+// round-5: set (per thread) the atomic counter used for dynamic row chunks of the next
+// 2D single-column iqk_mul_mat call; NULL disables. counter must be zero before first use.
+IQK_API void iqk_r5_set_dyn(void * counter);
+
 IQK_API bool iqk_mul_mat_4d(long Nx, long Ny, long ne00,
         long ne02, long ne03, long ne12, long ne13,
         long nb02, long nb03, long nb12, long nb13, long nb2, long nb3,
