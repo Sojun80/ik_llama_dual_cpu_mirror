@@ -592,6 +592,16 @@ extern "C" IQK_API void iqk_r5_set_dyn(void * counter) {
     r5_dyn_counter = (std::atomic<int> *)counter;
 }
 
+extern "C" IQK_API bool iqk_r5_rows(long Nx, long ne00, int typeA, const void * A, long strideA,
+        int typeB, const void * B, long strideB, float * C) {
+    MulMat mm;
+    if (!MulMat::prepare(typeA, typeB, ne00, mm, 1)) return false;
+    if (Nx % MulMat::num_rows(ggml_type(typeA))) return false;
+    DataInfo info{C, (const char *)B, (size_t)Nx, (size_t)strideB, 0, 1, nullptr, 0};
+    mm.mul_mat_NxM(ne00, A, strideA, info, Nx, 1);
+    return true;
+}
+
 namespace {
 struct R5DynConfig {
     int static_pct = 75;
@@ -2539,6 +2549,10 @@ bool iqk_indexer_topk(struct ggml_tensor * dst, void * work_buffer, barrier_t ba
 
 extern "C" IQK_API bool iqk_mul_mat(int, long, long, long, int, const void *, long, int, const void *, long, float *, long, int, int) {
     GGML_ABORT("Unsupported CPU. You may need to manually set compilation flags\n");
+    return false;
+}
+
+extern "C" IQK_API bool iqk_r5_rows(long, long, int, const void *, long, int, const void *, long, float *) {
     return false;
 }
 

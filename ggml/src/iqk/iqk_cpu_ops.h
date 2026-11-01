@@ -31,6 +31,10 @@ void iqk_openai_experts(struct ggml_tensor * topk, struct ggml_tensor * softmax,
 
 void iqk_mul_multi_add(struct ggml_tensor * dst, int ith, int nth);
 
+// round-5 fused MoE tail: out = (sum_j w[j]*e_j + inp) + gate*sh over n columns (y, z: n-float scratch)
+void iqk_r5_moe_tail(int n, int ne, const float * e, long stride_e, const float * w,
+        const float * inp, const float * sh, float gate, float limit, float * out, float * y, float * z);
+
 void iqk_hadamard(struct ggml_tensor * dst, int ith, int nth);
 
 float iqk_exp_with_thresh(int n, float * logits, float max, float min);

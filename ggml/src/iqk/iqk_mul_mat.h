@@ -22,6 +22,10 @@ IQK_API bool iqk_mul_mat(long Nx, long Ny, long ne00,
 // 2D single-column iqk_mul_mat call; NULL disables. counter must be zero before first use.
 IQK_API void iqk_r5_set_dyn(void * counter);
 
+// round-5: C[0..Nx) = A rows [0,Nx) . B (one column), single-threaded; false if unsupported
+IQK_API bool iqk_r5_rows(long Nx, long ne00, int typeA, const void * A, long strideA,
+        int typeB, const void * B, long strideB, float * C);
+
 IQK_API bool iqk_mul_mat_4d(long Nx, long Ny, long ne00,
         long ne02, long ne03, long ne12, long ne13,
         long nb02, long nb03, long nb12, long nb13, long nb2, long nb3,

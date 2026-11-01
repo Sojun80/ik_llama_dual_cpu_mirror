@@ -427,6 +427,24 @@ void iqk_openai_experts(struct ggml_tensor * topk, struct ggml_tensor * softmax,
     }
 }
 
+// Same expressions as iqk_mul_multi_add (routed sum) and fused_mul_unary (gate); the final loop has no
+// multiply, so the two residual adds round separately exactly as the unfused ADD nodes do.
+void iqk_r5_moe_tail(int n, int ne, const float * e, long stride_e, const float * w,
+        const float * inp, const float * sh, float gate, float limit, float * out, float * y, float * z) {
+    for (int k = 0; k < n; ++k) y[k] = e[k] * w[0];
+    for (int j = 1; j < ne; ++j) {
+        const float * x = e + j*stride_e;
+        for (int k = 0; k < n; ++k) y[k] += x[k] * w[j];
+    }
+    if (limit < 1e-6f) {
+        for (int k = 0; k < n; ++k) z[k] = gate * sh[k];
+    } else {
+        const float g = std::min(gate, limit);
+        for (int k = 0; k < n; ++k) z[k] = std::max(-limit, std::min(limit, sh[k])) * g;
+    }
+    for (int k = 0; k < n; ++k) out[k] = (y[k] + inp[k]) + z[k];
+}
+
 void iqk_mul_multi_add(struct ggml_tensor * dst, int ith, int nth) {
     auto src0 = dst->src[0];
     auto src1 = dst->src[1];
