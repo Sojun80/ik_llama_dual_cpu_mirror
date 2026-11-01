@@ -28011,11 +28011,181 @@ static bool r5_fmrt_match(const struct ggml_cgraph * g, int i, size_t wsize) {
 
 #undef R5F_FAIL
 
+// ---- round-5: socket-local fused MoE step (IK_R5_FMOE_LOCAL, see apply_r5local.py) ----
+static int r5_local_mode(void) {
+    static int mode = -1;
+    if (mode < 0) { const char * e = getenv("IK_R5_FMOE_LOCAL"); mode = e ? atoi(e) : 0; }
+    return mode;
+}
+
+// barrier among the threads of one node only, on that node's node-local line of the hierarchical barrier
+static void r5_node_barrier(int node) {
+    const int node_nth = g_numa_barrier.node_nth[node];
+    if (node_nth <= 1) return;
+    struct ggml_numa_barrier_node * nb = g_numa_barrier.node[node];
+    const int rel_old = atomic_load(&nb->release);
+    if (atomic_fetch_add(&nb->arrive, 1) == node_nth - 1) {
+        atomic_store(&nb->arrive, 0);
+        atomic_fetch_add(&nb->release, 1);
+    } else {
+        while (atomic_load(&nb->release) == rel_old) ggml_numa_spin_pause();
+    }
+}
+
+// extra work buffer after the r5_fmug layout: one quantized FFN input per node, then n_ids f32 rows of n_embd
+static bool r5_local_ok(const struct ggml_compute_params * params, struct ggml_tensor * const * n,
+                        const struct r5_fmug_layout * l, size_t * off_x, size_t * off_dn) {
+    if (!r5_local_mode() || !g_numa_barrier.active || !ggml_numa_mirror_active()) return false;
+    if (params->shared->cplan && params->shared->cplan->moe_expert_prefetch) return false;
+    const int nn = ggml_numa_node_count();
+    if (nn < 2 || nn > GGML_NUMA_MAX_NODES) return false;
+    int sum = 0;
+    for (int k = 0; k < nn; ++k) {
+        if (g_numa_barrier.node_nth[k] < 1) return false;
+        sum += g_numa_barrier.node_nth[k];
+    }
+    if (sum != params->nth) return false;
+    const struct ggml_tensor * ugr = n[0], * down = n[1];
+    if (ugr->ne[1] < nn) return false;
+    *off_x  = GGML_PAD(l->need, 64);
+    *off_dn = *off_x + nn*GGML_PAD(l->rs_u, 64);
+    if (*off_dn + ugr->ne[1]*down->ne[0]*sizeof(float) > params->wsize) {
+        static atomic_int warned;
+        if (atomic_fetch_add(&warned, 1) == 0) fprintf(stderr, "r5_fmug_local: work buffer too small (%zu < %zu), not used\n",
+                params->wsize, (size_t)(*off_dn + ugr->ne[1]*down->ne[0]*sizeof(float)));
+        return false;
+    }
+    return true;
+}
+
+static int r5_fmug_local(struct ggml_compute_params * params, const struct ggml_cgraph * g, int i,
+                         const struct r5_fmug_layout * l, size_t off_x, size_t off_dn) {
+    struct ggml_tensor * const * n = g->nodes + i;
+    struct ggml_tensor * ugr = n[0], * down = n[1], * mma = n[2], * a1 = n[3], * gt = n[4], * ug = n[5], * sd = n[6], * gated = n[7], * out = n[8];
+    const int ith = params->ith, nth = params->nth;
+    const struct ggml_tensor * x = ugr->src[2], * ids = down->src[2], * W = mma->src[1], * inp = r5_fmoe_inp(a1, mma);
+    const struct ggml_tensor * up = ugr->src[0], * gate = ugr->src[1], * wg = gt->src[0], * w0 = down->src[0], * ws = sd->src[0];
+    char * wq = (char *)params->wdata;
+    const int n_ids = (int)ids->ne[0];
+    const int64_t n_ff = ugr->ne[0], n_sh = ug->ne[0], n_embd = down->ne[0];
+    const int nn = ggml_numa_node_count();
+    const int node = ggml_numa_node_for_thread(ith, nth);
+    const int first = (node*nth + nn - 1)/nn, cnt = g_numa_barrier.node_nth[node], idx = ith - first;
+    const int j0 = node*n_ids/nn, j1 = (node + 1)*n_ids/nn;   // this node's positions in the selected list
+    const int units = (int)(n_embd/16);
+    const int u0 = (int)((int64_t)ith*units/nth), u1 = (int)((int64_t)(ith + 1)*units/nth);
+    const int64_t r0 = 16*(int64_t)u0, nr = 16*(int64_t)(u1 - u0);
+    char * xq = wq + off_x + node*GGML_PAD(l->rs_u, 64);
+    float * dn = (float *)(wq + off_dn);
+    float * par = (float *)(wq + l->off_par), * shf = (float *)(wq + l->off_sh);
+    const float * xd = (const float *)x->data;
+    atomic_int * chunk = &params->shared->r5_node_chunk[16*node];
+
+    {
+        static atomic_int said;
+        if (ith == 0 && atomic_fetch_add(&said, 1) == 0) fprintf(stderr, "r5_fmug_local: socket-local MoE step active (%d nodes)\n", nn);
+    }
+
+    // L0: node-local input copy, shared gate logit, snapshot ids, weights and this thread's residual slice
+    if (idx == 0) {
+        type_traits[l->vt_u].from_float(xd, xq, x->ne[0]);
+        atomic_store(chunk, 0);
+    }
+    if (ith == nth - 1) {
+        if (!iqk_mul_mat_4d(wg->ne[1], 1, wg->ne[0], wg->ne[2], wg->ne[3], x->ne[2], x->ne[3],
+                            wg->nb[2], wg->nb[3], x->nb[2], x->nb[3], gt->nb[2]/sizeof(float), gt->nb[3]/sizeof(float),
+                            wg->type, ggml_numa_tensor_data(wg, node), wg->nb[1], x->type, xd, x->nb[1],
+                            (float *)(wq + l->off_g), gt->nb[1]/sizeof(float), 0, 1)) GGML_ABORT("r5_fmug_local: shared gate type not supported");
+    }
+    int32_t sel[16];
+    float wts[16];
+    for (int j = 0; j < n_ids; ++j) {
+        sel[j] = *(const int32_t *)((const char *)ids->data + j*ids->nb[0]);
+        wts[j] = *(const float *)((const char *)W->data + j*W->nb[1]);
+    }
+    float res[nr > 0 ? nr : 1];
+    if (nr > 0) memcpy(res, (const float *)inp->data + r0, nr*sizeof(float));
+    r5_node_barrier(node);
+
+    // L1: up/gate chunks of this node's experts and its share of the shared rows, from the node's own pool
+    {
+        const int cr = r5_fmug_rows();
+        const int cpe = (int)(n_ff/cr), cps = (int)(n_sh/cr);
+        const int s0 = node*cps/nn, s1 = (node + 1)*cps/nn;
+        const int n_routed = (j1 - j0)*cpe, total = n_routed + (s1 - s0);
+        const char * up_r = (const char *)ggml_numa_tensor_data(up, node), * gate_r = (const char *)ggml_numa_tensor_data(gate, node);
+        const void * up_s = ggml_numa_tensor_data(ug->src[0], node), * gate_s = ggml_numa_tensor_data(ug->src[1], node);
+        const float lim_r = *(const float *)(ugr->op_params + 1), sb_r = *(const float *)(ugr->op_params + 2), sbl_r = *(const float *)(ugr->op_params + 3);
+        const float lim_s = *(const float *)(ug->op_params + 1),  sb_s = *(const float *)(ug->op_params + 2),  sbl_s = *(const float *)(ug->op_params + 3);
+        struct { int32_t i1, i2; } map[16];
+        for (int j = 0; j < n_ids; ++j) { map[j].i1 = j; map[j].i2 = 0; }
+        for (int c = atomic_fetch_add_explicit(chunk, 1, memory_order_relaxed); c < total;
+                 c = atomic_fetch_add_explicit(chunk, 1, memory_order_relaxed)) {
+            if (c < n_routed) {
+                const int j = j0 + c/cpe, lc = c % cpe;
+                const int32_t a = sel[j];
+                if (a < 0 || a >= up->ne[2]) {
+                    memset(par + j*n_ff + (int64_t)lc*cr, 0, cr*sizeof(float));
+                } else if (!iqk_moe_fused_up_gate(n_ff, 1, up->ne[0], 1, ugr->op_params[0],
+                                up->type, up_r + a*up->nb[2], gate_r + a*up->nb[2], up->nb[1],
+                                l->vt_u, xq, l->rs_u, NULL, NULL, par, n_ff*sizeof(float), n_ids*n_ff*sizeof(float),
+                                &map[j], lim_r, sb_r, sbl_r, lc, cpe)) GGML_ABORT("r5_fmug_local: routed up/gate failed");
+            } else {
+                if (!iqk_moe_fused_up_gate(n_sh, 1, up->ne[0], 1, ug->op_params[0],
+                                ug->src[0]->type, up_s, gate_s, ug->src[0]->nb[1],
+                                l->vt_u, xq, l->rs_u, NULL, NULL, shf, ug->nb[1], ug->nb[2],
+                                NULL, lim_s, sb_s, sbl_s, s0 + (c - n_routed), cps)) GGML_ABORT("r5_fmug_local: shared up/gate failed");
+            }
+        }
+    }
+    r5_node_barrier(node);
+
+    // L2: quantize this node's routed rows for the down projection
+    for (int r = j0 + idx; r < j1; r += cnt) type_traits[l->vt_r].from_float(par + r*n_ff, wq + l->off_r + r*l->rs_r, n_ff);
+    r5_node_barrier(node);
+
+    // L3: down rows of this node's experts, all n_embd outputs split over the node's threads
+    {
+        const int v0 = (int)((int64_t)idx*units/cnt), v1 = (int)((int64_t)(idx + 1)*units/cnt);
+        const int64_t q0 = 16*(int64_t)v0, nq = 16*(int64_t)(v1 - v0);
+        const char * a_r = (const char *)ggml_numa_tensor_data(w0, node);
+        for (int j = j0; nq > 0 && j < j1; ++j) {
+            const int32_t a = sel[j];
+            float * c = dn + j*n_embd + q0;
+            if (a < 0 || a >= w0->ne[2]) { memset(c, 0, nq*sizeof(float)); continue; }
+            if (!iqk_r5_rows(nq, w0->ne[0], w0->type, a_r + a*w0->nb[2] + q0*w0->nb[1], w0->nb[1],
+                             l->vt_r, wq + l->off_r + j*l->rs_r, l->rs_r, c)) GGML_ABORT("r5_fmug_local: routed type not supported");
+        }
+    }
+    ggml_barrier(params->shared);   // the one cross-node sync: routed rows of all nodes and the shared up/gate are complete
+
+    // L4: this thread's slice: shared down rows (quantizing the shared row privately), then the combine
+    if (nr > 0) {
+        char sq[l->rs_s] __attribute__((aligned(64)));
+        type_traits[l->vt_s].from_float(shf, sq, n_sh);
+        const char * a_s = (const char *)ggml_numa_tensor_data(ws, node);
+        float sh[3*nr];
+        if (!iqk_r5_rows(nr, ws->ne[0], ws->type, a_s + r0*ws->nb[1], ws->nb[1], l->vt_s, sq, l->rs_s, sh))
+            GGML_ABORT("r5_fmug_local: shared type not supported");
+        const float xg = *(const float *)(wq + l->off_g);
+        const float gv = gated->op_params[0] == GGML_UNARY_OP_SILU ? ggml_silu_f32(xg) : 1.0f/(1.0f + expf(-xg));
+        const float limit = *(const float *)(gated->op_params + 1);
+        iqk_r5_moe_tail((int)nr, n_ids, dn + r0, n_embd, wts, res, sh, gv, limit, (float *)out->data + r0, sh + nr, sh + 2*nr);
+    }
+    return i + 8;
+}
+
 // i: the routed up/gate node; ir: the FFN norm when the router prefix is fused too (IK_R5_FMOE_UG=2), else -1
 static int r5_fmug(struct ggml_compute_params * params, const struct ggml_cgraph * g, int i, int ir) {
     struct ggml_tensor * const * n = g->nodes + i;
     struct ggml_tensor * ugr = n[0], * down = n[1], * mma = n[2], * a1 = n[3], * gt = n[4], * ug = n[5], * sd = n[6], * gated = n[7], * out = n[8];
     const int ith = params->ith, nth = params->nth;
+
+    if (ir < 0 && r5_local_mode()) {
+        size_t off_x, off_dn;
+        const struct r5_fmug_layout ll = r5_fmug_lay(n);
+        if (r5_local_ok(params, n, &ll, &off_x, &off_dn)) return r5_fmug_local(params, g, i, &ll, off_x, off_dn);
+    }
 
     if (r5_fmoe_mode() == 2 && ith == 0) {
         // debug: the skipped nodes must have no consumers outside the pattern
