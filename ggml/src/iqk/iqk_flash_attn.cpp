@@ -64,6 +64,13 @@ static bool enabled() {
     return e;
 }
 
+static bool dbg_enabled() {
+    static const bool e = [] { auto v = getenv("IK_R5_FA_DEBUG"); return v && atoi(v) > 0; }();
+    return e;
+}
+static thread_local uint64_t r5ph[6];   // setup, scores, softmax, V accumulate, merge, calls
+static inline uint64_t r5ph_now() { return dbg_enabled() ? __rdtsc() : 0; }
+
 static inline size_t slot_floats(int neq2) { return (2*(size_t)neq2 + (size_t)neq2*D + 15) & ~(size_t)15; }
 
 static inline bool eligible(int type_q, int type_k, int type_v, int type_mask, int Dk, int Dv,
@@ -94,6 +101,7 @@ static void partial(int j0, int j1, int nkvh, int rk,
                     const char * v, long stride_v, long nbv2, const uint16_t * mask, float scale,
                     float * m_out, float * l_out, float * O_all) {
     const int nh = nkvh*rk;                 // <= kMaxHeads
+    uint64_t tp = r5ph_now();
     alignas(32) float Qs[kMaxHeads*D];
     alignas(32) float S[kMaxHeads*JB];
     float m[kMaxHeads], l[kMaxHeads];
@@ -106,6 +114,7 @@ static void partial(int j0, int j1, int nkvh, int rk,
     std::memset(O_all, 0, sizeof(float)*nh*D);
     const long span_k = (nkvh - 1)*nbk2 + 2*D;   // bytes of one position K row over all KV heads
     const long span_v = (nkvh - 1)*nbv2 + 2*D;
+    if (dbg_enabled()) { uint64_t t = __rdtsc(); r5ph[0] += t - tp; tp = t; }
     for (int jb = j0; jb < j1; jb += JB) {
         const int nj = std::min(JB, j1 - jb);
         const int jn = jb + JB, nn = std::max(0, std::min(JB, j1 - jn));
@@ -144,6 +153,7 @@ static void partial(int j0, int j1, int nkvh, int rk,
                 }
             }
         }
+        if (dbg_enabled()) { uint64_t t = __rdtsc(); r5ph[1] += t - tp; tp = t; }
         // ---- mask + online softmax; S becomes p
         alignas(32) float mk[JB];
         for (int j = 0; j < JB; ++j) mk[j] = j < nj ? _cvtsh_ss(mask[jb + j]) : -INFINITY;
@@ -171,6 +181,7 @@ static void partial(int j0, int j1, int nkvh, int rk,
             }
             l[h] += hsum(vsum);
         }
+        if (dbg_enabled()) { uint64_t t = __rdtsc(); r5ph[2] += t - tp; tp = t; }
         // ---- O[h] += sum_j p[h][j] * v_j
         for (int kh = 0; kh < nkvh; ++kh) {
             const char * vbase = v + kh*nbv2;
@@ -194,6 +205,7 @@ static void partial(int j0, int j1, int nkvh, int rk,
                 }
             }
         }
+        if (dbg_enabled()) { uint64_t t = __rdtsc(); r5ph[3] += t - tp; tp = t; }
     }
     for (int h = 0; h < nh; ++h) { m_out[h] = m[h]; l_out[h] = l[h]; }
 }
@@ -231,6 +243,7 @@ static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, i
             for (int t = 0; t < nth; ++t) acc_part[t] = acc_wait[t] = 0;
         }
     }
+    const uint64_t tm0 = r5ph_now();
     // merge: tasks are (head, 64-dim chunk)
     constexpr int DC = 64;
     const int ntask = neq2*(D/DC);
@@ -255,6 +268,15 @@ static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, i
         const __m256 vn = _mm256_set1_ps(L > 0 ? 1.0f/L : 0.0f);
         float * out = (float *)((char *)qkv + h*nb1) + d0;
         for (int i = 0; i < DC/8; ++i) _mm256_storeu_ps(out + 8*i, _mm256_mul_ps(vn, acc[i]));
+    }
+    if (dbg_enabled()) {
+        r5ph[4] += __rdtsc() - tm0;
+        if (++r5ph[5] % 640 == 0) {
+            const double n = 640.0;
+            fprintf(stderr, "r5fa-phase ith %d (positions %d): setup %.0f  scores %.0f  softmax %.0f  V %.0f  merge %.0f ticks/call\n",
+                    ith, j1 - j0, r5ph[0]/n, r5ph[1]/n, r5ph[2]/n, r5ph[3]/n, r5ph[4]/n);
+            for (int i = 0; i < 5; ++i) r5ph[i] = 0;
+        }
     }
     return true;
 }
