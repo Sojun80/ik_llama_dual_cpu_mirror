@@ -5122,6 +5122,17 @@ void ggml_numa_init(enum ggml_numa_strategy numa_flag) {
         g_state.numa.mirror_flags = GGML_NUMA_MIRROR_ALL;
     }
 
+    // round-5 (IK_R5_NONUMAB=1): explicit MPOL_LOCAL task policy for this thread and the threads it creates later.
+    // Allocates like the default policy but without migrate-on-fault, so automatic NUMA balancing no longer unmaps
+    // and migrates the shared runtime pages (heap, work and compute buffers) that both nodes touch every token.
+    {
+        const char * e = getenv("IK_R5_NONUMAB");
+        if (e && atoi(e) > 0) {
+            const long rc = syscall(SYS_set_mempolicy, 4 /* MPOL_LOCAL */, NULL, 0UL);
+            fprintf(stderr, "ggml_numa_init: IK_R5_NONUMAB: MPOL_LOCAL task policy %s\n", rc == 0 ? "set" : "FAILED");
+        }
+    }
+
     GGML_PRINT_DEBUG("numa strategy %u\n",g_state.numa.numa_strategy);
 
     g_state.numa.cpuset = ggml_get_numa_affinity();
