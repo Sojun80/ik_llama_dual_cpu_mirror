@@ -52,6 +52,7 @@ inline void accumulate_qkv(int Dv, float& M, float& S, float Mj, float Sj, float
 #if defined(__AVX2__) && defined(__FMA__) && defined(__F16C__)
 #include "iqk_utils.h"
 #include <immintrin.h>
+#include <sys/mman.h>
 #include <x86intrin.h>
 #include <cstdlib>
 namespace r5fa {
@@ -232,6 +233,50 @@ static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, i
     const int per = ((n_eff + nth - 1)/nth + 7) & ~7;
     const int j0 = std::min(n_eff, ith*per), j1 = std::min(n_eff, j0 + per);
     static const bool dbg = [] { auto s = getenv("IK_R5_FA_DEBUG"); return s && atoi(s) > 0; }();
+    static const bool streamtest = [] { auto e = getenv("IK_R5_FA_STREAMTEST"); return e && atoi(e) > 0; }();
+    if (streamtest && j1 > j0) {
+        static thread_local char * ring = nullptr;
+        static thread_local size_t ring_off = 0;
+        static thread_local uint64_t tk, tr, bytes, nc;
+        constexpr size_t kRing = (size_t)64 << 20;
+        if (!ring) { ring = (char *)aligned_alloc(2u << 20, kRing); madvise(ring, kRing, MADV_HUGEPAGE); memset(ring, 1, kRing); }
+        const long span = (long)(nek2 - 1)*nbk2 + 2*D;
+        __m256 acc = _mm256_setzero_ps();
+        const uint64_t a = __rdtsc();
+        for (int j = j0; j < j1; ++j) {
+            const char * kr = (const char *)k + (long)j*stride_k;
+            const char * vr = (const char *)v + (long)j*stride_v;
+            for (long o = 0; o < span; o += 32) {
+                acc = _mm256_add_ps(acc, _mm256_loadu_ps((const float *)(kr + o)));
+                acc = _mm256_add_ps(acc, _mm256_loadu_ps((const float *)(vr + o)));
+            }
+        }
+        const uint64_t b = __rdtsc();
+        const size_t n = (size_t)(j1 - j0)*span*2;
+        if (ring_off + n > kRing/2) ring_off = 0;
+        for (size_t o = 0; o < n/2; o += 32) {
+            acc = _mm256_add_ps(acc, _mm256_load_ps((const float *)(ring + ring_off + o)));
+            acc = _mm256_add_ps(acc, _mm256_load_ps((const float *)(ring + kRing/2 + ring_off + o)));
+        }
+        const uint64_t c = __rdtsc();
+        for (size_t o = n/2; o < n + n/2; o += 32) acc = _mm256_add_ps(acc, _mm256_load_ps((const float *)(ring + ring_off + o)));
+        ring_off += (n + n/2 + 4095) & ~(size_t)4095;
+        const uint64_t d = __rdtsc();
+        const int jj0 = j1 < n_eff ? j1 : 0, jj1 = std::min(n_eff, jj0 + (j1 - j0));
+        for (int j = jj0; j < jj1; ++j) { const char * kr = (const char *)k + (long)j*stride_k;
+            for (long o = 0; o < span; o += 32) acc = _mm256_add_ps(acc, _mm256_loadu_ps((const float *)(kr + o))); }
+        for (int j = jj0; j < jj1; ++j) { const char * vr = (const char *)v + (long)j*stride_v;
+            for (long o = 0; o < span; o += 32) acc = _mm256_add_ps(acc, _mm256_loadu_ps((const float *)(vr + o))); }
+        const uint64_t e = __rdtsc();
+        volatile float sink = _mm256_cvtss_f32(acc); (void)sink;
+        static thread_local uint64_t t_kvi, t_r2, t_r1, t_kvs, b_kvi, b_kvs;
+        t_kvi += b - a; t_r2 += c - b; t_r1 += d - c; t_kvs += e - d; b_kvi += n; b_kvs += (size_t)(jj1 - jj0)*span*2;
+        if (++nc % 640 == 0) {
+            fprintf(stderr, "r5fa-stream2 ith %d: KVi %.2f KVs %.2f R2 %.2f R1 %.2f bytes/tick\n", ith,
+                    (double)b_kvi/t_kvi, (double)b_kvs/t_kvs, (double)b_kvi/t_r2, (double)b_kvi/t_r1);
+            t_kvi = t_r2 = t_r1 = t_kvs = b_kvi = b_kvs = 0;
+        }
+    }
     const uint64_t t0 = dbg ? __rdtsc() : 0;
     partial(j0, j1, nek2, rk, (const char *)q, nbq2, (const char *)k, stride_k, nbk2, (const char *)v, stride_v, nbv2,
             mk, scale, mine, mine + neq2, mine + 2*neq2);
