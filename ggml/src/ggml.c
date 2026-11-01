@@ -29958,6 +29958,213 @@ struct ggml_cplan ggml_graph_plan(const struct ggml_cgraph * cgraph, int n_threa
     return cplan;
 }
 
+// ---- round-5 per-node decode profiler (env IK_R5_PROF=<path>) -------------------------
+#if defined(__x86_64__) && defined(__gnu_linux__)
+#include <x86intrin.h>
+#define R5P 1
+#define R5P_MAX_THREADS 64
+#define R5P_MAX_NODES   8192
+struct r5p_rec { uint64_t t0, t1, t2; };   // compute start, compute end, barrier exit
+struct r5p_acc {
+    double wall, maxc, meanc, tail, lat_mean, lat_max;
+    uint64_t count;
+    int op, span;
+    char name[64], type0[16];
+    int64_t ne0[4], ne1[4];
+    size_t nb0;
+};
+static int               r5p_enabled = -1;
+static volatile int      r5p_active  = 0;
+static char              r5p_path[1024];
+static struct r5p_rec *  r5p_rec_buf;      // [thread][node]
+static int *             r5p_span;         // [node], 0 = not executed this graph
+static struct r5p_acc *  r5p_acc_buf;      // [node]
+static int               r5p_n_nodes = -1, r5p_nth = 0;
+static uint64_t          r5p_graphs, r5p_resets, r5p_g0;
+static double            r5p_sum_graph, r5p_sum_fork, r5p_sum_join, r5p_sum_nodes;
+static uint64_t          r5p_tsc_init;
+static struct timespec   r5p_ts_init;
+
+static void r5p_init(void) {
+    const char * p = getenv("IK_R5_PROF");
+    r5p_enabled = 0;
+    if (!p || !*p) return;
+    snprintf(r5p_path, sizeof(r5p_path), "%s", p);
+    r5p_rec_buf = calloc((size_t)R5P_MAX_THREADS*R5P_MAX_NODES, sizeof(struct r5p_rec));
+    r5p_span    = calloc(R5P_MAX_NODES, sizeof(int));
+    r5p_acc_buf = calloc(R5P_MAX_NODES, sizeof(struct r5p_acc));
+    if (!r5p_rec_buf || !r5p_span || !r5p_acc_buf) return;
+    clock_gettime(CLOCK_MONOTONIC, &r5p_ts_init);
+    r5p_tsc_init = __rdtsc();
+    r5p_enabled = 1;
+}
+
+static void r5p_strip(char * dst, size_t n, const char * s) {
+    // replace every "-<digits>" with "-N" so per-layer nodes aggregate
+    size_t j = 0;
+    for (size_t i = 0; s[i] && j + 3 < n; ) {
+        if (s[i] == '-' && s[i+1] >= '0' && s[i+1] <= '9') {
+            dst[j++] = '-'; dst[j++] = 'N';
+            i++;
+            while (s[i] >= '0' && s[i] <= '9') i++;
+        } else {
+            dst[j++] = s[i++];
+        }
+    }
+    dst[j] = 0;
+}
+
+static void r5p_begin(const struct ggml_cgraph * cgraph, int n_threads) {
+    if (r5p_enabled < 0) r5p_init();
+    r5p_active = 0;
+    if (r5p_enabled != 1 || cgraph->n_batch != 1) return;
+    if (cgraph->n_nodes > R5P_MAX_NODES || n_threads > R5P_MAX_THREADS) return;
+    memset(r5p_span, 0, sizeof(int)*cgraph->n_nodes);
+    r5p_g0 = __rdtsc();
+    r5p_active = 1;
+}
+
+static int r5p_cmp_class(const void * a, const void * b) {
+    double x = ((const double *)a)[0], y = ((const double *)b)[0];
+    return x < y ? 1 : x > y ? -1 : 0;
+}
+
+static void r5p_dump(void) {
+    struct timespec ts; clock_gettime(CLOCK_MONOTONIC, &ts);
+    const double ns  = (ts.tv_sec - r5p_ts_init.tv_sec)*1e9 + (ts.tv_nsec - r5p_ts_init.tv_nsec);
+    const double tpu = (double)(__rdtsc() - r5p_tsc_init)/(ns*1e-3);   // ticks per us
+    const double G   = (double)r5p_graphs;
+    char tmp[1100]; snprintf(tmp, sizeof(tmp), "%s.tmp", r5p_path);
+    FILE * f = fopen(tmp, "w");
+    if (!f) return;
+    fprintf(f, "# r5prof graphs=%llu n_nodes=%d threads=%d resets=%llu tsc_MHz=%.1f\n",
+            (unsigned long long)r5p_graphs, r5p_n_nodes, r5p_nth, (unsigned long long)r5p_resets, tpu);
+    fprintf(f, "# per graph (us): total=%.1f fork(first start)=%.1f join=%.1f sum_node_wall=%.1f\n",
+            r5p_sum_graph/G/tpu, r5p_sum_fork/G/tpu, r5p_sum_join/G/tpu, r5p_sum_nodes/G/tpu);
+
+    // aggregate by (op, stripped name)
+    enum { MAXC = 1024 };
+    static struct { double wall, maxc, meanc, tail, lat; double count; size_t nb0; char key[96]; int op; char type0[16]; } cls[MAXC];
+    int ncls = 0;
+    int n_exec = 0;
+    for (int i = 0; i < r5p_n_nodes; ++i) {
+        const struct r5p_acc * a = &r5p_acc_buf[i];
+        if (!a->count) continue;
+        n_exec++;
+        char key[96], nm[64];
+        r5p_strip(nm, sizeof(nm), a->name);
+        snprintf(key, sizeof(key), "%s|%s", ggml_op_name((enum ggml_op)a->op), nm);
+        int c = 0;
+        for (; c < ncls; ++c) if (!strcmp(cls[c].key, key)) break;
+        if (c == ncls) {
+            if (ncls == MAXC) continue;
+            memset(&cls[c], 0, sizeof(cls[c]));
+            snprintf(cls[c].key, sizeof(cls[c].key), "%s", key);
+            snprintf(cls[c].type0, sizeof(cls[c].type0), "%s", a->type0);
+            cls[c].op = a->op;
+            ncls++;
+        }
+        cls[c].wall  += a->wall;  cls[c].maxc += a->maxc; cls[c].meanc += a->meanc;
+        cls[c].tail  += a->tail;  cls[c].lat  += a->lat_mean;
+        cls[c].count += (double)a->count;
+        cls[c].nb0   += a->nb0;
+    }
+    // sort by wall descending (wall is the first field)
+    qsort(cls, ncls, sizeof(cls[0]), r5p_cmp_class);
+    fprintf(f, "# executed nodes per graph: %d\n", n_exec);
+    fprintf(f, "\n## by class (us per graph; n = nodes per graph; GB/s = src0 bytes / wall, meaningless for *_ID/MOE ops)\n");
+    fprintf(f, "%-60s %5s %9s %9s %9s %9s %9s %7s %8s %s\n", "op|name", "n", "wall", "maxc", "meanc", "tail", "startlat", "wall%", "GB/s", "type0");
+    double tw = 0; for (int c = 0; c < ncls; ++c) tw += cls[c].wall;
+    for (int c = 0; c < ncls; ++c) {
+        const double wall = cls[c].wall/G/tpu;
+        fprintf(f, "%-60s %5.0f %9.1f %9.1f %9.1f %9.1f %9.1f %6.2f%% %8.1f %s\n", cls[c].key, cls[c].count/G,
+                wall, cls[c].maxc/G/tpu, cls[c].meanc/G/tpu, cls[c].tail/G/tpu, cls[c].lat/G/tpu,
+                100.0*cls[c].wall/tw, wall > 0 ? (double)cls[c].nb0/(wall*1e3) : 0.0,
+                cls[c].type0);
+    }
+    fprintf(f, "\n## by node (us per executed instance)\n");
+    fprintf(f, "%5s %4s %-16s %-40s %-6s %22s %22s %8s %8s %8s %8s %8s %8s\n", "idx", "span", "op", "name", "type0",
+            "ne0", "ne1", "wall", "maxc", "meanc", "tail", "lat", "latmax");
+    for (int i = 0; i < r5p_n_nodes; ++i) {
+        const struct r5p_acc * a = &r5p_acc_buf[i];
+        if (!a->count) continue;
+        const double n = (double)a->count*tpu;
+        char ne0[32], ne1[32];
+        snprintf(ne0, sizeof(ne0), "%lldx%lldx%lldx%lld", (long long)a->ne0[0], (long long)a->ne0[1], (long long)a->ne0[2], (long long)a->ne0[3]);
+        snprintf(ne1, sizeof(ne1), "%lldx%lldx%lldx%lld", (long long)a->ne1[0], (long long)a->ne1[1], (long long)a->ne1[2], (long long)a->ne1[3]);
+        fprintf(f, "%5d %4d %-16s %-40s %-6s %22s %22s %8.2f %8.2f %8.2f %8.2f %8.2f %8.2f\n", i, a->span,
+                ggml_op_name((enum ggml_op)a->op), a->name, a->type0, ne0, ne1,
+                a->wall/n, a->maxc/n, a->meanc/n, a->tail/n, a->lat_mean/n, a->lat_max/n);
+    }
+    fclose(f);
+    rename(tmp, r5p_path);
+}
+
+static void r5p_end(const struct ggml_cgraph * cgraph, int nth) {
+    if (!r5p_active) return;
+    r5p_active = 0;
+    const uint64_t g1 = __rdtsc();
+    const int n_nodes = cgraph->n_nodes;
+    // structural check: reset accumulators if the graph shape changed
+    bool reset = n_nodes != r5p_n_nodes || nth != r5p_nth;
+    if (!reset) {
+        for (int i = 0; i < n_nodes; ++i) {
+            if (r5p_span[i] && r5p_acc_buf[i].count && r5p_acc_buf[i].op != (int)cgraph->nodes[i]->op) { reset = true; break; }
+        }
+    }
+    if (reset) {
+        memset(r5p_acc_buf, 0, sizeof(struct r5p_acc)*R5P_MAX_NODES);
+        r5p_n_nodes = n_nodes; r5p_nth = nth;
+        r5p_graphs = 0; r5p_sum_graph = r5p_sum_fork = r5p_sum_join = r5p_sum_nodes = 0;
+        r5p_resets++;
+    }
+    uint64_t prev = r5p_g0;
+    bool first = true;
+    for (int i = 0; i < n_nodes; ++i) {
+        if (!r5p_span[i]) continue;
+        uint64_t rel = UINT64_MAX, lastend = 0, maxc = 0, sumc = 0, maxlat = 0, sumlat = 0;
+        for (int t = 0; t < nth; ++t) {
+            const struct r5p_rec * r = &r5p_rec_buf[(size_t)t*R5P_MAX_NODES + i];
+            if (r->t2 < rel) rel = r->t2;
+            if (r->t1 > lastend) lastend = r->t1;
+            const uint64_t c = r->t1 - r->t0;
+            if (c > maxc) maxc = c;
+            sumc += c;
+            const uint64_t lat = r->t0 > prev ? r->t0 - prev : 0;
+            if (lat > maxlat) maxlat = lat;
+            sumlat += lat;
+        }
+        struct r5p_acc * a = &r5p_acc_buf[i];
+        if (!a->count) {
+            const struct ggml_tensor * node = cgraph->nodes[i];
+            a->op = node->op; a->span = r5p_span[i];
+            snprintf(a->name, sizeof(a->name), "%s", node->name);
+            if (node->src[0]) {
+                snprintf(a->type0, sizeof(a->type0), "%s", ggml_type_name(node->src[0]->type));
+                for (int k = 0; k < 4; ++k) a->ne0[k] = node->src[0]->ne[k];
+                a->nb0 = ggml_nbytes(node->src[0]);
+            }
+            if (node->src[1]) for (int k = 0; k < 4; ++k) a->ne1[k] = node->src[1]->ne[k];
+        }
+        if (first) { r5p_sum_fork += (double)(sumlat/nth); first = false; }
+        a->wall     += (double)(rel - prev);
+        a->maxc     += (double)maxc;
+        a->meanc    += (double)sumc/nth;
+        a->tail     += rel > lastend ? (double)(rel - lastend) : 0.0;
+        a->lat_mean += (double)sumlat/nth;
+        a->lat_max  += (double)maxlat;
+        a->count++;
+        r5p_sum_nodes += (double)(rel - prev);
+        prev = rel;
+    }
+    r5p_sum_join  += (double)(g1 - prev);
+    r5p_sum_graph += (double)(g1 - r5p_g0);
+    r5p_graphs++;
+    if (r5p_graphs % 64 == 0) r5p_dump();
+}
+#endif
+// ---- end round-5 profiler ----------------------------------------------------------------
+
 static thread_ret_t ggml_graph_compute_thread(void * data) {
     struct ggml_compute_state * state = (struct ggml_compute_state *) data;
 
@@ -29979,16 +30186,26 @@ static thread_ret_t ggml_graph_compute_thread(void * data) {
     int64_t t_start = ggml_time_us();
     int64_t t_eval  = 0;
 #endif
+#ifdef R5P
+    struct r5p_rec * r5p_mine = r5p_active ? r5p_rec_buf + (size_t)state->ith*R5P_MAX_NODES : NULL;
+#endif
 
     for (int node_n = 0; node_n < cgraph->n_nodes; node_n++) {
         struct ggml_tensor * node = cgraph->nodes[node_n];
 
         if (ggml_is_noop(node)) continue;
+#ifdef R5P
+        const int r5p_node = node_n;
+        const uint64_t r5p_t0 = r5p_mine ? __rdtsc() : 0;
+#endif
 
 #if IK_PRINT_TIMING
         int64_t tim1 = ggml_time_us();
 #endif
         node_n = ggml_compute_forward(&params, node, cgraph, node_n);
+#ifdef R5P
+        const uint64_t r5p_t1 = r5p_mine ? __rdtsc() : 0;
+#endif
 #if IK_PRINT_TIMING
         int64_t tim2 = ggml_time_us();
         t_eval += tim2 - tim1;
@@ -29999,6 +30216,12 @@ static thread_ret_t ggml_graph_compute_thread(void * data) {
         }
 
         ggml_barrier(state->shared);
+#ifdef R5P
+        if (r5p_mine) {
+            r5p_mine[r5p_node] = (struct r5p_rec){ r5p_t0, r5p_t1, __rdtsc() };
+            if (state->ith == 0) r5p_span[r5p_node] = node_n - r5p_node + 1;
+        }
+#endif
 
         if (state->shared->ec != GGML_STATUS_SUCCESS) {
             break;
@@ -30039,6 +30262,10 @@ enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cpl
         /*.current_chunk           =*/ 0,
         /*.ec                      =*/ GGML_STATUS_SUCCESS,
     };
+
+#ifdef R5P
+    r5p_begin(cgraph, n_threads);
+#endif
 
 #ifdef GGML_USE_OPENMP
     if (n_threads > 1) {
@@ -30102,6 +30329,10 @@ enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cpl
             UNUSED(rc);
         }
     }
+#endif
+
+#ifdef R5P
+    r5p_end(cgraph, state_shared.n_threads);
 #endif
 
     // don't leave affinity set on the main thread
