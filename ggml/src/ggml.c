@@ -25326,6 +25326,26 @@ static void ggml_compute_forward_delta_net_f32(
         GGML_ASSERT(src6->ne[0] >= (n_tokens - 1)*state_step_stride);
     }
 
+    if (ggml_numa_mirror_active()) {
+        // round-5: bind the state of the heads this thread owns to its NUMA node, once per range
+        static int dnbind = -1;
+        if (dnbind < 0) { const char * e = getenv("IK_R5_DNBIND"); dnbind = e ? atoi(e) > 0 : 1; }
+        static GGML_THREAD_LOCAL const void * bound[256];
+        static GGML_THREAD_LOCAL int n_bound = 0;
+        const int64_t total_heads = n_heads * n_seqs;
+        const int64_t h0 = (int64_t)ith*total_heads/nth, h1 = (int64_t)(ith + 1)*total_heads/nth;
+        if (dnbind && h1 > h0 && n_bound < 256) {
+            const size_t hsz = (size_t)head_dim*head_dim*sizeof(float);
+            const void * ptrs[2] = { (const char *)state_in + h0*hsz, (const char *)state_working + h0*hsz };
+            for (int p = 0; p < 2 && n_bound < 256; ++p) {
+                bool seen = false;
+                for (int b = 0; b < n_bound; ++b) if (bound[b] == ptrs[p]) { seen = true; break; }
+                if (seen || (p == 1 && ptrs[1] == ptrs[0])) continue;
+                ggml_numa_bind((void *)ptrs[p], (size_t)(h1 - h0)*hsz, ggml_numa_node_for_thread(ith, nth));
+                bound[n_bound++] = ptrs[p];
+            }
+        }
+    }
     if (iqk_fused_delta_net(head_dim, n_heads, gqa_ratio, repeat_type, n_tokens, n_seqs,
                 src2->nb[1]/sizeof(float), src2->nb[2]/sizeof(float), src2->nb[3]/sizeof(float),
                 q_data, k_data, v_data, g_data, beta_data, state_in,

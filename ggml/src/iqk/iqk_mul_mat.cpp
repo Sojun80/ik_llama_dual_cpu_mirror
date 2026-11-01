@@ -1778,9 +1778,10 @@ void iqk_fused_delta_net_impl(int n_heads, int gqa_ratio, int repeat_type, int n
     return;
 #endif
     const int total_heads = n_heads * n_seqs;
-    const int heads_per_thread = (total_heads + nth - 1) / nth;
-    const int h_start = ith * heads_per_thread;
-    const int h_end = (h_start + heads_per_thread < total_heads) ? h_start + heads_per_thread : total_heads;
+    // round-5: proportional split so that with nth > total_heads the heads spread over all
+    // threads (and NUMA nodes) instead of landing on threads 0..total_heads-1
+    const int h_start = (int)((int64_t)ith * total_heads / nth);
+    const int h_end   = (int)((int64_t)(ith + 1) * total_heads / nth);
 
 #ifdef __AVX2__
     static_assert(head_dim % 8 == 0);

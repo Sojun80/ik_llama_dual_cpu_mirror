@@ -9470,6 +9470,11 @@ static void llama_mirror_kv_cache(struct llama_kv_cache & cache) {
             if (!t->data || t->view_src || !t->buffer || !ggml_backend_buffer_is_host(t->buffer)) {
                 continue;
             }
+            // round-5: recurrent state is accessed via tensor->data only; mirroring it just costs
+            // replication on every state write
+            if (std::find(cache.s_l.begin(), cache.s_l.end(), t) != cache.s_l.end()) {
+                continue;
+            }
             const llama_kv_cache::numa_mirror_buffer * mb = nullptr;
             for (auto & cand : cache.numa_mirror_bufs) {
                 if (cand.buf == t->buffer) { mb = &cand; break; }
