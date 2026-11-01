@@ -236,6 +236,18 @@ static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, i
     partial(j0, j1, nek2, rk, (const char *)q, nbq2, (const char *)k, stride_k, nbk2, (const char *)v, stride_v, nbv2,
             mk, scale, mine, mine + neq2, mine + 2*neq2);
     const uint64_t t1 = dbg ? __rdtsc() : 0;
+    static const bool twice = [] { auto e = getenv("IK_R5_FA_TWICE"); return e && atoi(e) > 0; }();
+    if (twice) {
+        static thread_local uint64_t p1, p2, nc;
+        const uint64_t a = __rdtsc();
+        partial(j0, j1, nek2, rk, (const char *)q, nbq2, (const char *)k, stride_k, nbk2, (const char *)v, stride_v, nbv2,
+                mk, scale, mine, mine + neq2, mine + 2*neq2);
+        p2 += __rdtsc() - a; p1 += t1 - t0;
+        if (++nc % 640 == 0) {
+            fprintf(stderr, "r5fa-twice ith %d positions %d: pass1 %.0f  pass2 %.0f ticks/call\n", ith, j1 - j0, p1/640.0, p2/640.0);
+            p1 = p2 = 0;
+        }
+    }
     barrier(barrier_data);
     if (dbg) {
         // per-thread accumulation of partial() ticks and barrier wait; thread 0 reports every 640 calls
