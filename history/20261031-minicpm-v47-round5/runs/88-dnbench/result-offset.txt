@@ -1,0 +1,8 @@
+offset 0
+full   cpus 48 -  per layer (16 heads): 202.6 us  (per head-pass 12.66 us)
+halfc  cpus 48 49  per layer (16 heads): 130.3 us  (per head-pass 8.14 us)
+halfc  cpus 48 56  per layer (16 heads): 133.3 us  (per head-pass 8.33 us)
+offset 32
+full   cpus 48 -  per layer (16 heads): 216.0 us  (per head-pass 13.50 us)
+halfc  cpus 48 49  per layer (16 heads): 164.1 us  (per head-pass 10.26 us)
+halfc  cpus 48 56  per layer (16 heads): 235.2 us  (per head-pass 14.70 us)

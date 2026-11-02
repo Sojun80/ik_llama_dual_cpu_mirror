@@ -1,0 +1,152 @@
+From e52dff26aec1a43d2eee990b7c8ac8a9a6b08224 Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sat, 31 Oct 2026 19:07:55 -0700
+Subject: [PATCH 06/25] r5: node-local expert weights + per-node chunk counters
+ in expert chunking (IK_R5_NODECHUNK)
+
+---
+ ggml/src/ggml.c | 60 ++++++++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 47 insertions(+), 13 deletions(-)
+
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index 1538157e..ea20ff04 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -3089,6 +3089,8 @@ struct ggml_compute_state_shared {
+     atomic_int current_chunk; // currently processing chunk during mul_mat, shared between all the threads
+ 
+     enum ggml_status ec;
++
++    atomic_int r5_node_chunk[GGML_NUMA_MAX_NODES*16]; // round-5: per-NUMA-node chunk counters (stride: one cache line)
+ };
+ 
+ struct ggml_compute_state {
+@@ -19240,6 +19242,30 @@ static int ggml_compute_forward_mul_mat(
+ 
+ // ggml_compute_forward_mul_mat_id
+ 
++// ---- round-5: NUMA-node-local chunk claiming for expert chunking -----------------------------
++static int r5_nodechunk_enabled(void) {
++    static int e = -1;
++    if (e < 0) { const char * v = getenv("IK_R5_NODECHUNK"); e = v ? atoi(v) > 0 : 1; }
++    return e;
++}
++static inline int r5_claim_nodes(void) {
++    return ggml_numa_mirror_active() && r5_nodechunk_enabled() ? ggml_numa_node_count() : 1;
++}
++static inline void r5_claim_reset(struct ggml_compute_state_shared * sh) {
++    for (int k = 0; k < GGML_NUMA_MAX_NODES; ++k) atomic_store(&sh->r5_node_chunk[16*k], 0);
++}
++// next chunk in [0, total) or -1: own node's share first, then steal from the others
++static inline int r5_claim(struct ggml_compute_state_shared * sh, int node, int nnodes, int total) {
++    for (int s = 0; s < nnodes; ++s) {
++        const int k  = (node + s) % nnodes;
++        const int lo = (int)((int64_t)total*k/nnodes), hi = (int)((int64_t)total*(k + 1)/nnodes);
++        if (lo >= hi) continue;
++        const int c = atomic_fetch_add_explicit(&sh->r5_node_chunk[16*k], 1, memory_order_relaxed);
++        if (lo + c < hi) return lo + c;
++    }
++    return -1;
++}
++
+ static void ggml_compute_forward_mul_mat_id(
+         const struct ggml_compute_params * params,
+               struct ggml_tensor * dst) {
+@@ -19357,6 +19383,7 @@ static void ggml_compute_forward_mul_mat_id(
+ 
+     if (ith == 0) {
+         atomic_store(&params->shared->current_chunk, nth);
++        r5_claim_reset(params->shared);
+     }
+ 
+     ggml_barrier(params->shared);
+@@ -19374,8 +19401,9 @@ static void ggml_compute_forward_mul_mat_id(
+             if (matrix_row_counts[a] > 0) total_chunks += chunks_per_expert;
+         }
+ 
+-        int chunk_id = ith;
+-        while (chunk_id < total_chunks) {
++        const int r5_nn = r5_claim_nodes();
++        int chunk_id = r5_nn > 1 ? r5_claim(params->shared, numa_node, r5_nn, total_chunks) : ith;
++        while (chunk_id >= 0 && chunk_id < total_chunks) {
+             // Map global chunk_id to (expert_index, local_chunk_index)
+             int acc = 0, cur_a = -1, local_chunk = 0;
+             for (int a = 0; a < n_as; a++) {
+@@ -19388,7 +19416,7 @@ static void ggml_compute_forward_mul_mat_id(
+                 acc += chunks_per_expert;
+             }
+ 
+-            const char * src0_cur = (const char *) src0->data + cur_a*nb02;
++            const char * src0_cur = src0_data + cur_a*nb02;   // node-local copy (NUMA mirror)
+ 
+             if (!iqk_mul_mat_moe(ne01, matrix_row_counts[cur_a], ne00, ne11,
+                         src0->type, src0_cur, nb01,
+@@ -19396,7 +19424,8 @@ static void ggml_compute_forward_mul_mat_id(
+                         (float *)dst->data, nb1, nb2,
+                         matrix_rows + cur_a*ne12, local_chunk, chunks_per_expert)) goto IQK_MulMat_Not_Available0;
+ 
+-            chunk_id = atomic_fetch_add(&params->shared->current_chunk, 1);
++            chunk_id = r5_nn > 1 ? r5_claim(params->shared, numa_node, r5_nn, total_chunks)
++                                 : atomic_fetch_add(&params->shared->current_chunk, 1);
+         }
+         return;
+     }
+@@ -19699,6 +19728,7 @@ static void ggml_compute_forward_mul_mat_id_up_gate(
+ 
+     if (ith == 0) {
+         atomic_store(&params->shared->current_chunk, nth);
++        r5_claim_reset(params->shared);
+     }
+ 
+     ggml_barrier(params->shared);
+@@ -19720,8 +19750,10 @@ static void ggml_compute_forward_mul_mat_id_up_gate(
+ 
+     int last_a = 0;
+     int last_acc = 0;
+-    int chunk_id_ug = ith;
+-    while (chunk_id_ug < total_chunks_ug) {
++    const int r5_nn = r5_claim_nodes();
++    int chunk_id_ug = r5_nn > 1 ? r5_claim(params->shared, numa_node, r5_nn, total_chunks_ug) : ith;
++    while (chunk_id_ug >= 0 && chunk_id_ug < total_chunks_ug) {
++        if (chunk_id_ug < last_acc) { last_a = 0; last_acc = 0; }   // stolen chunk ids can go backwards
+         int acc = last_acc, cur_a = -1, local_chunk = 0;
+         for (int a = last_a; a < n_as; a++) {
+             if (matrix_row_counts[a] == 0) continue;
+@@ -19739,17 +19771,18 @@ static void ggml_compute_forward_mul_mat_id_up_gate(
+         last_acc = acc;
+ 
+         const char *src0_1_cur, *src0_2_cur, *up_b_cur = NULL, *gate_b_cur = NULL;
++        // node-local copies (NUMA mirror); identical to ->data when not mirroring
+         if (src0_2) {
+-            src0_1_cur = (const char *) src0_1->data + cur_a*nb02;
+-            src0_2_cur = (const char *) src0_2->data + cur_a*nb02;
+-            up_b_cur   = up_b   ? (const char *)up_b->data + cur_a*nb41 : NULL;
+-            gate_b_cur = gate_b ? (const char *)gate_b->data + cur_a*nb51 : NULL;
++            src0_1_cur = src0_1_data + cur_a*nb02;
++            src0_2_cur = src0_2_data + cur_a*nb02;
++            up_b_cur   = up_b   ? up_b_data   + cur_a*nb41 : NULL;
++            gate_b_cur = gate_b ? gate_b_data + cur_a*nb51 : NULL;
+         } else {
+-            src0_2_cur = (const char *) src0_1->data + cur_a*nb02;
++            src0_2_cur = src0_1_data + cur_a*nb02;
+             src0_1_cur = src0_2_cur + nb02/2;
+             if (up_b) {
+                 GGML_ASSERT(!gate_b);
+-                gate_b_cur = (const char *)up_b->data + cur_a*nb41;
++                gate_b_cur = up_b_data + cur_a*nb41;
+                 up_b_cur   = gate_b_cur + nb41/2;
+             }
+         }
+@@ -19761,7 +19794,8 @@ static void ggml_compute_forward_mul_mat_id_up_gate(
+                             (float *)dst->data, nb1, nb2,
+                             matrix_rows + cur_a*ne12, limit, situ_beta, situ_beta_linear, local_chunk, chunks_per_expert_ug)) GGML_ABORT("fatal error");
+ 
+-        chunk_id_ug = atomic_fetch_add(&params->shared->current_chunk, 1);
++        chunk_id_ug = r5_nn > 1 ? r5_claim(params->shared, numa_node, r5_nn, total_chunks_ug)
++                                : atomic_fetch_add(&params->shared->current_chunk, 1);
+     }
+ 
+ #else
+-- 
+2.53.0
+

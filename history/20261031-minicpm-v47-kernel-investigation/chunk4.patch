@@ -1,0 +1,22 @@
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index 266cac2..5b40aae 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -18947,7 +18947,7 @@ static void ggml_compute_forward_mul_mat_id(
+         const void * wdata_mm    = (src1->type == vec_dot_type) ? src1->data : params->wdata;
+         const size_t row_size_mm = ggml_row_size(vec_dot_type, ne10);
+ 
+-        const int chunks_per_expert = MAX(1, MIN(nth, (int)(ne01 / 32)));
++        const int chunks_per_expert = MAX(1, MIN(ids->ne[1] == 1 ? MIN(nth, 4) : nth, (int)(ne01 / 32)));
+ 
+         int total_chunks = 0;
+         for (int a = 0; a < n_as; a++) {
+@@ -19284,7 +19284,7 @@ static void ggml_compute_forward_mul_mat_id_up_gate(
+     const size_t row_size_ug = ggml_row_size(vec_dot_type, ne10);
+     const int64_t nr0_base = src0_2 ? ne01 : ne01/2;
+ 
+-    const int chunks_per_expert_ug = MAX(1, MIN(nth, (int)(nr0_base / 32)));
++    const int chunks_per_expert_ug = MAX(1, MIN(ids->ne[1] == 1 ? MIN(nth, 4) : nth, (int)(nr0_base / 32)));
+ 
+     int total_chunks_ug = 0;
+     for (int a = 0; a < n_as; a++) {

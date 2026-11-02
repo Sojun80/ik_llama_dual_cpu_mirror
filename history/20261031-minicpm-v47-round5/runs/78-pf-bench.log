@@ -1,0 +1,31 @@
+m64-medium-r0                            ok=True decode=41.527 prompt=529.50
+pf-medium-r0                             ok=True decode=44.415 prompt=527.28
+pf8-medium-r0                            ok=True decode=43.491 prompt=528.83
+m64-long-r0                              ok=True decode=35.663 prompt=463.46
+pf-long-r0                               ok=True decode=39.299 prompt=471.49
+pf8-long-r0                              ok=True decode=38.289 prompt=468.80
+pf8-medium-r1                            ok=True decode=42.453 prompt=529.71
+pf-medium-r1                             ok=True decode=42.347 prompt=530.77
+m64-medium-r1                            ok=True decode=41.714 prompt=533.97
+pf8-long-r1                              ok=True decode=38.080 prompt=463.14
+pf-long-r1                               ok=True decode=38.159 prompt=468.63
+m64-long-r1                              ok=True decode=35.405 prompt=468.90
+m64-medium-r2                            ok=True decode=41.322 prompt=533.78
+pf-medium-r2                             ok=True decode=42.464 prompt=530.29
+pf8-medium-r2                            ok=True decode=43.377 prompt=525.30
+m64-long-r2                              ok=True decode=35.535 prompt=461.49
+pf-long-r2                               ok=True decode=38.121 prompt=465.39
+pf8-long-r2                              ok=True decode=36.767 prompt=471.63
+pf8-medium-r3                            ok=True decode=42.991 prompt=527.81
+pf-medium-r3                             ok=True decode=44.104 prompt=531.37
+m64-medium-r3                            ok=True decode=41.318 prompt=529.51
+pf8-long-r3                              ok=True decode=36.988 prompt=470.46
+pf-long-r3                               ok=True decode=37.107 prompt=466.47
+m64-long-r3                              ok=True decode=35.011 prompt=470.02
+SUMMARY
+m64|medium                               decode mean 41.470 [41.527, 41.714, 41.322, 41.318]  prompt mean 531.69
+pf|medium                                decode mean 43.332 [44.415, 42.347, 42.464, 44.104]  prompt mean 529.93
+pf8|medium                               decode mean 43.078 [43.491, 42.453, 43.377, 42.991]  prompt mean 527.91
+m64|long                                 decode mean 35.404 [35.663, 35.405, 35.535, 35.011]  prompt mean 465.97
+pf|long                                  decode mean 38.172 [39.299, 38.159, 38.121, 37.107]  prompt mean 468.00
+pf8|long                                 decode mean 37.531 [38.289, 38.08, 36.767, 36.988]  prompt mean 468.51

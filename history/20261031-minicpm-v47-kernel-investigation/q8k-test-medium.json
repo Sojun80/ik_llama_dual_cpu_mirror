@@ -1,0 +1,1460 @@
+{
+  "content": "\nThe meadow paper silent cloudy autumn planet winter silver mirror planet winter quiet circle",
+  "generated_text": "\nThe meadow paper silent cloudy autumn planet winter silver mirror planet winter quiet circle",
+  "id_slot": 0,
+  "stop": true,
+  "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "tokens_predicted": 16,
+  "tokens_evaluated": 2834,
+  "generation_settings": {
+    "n_ctx": 16384,
+    "n_predict": -1,
+    "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+    "seed": 1234,
+    "temperature": 0.0,
+    "dynatemp_range": 0.0,
+    "dynatemp_exponent": 1.0,
+    "top_k": 20,
+    "top_p": 0.949999988079071,
+    "min_p": 0.05000000074505806,
+    "tfs_z": 1.0,
+    "typical_p": 1.0,
+    "repeat_last_n": 64,
+    "repeat_penalty": 1.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "penalty_prompt_tokens": [],
+    "use_penalty_prompt_tokens": false,
+    "dry_multiplier": 0.0,
+    "dry_base": 1.75,
+    "dry_allowed_length": 2,
+    "dry_penalty_last_n": 16384,
+    "dry_sequence_breakers": [
+      "\n",
+      ":",
+      "\"",
+      "*"
+    ],
+    "mirostat": 0,
+    "mirostat_tau": 5.0,
+    "mirostat_eta": 0.10000000149011612,
+    "adaptive_target": -1.0,
+    "adaptive_decay": 0.8999999761581421,
+    "adaptive_updt_w_cur": false,
+    "penalize_nl": false,
+    "stop": [],
+    "max_tokens": 16,
+    "n_keep": 0,
+    "n_discard": 0,
+    "ignore_eos": true,
+    "stream": false,
+    "logit_bias": [
+      [
+        248046,
+        null
+      ]
+    ],
+    "n_probs": 20,
+    "min_keep": 0,
+    "grammar": "",
+    "grammar_triggers": [],
+    "preserved_tokens": [],
+    "chat_format": "Content-only",
+    "reasoning_format": "deepseek",
+    "reasoning_in_content": false,
+    "samplers": [
+      "dry",
+      "top_k",
+      "tfs_z",
+      "typical_p",
+      "top_p",
+      "min_p",
+      "xtc",
+      "top_n_sigma",
+      "temperature",
+      "adaptive_p",
+      ""
+    ]
+  },
+  "prompt": "A fixed collection of ordinary words follows.\nmeadow paper silent cloudy autumn planet winter silver mirror planet winter quiet circle orange yellow field quiet mountain meadow velvet valley shadow copper valley honey silent forest morning mountain window purple shadow distant ocean forest meadow field field honey mirror honey lantern velvet river window meadow bright velvet valley spring candle valley distant spring distant summer comet bird circle silver stone morning valley crystal garden garden distant honey lantern silver honey silver water purple valley garden garden shadow river thunder garden field water velvet bright paper candle morning field lantern paper planet valley paper silver garden cloudy quiet cloudy forest morning marble circle shadow lantern valley silver spring silent meadow silver candle planet circle river garden open purple river planet shadow water cloudy garden quiet planet planet distant mirror valley autumn open stone candle mountain wind circle meadow quiet crystal wind distant window stone lantern comet forest mountain winter distant silver valley water star winter bird paper spring planet cloudy winter autumn garden meadow silver window crystal shadow cloudy thunder spring silent autumn ocean silver circle orchard quiet morning valley morning shadow field garden mirror spring shadow quiet field field flower spring silver planet forest mirror field meadow garden island forest silver bright mountain silent autumn velvet circle bird purple bright velvet window field summer island planet orange cloudy paper silver meadow water autumn circle field valley comet star star valley yellow island shadow morning garden distant meadow spring circle honey ocean bright purple river valley water silent candle shadow meadow stone star ocean bird distant valley quiet morning quiet planet distant window bird circle garden flower marble mountain meadow star meadow bright quiet paper crystal honey circle velvet water yellow window morning open spring star meadow ocean thunder thunder velvet copper thunder purple meadow summer bird crystal candle winter forest spring stone water winter lantern mountain forest meadow open meadow velvet star yellow comet ocean stone mirror comet ocean bright paper flower meadow open forest garden silent meadow bird bird marble crystal shadow marble purple island open lantern meadow copper orchard star water morning lantern silent marble stone paper forest stone orchard quiet autumn quiet window velvet velvet circle morning garden water stone ocean autumn winter planet circle water marble water paper autumn velvet meadow star ocean cloudy flower silver winter quiet garden distant marble stone planet lantern spring meadow circle crystal bright marble island garden valley summer thunder mountain bird cloudy planet forest open stone bird cloudy window mountain silent marble honey island water shadow orange orange spring comet thunder quiet shadow bird silent water valley thunder quiet meadow spring yellow valley ocean river honey comet candle bird orchard orange honey shadow candle mountain autumn garden planet meadow spring garden autumn lantern cloudy morning autumn spring distant bright garden honey shadow mountain orchard morning velvet lantern stone field quiet silent ocean valley shadow summer shadow river comet planet orange mountain paper comet orchard orange comet window wind water forest lantern field comet garden shadow river meadow forest water distant candle forest morning winter autumn marble crystal winter autumn winter orange spring planet purple comet lantern purple mountain thunder autumn stone orange comet garden honey purple shadow garden velvet open meadow wind yellow meadow valley window orchard honey forest water circle circle autumn garden stone ocean meadow garden candle ocean wind river bright forest open purple distant orange planet cloudy silent open orchard bright velvet ocean summer field mountain wind water open cloudy mountain cloudy mirror ocean honey morning purple winter autumn lantern orange crystal forest window island garden mountain yellow morning silent distant wind orange ocean island open honey forest mountain window meadow crystal field valley field river valley bright paper meadow lantern velvet ocean river honey velvet silent meadow garden open garden cloudy mountain cloudy open field island candle star field velvet winter purple spring spring paper river wind mountain bird planet orchard mirror window distant candle silver island flower wind planet forest wind shadow star field crystal orange autumn meadow orchard orange star comet orange yellow open circle mirror silent garden island window circle mountain wind summer orchard quiet quiet distant crystal garden cloudy orange yellow flower winter candle star shadow open bright yellow cloudy honey purple orchard thunder winter mountain water comet forest bird crystal honey bright water orchard planet yellow crystal star window valley valley meadow wind window cloudy honey yellow purple field honey island cloudy silent thunder water orchard summer river shadow comet lantern shadow marble morning candle orchard paper summer candle winter mirror shadow summer candle bright wind stone circle orchard river water wind valley shadow crystal orange stone orchard thunder shadow quiet window meadow meadow meadow valley shadow stone quiet orchard quiet mountain water marble crystal flower meadow cloudy garden water cloudy lantern quiet honey quiet flower water wind valley flower autumn valley mountain autumn summer purple bird silent summer garden autumn candle wind water forest ocean open water distant thunder meadow ocean valley valley comet river copper valley island cloudy forest river circle yellow crystal orange wind valley summer star distant morning mountain flower purple cloudy winter candle comet velvet window spring valley spring distant thunder candle garden window ocean window forest island autumn silver valley meadow orchard garden crystal winter field ocean silver meadow mirror wind circle crystal garden garden wind crystal river crystal water valley open morning bright honey morning valley crystal thunder winter yellow orange circle distant paper island paper field autumn mirror lantern window winter garden island orchard orange comet orange quiet silver orchard meadow shadow mountain circle valley meadow thunder circle morning river valley paper quiet velvet mountain water circle comet star shadow honey lantern meadow bright wind yellow copper bright bird marble morning silent valley summer open distant shadow comet planet forest water cloudy meadow planet honey summer summer lantern planet island candle thunder quiet candle marble marble summer window lantern shadow lantern orchard purple ocean silver flower spring paper meadow valley mirror flower lantern water meadow velvet velvet paper spring stone forest velvet quiet velvet planet ocean comet orange meadow comet summer ocean velvet river summer mountain marble planet valley silent garden island candle ocean silent summer cloudy mirror window silent garden garden planet bird yellow paper garden crystal valley cloudy valley distant quiet orchard autumn comet ocean lantern silver meadow orange yellow river water bright autumn quiet river quiet garden velvet marble silent lantern mirror river thunder star stone planet open paper valley stone island silver velvet flower flower river garden silent meadow star water field candle quiet yellow valley valley river island thunder morning velvet mountain paper velvet water comet valley circle garden garden valley water cloudy honey planet field velvet yellow river forest marble garden silent velvet planet yellow yellow river forest honey valley water copper garden garden morning star meadow bird bird purple autumn forest island copper mountain crystal mountain field stone meadow valley wind garden quiet marble field bright shadow marble autumn thunder summer silver water water honey velvet forest autumn silent garden crystal thunder shadow velvet morning wind mirror orchard ocean comet orchard silver spring ocean silent silent window thunder meadow garden mountain crystal honey autumn mountain island garden circle bird velvet water wind paper candle cloudy thunder honey yellow marble circle star meadow honey flower forest river meadow circle forest stone valley lantern yellow island meadow island mountain bird silver velvet silver cloudy purple yellow crystal window bird quiet ocean spring velvet candle comet garden copper honey morning velvet forest velvet silver crystal comet marble bird circle lantern flower cloudy crystal open summer planet wind island silent valley meadow summer silver quiet garden autumn open garden flower candle wind field star orchard forest star garden star mountain valley marble bright cloudy orange garden river mountain water ocean copper winter crystal paper water forest mirror shadow valley valley honey autumn distant velvet candle field candle purple bright star silver flower lantern bird orchard flower field marble silver bird silent morning window forest bright winter winter thunder meadow silent wind honey summer meadow velvet orchard cloudy field candle velvet purple purple garden autumn thunder cloudy meadow orchard shadow marble river garden distant summer copper distant open forest bright crystal star wind planet distant bird spring garden orange morning valley quiet winter winter island meadow orchard silent honey yellow thunder quiet field quiet marble river stone quiet shadow field orange distant water marble wind ocean meadow garden marble winter autumn flower paper open water crystal orchard marble winter mountain orange orchard window mirror valley orange open valley morning meadow orchard bright orange morning purple lantern window meadow shadow summer planet island autumn velvet cloudy star island candle crystal copper comet mountain velvet mirror garden circle yellow yellow flower river bright purple flower copper meadow purple star island marble winter silver autumn winter wind cloudy comet bright wind wind orange mountain mountain garden island copper wind silver orange purple lantern copper silver yellow honey paper copper morning mountain silver spring lantern crystal thunder valley bird river bright orange bird distant cloudy garden ocean meadow ocean silver yellow stone silent meadow flower garden paper garden star field forest mountain paper mirror field star paper garden paper candle wind valley shadow orchard bird copper yellow window water open bird star autumn lantern valley flower garden purple forest garden distant field autumn summer forest window velvet planet garden circle circle comet bright window shadow morning star autumn planet thunder marble garden shadow stone thunder water field yellow honey open purple silent yellow field island valley lantern circle garden winter mountain autumn field candle summer silver shadow velvet bird autumn wind copper bright copper purple quiet cloudy winter wind garden distant comet orchard mountain summer paper copper mountain wind field planet mountain honey quiet orange bird honey meadow marble marble cloudy comet shadow spring shadow open paper thunder candle lantern field silver stone planet paper star orchard shadow meadow honey quiet water bird shadow purple lantern stone velvet comet stone copper thunder marble marble lantern window orange garden silent autumn flower circle orchard field autumn morning purple distant flower river shadow star distant silver flower summer ocean planet valley velvet garden bird morning silent open yellow water window forest orchard river meadow garden circle shadow copper velvet bright flower silver velvet velvet open shadow bright cloudy candle mirror valley island river yellow valley open valley yellow wind winter crystal island silver window wind marble window silver silver garden island purple quiet valley wind field bird forest summer quiet island distant summer morning quiet candle circle silent marble river copper mirror lantern valley cloudy valley silver distant bird window planet marble valley summer morning orchard copper copper distant meadow meadow open distant mountain comet marble mountain mountain river marble crystal yellow yellow forest paper marble meadow bright forest crystal shadow river forest autumn lantern garden water open quiet window quiet lantern river shadow silent distant garden copper velvet stone morning field garden field water bird silver honey orchard ocean garden open velvet cloudy meadow comet garden spring wind yellow river stone meadow mountain copper star field wind orchard orchard flower island forest meadow winter mirror meadow garden river meadow lantern flower winter candle lantern cloudy marble forest morning shadow open forest circle purple orange circle flower mirror silver candle ocean ocean stone river shadow silent circle distant copper garden open stone garden ocean valley thunder open orchard mountain candle shadow meadow marble valley crystal morning wind meadow forest silver valley lantern autumn circle window garden circle cloudy crystal mountain quiet open window ocean comet garden autumn forest honey marble mountain lantern flower flower copper mirror orange river circle river copper star shadow mountain flower ocean distant honey paper distant spring circle autumn copper window honey distant star window island circle autumn orchard meadow silver forest cloudy spring spring velvet yellow lantern orchard spring marble yellow morning garden thunder river comet planet valley orchard garden lantern bright garden garden flower orange water morning star circle summer marble spring valley ocean purple candle marble winter valley purple winter candle orchard purple mirror wind crystal valley star copper winter open quiet honey thunder water bird honey honey lantern garden cloudy field winter shadow island stone comet bird shadow meadow planet silver meadow meadow flower open window bright valley valley wind autumn distant ocean wind garden bright summer morning purple crystal circle yellow meadow valley thunder mountain window circle thunder river winter meadow morning orchard crystal mountain thunder mirror bright shadow paper cloudy distant river garden open morning field stone morning yellow wind field honey thunder window mountain winter distant cloudy forest wind meadow thunder garden shadow paper star silver open open river copper garden water paper valley meadow comet quiet bright meadow paper bird orchard honey bird circle quiet candle bird morning garden quiet garden mirror cloudy autumn circle autumn honey ocean ocean forest star garden planet silent mirror quiet star honey forest field water ocean cloudy shadow candle mirror cloudy velvet forest field river silver comet mountain bright paper cloudy purple yellow copper spring wind paper silent mirror shadow silver silent comet spring candle mountain distant paper garden planet comet island spring field silent valley meadow silent bright yellow water garden lantern orange ocean wind distant spring summer mountain circle wind quiet honey morning yellow purple wind mountain paper paper winter flower quiet meadow cloudy open yellow lantern honey river circle bright bird island candle circle summer orange yellow river distant spring forest bright valley honey silent thunder winter garden meadow field distant planet island autumn distant open bright circle distant crystal summer orchard star water thunder quiet honey crystal river yellow silver morning open shadow lantern mountain velvet field orange marble island ocean yellow bird mirror lantern distant cloudy river stone shadow water marble star silver orange circle paper silent valley mountain mountain summer silver cloudy crystal stone meadow meadow quiet purple river morning marble garden purple silent ocean purple bright island planet circle lantern spring window meadow winter orchard thunder wind lantern forest window spring field winter mirror planet planet river meadow forest mountain quiet circle distant ocean star velvet morning meadow star silver thunder circle silver mirror forest summer ocean lantern silent velvet comet ocean quiet orchard stone yellow purple silver candle autumn shadow distant stone star mountain velvet window circle shadow silent water thunder valley candle lantern autumn velvet spring orchard crystal mountain spring spring planet marble wind bright field mirror forest meadow yellow planet summer candle mirror wind yellow open river comet valley shadow shadow distant meadow candle lantern garden silver yellow yellow lantern silent valley wind crystal honey thunder lantern island meadow quiet yellow autumn wind thunder circle mirror lantern stone circle star circle valley wind field honey purple ocean distant wind forest silver meadow summer valley thunder garden open forest bright valley meadow water meadow river bird window star honey meadow summer ocean candle silent shadow meadow valley purple circle yellow yellow window morning velvet mirror valley meadow silent water summer crystal stone ocean flower stone shadow island stone field bird flower circle garden lantern valley summer comet orchard morning paper forest quiet forest planet honey window field water distant circle shadow circle silent honey lantern meadow marble bright quiet water winter bird shadow quiet candle forest valley water shadow window copper garden velvet circle paper paper quiet star orange forest purple autumn purple meadow quiet shadow valley valley cloudy ocean forest water yellow valley wind quiet water paper shadow silver window cloudy meadow thunder spring water winter island yellow valley planet planet garden purple island mountain circle quiet star field open candle river open mountain purple morning orchard comet ocean orchard winter candle honey ocean field summer flower valley river ocean crystal garden wind forest bird honey island star meadow silent orchard lantern garden valley cloudy candle open winter purple summer silver orchard winter yellow open silver valley autumn velvet bird stone yellow bird crystal ocean bright island mirror\nContinue with a coherent fictional passage:",
+  "truncated": false,
+  "stopped_eos": false,
+  "stopped_word": false,
+  "stopped_limit": true,
+  "stopping_word": "",
+  "tokens_cached": 2849,
+  "timings": {
+    "prompt_n": 2834,
+    "prompt_ms": 11266.297,
+    "prompt_per_token_ms": 3.9754047282992238,
+    "prompt_per_second": 251.54671494990768,
+    "predicted_n": 16,
+    "predicted_ms": 763.849,
+    "predicted_per_token_ms": 47.7405625,
+    "predicted_per_second": 20.946548336124025,
+    "n_ctx": 16384,
+    "n_past": 2849
+  },
+  "completion_probabilities": [
+    {
+      "content": "\n",
+      "probs": [
+        {
+          "tok_str": "\n",
+          "prob": 0.8442335724830627
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.12351157516241074
+        },
+        {
+          "tok_str": " The",
+          "prob": 0.004919948522001505
+        },
+        {
+          "tok_str": " ",
+          "prob": 0.0042894757352769375
+        },
+        {
+          "tok_str": " \"",
+          "prob": 0.0030287951231002808
+        },
+        {
+          "tok_str": " \n",
+          "prob": 0.0011153031373396516
+        },
+        {
+          "tok_str": " A",
+          "prob": 0.0008412505849264562
+        },
+        {
+          "tok_str": " I",
+          "prob": 0.0008155453251674771
+        },
+        {
+          "tok_str": " the",
+          "prob": 0.0007948417915031314
+        },
+        {
+          "tok_str": " In",
+          "prob": 0.0005894084461033344
+        },
+        {
+          "tok_str": "\n\n\n",
+          "prob": 0.00048805278493091464
+        },
+        {
+          "tok_str": " '",
+          "prob": 0.00043947857921011746
+        },
+        {
+          "tok_str": " a",
+          "prob": 0.00042180283344350755
+        },
+        {
+          "tok_str": " (",
+          "prob": 0.0003855950781144202
+        },
+        {
+          "tok_str": " me",
+          "prob": 0.00033228835673071444
+        },
+        {
+          "tok_str": " Once",
+          "prob": 0.0003155944577883929
+        },
+        {
+          "tok_str": " [",
+          "prob": 0.0002940510748885572
+        },
+        {
+          "tok_str": " It",
+          "prob": 0.00027389160823076963
+        },
+        {
+          "tok_str": " \n\n",
+          "prob": 0.0001970358716789633
+        },
+        {
+          "tok_str": " \u201c",
+          "prob": 0.00019588624127209187
+        }
+      ]
+    },
+    {
+      "content": "The",
+      "probs": [
+        {
+          "tok_str": "The",
+          "prob": 0.47482097148895264
+        },
+        {
+          "tok_str": "In",
+          "prob": 0.09600391238927841
+        },
+        {
+          "tok_str": "A",
+          "prob": 0.044033635407686234
+        },
+        {
+          "tok_str": "I",
+          "prob": 0.033535879105329514
+        },
+        {
+          "tok_str": "Once",
+          "prob": 0.02185499481856823
+        },
+        {
+          "tok_str": "As",
+          "prob": 0.018562231212854385
+        },
+        {
+          "tok_str": "me",
+          "prob": 0.012599700130522251
+        },
+        {
+          "tok_str": "On",
+          "prob": 0.010428506880998611
+        },
+        {
+          "tok_str": "It",
+          "prob": 0.008454586379230022
+        },
+        {
+          "tok_str": "There",
+          "prob": 0.006980114616453648
+        },
+        {
+          "tok_str": "Me",
+          "prob": 0.005928004160523415
+        },
+        {
+          "tok_str": "\"",
+          "prob": 0.005528021603822708
+        },
+        {
+          "tok_str": "She",
+          "prob": 0.00509123457595706
+        },
+        {
+          "tok_str": "At",
+          "prob": 0.005047434009611607
+        },
+        {
+          "tok_str": "D",
+          "prob": 0.004946207161992788
+        },
+        {
+          "tok_str": "After",
+          "prob": 0.004918187391012907
+        },
+        {
+          "tok_str": "When",
+          "prob": 0.004793328698724508
+        },
+        {
+          "tok_str": "One",
+          "prob": 0.00399749306961894
+        },
+        {
+          "tok_str": "This",
+          "prob": 0.0037543701473623514
+        },
+        {
+          "tok_str": "For",
+          "prob": 0.003544914536178112
+        }
+      ]
+    },
+    {
+      "content": " me",
+      "probs": [
+        {
+          "tok_str": " me",
+          "prob": 0.4116663336753845
+        },
+        {
+          "tok_str": " valley",
+          "prob": 0.05592463165521622
+        },
+        {
+          "tok_str": " silver",
+          "prob": 0.039911847561597824
+        },
+        {
+          "tok_str": " old",
+          "prob": 0.027780363336205482
+        },
+        {
+          "tok_str": " moon",
+          "prob": 0.026599066331982613
+        },
+        {
+          "tok_str": " wind",
+          "prob": 0.016511375084519386
+        },
+        {
+          "tok_str": " sun",
+          "prob": 0.011522158980369568
+        },
+        {
+          "tok_str": " quiet",
+          "prob": 0.011435545980930328
+        },
+        {
+          "tok_str": " morning",
+          "prob": 0.011085117235779762
+        },
+        {
+          "tok_str": " sky",
+          "prob": 0.010425000451505184
+        },
+        {
+          "tok_str": " air",
+          "prob": 0.00945677887648344
+        },
+        {
+          "tok_str": " ancient",
+          "prob": 0.009173870086669922
+        },
+        {
+          "tok_str": " silent",
+          "prob": 0.0070638577453792095
+        },
+        {
+          "tok_str": " mirror",
+          "prob": 0.006848890334367752
+        },
+        {
+          "tok_str": " autumn",
+          "prob": 0.0063877468928694725
+        },
+        {
+          "tok_str": " first",
+          "prob": 0.005871617700904608
+        },
+        {
+          "tok_str": " velvet",
+          "prob": 0.005202550441026688
+        },
+        {
+          "tok_str": " last",
+          "prob": 0.005020465236157179
+        },
+        {
+          "tok_str": " little",
+          "prob": 0.005017803516238928
+        },
+        {
+          "tok_str": " girl",
+          "prob": 0.004655808210372925
+        }
+      ]
+    },
+    {
+      "content": "adow",
+      "probs": [
+        {
+          "tok_str": "adow",
+          "prob": 0.9996206760406494
+        },
+        {
+          "tok_str": "adows",
+          "prob": 0.0003736657672561705
+        },
+        {
+          "tok_str": "ADOW",
+          "prob": 2.980302497235243e-06
+        },
+        {
+          "tok_str": "andering",
+          "prob": 8.304264724756649e-07
+        },
+        {
+          "tok_str": "ad",
+          "prob": 6.352211130433716e-07
+        },
+        {
+          "tok_str": "ander",
+          "prob": 5.722392870666226e-07
+        },
+        {
+          "tok_str": "ager",
+          "prob": 2.7946811087531387e-07
+        },
+        {
+          "tok_str": "ow",
+          "prob": 1.2804174787106604e-07
+        },
+        {
+          "tok_str": "ek",
+          "prob": 1.115374672622238e-07
+        },
+        {
+          "tok_str": "ader",
+          "prob": 6.066107260949138e-08
+        },
+        {
+          "tok_str": "aden",
+          "prob": 4.874905101814875e-08
+        },
+        {
+          "tok_str": "anders",
+          "prob": 4.868605074648258e-08
+        },
+        {
+          "tok_str": "owing",
+          "prob": 4.22555501700117e-08
+        },
+        {
+          "tok_str": " Meadow",
+          "prob": 2.9455835104386097e-08
+        },
+        {
+          "tok_str": " me",
+          "prob": 2.4162604361777085e-08
+        },
+        {
+          "tok_str": "ador",
+          "prob": 1.8105517085587053e-08
+        },
+        {
+          "tok_str": "erk",
+          "prob": 1.8009425062359696e-08
+        },
+        {
+          "tok_str": "cha",
+          "prob": 1.684227335374544e-08
+        },
+        {
+          "tok_str": "\n",
+          "prob": 1.6697601523674166e-08
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 1.5048154722308027e-08
+        }
+      ]
+    },
+    {
+      "content": " paper",
+      "probs": [
+        {
+          "tok_str": " paper",
+          "prob": 0.35786953568458557
+        },
+        {
+          "tok_str": " was",
+          "prob": 0.2560184597969055
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.1638249307870865
+        },
+        {
+          "tok_str": " lay",
+          "prob": 0.08444782346487045
+        },
+        {
+          "tok_str": " stretched",
+          "prob": 0.07363984733819962
+        },
+        {
+          "tok_str": "'s",
+          "prob": 0.011407732032239437
+        },
+        {
+          "tok_str": " shimmer",
+          "prob": 0.005307334940880537
+        },
+        {
+          "tok_str": " whispered",
+          "prob": 0.00480150431394577
+        },
+        {
+          "tok_str": " sat",
+          "prob": 0.0020749876275658607
+        },
+        {
+          "tok_str": " had",
+          "prob": 0.0020389643032103777
+        },
+        {
+          "tok_str": "\u2019s",
+          "prob": 0.001995854079723358
+        },
+        {
+          "tok_str": " is",
+          "prob": 0.0017911582253873348
+        },
+        {
+          "tok_str": " seemed",
+          "prob": 0.001337147201411426
+        },
+        {
+          "tok_str": " felt",
+          "prob": 0.001238913624547422
+        },
+        {
+          "tok_str": " stood",
+          "prob": 0.001123035210184753
+        },
+        {
+          "tok_str": " extended",
+          "prob": 0.001030603190883994
+        },
+        {
+          "tok_str": " rested",
+          "prob": 0.001002594130113721
+        },
+        {
+          "tok_str": " remained",
+          "prob": 0.0009039336582645774
+        },
+        {
+          "tok_str": " echoed",
+          "prob": 0.0008578545530326664
+        },
+        {
+          "tok_str": " held",
+          "prob": 0.0008272273698821664
+        }
+      ]
+    },
+    {
+      "content": " silent",
+      "probs": [
+        {
+          "tok_str": " silent",
+          "prob": 0.6890743374824524
+        },
+        {
+          "tok_str": " was",
+          "prob": 0.197962686419487
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.03457599878311157
+        },
+        {
+          "tok_str": " lay",
+          "prob": 0.01642589271068573
+        },
+        {
+          "tok_str": " silently",
+          "prob": 0.007872065529227257
+        },
+        {
+          "tok_str": " had",
+          "prob": 0.004929407965391874
+        },
+        {
+          "tok_str": " whispered",
+          "prob": 0.004351743496954441
+        },
+        {
+          "tok_str": " sat",
+          "prob": 0.003667059587314725
+        },
+        {
+          "tok_str": " felt",
+          "prob": 0.0033763565588742495
+        },
+        {
+          "tok_str": " is",
+          "prob": 0.003371394705027342
+        },
+        {
+          "tok_str": " seemed",
+          "prob": 0.0030271783471107483
+        },
+        {
+          "tok_str": " quiet",
+          "prob": 0.0027122076135128736
+        },
+        {
+          "tok_str": " hung",
+          "prob": 0.0016885751392692327
+        },
+        {
+          "tok_str": " stood",
+          "prob": 0.0010240759002044797
+        },
+        {
+          "tok_str": " silence",
+          "prob": 0.0008822783129289746
+        },
+        {
+          "tok_str": " remained",
+          "prob": 0.000876736652571708
+        },
+        {
+          "tok_str": " rested",
+          "prob": 0.0006921549211256206
+        },
+        {
+          "tok_str": " fell",
+          "prob": 0.000614553049672395
+        },
+        {
+          "tok_str": " sil",
+          "prob": 0.0005421431269496679
+        },
+        {
+          "tok_str": " held",
+          "prob": 0.0005339044146239758
+        }
+      ]
+    },
+    {
+      "content": " cloudy",
+      "probs": [
+        {
+          "tok_str": " cloudy",
+          "prob": 0.9754791855812073
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.008483834564685822
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.00479778042063117
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.0014466027496382594
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.0013530824799090624
+        },
+        {
+          "tok_str": " cloud",
+          "prob": 0.0011069878237321973
+        },
+        {
+          "tok_str": " was",
+          "prob": 0.0008086130255833268
+        },
+        {
+          "tok_str": " clouds",
+          "prob": 0.0006000231951475143
+        },
+        {
+          "tok_str": " and",
+          "prob": 0.0005823810352012515
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.0005616530543193221
+        },
+        {
+          "tok_str": " autumn",
+          "prob": 0.00040161627111956477
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 0.00032208452466875315
+        },
+        {
+          "tok_str": " with",
+          "prob": 0.0002564788155723363
+        },
+        {
+          "tok_str": ";",
+          "prob": 0.0002196681161876768
+        },
+        {
+          "tok_str": " in",
+          "prob": 0.00017661452875472605
+        },
+        {
+          "tok_str": ":",
+          "prob": 0.00016310856153722852
+        },
+        {
+          "tok_str": " is",
+          "prob": 0.0001468822156311944
+        },
+        {
+          "tok_str": " ...",
+          "prob": 0.00013136900088284165
+        },
+        {
+          "tok_str": " ",
+          "prob": 0.00012028774654027075
+        },
+        {
+          "tok_str": " on",
+          "prob": 8.122397412080318e-05
+        }
+      ]
+    },
+    {
+      "content": " autumn",
+      "probs": [
+        {
+          "tok_str": " autumn",
+          "prob": 0.9974990487098694
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.0004986010608263314
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.000423837365815416
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.0003387938777450472
+        },
+        {
+          "tok_str": " Autumn",
+          "prob": 0.00018600541807245463
+        },
+        {
+          "tok_str": " planet",
+          "prob": 0.00016049202531576157
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.00014914559142198414
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.00012954595149494708
+        },
+        {
+          "tok_str": " ...",
+          "prob": 0.00010652541823219508
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 6.47481792839244e-05
+        },
+        {
+          "tok_str": " ",
+          "prob": 5.6034397857729346e-05
+        },
+        {
+          "tok_str": " afternoon",
+          "prob": 3.183079024893232e-05
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 2.4294256945722736e-05
+        },
+        {
+          "tok_str": ";",
+          "prob": 1.760834493325092e-05
+        },
+        {
+          "tok_str": " [",
+          "prob": 1.6135798432515003e-05
+        },
+        {
+          "tok_str": ":",
+          "prob": 1.4656685380032286e-05
+        },
+        {
+          "tok_str": " was",
+          "prob": 1.0425876098452136e-05
+        },
+        {
+          "tok_str": " -",
+          "prob": 9.594825314707123e-06
+        },
+        {
+          "tok_str": " summer",
+          "prob": 8.866723874234594e-06
+        },
+        {
+          "tok_str": " morning",
+          "prob": 8.85096778802108e-06
+        }
+      ]
+    },
+    {
+      "content": " planet",
+      "probs": [
+        {
+          "tok_str": " planet",
+          "prob": 0.9935407042503357
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.0011985079618170857
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.000968438049312681
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.0006956955185160041
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.0005670763785019517
+        },
+        {
+          "tok_str": " was",
+          "prob": 0.0004058227059431374
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.0002612605458125472
+        },
+        {
+          "tok_str": " ...",
+          "prob": 0.00018203041690867394
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 0.000161029034643434
+        },
+        {
+          "tok_str": " plant",
+          "prob": 0.00010288142220815644
+        },
+        {
+          "tok_str": " ",
+          "prob": 7.984266994753852e-05
+        },
+        {
+          "tok_str": " felt",
+          "prob": 7.009844557614997e-05
+        },
+        {
+          "tok_str": " had",
+          "prob": 6.591736746486276e-05
+        },
+        {
+          "tok_str": ";",
+          "prob": 6.344896246446297e-05
+        },
+        {
+          "tok_str": ":",
+          "prob": 6.056993515812792e-05
+        },
+        {
+          "tok_str": " is",
+          "prob": 5.597525887424126e-05
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 4.81465358461719e-05
+        },
+        {
+          "tok_str": " moon",
+          "prob": 4.4061449443688616e-05
+        },
+        {
+          "tok_str": " of",
+          "prob": 4.1564526327420026e-05
+        },
+        {
+          "tok_str": " seemed",
+          "prob": 4.088899731868878e-05
+        }
+      ]
+    },
+    {
+      "content": " winter",
+      "probs": [
+        {
+          "tok_str": " winter",
+          "prob": 0.9888943433761597
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.001907166326418519
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.001312769134528935
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.0010628978488966823
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.00102707848418504
+        },
+        {
+          "tok_str": " was",
+          "prob": 0.0007463949732482433
+        },
+        {
+          "tok_str": " window",
+          "prob": 0.0006356114754453301
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.0003912894753739238
+        },
+        {
+          "tok_str": " ...",
+          "prob": 0.0002917780657298863
+        },
+        {
+          "tok_str": " w",
+          "prob": 0.0002419165102764964
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 0.00022548776178155094
+        },
+        {
+          "tok_str": " ",
+          "prob": 0.00013928311818744987
+        },
+        {
+          "tok_str": " Winter",
+          "prob": 0.00013505011156667024
+        },
+        {
+          "tok_str": " is",
+          "prob": 0.00010954520257655531
+        },
+        {
+          "tok_str": " felt",
+          "prob": 0.00010332396777812392
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 9.709999721962959e-05
+        },
+        {
+          "tok_str": "winter",
+          "prob": 8.81731029949151e-05
+        },
+        {
+          "tok_str": ":",
+          "prob": 7.886964158387855e-05
+        },
+        {
+          "tok_str": " whispered",
+          "prob": 7.786237256368622e-05
+        },
+        {
+          "tok_str": " had",
+          "prob": 7.391297549474984e-05
+        }
+      ]
+    },
+    {
+      "content": " silver",
+      "probs": [
+        {
+          "tok_str": " silver",
+          "prob": 0.9976167678833008
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.00037699961103498936
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.00035086178104393184
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.00031374776153825223
+        },
+        {
+          "tok_str": " mirror",
+          "prob": 0.00021123935584910214
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.00020131396013312042
+        },
+        {
+          "tok_str": " silent",
+          "prob": 0.0001396970183122903
+        },
+        {
+          "tok_str": " ...",
+          "prob": 0.00010843576455954462
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 9.520422463538125e-05
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 8.576176333008334e-05
+        },
+        {
+          "tok_str": " sil",
+          "prob": 6.8122630182188e-05
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 4.4031454308424145e-05
+        },
+        {
+          "tok_str": " was",
+          "prob": 3.0032600989216007e-05
+        },
+        {
+          "tok_str": " ",
+          "prob": 2.637503348523751e-05
+        },
+        {
+          "tok_str": " [",
+          "prob": 1.3751709957432467e-05
+        },
+        {
+          "tok_str": " silence",
+          "prob": 1.1854376680275891e-05
+        },
+        {
+          "tok_str": ":",
+          "prob": 1.0385841051174793e-05
+        },
+        {
+          "tok_str": ";",
+          "prob": 1.0258529982820619e-05
+        },
+        {
+          "tok_str": " Silver",
+          "prob": 9.23509469430428e-06
+        },
+        {
+          "tok_str": " -",
+          "prob": 8.556385182600934e-06
+        }
+      ]
+    },
+    {
+      "content": " mirror",
+      "probs": [
+        {
+          "tok_str": " mirror",
+          "prob": 0.9963766932487488
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.0006871242076158524
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.0004338397702667862
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.00037554261507466435
+        },
+        {
+          "tok_str": " planet",
+          "prob": 0.0003326609148643911
+        },
+        {
+          "tok_str": " mirrored",
+          "prob": 0.000297874998068437
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.00024903559824451804
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.00021669172565452754
+        },
+        {
+          "tok_str": " moon",
+          "prob": 9.288154251407832e-05
+        },
+        {
+          "tok_str": " ...",
+          "prob": 7.84661024226807e-05
+        },
+        {
+          "tok_str": " circle",
+          "prob": 6.363086868077517e-05
+        },
+        {
+          "tok_str": " mir",
+          "prob": 6.214316817931831e-05
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 6.06260982749518e-05
+        },
+        {
+          "tok_str": " mirrors",
+          "prob": 5.6755907280603424e-05
+        },
+        {
+          "tok_str": " ",
+          "prob": 5.2793562645092607e-05
+        },
+        {
+          "tok_str": " mountain",
+          "prob": 4.522076778812334e-05
+        },
+        {
+          "tok_str": " [",
+          "prob": 4.4000844354741275e-05
+        },
+        {
+          "tok_str": " me",
+          "prob": 3.218403071514331e-05
+        },
+        {
+          "tok_str": " **",
+          "prob": 2.5670655304566026e-05
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 2.308578223164659e-05
+        }
+      ]
+    },
+    {
+      "content": " planet",
+      "probs": [
+        {
+          "tok_str": " planet",
+          "prob": 0.9816098213195801
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.0034419677685946226
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.0029782408382743597
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.0020599435083568096
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.0011982884025201201
+        },
+        {
+          "tok_str": ",",
+          "prob": 0.0010476605966687202
+        },
+        {
+          "tok_str": " ...",
+          "prob": 0.0007984309340827167
+        },
+        {
+          "tok_str": " was",
+          "prob": 0.0005851989262737334
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 0.0005637456197291613
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 0.00028515097801573575
+        },
+        {
+          "tok_str": " had",
+          "prob": 0.00025565130636096
+        },
+        {
+          "tok_str": " plant",
+          "prob": 0.00020872577442787588
+        },
+        {
+          "tok_str": " reflected",
+          "prob": 0.0001854644069680944
+        },
+        {
+          "tok_str": " of",
+          "prob": 0.00018102271133102477
+        },
+        {
+          "tok_str": " felt",
+          "prob": 0.0001351315586362034
+        },
+        {
+          "tok_str": " plane",
+          "prob": 0.0001013768560369499
+        },
+        {
+          "tok_str": " [",
+          "prob": 9.556936856824905e-05
+        },
+        {
+          "tok_str": " ",
+          "prob": 9.52265618252568e-05
+        },
+        {
+          "tok_str": " held",
+          "prob": 8.955703378887847e-05
+        },
+        {
+          "tok_str": " -",
+          "prob": 8.150109351845458e-05
+        }
+      ]
+    },
+    {
+      "content": " winter",
+      "probs": [
+        {
+          "tok_str": " winter",
+          "prob": 0.9984952211380005
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.0003180706698913127
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.00022695267398376018
+        },
+        {
+          "tok_str": " quiet",
+          "prob": 0.00019306095782667398
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.00015793702914379537
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.00015572352276649326
+        },
+        {
+          "tok_str": ",",
+          "prob": 5.594910544459708e-05
+        },
+        {
+          "tok_str": " ...",
+          "prob": 5.45231050637085e-05
+        },
+        {
+          "tok_str": " was",
+          "prob": 3.9145434129750356e-05
+        },
+        {
+          "tok_str": "winter",
+          "prob": 2.7847065211972222e-05
+        },
+        {
+          "tok_str": " window",
+          "prob": 2.2116768377600238e-05
+        },
+        {
+          "tok_str": " w",
+          "prob": 2.1209492842899635e-05
+        },
+        {
+          "tok_str": " summer",
+          "prob": 1.7829226635512896e-05
+        },
+        {
+          "tok_str": " ",
+          "prob": 1.664110823185183e-05
+        },
+        {
+          "tok_str": " Winter",
+          "prob": 1.359930229227757e-05
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 1.3377807590586599e-05
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 9.480768312641885e-06
+        },
+        {
+          "tok_str": " white",
+          "prob": 7.195954822236672e-06
+        },
+        {
+          "tok_str": " night",
+          "prob": 7.066874786687549e-06
+        },
+        {
+          "tok_str": " \n",
+          "prob": 5.3411781664181035e-06
+        }
+      ]
+    },
+    {
+      "content": " quiet",
+      "probs": [
+        {
+          "tok_str": " quiet",
+          "prob": 0.9978553652763367
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.00035665728501044214
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.0003201387880835682
+        },
+        {
+          "tok_str": " circle",
+          "prob": 0.00022233427444007248
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.0002042487176368013
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.0001503367820987478
+        },
+        {
+          "tok_str": " was",
+          "prob": 0.00014214773545973003
+        },
+        {
+          "tok_str": " quite",
+          "prob": 0.00011334149894537404
+        },
+        {
+          "tok_str": " ...",
+          "prob": 0.00010575557098491117
+        },
+        {
+          "tok_str": " silent",
+          "prob": 7.366527279373258e-05
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 4.7543282562401146e-05
+        },
+        {
+          "tok_str": ",",
+          "prob": 4.3732976337196305e-05
+        },
+        {
+          "tok_str": " quietly",
+          "prob": 3.335906512802467e-05
+        },
+        {
+          "tok_str": " quick",
+          "prob": 2.6894740585703403e-05
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 1.7198930436279625e-05
+        },
+        {
+          "tok_str": " is",
+          "prob": 1.7078520613722503e-05
+        },
+        {
+          "tok_str": " ",
+          "prob": 1.5777615772094578e-05
+        },
+        {
+          "tok_str": " \n",
+          "prob": 9.490600859862752e-06
+        },
+        {
+          "tok_str": " quit",
+          "prob": 8.838530447974335e-06
+        },
+        {
+          "tok_str": " [",
+          "prob": 8.52673201734433e-06
+        }
+      ]
+    },
+    {
+      "content": " circle",
+      "probs": [
+        {
+          "tok_str": " circle",
+          "prob": 0.9977874755859375
+        },
+        {
+          "tok_str": "\n",
+          "prob": 0.0004792472464032471
+        },
+        {
+          "tok_str": " orange",
+          "prob": 0.00033896390232257545
+        },
+        {
+          "tok_str": ".",
+          "prob": 0.00029076242935843766
+        },
+        {
+          "tok_str": "...",
+          "prob": 0.0002530412166379392
+        },
+        {
+          "tok_str": "\n\n",
+          "prob": 0.00023111802875064313
+        },
+        {
+          "tok_str": " ...",
+          "prob": 5.499353937921114e-05
+        },
+        {
+          "tok_str": ",",
+          "prob": 4.5021817641099915e-05
+        },
+        {
+          "tok_str": " field",
+          "prob": 3.8798283640062436e-05
+        },
+        {
+          "tok_str": "\u2026",
+          "prob": 3.347349047544412e-05
+        },
+        {
+          "tok_str": " ",
+          "prob": 3.2880136132007465e-05
+        },
+        {
+          "tok_str": " Circle",
+          "prob": 3.2660715078236535e-05
+        },
+        {
+          "tok_str": "circle",
+          "prob": 2.6229332434013486e-05
+        },
+        {
+          "tok_str": " \n",
+          "prob": 2.125903483829461e-05
+        },
+        {
+          "tok_str": " circles",
+          "prob": 1.4256316717364825e-05
+        },
+        {
+          "tok_str": " was",
+          "prob": 1.2819805306207854e-05
+        },
+        {
+          "tok_str": " circ",
+          "prob": 1.2723777217615861e-05
+        },
+        {
+          "tok_str": " [",
+          "prob": 1.230321140610613e-05
+        },
+        {
+          "tok_str": " \u2026",
+          "prob": 1.2150936527177691e-05
+        },
+        {
+          "tok_str": " circular",
+          "prob": 1.118170803238172e-05
+        }
+      ]
+    }
+  ]
+}

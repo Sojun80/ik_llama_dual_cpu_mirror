@@ -1,0 +1,4084 @@
+{
+  "index": 0,
+  "content": "\nThe old man sat by the window, watching the rain fall. It was",
+  "tokens": [],
+  "id_slot": 0,
+  "stop": true,
+  "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "tokens_predicted": 16,
+  "tokens_evaluated": 9455,
+  "generation_settings": {
+    "seed": 1234,
+    "temperature": 0.0,
+    "dynatemp_range": 0.0,
+    "dynatemp_exponent": 1.0,
+    "top_k": 20,
+    "top_p": 0.949999988079071,
+    "min_p": 0.05000000074505806,
+    "top_n_sigma": -1.0,
+    "xtc_probability": 0.0,
+    "xtc_threshold": 0.10000000149011612,
+    "typical_p": 1.0,
+    "repeat_last_n": 64,
+    "repeat_penalty": 1.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "dry_multiplier": 0.0,
+    "dry_base": 1.75,
+    "dry_allowed_length": 2,
+    "dry_penalty_last_n": 64,
+    "dry_sequence_breakers": [
+      "\n",
+      ":",
+      "\"",
+      "*"
+    ],
+    "mirostat": 0,
+    "mirostat_tau": 5.0,
+    "mirostat_eta": 0.10000000149011612,
+    "adaptive_target": -1.0,
+    "adaptive_decay": 0.8999999761581421,
+    "stop": [],
+    "max_tokens": 16,
+    "n_predict": 16,
+    "n_keep": 0,
+    "n_discard": 0,
+    "ignore_eos": true,
+    "stream": false,
+    "logit_bias": [
+      {
+        "bias": null,
+        "token": 248044
+      },
+      {
+        "bias": null,
+        "token": 248046
+      },
+      {
+        "bias": null,
+        "token": 248063
+      },
+      {
+        "bias": null,
+        "token": 248064
+      },
+      {
+        "bias": null,
+        "token": 248065
+      }
+    ],
+    "n_probs": 20,
+    "min_keep": 0,
+    "grammar": "",
+    "grammar_lazy": false,
+    "grammar_triggers": [],
+    "preserved_tokens": [],
+    "chat_format": "Content-only",
+    "reasoning_format": "deepseek",
+    "reasoning_in_content": false,
+    "generation_prompt": "",
+    "samplers": [
+      "penalties",
+      "dry",
+      "top_n_sigma",
+      "top_k",
+      "typ_p",
+      "top_p",
+      "min_p",
+      "xtc",
+      "temperature"
+    ],
+    "speculative.types": "none",
+    "timings_per_token": false,
+    "post_sampling_probs": false,
+    "backend_sampling": false,
+    "lora": []
+  },
+  "prompt": "A fixed collection of ordinary words follows.\ncloudy valley star morning river meadow summer marble forest window honey mirror thunder water orchard star distant star silent island bird thunder field forest window velvet meadow paper winter flower water honey star meadow garden distant forest spring valley mirror paper crystal cloudy lantern autumn water honey river honey island meadow field planet silver purple window field orange meadow yellow silver forest star cloudy thunder flower island circle star mirror autumn marble ocean spring circle shadow meadow stone shadow planet meadow comet bird copper bird silent field spring garden mirror distant mountain meadow bright stone silent summer candle forest orchard honey purple crystal mountain window morning wind honey distant orange crystal orange winter circle planet distant circle flower valley meadow mirror flower river morning valley river bird distant yellow valley comet cloudy forest mirror summer summer forest orange bright bird orchard shadow crystal cloudy distant orange stone morning water mountain honey marble comet mountain bird garden summer comet water garden silent autumn bright garden ocean cloudy quiet candle water water autumn silent water field crystal orchard forest mountain mirror morning window forest distant quiet flower meadow island velvet flower yellow field candle orchard ocean cloudy ocean silver orange island garden orchard spring orange field stone open spring cloudy water distant window purple meadow winter orange circle ocean water silent silent stone silver mirror autumn bird purple bright valley comet valley morning morning ocean distant marble mountain crystal ocean distant orange river meadow autumn silver window shadow silent orchard morning garden copper summer silver distant orange paper circle winter mountain valley garden river ocean window yellow window winter water bird meadow forest thunder bright river wind field circle meadow summer flower silver silent velvet silver island meadow planet copper lantern bright garden winter ocean spring planet meadow shadow marble silver river forest mirror bright meadow lantern orange garden bright morning quiet bird orange spring candle flower honey morning quiet morning paper lantern silent orchard autumn quiet summer window cloudy autumn mirror forest velvet meadow velvet island garden paper valley crystal island spring star marble island cloudy bright honey summer meadow orchard mountain yellow comet crystal bird paper thunder bright garden bird velvet spring morning silver morning bright comet river shadow distant forest meadow purple star field star quiet distant comet silent velvet spring silent orchard garden lantern garden forest bird stone meadow wind velvet island stone stone flower wind distant garden circle orchard lantern valley planet window meadow meadow yellow quiet honey autumn winter orchard quiet quiet cloudy planet quiet comet star field velvet honey honey comet autumn mountain morning crystal garden ocean forest comet yellow window orange spring circle garden yellow candle paper silver candle mirror autumn marble garden garden shadow candle valley purple ocean orange orange ocean planet thunder orange candle cloudy distant river silver lantern garden winter river mountain silent meadow shadow circle window window purple shadow silent velvet candle orange river candle field garden autumn meadow garden planet yellow shadow mountain distant bird bright valley comet wind river ocean circle star meadow planet circle velvet quiet garden garden field window silent open candle shadow bright marble meadow summer winter velvet open mountain quiet star garden valley silver honey orange garden meadow bright bright field velvet planet cloudy marble water planet circle quiet window valley mirror distant garden bright garden silent crystal garden valley thunder honey water copper garden star stone paper copper wind paper thunder forest silent distant meadow paper shadow lantern silent honey summer ocean shadow bird winter morning mirror forest orange silent silent orange stone planet water distant bird morning comet island valley purple paper copper ocean meadow field velvet stone spring comet candle shadow island orchard mountain flower thunder valley circle island field silent water garden field mountain meadow meadow garden comet orchard autumn meadow forest wind honey copper honey meadow distant island marble shadow yellow spring velvet spring river orchard marble mountain meadow orange flower window summer silver lantern spring meadow planet marble forest star lantern mountain circle velvet forest garden silent garden crystal summer paper planet quiet planet wind autumn winter circle cloudy silent star shadow stone autumn star bright orange bright velvet island thunder purple window circle circle copper meadow silent purple garden island stone ocean stone circle distant crystal orchard paper ocean forest star island ocean water purple valley comet orchard purple orchard meadow spring silent field paper star valley quiet paper quiet candle island stone purple distant velvet ocean field shadow morning stone water purple meadow ocean cloudy window garden lantern honey comet mirror meadow comet star planet crystal candle open winter field winter meadow quiet crystal bird velvet bird orange field water shadow garden summer spring bird honey stone comet distant garden island marble flower orange mirror winter lantern comet purple shadow honey flower garden valley circle copper silent marble valley comet spring valley spring star ocean meadow crystal lantern water distant meadow bird quiet forest field island wind island yellow garden bird river cloudy marble stone valley velvet forest water star yellow thunder purple garden star orchard field velvet comet valley shadow purple meadow circle winter marble autumn circle quiet marble bright star comet meadow cloudy open comet marble velvet orange mirror silent island bright thunder velvet candle open water mirror valley planet comet garden purple silent stone valley garden quiet meadow paper window cloudy silver valley silent copper ocean river autumn flower open river orchard morning flower honey forest spring honey crystal planet mountain shadow honey meadow winter circle autumn crystal meadow candle summer lantern valley river silver valley candle velvet flower circle quiet velvet river comet thunder valley island orange bright circle valley candle silver wind orange mirror purple valley orchard orange orange purple meadow orchard cloudy meadow mirror shadow paper valley flower planet paper distant forest wind orange valley distant star window distant crystal silent shadow silent island window mountain mirror river yellow orange silent cloudy forest planet yellow ocean lantern meadow circle open island comet window candle honey autumn stone thunder wind circle open window flower wind autumn velvet orchard paper star orchard silent lantern orchard silent garden bird garden cloudy mountain shadow paper mountain honey comet open yellow silver spring stone crystal candle morning orange honey morning window autumn paper circle marble honey copper wind forest meadow marble honey window honey valley copper orange cloudy autumn thunder open silent purple garden bird valley river river star water morning water meadow shadow copper wind honey field meadow shadow island silver garden valley star yellow paper open field forest paper marble winter mountain morning marble cloudy purple quiet river valley morning comet copper paper circle quiet garden river orange comet purple garden island mountain paper paper purple mirror stone marble meadow valley quiet meadow wind autumn morning comet morning forest spring stone island comet distant planet valley window garden island valley lantern meadow quiet window quiet flower meadow paper distant wind orchard garden valley island water silent yellow ocean water river thunder mirror field meadow purple orchard planet yellow wind garden honey comet mirror cloudy bright garden thunder flower orange valley river bright garden orange shadow mountain honey velvet spring comet distant distant cloudy copper open bright mirror mirror distant window window candle island garden morning circle velvet thunder river planet window copper garden spring orchard garden star shadow field river flower mirror planet paper water garden quiet island purple silent circle open lantern open orchard quiet marble honey spring winter island ocean field window morning garden window meadow winter garden silver stone silver mirror lantern mountain winter thunder river forest field garden velvet cloudy shadow paper bright distant garden summer yellow water stone mirror forest island orange stone crystal copper winter water silver distant bird silent distant mountain island thunder river river garden quiet honey mirror water garden silver garden candle copper summer morning garden distant circle meadow crystal river summer garden orange winter mirror forest spring marble copper forest forest summer wind quiet distant valley morning river lantern candle meadow honey wind quiet silent circle distant thunder meadow marble winter window candle purple thunder spring wind thunder marble field field silent garden summer comet bright river orange mirror crystal bird forest wind silver crystal velvet star forest forest circle shadow cloudy silent meadow velvet silver star garden lantern ocean bird valley garden yellow mountain bright ocean meadow marble velvet lantern autumn shadow lantern honey spring meadow wind planet autumn comet thunder ocean planet yellow silver mountain garden star spring circle quiet quiet bright garden paper silver comet thunder mountain silent paper mountain honey valley winter distant water silver morning distant window garden forest thunder water quiet winter bright copper river meadow velvet circle copper bright honey mountain mountain garden summer wind shadow marble bird garden thunder copper bird velvet stone quiet window wind field thunder orchard shadow yellow forest autumn field winter open island summer autumn stone comet honey purple stone orange velvet river lantern silver paper crystal forest garden winter crystal meadow shadow candle honey bird marble spring valley yellow bird field orchard purple mirror garden island forest bright summer honey distant orchard stone spring yellow circle paper cloudy garden silver comet morning valley summer candle summer bright garden meadow garden spring quiet orchard honey velvet orchard mountain meadow summer candle copper thunder stone distant circle valley silver bird mirror mountain garden lantern orange wind velvet cloudy marble river velvet circle forest circle autumn distant crystal crystal paper silent garden purple bird wind purple distant garden distant valley marble comet autumn flower forest valley thunder honey yellow island candle paper copper honey mirror shadow thunder island autumn stone quiet distant candle mirror flower field orchard flower planet summer window mirror thunder wind silent orchard paper planet summer window forest flower valley water garden summer marble flower purple bright morning candle river silver garden forest velvet open cloudy stone garden bright comet candle stone circle purple garden thunder cloudy stone meadow candle lantern ocean velvet valley comet water river purple planet open valley window open wind garden bright orchard water mirror paper velvet morning orchard candle bird valley paper window garden copper summer candle mirror autumn valley cloudy garden bird river autumn marble water cloudy valley bird candle marble garden valley garden purple yellow valley summer autumn autumn comet thunder silent copper mountain forest copper forest window planet garden orange spring bright paper bright silver thunder marble island spring copper winter silver circle bird distant honey honey quiet garden comet orchard honey valley meadow purple valley velvet shadow planet planet garden purple lantern stone comet summer garden copper candle open shadow valley paper window copper distant winter meadow autumn purple honey morning mirror silver silent candle lantern open water stone crystal spring garden garden orange star cloudy circle garden comet winter garden meadow bird star circle comet orange velvet open quiet garden velvet mountain orchard distant cloudy river silent silver orange planet honey shadow flower spring purple crystal silent candle wind honey meadow marble silent circle thunder field distant crystal garden river quiet garden forest crystal distant candle quiet river mountain shadow circle window comet comet honey wind star garden island silent wind circle open comet crystal distant garden ocean circle silent mirror island shadow winter forest lantern mountain garden garden honey stone star meadow silent river comet lantern autumn thunder marble river yellow copper cloudy river star garden morning comet candle circle meadow island spring silent flower mountain planet mountain purple orange wind mirror marble star winter mountain honey ocean candle spring crystal bird paper quiet field orchard window paper comet ocean cloudy circle lantern distant bird mountain mountain quiet window winter wind honey honey autumn velvet water circle marble meadow star thunder meadow water candle honey purple distant morning forest honey yellow velvet silver paper star star garden bright mirror morning forest spring cloudy garden open yellow open planet honey copper yellow valley mirror quiet garden shadow river shadow crystal distant copper meadow copper shadow meadow window candle forest forest summer morning spring comet garden garden silent morning island meadow mountain island purple crystal bright purple yellow shadow cloudy planet circle garden mountain distant distant garden yellow crystal orange silent purple silent quiet valley planet thunder valley silent valley forest island crystal valley distant valley autumn spring window wind velvet spring lantern orange circle island distant bird flower flower silent yellow river winter open ocean silver circle forest velvet copper planet river copper ocean open garden summer open water meadow meadow cloudy candle paper paper planet garden field meadow island open flower forest bird garden winter planet garden lantern silent orchard window marble valley spring silver mirror forest bright purple yellow water valley orange honey mountain forest open circle marble purple open cloudy silent marble valley river paper window distant silent honey ocean marble orange garden valley distant purple bird summer flower autumn thunder cloudy cloudy comet garden forest stone valley autumn stone meadow orange orange cloudy circle autumn valley mirror orange field morning summer valley ocean garden stone flower autumn meadow comet thunder autumn spring bird window morning yellow wind lantern lantern crystal mountain water summer lantern shadow stone autumn shadow bird paper candle window orange garden river quiet meadow morning cloudy ocean window winter valley summer summer mirror autumn forest valley wind spring candle paper orchard planet circle orange ocean orange comet river window silent lantern velvet ocean river thunder ocean candle winter garden mountain winter comet thunder summer velvet lantern open flower orange mountain mirror island planet candle stone copper flower valley copper meadow star winter stone paper paper honey planet autumn marble silver candle quiet paper comet river crystal crystal circle marble island valley autumn lantern forest thunder orchard morning morning cloudy open stone forest window spring cloudy thunder distant cloudy candle crystal autumn shadow morning comet island bird valley autumn purple island valley thunder autumn paper bright shadow star stone purple summer garden ocean mirror planet autumn distant open ocean candle forest bird yellow distant valley island morning velvet cloudy shadow orchard flower silver flower mirror silent honey morning lantern forest orange lantern velvet mirror mountain circle shadow comet circle valley bright orange mountain autumn planet open yellow comet window spring marble window orchard valley paper mirror honey stone orchard quiet summer mirror flower bright paper forest morning flower forest mountain orchard open honey field meadow circle flower circle valley river field island marble circle quiet valley valley comet window ocean stone spring paper candle candle marble meadow window garden summer island valley shadow honey lantern honey velvet bird silent autumn bright honey honey island orange purple morning flower bird window summer velvet window bird candle mountain copper garden mirror meadow stone winter mirror crystal honey morning water winter summer forest winter copper silver ocean wind thunder field field meadow candle planet flower planet valley star meadow garden meadow comet open meadow garden meadow copper bird marble stone circle bright planet paper bird winter flower open morning honey candle meadow lantern honey silent silver marble bright winter river autumn winter valley paper circle yellow ocean window stone garden quiet garden stone orchard comet wind orchard crystal shadow distant water field circle spring field river spring water river circle orchard mountain garden shadow comet mirror circle thunder paper honey stone stone silent river field garden velvet field mountain island spring orange circle quiet garden field candle field garden river window meadow distant circle river orange autumn bright garden forest mirror comet flower window valley meadow autumn morning autumn orchard silver crystal thunder window orchard distant comet flower planet copper paper window bird yellow marble paper stone open copper garden copper marble star valley island summer orange crystal crystal valley thunder valley flower quiet candle paper purple comet orchard crystal field flower field silent distant river distant meadow star lantern planet water open purple water meadow bright ocean star island thunder copper quiet water circle wind distant garden bright open honey circle river velvet bird cloudy open shadow thunder lantern orange quiet mountain valley planet autumn forest morning wind water garden valley copper shadow star circle forest forest bird shadow bright bird comet water winter summer purple copper garden star bird orange copper candle yellow window garden meadow autumn spring river stone autumn candle window quiet meadow water bright purple morning lantern lantern garden ocean marble garden orange comet open winter flower shadow flower honey paper stone garden garden water candle spring distant circle planet garden meadow candle meadow stone shadow silver bird stone paper autumn meadow silent ocean bird bird winter flower mountain orchard morning crystal valley crystal marble meadow orchard planet honey morning window flower summer orchard open yellow copper autumn cloudy distant yellow spring planet silent quiet forest flower ocean quiet spring marble window flower valley valley field paper garden water stone comet lantern meadow quiet mirror mountain summer circle velvet island bright ocean paper cloudy orange window quiet mirror summer comet water stone star water comet open yellow yellow silver quiet silent summer wind planet quiet distant garden wind autumn yellow summer flower cloudy forest forest purple autumn garden purple distant autumn forest orange spring valley paper forest autumn silver valley mountain stone valley star comet crystal orchard valley ocean window field cloudy shadow honey meadow mountain marble purple island garden silent planet ocean forest mirror forest paper distant purple circle mirror silver distant crystal forest yellow bright window mountain circle silent silent quiet morning valley bird bird distant candle thunder marble garden purple candle wind yellow bird copper crystal silent circle star crystal silver orange velvet cloudy paper garden garden purple paper valley meadow quiet spring island wind orange field water field window shadow meadow purple shadow purple open orchard velvet meadow purple autumn planet bird bright winter shadow crystal summer water comet autumn planet mountain mirror garden river bird water lantern meadow purple orchard forest velvet quiet stone garden velvet bird distant meadow flower star quiet forest flower circle copper ocean bird wind water bird candle flower yellow circle orchard thunder yellow star circle winter thunder purple orange lantern morning morning paper honey purple quiet ocean orange honey orange shadow spring spring garden island mirror wind summer shadow orange valley open crystal bird distant lantern shadow ocean planet spring autumn thunder ocean circle forest ocean paper garden distant comet mountain island copper summer summer valley autumn marble star morning cloudy cloudy ocean comet purple ocean stone purple distant lantern field mirror circle marble cloudy purple paper valley yellow island star copper valley orchard valley flower comet wind island wind river candle flower bird forest garden forest autumn thunder cloudy river garden silver garden forest copper comet cloudy lantern purple bird garden silent wind velvet comet spring velvet purple circle thunder island island honey forest paper marble spring window open forest garden thunder velvet wind crystal valley crystal quiet river copper candle marble meadow winter wind shadow lantern open orchard purple paper cloudy mountain star mirror meadow purple copper honey river island garden star flower purple mirror distant bird field cloudy autumn garden comet shadow yellow open paper copper valley silent open flower island open winter mirror marble mountain paper shadow orange winter crystal purple orchard yellow valley candle cloudy thunder water mirror yellow river mountain autumn summer stone river garden valley ocean island stone water garden marble mirror water meadow thunder paper stone honey quiet thunder meadow winter purple morning forest water crystal mountain field field valley water orange distant marble star spring quiet orange orange silent circle lantern summer morning honey lantern meadow honey orchard marble shadow water meadow yellow autumn paper copper meadow river garden velvet garden lantern orange silent star crystal orchard autumn crystal cloudy honey star garden bright cloudy meadow winter morning spring shadow yellow ocean bright lantern honey paper garden shadow velvet orange honey garden stone bird meadow star meadow yellow circle garden bright mirror summer autumn open mirror candle forest shadow comet orchard orange orange orchard water silent thunder summer winter garden wind cloudy meadow garden distant cloudy orange bright comet orange stone quiet open velvet thunder star bright meadow ocean garden orange cloudy thunder velvet stone lantern bird field river copper garden meadow marble wind crystal purple shadow comet marble flower orange meadow velvet silver orchard honey bird cloudy valley ocean star honey flower river comet summer summer bright comet orange mirror thunder wind thunder island planet comet orchard silver winter meadow flower lantern autumn spring bright valley garden velvet summer open stone velvet silver mountain lantern garden star quiet river copper flower valley star yellow bright honey silver winter quiet garden bird morning mountain honey marble river mirror open meadow honey garden autumn orchard silent yellow island cloudy stone silent comet forest lantern copper valley island distant quiet lantern garden meadow valley quiet marble cloudy autumn lantern star silent valley autumn field purple purple water valley copper orchard morning lantern shadow candle forest window crystal distant valley river valley mountain velvet island circle paper velvet meadow meadow purple stone spring bird valley purple valley shadow garden marble open cloudy bird quiet garden thunder paper quiet island candle autumn winter lantern wind copper river marble yellow planet paper distant river distant candle window bird river paper lantern circle thunder marble morning flower mirror island circle distant river valley star window river orange mountain water marble crystal river wind shadow bird bird garden orchard copper valley garden summer quiet copper island island velvet window winter marble valley valley honey river morning purple orange forest garden crystal shadow mirror planet thunder shadow star bright wind valley valley quiet mirror meadow field planet forest garden candle field mountain circle orchard circle bird yellow valley field silent spring circle ocean velvet thunder winter crystal meadow wind planet forest velvet crystal velvet planet cloudy open silent purple bird winter velvet stone meadow meadow stone copper forest river valley cloudy star island honey crystal valley morning purple copper distant water distant bird summer distant star silent stone candle garden comet garden marble water bird water winter flower ocean meadow circle paper field field orchard bird honey meadow comet silent thunder garden mountain water field bird field window star valley water water silver yellow ocean mirror bright meadow mirror paper honey garden meadow open lantern lantern silent honey paper ocean marble water wind spring cloudy comet morning open thunder field yellow autumn field comet mirror planet wind island stone candle quiet bird marble garden valley window island autumn star candle cloudy river comet comet honey valley stone window orchard mirror distant garden morning bird lantern silent star quiet mountain field honey stone valley river silent paper open quiet mirror orange flower cloudy forest circle valley window shadow paper bird mountain velvet orange velvet marble shadow bird meadow honey bright bright yellow circle forest water circle wind autumn quiet garden yellow bird river meadow mountain honey velvet flower orange wind garden mirror island island forest star valley velvet morning mirror honey crystal orange river purple mountain stone stone valley bird flower summer spring morning spring stone planet star river crystal quiet field flower yellow bright window star summer river distant silver marble copper autumn summer meadow garden silent comet meadow silver stone copper summer open valley mountain garden distant copper cloudy wind circle flower lantern open orchard orange water water morning purple yellow distant shadow candle stone valley velvet wind purple forest meadow mirror yellow thunder orange water forest orchard spring valley honey window marble meadow winter window mirror morning paper honey copper bird field island flower lantern water garden spring honey paper candle planet copper purple yellow orchard copper circle mountain copper comet crystal silent morning spring garden quiet distant paper planet shadow planet island silent island forest wind river meadow field field quiet copper morning mountain planet crystal bird star ocean silent wind meadow crystal window winter paper orange river meadow garden valley spring flower comet valley purple summer stone comet copper garden spring candle valley paper meadow river summer comet garden silent mirror water yellow crystal circle silver forest bright forest water island water paper ocean garden shadow garden meadow shadow crystal stone marble mirror star quiet autumn circle yellow river field flower circle quiet island silent morning marble star morning water island circle valley flower planet wind yellow yellow morning window planet candle stone spring circle copper mountain crystal morning window circle field stone mountain mountain meadow stone orange wind comet autumn circle window copper bird water garden velvet silent bright stone silent honey ocean open star spring silver quiet paper meadow garden garden flower meadow cloudy shadow silver valley comet lantern lantern orange water shadow meadow silent winter yellow spring wind quiet valley velvet cloudy spring bird paper valley spring garden spring crystal morning valley distant wind meadow honey orange forest thunder garden forest field star comet winter valley mountain ocean morning valley spring orchard garden meadow star water purple silent distant wind window orange autumn winter valley meadow bird velvet flower stone valley velvet valley marble crystal valley silver silent copper lantern quiet velvet forest lantern candle silver valley circle open planet honey morning flower shadow meadow valley circle candle forest river honey island cloudy purple garden velvet autumn shadow thunder ocean meadow window valley thunder mountain quiet river shadow mirror window window distant candle purple crystal honey autumn open valley river comet silver quiet meadow field lantern river valley meadow water island mountain mirror water quiet winter yellow distant distant silent cloudy bright yellow river valley summer distant planet circle velvet forest valley island purple silent silver valley spring cloudy open mountain velvet spring orchard shadow garden winter meadow velvet stone marble stone quiet silver paper garden river valley crystal bird silent mountain orange quiet autumn summer ocean stone lantern copper field paper circle distant field meadow honey field wind morning copper open meadow window stone valley valley orchard distant shadow star window river summer river mirror window mirror copper silver meadow planet river valley autumn flower flower window purple mountain winter forest quiet meadow meadow summer planet mountain flower garden valley mirror thunder winter paper planet velvet cloudy forest paper purple purple open velvet window window flower silver morning copper summer silent orchard valley silent thunder orange winter shadow silver field crystal quiet spring planet crystal ocean silver flower circle quiet garden bright morning quiet comet paper garden window garden yellow bright velvet meadow river water lantern lantern open open window field valley garden shadow silent shadow bright garden paper cloudy distant stone copper field valley valley window stone thunder cloudy silent winter summer garden spring garden planet flower crystal circle autumn orchard meadow bright crystal spring crystal orchard winter morning quiet yellow spring distant island lantern spring quiet mountain forest honey morning bright distant shadow silent field window comet mirror mountain meadow lantern orange crystal paper valley silent comet bird velvet shadow summer flower meadow star mountain silver island stone orchard candle stone comet comet yellow valley meadow open wind bright river candle field stone marble honey river planet garden bright valley valley thunder meadow marble forest water copper orchard open bright orange purple garden field field forest morning summer mirror autumn open planet valley river wind shadow purple spring thunder valley forest field bird comet flower valley garden river valley planet summer summer flower valley lantern morning meadow autumn meadow spring cloudy morning spring mountain candle valley shadow autumn quiet shadow winter meadow honey paper thunder winter water star purple shadow circle cloudy river yellow valley wind planet thunder spring comet circle valley autumn wind meadow orchard orange window copper wind water lantern forest paper water wind ocean distant stone window open crystal paper morning valley valley river field meadow winter mountain water quiet yellow spring circle velvet planet stone morning circle window spring bright autumn bird planet stone field candle planet orange silver crystal summer flower bird morning forest winter lantern meadow marble wind water bird spring crystal cloudy yellow copper silent silent silver winter morning mirror flower mountain silent mirror mountain spring water candle winter summer planet morning comet valley summer valley meadow circle meadow candle purple meadow garden ocean distant candle quiet valley shadow field lantern spring silver distant crystal autumn island mountain silent silent ocean bright river comet meadow star candle quiet silent thunder planet water circle marble lantern orange river garden field mountain autumn candle crystal velvet autumn garden summer cloudy paper bird copper silent copper garden spring mountain bird garden garden island valley island valley morning wind copper mirror lantern meadow winter field valley winter autumn crystal winter garden marble circle field paper quiet winter orange stone wind field mountain mountain copper spring marble field garden bird circle open purple planet meadow island cloudy window paper wind garden river distant comet cloudy copper summer window crystal garden field orchard honey silent lantern bird bright valley morning purple bird stone valley circle summer shadow planet bird river cloudy marble honey thunder autumn spring star star purple ocean field thunder purple candle open autumn orchard mirror purple silent orchard velvet candle flower meadow honey autumn flower distant bird summer orchard thunder island garden mountain velvet star morning shadow orchard paper shadow meadow morning garden field field spring meadow paper silver mountain bird copper wind summer field summer river meadow star bird thunder purple flower thunder quiet planet purple bird paper open garden thunder silver mountain window water quiet river yellow window mountain stone mirror copper comet marble silent spring field circle morning mountain silver winter yellow flower orange meadow garden valley meadow open yellow mirror planet spring valley island paper star copper planet flower candle forest spring forest shadow meadow water mountain forest quiet paper spring circle planet orange river copper distant orchard honey valley thunder valley velvet crystal velvet star flower quiet bright shadow valley meadow cloudy velvet silent spring field bird forest orange garden yellow velvet star river field spring window yellow circle mountain wind mountain garden paper meadow bird cloudy crystal lantern morning mountain circle mountain island valley open water circle thunder orchard velvet velvet bright marble open cloudy mountain spring shadow mountain meadow orchard silent stone water forest velvet mountain winter ocean marble mirror window thunder orange stone paper meadow paper thunder paper planet autumn island stone orchard bird silent marble orchard shadow silver quiet mountain ocean meadow silver shadow window circle valley purple valley garden bird garden forest ocean silver paper yellow comet island meadow morning river open garden copper comet shadow bright garden lantern garden crystal yellow garden star open mountain valley valley star autumn paper planet mirror cloudy mountain bright honey garden thunder shadow water comet mountain garden orchard window velvet stone field bright river bright valley bird marble comet cloudy winter mirror river lantern field open marble planet candle purple bright winter meadow star orchard valley stone lantern marble mountain island bird paper yellow planet flower orchard forest planet island orange ocean garden island marble summer open winter meadow yellow silent quiet marble cloudy copper valley star circle autumn open mirror marble quiet quiet bright circle open valley circle autumn garden mountain valley meadow marble window thunder shadow thunder stone velvet distant mountain distant distant distant valley garden marble stone silent candle silver spring cloudy orchard silver bright yellow garden island copper velvet bird paper garden purple circle flower velvet silent orange autumn orange cloudy orchard river wind candle comet flower copper mirror candle summer honey copper shadow thunder silent valley mirror meadow water island water paper quiet cloudy open valley thunder candle island window wind paper velvet quiet shadow paper star candle thunder winter river velvet shadow meadow window spring quiet copper honey bright velvet lantern crystal autumn garden shadow bird purple valley valley candle window orange forest silver silent stone crystal river velvet meadow thunder autumn valley quiet spring autumn paper marble thunder water winter island stone paper mirror orchard circle stone winter valley forest open star honey thunder valley window spring valley thunder autumn flower valley window ocean forest bright crystal silver bright honey garden thunder water meadow quiet meadow honey meadow window cloudy purple garden cloudy mountain thunder paper ocean quiet meadow forest honey candle forest marble open velvet shadow meadow window circle quiet shadow comet field wind shadow spring stone comet valley forest meadow candle purple thunder meadow honey river mountain meadow lantern candle winter shadow candle valley mirror orange orchard morning wind morning field summer field silver valley silent star cloudy star wind wind mirror lantern mirror crystal orchard yellow morning orange spring lantern circle spring lantern garden copper window flower garden marble yellow bright bright valley shadow star lantern spring orchard summer bright field river morning comet valley yellow cloudy garden crystal quiet lantern garden bird planet silent mirror ocean copper mountain ocean silent ocean valley comet summer cloudy spring marble forest thunder comet silver paper crystal planet lantern meadow orchard wind garden open quiet river cloudy mountain honey distant circle paper bird spring circle lantern thunder silver wind winter quiet copper flower summer field ocean star river orange spring island orange silver open spring river planet stone stone quiet lantern shadow circle honey copper silent bright river window quiet marble velvet quiet autumn crystal summer garden window orchard quiet cloudy ocean silent planet distant morning mountain open river open bright autumn wind meadow autumn silent autumn water paper distant copper marble forest velvet island bright garden valley water candle garden summer spring autumn yellow valley circle comet summer honey flower quiet candle ocean silent candle mountain marble winter star silent silent orange marble garden crystal field star planet mirror candle star open flower honey shadow garden summer marble island planet forest summer circle flower valley meadow window paper planet mountain yellow garden velvet marble comet lantern shadow velvet spring paper meadow orchard meadow flower orchard paper marble ocean yellow candle mirror flower wind comet copper garden valley planet orchard thunder purple paper bright summer purple valley velvet bird bird yellow field paper silver marble comet meadow autumn morning circle mountain spring copper island shadow flower mountain ocean garden orange honey crystal river garden comet open wind candle shadow shadow river thunder comet mirror ocean circle flower morning valley stone autumn window comet shadow meadow morning silent orchard window autumn winter winter island ocean lantern valley orchard meadow cloudy summer copper meadow wind star field window field flower flower velvet orange field bright velvet silent garden orchard distant valley garden candle garden thunder spring meadow star garden marble crystal summer lantern shadow island planet island island candle crystal autumn river paper paper honey wind orange lantern garden meadow valley orchard meadow thunder bright comet purple island comet meadow copper silver velvet orchard purple valley bird velvet meadow field purple flower planet wind winter orange summer bright garden silver thunder orchard star spring flower lantern silent paper candle yellow yellow flower autumn shadow paper summer silver bird lantern circle valley silent copper orchard mirror honey crystal mirror autumn candle mirror open marble orange lantern thunder island river water orange mountain wind window yellow paper field crystal meadow thunder thunder mirror purple garden ocean yellow meadow purple orange orchard velvet circle shadow mountain honey river meadow comet bright flower open velvet meadow garden velvet lantern water meadow winter valley garden winter orange spring wind copper garden valley winter garden valley meadow mountain window shadow meadow orange copper island autumn cloudy silver silent flower winter lantern velvet wind distant lantern cloudy meadow winter crystal honey thunder field valley honey lantern mountain paper water circle forest bright honey copper water yellow summer paper marble winter honey forest bright valley morning orchard winter marble morning garden velvet distant purple crystal circle field shadow silent honey bird comet river silent water orange orange river copper candle crystal star crystal bird water honey bird river velvet meadow circle field ocean summer wind meadow meadow purple yellow garden cloudy candle winter candle stone bright meadow marble orchard quiet meadow meadow candle honey winter cloudy valley field orange thunder purple purple winter window marble meadow copper comet mountain bird stone valley comet orchard bird planet crystal water meadow yellow paper stone field summer wind distant distant forest river water silent copper summer ocean forest circle field marble crystal morning marble quiet meadow circle crystal window shadow spring orchard valley stone honey orchard lantern paper star candle thunder yellow valley yellow orange cloudy copper mountain paper candle honey bright winter mirror quiet stone meadow honey bird garden mirror copper paper circle thunder stone meadow forest orchard mountain shadow orchard valley summer quiet wind island field island river wind velvet cloudy bright meadow spring spring autumn paper circle copper meadow silver forest honey honey ocean candle garden water garden open shadow open window bright orange summer flower shadow morning meadow shadow silver wind honey autumn thunder wind planet window water candle yellow summer mountain river candle silver mountain flower spring meadow orchard mirror crystal morning window mirror marble window valley field open valley meadow circle silent orange paper wind quiet orange copper valley bird shadow distant planet forest bright spring open yellow silver circle valley mirror silent shadow meadow river circle marble cloudy cloudy copper meadow star flower quiet orange yellow orchard bright water quiet star lantern field star forest meadow thunder mirror autumn valley river open honey autumn silver valley copper silver spring field morning silver ocean open shadow purple meadow crystal island summer silver orange circle bird spring crystal field garden candle bird water copper water purple cloudy star yellow yellow river spring distant thunder valley crystal silver velvet shadow bright meadow open purple river river valley mountain forest garden valley wind paper summer cloudy morning open silver winter window silver morning purple copper garden ocean mirror wind ocean forest forest silver mirror bird honey thunder silver marble shadow candle meadow honey wind cloudy silent silent orange water spring valley candle field wind autumn window orchard field orchard purple crystal orange silver valley forest meadow island thunder mountain thunder garden flower copper meadow morning garden circle spring ocean island garden stone orchard purple meadow spring shadow shadow shadow crystal purple orchard field morning mirror valley circle river silver star morning island silent spring orchard ocean candle open mirror garden spring paper honey autumn wind spring forest orchard star mirror window garden autumn silver paper yellow orange field spring velvet valley garden quiet flower meadow garden comet meadow mirror summer star marble crystal valley water island honey planet forest copper orange valley field shadow copper distant crystal marble open ocean marble valley planet open copper wind river bright purple shadow garden comet summer marble shadow valley crystal orchard meadow morning window candle mountain purple river wind copper water bird velvet wind valley autumn planet crystal autumn crystal silent garden mountain autumn field lantern open quiet distant meadow garden crystal valley morning quiet valley bird thunder silent cloudy meadow winter velvet star shadow yellow winter mountain wind copper window spring field crystal meadow silver planet flower distant star summer purple valley candle yellow open marble candle paper purple ocean river lantern garden valley island planet copper planet honey silver flower honey honey orchard star crystal star garden stone crystal island summer distant honey comet meadow comet distant autumn field marble wind bright thunder circle valley quiet open autumn distant mirror star valley morning yellow mountain valley orange ocean velvet cloudy stone silver orange valley open meadow flower flower cloudy garden meadow forest ocean river marble copper orchard open shadow planet velvet bird mirror velvet window velvet winter forest morning lantern yellow meadow garden window crystal paper valley orange quiet summer crystal honey star bright stone candle autumn orange star comet summer summer autumn morning valley shadow star mirror silent river garden valley meadow summer lantern copper stone stone star open purple marble garden water morning spring honey flower marble bird orchard honey orange forest shadow forest lantern open winter silver bird island bird distant circle ocean orchard morning meadow circle honey silver field honey flower valley field planet summer spring circle island island planet quiet paper yellow meadow valley meadow open spring ocean cloudy island crystal field wind candle distant cloudy silver distant mirror silver open comet window winter valley orange garden garden window meadow orange orchard honey silent valley orange open bright silent river crystal orchard candle quiet meadow valley water stone velvet valley ocean quiet crystal honey comet stone velvet stone planet copper cloudy field water window circle comet marble valley ocean open thunder purple copper meadow meadow valley meadow valley autumn orchard open ocean quiet meadow purple lantern garden distant autumn silver paper paper ocean silver bright shadow flower winter forest summer garden yellow summer yellow river circle distant silent valley orange window meadow copper quiet ocean summer island valley star planet bird meadow silver quiet lantern silver valley silent summer distant planet winter star orange valley star spring stone valley velvet bird mountain field winter mirror garden morning summer copper silent thunder orchard stone candle flower shadow star wind bird copper quiet star silver bird water spring planet honey orange forest spring water field winter bird silent yellow paper cloudy paper wind yellow candle marble island garden forest comet wind copper meadow copper mountain orange velvet winter window bird paper quiet morning window orchard silver mirror velvet lantern planet island window summer paper valley water flower valley window shadow paper planet ocean mirror wind planet stone forest garden ocean paper ocean candle silver wind stone yellow ocean stone cloudy paper thunder river orchard open forest flower river orange river orange silent velvet silent copper purple garden spring meadow bright spring river meadow thunder marble crystal winter mountain yellow lantern candle marble summer garden river orange orange valley copper stone ocean distant spring copper shadow velvet purple bright morning honey star water comet summer meadow water copper forest spring paper mountain meadow field thunder distant silver silent mirror autumn valley purple bird star meadow garden bird quiet mountain flower paper autumn window water honey stone garden bird valley orange mountain valley silver crystal open meadow lantern river mountain orchard silent paper silver ocean field autumn island open meadow shadow candle stone marble thunder distant silent meadow stone candle yellow open paper planet field wind bright window wind honey distant island honey river comet ocean mountain wind silent circle morning honey orange valley island meadow bird flower ocean field flower island candle yellow orange river orchard stone lantern window wind candle summer quiet purple mirror planet garden copper autumn water spring wind field cloudy lantern distant quiet planet window bright paper comet circle valley bright lantern silent forest mountain silent water mirror orchard crystal candle autumn silver lantern spring wind orange garden distant mirror silent planet open bird copper lantern summer mirror open ocean open quiet mountain mirror summer field shadow valley star shadow valley stone island valley island orange garden marble forest open candle winter yellow ocean summer meadow shadow open morning honey lantern ocean bright planet island marble stone flower crystal water star window circle comet silver distant flower distant river valley valley open copper wind meadow water crystal yellow window distant island river shadow window candle wind orchard quiet comet orange purple yellow marble mountain water cloudy honey spring autumn mountain meadow meadow velvet stone lantern quiet lantern marble honey yellow orange mirror autumn quiet river bird distant river ocean honey lantern meadow paper ocean silent bird spring winter thunder circle autumn cloudy silent morning cloudy candle cloudy marble meadow honey distant quiet circle lantern copper paper ocean garden garden spring field morning velvet yellow paper cloudy silent shadow garden spring summer star velvet water water winter meadow meadow summer autumn quiet crystal candle river water paper copper thunder marble planet crystal flower distant stone meadow lantern orange valley purple orchard forest quiet star purple marble quiet forest garden meadow stone silent ocean field purple shadow quiet crystal velvet winter spring flower honey orchard distant candle garden valley garden morning meadow candle bird island crystal silent silver open meadow copper quiet autumn purple meadow river thunder distant silent spring winter honey valley silent morning open candle spring valley ocean valley ocean silent river island summer orange garden quiet quiet garden ocean wind quiet bird cloudy planet bright spring valley star candle garden shadow winter comet summer orange orange ocean spring silver window flower candle bright winter water velvet silver purple comet mountain wind flower candle stone forest orchard honey velvet wind window river silent wind planet honey ocean quiet velvet meadow spring silent mountain planet mirror mountain purple wind morning summer lantern quiet meadow crystal window island river orchard honey cloudy morning silver circle bright spring bird silver comet honey garden cloudy comet orange marble yellow meadow island bird thunder circle crystal island autumn silver quiet thunder star morning comet field island mountain star ocean river crystal thunder garden open valley spring mountain marble silent purple autumn quiet field field silver garden stone copper meadow copper summer silver window autumn planet field spring bright cloudy flower morning purple candle quiet marble silver shadow autumn yellow field ocean mountain valley garden paper garden thunder valley shadow valley marble copper mirror lantern wind bright planet marble autumn comet winter summer winter forest paper velvet summer comet garden stone comet summer lantern marble paper summer paper garden marble garden yellow forest distant winter cloudy cloudy open crystal river shadow distant spring autumn water mirror copper shadow spring island bird marble meadow planet meadow garden garden meadow valley honey open star circle planet morning valley mirror stone field open flower winter orange water morning distant star orchard garden velvet valley star paper copper purple meadow stone bright garden valley summer bright purple distant mountain purple summer bird cloudy river silver orange autumn orange purple window field forest quiet window river comet field honey wind wind distant shadow garden water morning cloudy water comet thunder window cloudy flower meadow window bird meadow marble marble planet honey circle stone crystal cloudy water marble quiet ocean river flower open cloudy garden candle wind stone meadow bright circle valley bright forest winter river copper orange silver candle lantern garden honey bright open morning field marble shadow spring circle bird circle star velvet comet crystal garden orange candle mirror orange garden summer star lantern window window stone window copper yellow valley candle circle meadow honey forest distant yellow winter purple morning mountain copper stone quiet cloudy open forest flower silver wind valley island open quiet marble morning island velvet open silver purple valley wind mirror purple yellow copper wind valley winter quiet open bright mirror open yellow honey winter valley planet river cloudy paper silver lantern winter open quiet field summer orange flower mountain distant valley field stone spring bird valley valley mountain island crystal meadow planet silent cloudy planet garden bright valley circle bird meadow valley copper shadow forest comet purple autumn window candle bright winter wind forest velvet bird mirror mountain lantern open forest comet shadow spring bright winter river field thunder mountain stone meadow silver field garden summer comet quiet bright orchard thunder thunder bright water crystal meadow thunder velvet garden star garden velvet stone valley lantern orange bird mirror yellow island valley ocean autumn field crystal quiet forest bird water star crystal quiet autumn cloudy valley autumn shadow cloudy comet stone planet marble bird mountain thunder silver thunder purple meadow silver water meadow autumn island meadow bird lantern bright wind mountain comet copper comet valley field crystal silver circle planet ocean forest crystal orange yellow distant water planet circle autumn copper water marble open forest spring wind copper distant field autumn garden lantern summer distant silent marble forest candle mountain spring copper cloudy mountain paper quiet crystal mountain velvet orange yellow meadow bright stone comet island velvet quiet winter window yellow window ocean window summer cloudy meadow circle silent shadow quiet garden garden winter honey comet open shadow mountain meadow summer bright meadow valley ocean marble meadow stone candle mirror copper autumn garden ocean ocean cloudy crystal comet purple water quiet distant valley garden bird garden flower honey meadow honey forest flower orchard crystal flower island river orchard orange garden marble mountain circle flower copper open spring circle silent crystal river spring island open flower field wind ocean cloudy mountain meadow copper stone mountain valley wind mirror field comet honey open orchard valley garden winter bright summer thunder orange orchard quiet crystal marble valley mirror lantern paper spring marble water river open distant garden open purple morning wind morning silent wind bird open velvet wind silent orchard silent spring cloudy copper orchard wind winter window circle yellow open marble autumn valley garden paper quiet garden river window planet flower lantern garden purple bright marble candle river velvet planet planet bird island open river mountain planet circle winter garden honey mountain forest shadow meadow bird meadow star copper valley silent wind crystal forest garden meadow meadow circle wind orange river island shadow open orange wind lantern silver cloudy thunder orange silver crystal quiet thunder marble autumn orange summer candle summer yellow valley honey copper silver cloudy velvet comet purple silent forest summer winter garden bird planet valley candle forest water silent valley stone bright stone meadow candle circle yellow river window winter valley marble field planet crystal field water valley velvet mountain open paper shadow morning island garden valley forest silent open open mirror thunder paper window paper forest distant morning paper bird stone star shadow silver meadow cloudy island comet island crystal open mountain valley velvet silver window orange river orange winter mirror ocean water orchard copper meadow crystal candle forest open mountain forest bird spring forest spring ocean circle bright window flower comet copper forest open morning mountain wind quiet distant comet honey thunder spring mountain field garden bright window silver circle copper valley candle garden circle purple water spring orchard valley silent marble yellow quiet winter orchard forest ocean garden circle orchard distant island mountain field orchard summer quiet open marble quiet planet purple morning open silver river circle garden window crystal field winter window silver garden winter candle star quiet garden stone flower paper river spring bird ocean cloudy mountain shadow cloudy comet planet orange garden quiet island water mountain mountain mirror water planet valley crystal bird distant water marble silver autumn planet velvet field mirror comet circle copper quiet distant star valley crystal orchard distant copper comet water comet shadow orchard candle cloudy thunder silver summer window marble yellow river comet ocean orchard winter ocean flower marble spring river thunder winter purple crystal yellow thunder water circle field distant forest stone paper morning wind circle comet winter window thunder river quiet open field velvet valley meadow meadow valley meadow open garden spring open honey winter lantern stone paper bird valley mountain garden garden orchard stone velvet window island river water purple morning garden valley ocean window island island stone morning mirror mirror crystal spring field orange bird flower quiet yellow lantern bird silver star copper yellow honey flower purple shadow morning river distant orchard stone valley river bird ocean silver orange distant silver planet comet stone yellow lantern bird river yellow comet mirror cloudy candle window water ocean valley summer island autumn wind stone yellow yellow star honey velvet shadow window stone wind field honey crystal meadow silver silent quiet silent ocean honey field stone river distant stone orange valley quiet morning lantern meadow yellow field bright marble wind lantern autumn autumn orange island candle mountain bird mountain thunder honey water yellow orchard forest garden window mountain stone silver bright thunder silver garden garden window orange mountain orchard ocean bird yellow quiet cloudy field lantern river distant orange lantern distant autumn shadow river velvet velvet silver forest cloudy yellow meadow field cloudy candle lantern flower copper candle autumn shadow winter stone orchard star wind ocean forest morning summer distant orchard window yellow autumn thunder purple garden morning garden field orchard thunder spring candle quiet distant copper island yellow honey wind forest velvet silver quiet planet crystal valley stone winter meadow valley planet ocean ocean silver distant mirror summer autumn valley mountain shadow summer lantern bright island autumn thunder field mirror thunder orange crystal meadow bird copper flower velvet island valley lantern quiet bright thunder valley field mountain cloudy stone purple planet orange island silent lantern planet planet comet morning river marble yellow river stone garden thunder purple stone honey shadow summer flower planet honey bird forest island autumn orange spring purple meadow window marble meadow winter comet water velvet forest garden valley distant thunder window purple copper orchard flower window thunder winter crystal honey summer water paper comet bright garden ocean honey yellow circle summer bird summer purple stone bird valley shadow shadow silver meadow crystal purple circle window stone shadow circle valley lantern water field bird water velvet comet comet velvet winter wind silent purple morning valley island meadow bright planet circle valley marble wind spring autumn lantern silent open yellow mirror water meadow garden ocean silver winter comet winter velvet valley comet garden quiet island orange circle lantern yellow cloudy summer water meadow garden copper velvet copper thunder circle garden copper valley yellow autumn forest morning copper orchard winter stone silver thunder garden paper paper silver wind cloudy circle island yellow star stone marble mountain thunder circle shadow meadow silver meadow mirror honey stone copper purple bright silver orange river field quiet stone crystal marble cloudy window candle crystal candle stone flower field morning orchard velvet paper stone thunder summer mirror velvet ocean orchard quiet lantern shadow mirror river mountain window garden water bright candle quiet marble crystal\nContinue with a coherent fictional passage:",
+  "has_new_line": true,
+  "truncated": false,
+  "stop_type": "limit",
+  "stopping_word": "",
+  "tokens_cached": 9470,
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 9455,
+    "prompt_ms": 45665.119,
+    "prompt_per_token_ms": 4.829732310946589,
+    "prompt_per_second": 207.05081267827202,
+    "predicted_n": 16,
+    "predicted_ms": 849.113,
+    "predicted_per_token_ms": 56.607533333333336,
+    "predicted_per_second": 17.665493285346
+  },
+  "completion_probabilities": [
+    {
+      "id": 198,
+      "token": "\n",
+      "bytes": [
+        10
+      ],
+      "logprob": -0.40016400814056396,
+      "top_logprobs": [
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -0.40016400814056396
+        },
+        {
+          "id": 271,
+          "token": "\n\n",
+          "bytes": [
+            10,
+            10
+          ],
+          "logprob": -1.3128989934921265
+        },
+        {
+          "id": 248046,
+          "token": "",
+          "bytes": [],
+          "logprob": -3.5920774936676025
+        },
+        {
+          "id": 561,
+          "token": " The",
+          "bytes": [
+            32,
+            84,
+            104,
+            101
+          ],
+          "logprob": -5.086205959320068
+        },
+        {
+          "id": 220,
+          "token": " ",
+          "bytes": [
+            32
+          ],
+          "logprob": -5.853238582611084
+        },
+        {
+          "id": 328,
+          "token": " \"",
+          "bytes": [
+            32,
+            34
+          ],
+          "logprob": -6.025182247161865
+        },
+        {
+          "id": 733,
+          "token": " In",
+          "bytes": [
+            32,
+            73,
+            110
+          ],
+          "logprob": -6.697215557098389
+        },
+        {
+          "id": 357,
+          "token": " A",
+          "bytes": [
+            32,
+            65
+          ],
+          "logprob": -7.04712438583374
+        },
+        {
+          "id": 279,
+          "token": " the",
+          "bytes": [
+            32,
+            116,
+            104,
+            101
+          ],
+          "logprob": -7.088414669036865
+        },
+        {
+          "id": 695,
+          "token": " \n",
+          "bytes": [
+            32,
+            10
+          ],
+          "logprob": -7.132795810699463
+        },
+        {
+          "id": 353,
+          "token": " I",
+          "bytes": [
+            32,
+            73
+          ],
+          "logprob": -7.406660556793213
+        },
+        {
+          "id": 359,
+          "token": " '",
+          "bytes": [
+            32,
+            39
+          ],
+          "logprob": -7.670861721038818
+        },
+        {
+          "id": 9358,
+          "token": " Once",
+          "bytes": [
+            32,
+            79,
+            110,
+            99,
+            101
+          ],
+          "logprob": -7.710018634796143
+        },
+        {
+          "id": 1358,
+          "token": "\n\n\n",
+          "bytes": [
+            10,
+            10,
+            10
+          ],
+          "logprob": -7.7591729164123535
+        },
+        {
+          "id": 264,
+          "token": " a",
+          "bytes": [
+            32,
+            97
+          ],
+          "logprob": -8.125892639160156
+        },
+        {
+          "id": 318,
+          "token": " (",
+          "bytes": [
+            32,
+            40
+          ],
+          "logprob": -8.153571128845215
+        },
+        {
+          "id": 1049,
+          "token": " It",
+          "bytes": [
+            32,
+            73,
+            116
+          ],
+          "logprob": -8.18503475189209
+        },
+        {
+          "id": 498,
+          "token": " [",
+          "bytes": [
+            32,
+            91
+          ],
+          "logprob": -8.281923294067383
+        },
+        {
+          "id": 4558,
+          "token": " \n\n",
+          "bytes": [
+            32,
+            10,
+            10
+          ],
+          "logprob": -8.335925102233887
+        },
+        {
+          "id": 3648,
+          "token": " One",
+          "bytes": [
+            32,
+            79,
+            110,
+            101
+          ],
+          "logprob": -8.619058609008789
+        }
+      ]
+    },
+    {
+      "id": 760,
+      "token": "The",
+      "bytes": [
+        84,
+        104,
+        101
+      ],
+      "logprob": -0.7457748055458069,
+      "top_logprobs": [
+        {
+          "id": 760,
+          "token": "The",
+          "bytes": [
+            84,
+            104,
+            101
+          ],
+          "logprob": -0.7457748055458069
+        },
+        {
+          "id": 623,
+          "token": "In",
+          "bytes": [
+            73,
+            110
+          ],
+          "logprob": -2.452817440032959
+        },
+        {
+          "id": 32,
+          "token": "A",
+          "bytes": [
+            65
+          ],
+          "logprob": -3.130842685699463
+        },
+        {
+          "id": 40,
+          "token": "I",
+          "bytes": [
+            73
+          ],
+          "logprob": -3.898045063018799
+        },
+        {
+          "id": 12162,
+          "token": "Once",
+          "bytes": [
+            79,
+            110,
+            99,
+            101
+          ],
+          "logprob": -3.928309917449951
+        },
+        {
+          "id": 2053,
+          "token": "As",
+          "bytes": [
+            65,
+            115
+          ],
+          "logprob": -4.359285831451416
+        },
+        {
+          "id": 2064,
+          "token": "It",
+          "bytes": [
+            73,
+            116
+          ],
+          "logprob": -4.49614953994751
+        },
+        {
+          "id": 1,
+          "token": "\"",
+          "bytes": [
+            34
+          ],
+          "logprob": -4.743569850921631
+        },
+        {
+          "id": 1860,
+          "token": "On",
+          "bytes": [
+            79,
+            110
+          ],
+          "logprob": -4.8922247886657715
+        },
+        {
+          "id": 15582,
+          "token": "Cloud",
+          "bytes": [
+            67,
+            108,
+            111,
+            117,
+            100
+          ],
+          "logprob": -4.9729838371276855
+        },
+        {
+          "id": 1597,
+          "token": "At",
+          "bytes": [
+            65,
+            116
+          ],
+          "logprob": -5.093385219573975
+        },
+        {
+          "id": 3733,
+          "token": "There",
+          "bytes": [
+            84,
+            104,
+            101,
+            114,
+            101
+          ],
+          "logprob": -5.116044521331787
+        },
+        {
+          "id": 35,
+          "token": "D",
+          "bytes": [
+            68
+          ],
+          "logprob": -5.174052715301514
+        },
+        {
+          "id": 7691,
+          "token": "She",
+          "bytes": [
+            83,
+            104,
+            101
+          ],
+          "logprob": -5.1825737953186035
+        },
+        {
+          "id": 1465,
+          "token": "He",
+          "bytes": [
+            72,
+            101
+          ],
+          "logprob": -5.185505390167236
+        },
+        {
+          "id": 4350,
+          "token": "When",
+          "bytes": [
+            87,
+            104,
+            101,
+            110
+          ],
+          "logprob": -5.234598636627197
+        },
+        {
+          "id": 1919,
+          "token": "This",
+          "bytes": [
+            84,
+            104,
+            105,
+            115
+          ],
+          "logprob": -5.2461066246032715
+        },
+        {
+          "id": 5836,
+          "token": "After",
+          "bytes": [
+            65,
+            102,
+            116,
+            101,
+            114
+          ],
+          "logprob": -5.419827938079834
+        },
+        {
+          "id": 2381,
+          "token": "For",
+          "bytes": [
+            70,
+            111,
+            114
+          ],
+          "logprob": -5.555291652679443
+        },
+        {
+          "id": 3833,
+          "token": "One",
+          "bytes": [
+            79,
+            110,
+            101
+          ],
+          "logprob": -5.597402095794678
+        }
+      ]
+    },
+    {
+      "id": 2235,
+      "token": " old",
+      "bytes": [
+        32,
+        111,
+        108,
+        100
+      ],
+      "logprob": -2.4194841384887695,
+      "top_logprobs": [
+        {
+          "id": 2235,
+          "token": " old",
+          "bytes": [
+            32,
+            111,
+            108,
+            100
+          ],
+          "logprob": -2.4194841384887695
+        },
+        {
+          "id": 32469,
+          "token": " valley",
+          "bytes": [
+            32,
+            118,
+            97,
+            108,
+            108,
+            101,
+            121
+          ],
+          "logprob": -3.0027074813842773
+        },
+        {
+          "id": 6353,
+          "token": " morning",
+          "bytes": [
+            32,
+            109,
+            111,
+            114,
+            110,
+            105,
+            110,
+            103
+          ],
+          "logprob": -3.0652341842651367
+        },
+        {
+          "id": 13437,
+          "token": " ancient",
+          "bytes": [
+            32,
+            97,
+            110,
+            99,
+            105,
+            101,
+            110,
+            116
+          ],
+          "logprob": -3.29042911529541
+        },
+        {
+          "id": 6797,
+          "token": " sun",
+          "bytes": [
+            32,
+            115,
+            117,
+            110
+          ],
+          "logprob": -3.73907470703125
+        },
+        {
+          "id": 12515,
+          "token": " sky",
+          "bytes": [
+            32,
+            115,
+            107,
+            121
+          ],
+          "logprob": -3.804131507873535
+        },
+        {
+          "id": 9662,
+          "token": " wind",
+          "bytes": [
+            32,
+            119,
+            105,
+            110,
+            100
+          ],
+          "logprob": -3.883930206298828
+        },
+        {
+          "id": 3594,
+          "token": " air",
+          "bytes": [
+            32,
+            97,
+            105,
+            114
+          ],
+          "logprob": -3.8937129974365234
+        },
+        {
+          "id": 17257,
+          "token": " moon",
+          "bytes": [
+            32,
+            109,
+            111,
+            111,
+            110
+          ],
+          "logprob": -3.908999443054199
+        },
+        {
+          "id": 728,
+          "token": " me",
+          "bytes": [
+            32,
+            109,
+            101
+          ],
+          "logprob": -4.19879150390625
+        },
+        {
+          "id": 14367,
+          "token": " river",
+          "bytes": [
+            32,
+            114,
+            105,
+            118,
+            101,
+            114
+          ],
+          "logprob": -4.3255205154418945
+        },
+        {
+          "id": 14527,
+          "token": " silver",
+          "bytes": [
+            32,
+            115,
+            105,
+            108,
+            118,
+            101,
+            114
+          ],
+          "logprob": -4.352081298828125
+        },
+        {
+          "id": 1118,
+          "token": " first",
+          "bytes": [
+            32,
+            102,
+            105,
+            114,
+            115,
+            116
+          ],
+          "logprob": -4.457736015319824
+        },
+        {
+          "id": 9158,
+          "token": " cloud",
+          "bytes": [
+            32,
+            99,
+            108,
+            111,
+            117,
+            100
+          ],
+          "logprob": -4.666130065917969
+        },
+        {
+          "id": 2614,
+          "token": " following",
+          "bytes": [
+            32,
+            102,
+            111,
+            108,
+            108,
+            111,
+            119,
+            105,
+            110,
+            103
+          ],
+          "logprob": -4.697699546813965
+        },
+        {
+          "id": 13245,
+          "token": " forest",
+          "bytes": [
+            32,
+            102,
+            111,
+            114,
+            101,
+            115,
+            116
+          ],
+          "logprob": -4.708571434020996
+        },
+        {
+          "id": 2545,
+          "token": " little",
+          "bytes": [
+            32,
+            108,
+            105,
+            116,
+            116,
+            108,
+            101
+          ],
+          "logprob": -4.7104339599609375
+        },
+        {
+          "id": 11012,
+          "token": " quiet",
+          "bytes": [
+            32,
+            113,
+            117,
+            105,
+            101,
+            116
+          ],
+          "logprob": -4.722158432006836
+        },
+        {
+          "id": 1483,
+          "token": " last",
+          "bytes": [
+            32,
+            108,
+            97,
+            115,
+            116
+          ],
+          "logprob": -4.778593063354492
+        },
+        {
+          "id": 39926,
+          "token": " marble",
+          "bytes": [
+            32,
+            109,
+            97,
+            114,
+            98,
+            108,
+            101
+          ],
+          "logprob": -4.862179756164551
+        }
+      ]
+    },
+    {
+      "id": 855,
+      "token": " man",
+      "bytes": [
+        32,
+        109,
+        97,
+        110
+      ],
+      "logprob": -1.566007137298584,
+      "top_logprobs": [
+        {
+          "id": 855,
+          "token": " man",
+          "bytes": [
+            32,
+            109,
+            97,
+            110
+          ],
+          "logprob": -1.566007137298584
+        },
+        {
+          "id": 324,
+          "token": " l",
+          "bytes": [
+            32,
+            108
+          ],
+          "logprob": -1.9465421438217163
+        },
+        {
+          "id": 8598,
+          "token": " clock",
+          "bytes": [
+            32,
+            99,
+            108,
+            111,
+            99,
+            107
+          ],
+          "logprob": -2.030686855316162
+        },
+        {
+          "id": 36620,
+          "token": " oak",
+          "bytes": [
+            32,
+            111,
+            97,
+            107
+          ],
+          "logprob": -2.236937999725342
+        },
+        {
+          "id": 90956,
+          "token": " librarian",
+          "bytes": [
+            32,
+            108,
+            105,
+            98,
+            114,
+            97,
+            114,
+            105,
+            97,
+            110
+          ],
+          "logprob": -2.363121509552002
+        },
+        {
+          "id": 6522,
+          "token": " library",
+          "bytes": [
+            32,
+            108,
+            105,
+            98,
+            114,
+            97,
+            114,
+            121
+          ],
+          "logprob": -3.3589415550231934
+        },
+        {
+          "id": 2336,
+          "token": " map",
+          "bytes": [
+            32,
+            109,
+            97,
+            112
+          ],
+          "logprob": -3.409726619720459
+        },
+        {
+          "id": 444,
+          "token": " al",
+          "bytes": [
+            32,
+            97,
+            108
+          ],
+          "logprob": -4.606017589569092
+        },
+        {
+          "id": 5054,
+          "token": " woman",
+          "bytes": [
+            32,
+            119,
+            111,
+            109,
+            97,
+            110
+          ],
+          "logprob": -4.705687999725342
+        },
+        {
+          "id": 70676,
+          "token": " lantern",
+          "bytes": [
+            32,
+            108,
+            97,
+            110,
+            116,
+            101,
+            114,
+            110
+          ],
+          "logprob": -4.731823444366455
+        },
+        {
+          "id": 4757,
+          "token": " tree",
+          "bytes": [
+            32,
+            116,
+            114,
+            101,
+            101
+          ],
+          "logprob": -4.900356769561768
+        },
+        {
+          "id": 9506,
+          "token": " stone",
+          "bytes": [
+            32,
+            115,
+            116,
+            111,
+            110,
+            101
+          ],
+          "logprob": -4.964962482452393
+        },
+        {
+          "id": 3609,
+          "token": " watch",
+          "bytes": [
+            32,
+            119,
+            97,
+            116,
+            99,
+            104
+          ],
+          "logprob": -4.999685764312744
+        },
+        {
+          "id": 5977,
+          "token": " inn",
+          "bytes": [
+            32,
+            105,
+            110,
+            110
+          ],
+          "logprob": -5.044937610626221
+        },
+        {
+          "id": 39926,
+          "token": " marble",
+          "bytes": [
+            32,
+            109,
+            97,
+            114,
+            98,
+            108,
+            101
+          ],
+          "logprob": -5.066762447357178
+        },
+        {
+          "id": 21664,
+          "token": " wooden",
+          "bytes": [
+            32,
+            119,
+            111,
+            111,
+            100,
+            101,
+            110
+          ],
+          "logprob": -5.160680294036865
+        },
+        {
+          "id": 21208,
+          "token": " gard",
+          "bytes": [
+            32,
+            103,
+            97,
+            114,
+            100
+          ],
+          "logprob": -5.206752300262451
+        },
+        {
+          "id": 89343,
+          "token": " sailor",
+          "bytes": [
+            32,
+            115,
+            97,
+            105,
+            108,
+            111,
+            114
+          ],
+          "logprob": -5.31203031539917
+        },
+        {
+          "id": 32843,
+          "token": " wizard",
+          "bytes": [
+            32,
+            119,
+            105,
+            122,
+            97,
+            114,
+            100
+          ],
+          "logprob": -5.350736141204834
+        },
+        {
+          "id": 14367,
+          "token": " river",
+          "bytes": [
+            32,
+            114,
+            105,
+            118,
+            101,
+            114
+          ],
+          "logprob": -5.389922618865967
+        }
+      ]
+    },
+    {
+      "id": 7338,
+      "token": " sat",
+      "bytes": [
+        32,
+        115,
+        97,
+        116
+      ],
+      "logprob": -0.43581172823905945,
+      "top_logprobs": [
+        {
+          "id": 7338,
+          "token": " sat",
+          "bytes": [
+            32,
+            115,
+            97,
+            116
+          ],
+          "logprob": -0.43581172823905945
+        },
+        {
+          "id": 725,
+          "token": "\u2019s",
+          "bytes": [
+            226,
+            128,
+            153,
+            115
+          ],
+          "logprob": -2.659961462020874
+        },
+        {
+          "id": 579,
+          "token": "'s",
+          "bytes": [
+            39,
+            115
+          ],
+          "logprob": -2.670917272567749
+        },
+        {
+          "id": 303,
+          "token": " in",
+          "bytes": [
+            32,
+            105,
+            110
+          ],
+          "logprob": -3.3903443813323975
+        },
+        {
+          "id": 14217,
+          "token": " stood",
+          "bytes": [
+            32,
+            115,
+            116,
+            111,
+            111,
+            100
+          ],
+          "logprob": -3.8149478435516357
+        },
+        {
+          "id": 11,
+          "token": ",",
+          "bytes": [
+            44
+          ],
+          "logprob": -4.0110087394714355
+        },
+        {
+          "id": 440,
+          "token": " with",
+          "bytes": [
+            32,
+            119,
+            105,
+            116,
+            104
+          ],
+          "logprob": -4.584107875823975
+        },
+        {
+          "id": 14428,
+          "token": " walked",
+          "bytes": [
+            32,
+            119,
+            97,
+            108,
+            107,
+            101,
+            100
+          ],
+          "logprob": -4.61126184463501
+        },
+        {
+          "id": 995,
+          "token": " had",
+          "bytes": [
+            32,
+            104,
+            97,
+            100
+          ],
+          "logprob": -4.895491600036621
+        },
+        {
+          "id": 52995,
+          "token": " leaned",
+          "bytes": [
+            32,
+            108,
+            101,
+            97,
+            110,
+            101,
+            100
+          ],
+          "logprob": -4.9787092208862305
+        },
+        {
+          "id": 1111,
+          "token": " kn",
+          "bytes": [
+            32,
+            107,
+            110
+          ],
+          "logprob": -5.256711959838867
+        },
+        {
+          "id": 6749,
+          "token": " looked",
+          "bytes": [
+            32,
+            108,
+            111,
+            111,
+            107,
+            101,
+            100
+          ],
+          "logprob": -5.413448810577393
+        },
+        {
+          "id": 14936,
+          "token": " watched",
+          "bytes": [
+            32,
+            119,
+            97,
+            116,
+            99,
+            104,
+            101,
+            100
+          ],
+          "logprob": -5.457664966583252
+        },
+        {
+          "id": 42578,
+          "token": " stared",
+          "bytes": [
+            32,
+            115,
+            116,
+            97,
+            114,
+            101,
+            100
+          ],
+          "logprob": -5.773402214050293
+        },
+        {
+          "id": 51037,
+          "token": " sighed",
+          "bytes": [
+            32,
+            115,
+            105,
+            103,
+            104,
+            101,
+            100
+          ],
+          "logprob": -5.974983215332031
+        },
+        {
+          "id": 22643,
+          "token": " adjusted",
+          "bytes": [
+            32,
+            97,
+            100,
+            106,
+            117,
+            115,
+            116,
+            101,
+            100
+          ],
+          "logprob": -5.992992401123047
+        },
+        {
+          "id": 7910,
+          "token": " squ",
+          "bytes": [
+            32,
+            115,
+            113,
+            117
+          ],
+          "logprob": -6.03450345993042
+        },
+        {
+          "id": 72293,
+          "token": " stirred",
+          "bytes": [
+            32,
+            115,
+            116,
+            105,
+            114,
+            114,
+            101,
+            100
+          ],
+          "logprob": -6.063224792480469
+        },
+        {
+          "id": 29547,
+          "token": " smiled",
+          "bytes": [
+            32,
+            115,
+            109,
+            105,
+            108,
+            101,
+            100
+          ],
+          "logprob": -6.063968658447266
+        },
+        {
+          "id": 23562,
+          "token": " stepped",
+          "bytes": [
+            32,
+            115,
+            116,
+            101,
+            112,
+            112,
+            101,
+            100
+          ],
+          "logprob": -6.0844807624816895
+        }
+      ]
+    },
+    {
+      "id": 539,
+      "token": " by",
+      "bytes": [
+        32,
+        98,
+        121
+      ],
+      "logprob": -0.7938793301582336,
+      "top_logprobs": [
+        {
+          "id": 539,
+          "token": " by",
+          "bytes": [
+            32,
+            98,
+            121
+          ],
+          "logprob": -0.7938793301582336
+        },
+        {
+          "id": 383,
+          "token": " on",
+          "bytes": [
+            32,
+            111,
+            110
+          ],
+          "logprob": -1.265267252922058
+        },
+        {
+          "id": 303,
+          "token": " in",
+          "bytes": [
+            32,
+            105,
+            110
+          ],
+          "logprob": -1.606215238571167
+        },
+        {
+          "id": 23221,
+          "token": " beneath",
+          "bytes": [
+            32,
+            98,
+            101,
+            110,
+            101,
+            97,
+            116,
+            104
+          ],
+          "logprob": -3.402888298034668
+        },
+        {
+          "id": 7249,
+          "token": " alone",
+          "bytes": [
+            32,
+            97,
+            108,
+            111,
+            110,
+            101
+          ],
+          "logprob": -4.749201774597168
+        },
+        {
+          "id": 506,
+          "token": " at",
+          "bytes": [
+            32,
+            97,
+            116
+          ],
+          "logprob": -5.1901044845581055
+        },
+        {
+          "id": 28599,
+          "token": " quietly",
+          "bytes": [
+            32,
+            113,
+            117,
+            105,
+            101,
+            116,
+            108,
+            121
+          ],
+          "logprob": -5.441298484802246
+        },
+        {
+          "id": 5028,
+          "token": " upon",
+          "bytes": [
+            32,
+            117,
+            112,
+            111,
+            110
+          ],
+          "logprob": -6.002388954162598
+        },
+        {
+          "id": 1172,
+          "token": " under",
+          "bytes": [
+            32,
+            117,
+            110,
+            100,
+            101,
+            114
+          ],
+          "logprob": -6.012612342834473
+        },
+        {
+          "id": 28428,
+          "token": " beside",
+          "bytes": [
+            32,
+            98,
+            101,
+            115,
+            105,
+            100,
+            101
+          ],
+          "logprob": -7.104238510131836
+        },
+        {
+          "id": 304,
+          "token": " h",
+          "bytes": [
+            32,
+            104
+          ],
+          "logprob": -7.10746955871582
+        },
+        {
+          "id": 47733,
+          "token": " silently",
+          "bytes": [
+            32,
+            115,
+            105,
+            108,
+            101,
+            110,
+            116,
+            108,
+            121
+          ],
+          "logprob": -7.164546012878418
+        },
+        {
+          "id": 1678,
+          "token": " sl",
+          "bytes": [
+            32,
+            115,
+            108
+          ],
+          "logprob": -7.525201797485352
+        },
+        {
+          "id": 440,
+          "token": " with",
+          "bytes": [
+            32,
+            119,
+            105,
+            116,
+            104
+          ],
+          "logprob": -7.565215110778809
+        },
+        {
+          "id": 791,
+          "token": " per",
+          "bytes": [
+            32,
+            112,
+            101,
+            114
+          ],
+          "logprob": -7.624753952026367
+        },
+        {
+          "id": 11051,
+          "token": " motion",
+          "bytes": [
+            32,
+            109,
+            111,
+            116,
+            105,
+            111,
+            110
+          ],
+          "logprob": -7.866564750671387
+        },
+        {
+          "id": 1518,
+          "token": " before",
+          "bytes": [
+            32,
+            98,
+            101,
+            102,
+            111,
+            114,
+            101
+          ],
+          "logprob": -8.038105010986328
+        },
+        {
+          "id": 364,
+          "token": " for",
+          "bytes": [
+            32,
+            102,
+            111,
+            114
+          ],
+          "logprob": -8.322035789489746
+        },
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -8.366679191589355
+        },
+        {
+          "id": 11,
+          "token": ",",
+          "bytes": [
+            44
+          ],
+          "logprob": -8.539658546447754
+        }
+      ]
+    },
+    {
+      "id": 279,
+      "token": " the",
+      "bytes": [
+        32,
+        116,
+        104,
+        101
+      ],
+      "logprob": -0.0028448000084608793,
+      "top_logprobs": [
+        {
+          "id": 279,
+          "token": " the",
+          "bytes": [
+            32,
+            116,
+            104,
+            101
+          ],
+          "logprob": -0.0028448000084608793
+        },
+        {
+          "id": 780,
+          "token": " his",
+          "bytes": [
+            32,
+            104,
+            105,
+            115
+          ],
+          "logprob": -5.909173011779785
+        },
+        {
+          "id": 264,
+          "token": " a",
+          "bytes": [
+            32,
+            97
+          ],
+          "logprob": -10.547085762023926
+        },
+        {
+          "id": 3136,
+          "token": " window",
+          "bytes": [
+            32,
+            119,
+            105,
+            110,
+            100,
+            111,
+            119
+          ],
+          "logprob": -10.630753517150879
+        },
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -10.767182350158691
+        },
+        {
+          "id": 271,
+          "token": "\n\n",
+          "bytes": [
+            10,
+            10
+          ],
+          "logprob": -11.136638641357422
+        },
+        {
+          "id": 3807,
+          "token": " fire",
+          "bytes": [
+            32,
+            102,
+            105,
+            114,
+            101
+          ],
+          "logprob": -11.805583000183105
+        },
+        {
+          "id": 14367,
+          "token": " river",
+          "bytes": [
+            32,
+            114,
+            105,
+            118,
+            101,
+            114
+          ],
+          "logprob": -12.729585647583008
+        },
+        {
+          "id": 821,
+          "token": " my",
+          "bytes": [
+            32,
+            109,
+            121
+          ],
+          "logprob": -12.738173484802246
+        },
+        {
+          "id": 248046,
+          "token": "",
+          "bytes": [],
+          "logprob": -12.813834190368652
+        },
+        {
+          "id": 220,
+          "token": " ",
+          "bytes": [
+            32
+          ],
+          "logprob": -13.260358810424805
+        },
+        {
+          "id": 449,
+          "token": " an",
+          "bytes": [
+            32,
+            97,
+            110
+          ],
+          "logprob": -13.417484283447266
+        },
+        {
+          "id": 1024,
+          "token": " her",
+          "bytes": [
+            32,
+            104,
+            101,
+            114
+          ],
+          "logprob": -13.485860824584961
+        },
+        {
+          "id": 411,
+          "token": " this",
+          "bytes": [
+            32,
+            116,
+            104,
+            105,
+            115
+          ],
+          "logprob": -13.5240478515625
+        },
+        {
+          "id": 1719,
+          "token": "the",
+          "bytes": [
+            116,
+            104,
+            101
+          ],
+          "logprob": -13.742862701416016
+        },
+        {
+          "id": 421,
+          "token": " that",
+          "bytes": [
+            32,
+            116,
+            104,
+            97,
+            116
+          ],
+          "logprob": -13.8552885055542
+        },
+        {
+          "id": 1076,
+          "token": "...",
+          "bytes": [
+            46,
+            46,
+            46
+          ],
+          "logprob": -13.94111156463623
+        },
+        {
+          "id": 728,
+          "token": " me",
+          "bytes": [
+            32,
+            109,
+            101
+          ],
+          "logprob": -14.033122062683105
+        },
+        {
+          "id": 1092,
+          "token": " what",
+          "bytes": [
+            32,
+            119,
+            104,
+            97,
+            116
+          ],
+          "logprob": -14.065958976745605
+        },
+        {
+          "id": 1141,
+          "token": " its",
+          "bytes": [
+            32,
+            105,
+            116,
+            115
+          ],
+          "logprob": -14.083991050720215
+        }
+      ]
+    },
+    {
+      "id": 3136,
+      "token": " window",
+      "bytes": [
+        32,
+        119,
+        105,
+        110,
+        100,
+        111,
+        119
+      ],
+      "logprob": -0.16888533532619476,
+      "top_logprobs": [
+        {
+          "id": 3136,
+          "token": " window",
+          "bytes": [
+            32,
+            119,
+            105,
+            110,
+            100,
+            111,
+            119
+          ],
+          "logprob": -0.16888533532619476
+        },
+        {
+          "id": 14367,
+          "token": " river",
+          "bytes": [
+            32,
+            114,
+            105,
+            118,
+            101,
+            114
+          ],
+          "logprob": -2.258042573928833
+        },
+        {
+          "id": 3807,
+          "token": " fire",
+          "bytes": [
+            32,
+            102,
+            105,
+            114,
+            101
+          ],
+          "logprob": -3.3871965408325195
+        },
+        {
+          "id": 11012,
+          "token": " quiet",
+          "bytes": [
+            32,
+            113,
+            117,
+            105,
+            101,
+            116
+          ],
+          "logprob": -6.026057243347168
+        },
+        {
+          "id": 2972,
+          "token": " **",
+          "bytes": [
+            32,
+            42,
+            42
+          ],
+          "logprob": -6.835084915161133
+        },
+        {
+          "id": 728,
+          "token": " me",
+          "bytes": [
+            32,
+            109,
+            101
+          ],
+          "logprob": -7.03010368347168
+        },
+        {
+          "id": 38106,
+          "token": " fireplace",
+          "bytes": [
+            32,
+            102,
+            105,
+            114,
+            101,
+            112,
+            108,
+            97,
+            99,
+            101
+          ],
+          "logprob": -7.153363227844238
+        },
+        {
+          "id": 21128,
+          "token": " lake",
+          "bytes": [
+            32,
+            108,
+            97,
+            107,
+            101
+          ],
+          "logprob": -7.248538017272949
+        },
+        {
+          "id": 6512,
+          "token": " hear",
+          "bytes": [
+            32,
+            104,
+            101,
+            97,
+            114
+          ],
+          "logprob": -7.695148468017578
+        },
+        {
+          "id": 36549,
+          "token": " candle",
+          "bytes": [
+            32,
+            99,
+            97,
+            110,
+            100,
+            108,
+            101
+          ],
+          "logprob": -7.75393009185791
+        },
+        {
+          "id": 20413,
+          "token": " silent",
+          "bytes": [
+            32,
+            115,
+            105,
+            108,
+            101,
+            110,
+            116
+          ],
+          "logprob": -7.909528732299805
+        },
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -7.92083740234375
+        },
+        {
+          "id": 41423,
+          "token": " cracked",
+          "bytes": [
+            32,
+            99,
+            114,
+            97,
+            99,
+            107,
+            101,
+            100
+          ],
+          "logprob": -7.922398567199707
+        },
+        {
+          "id": 1990,
+          "token": " still",
+          "bytes": [
+            32,
+            115,
+            116,
+            105,
+            108,
+            108
+          ],
+          "logprob": -7.970668792724609
+        },
+        {
+          "id": 32469,
+          "token": " valley",
+          "bytes": [
+            32,
+            118,
+            97,
+            108,
+            108,
+            101,
+            121
+          ],
+          "logprob": -8.136358261108398
+        },
+        {
+          "id": 10708,
+          "token": " windows",
+          "bytes": [
+            32,
+            119,
+            105,
+            110,
+            100,
+            111,
+            119,
+            115
+          ],
+          "logprob": -8.17064094543457
+        },
+        {
+          "id": 1724,
+          "token": " open",
+          "bytes": [
+            32,
+            111,
+            112,
+            101,
+            110
+          ],
+          "logprob": -8.175439834594727
+        },
+        {
+          "id": 17312,
+          "token": " mirror",
+          "bytes": [
+            32,
+            109,
+            105,
+            114,
+            114,
+            111,
+            114
+          ],
+          "logprob": -8.196179389953613
+        },
+        {
+          "id": 16966,
+          "token": " crack",
+          "bytes": [
+            32,
+            99,
+            114,
+            97,
+            99,
+            107
+          ],
+          "logprob": -8.27967643737793
+        },
+        {
+          "id": 74245,
+          "token": " dusty",
+          "bytes": [
+            32,
+            100,
+            117,
+            115,
+            116,
+            121
+          ],
+          "logprob": -8.410523414611816
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "token": ",",
+      "bytes": [
+        44
+      ],
+      "logprob": -0.004254557657986879,
+      "top_logprobs": [
+        {
+          "id": 11,
+          "token": ",",
+          "bytes": [
+            44
+          ],
+          "logprob": -0.004254557657986879
+        },
+        {
+          "id": 314,
+          "token": " of",
+          "bytes": [
+            32,
+            111,
+            102
+          ],
+          "logprob": -6.626114845275879
+        },
+        {
+          "id": 13,
+          "token": ".",
+          "bytes": [
+            46
+          ],
+          "logprob": -6.738644599914551
+        },
+        {
+          "id": 430,
+          "token": " as",
+          "bytes": [
+            32,
+            97,
+            115
+          ],
+          "logprob": -8.271590232849121
+        },
+        {
+          "id": 9799,
+          "token": " watching",
+          "bytes": [
+            32,
+            119,
+            97,
+            116,
+            99,
+            104,
+            105,
+            110,
+            103
+          ],
+          "logprob": -8.37596321105957
+        },
+        {
+          "id": 321,
+          "token": " and",
+          "bytes": [
+            32,
+            97,
+            110,
+            100
+          ],
+          "logprob": -8.60406494140625
+        },
+        {
+          "id": 303,
+          "token": " in",
+          "bytes": [
+            32,
+            105,
+            110
+          ],
+          "logprob": -8.760156631469727
+        },
+        {
+          "id": 440,
+          "token": " with",
+          "bytes": [
+            32,
+            119,
+            105,
+            116,
+            104
+          ],
+          "logprob": -8.847330093383789
+        },
+        {
+          "id": 383,
+          "token": " on",
+          "bytes": [
+            32,
+            111,
+            110
+          ],
+          "logprob": -9.270319938659668
+        },
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -9.59207820892334
+        },
+        {
+          "id": 271,
+          "token": "\n\n",
+          "bytes": [
+            10,
+            10
+          ],
+          "logprob": -9.920254707336426
+        },
+        {
+          "id": 50471,
+          "token": " overlooking",
+          "bytes": [
+            32,
+            111,
+            118,
+            101,
+            114,
+            108,
+            111,
+            111,
+            107,
+            105,
+            110,
+            103
+          ],
+          "logprob": -9.943293571472168
+        },
+        {
+          "id": 1332,
+          "token": " where",
+          "bytes": [
+            32,
+            119,
+            104,
+            101,
+            114,
+            101
+          ],
+          "logprob": -9.983441352844238
+        },
+        {
+          "id": 248046,
+          "token": "",
+          "bytes": [],
+          "logprob": -10.008347511291504
+        },
+        {
+          "id": 421,
+          "token": " that",
+          "bytes": [
+            32,
+            116,
+            104,
+            97,
+            116
+          ],
+          "logprob": -10.601491928100586
+        },
+        {
+          "id": 1076,
+          "token": "...",
+          "bytes": [
+            46,
+            46,
+            46
+          ],
+          "logprob": -10.605530738830566
+        },
+        {
+          "id": 364,
+          "token": " for",
+          "bytes": [
+            32,
+            102,
+            111,
+            114
+          ],
+          "logprob": -10.620994567871094
+        },
+        {
+          "id": 3221,
+          "token": " looking",
+          "bytes": [
+            32,
+            108,
+            111,
+            111,
+            107,
+            105,
+            110,
+            103
+          ],
+          "logprob": -10.687261581420898
+        },
+        {
+          "id": 506,
+          "token": " at",
+          "bytes": [
+            32,
+            97,
+            116
+          ],
+          "logprob": -10.830986976623535
+        },
+        {
+          "id": 26,
+          "token": ";",
+          "bytes": [
+            59
+          ],
+          "logprob": -10.873416900634766
+        }
+      ]
+    },
+    {
+      "id": 9799,
+      "token": " watching",
+      "bytes": [
+        32,
+        119,
+        97,
+        116,
+        99,
+        104,
+        105,
+        110,
+        103
+      ],
+      "logprob": -0.28618720173835754,
+      "top_logprobs": [
+        {
+          "id": 9799,
+          "token": " watching",
+          "bytes": [
+            32,
+            119,
+            97,
+            116,
+            99,
+            104,
+            105,
+            110,
+            103
+          ],
+          "logprob": -0.28618720173835754
+        },
+        {
+          "id": 780,
+          "token": " his",
+          "bytes": [
+            32,
+            104,
+            105,
+            115
+          ],
+          "logprob": -1.5125207901000977
+        },
+        {
+          "id": 35556,
+          "token": " staring",
+          "bytes": [
+            32,
+            115,
+            116,
+            97,
+            114,
+            105,
+            110,
+            103
+          ],
+          "logprob": -4.541939735412598
+        },
+        {
+          "id": 279,
+          "token": " the",
+          "bytes": [
+            32,
+            116,
+            104,
+            101
+          ],
+          "logprob": -4.879189491271973
+        },
+        {
+          "id": 338,
+          "token": " g",
+          "bytes": [
+            32,
+            103
+          ],
+          "logprob": -5.627617835998535
+        },
+        {
+          "id": 3221,
+          "token": " looking",
+          "bytes": [
+            32,
+            108,
+            111,
+            111,
+            107,
+            105,
+            110,
+            103
+          ],
+          "logprob": -6.487032890319824
+        },
+        {
+          "id": 264,
+          "token": " a",
+          "bytes": [
+            32,
+            97
+          ],
+          "logprob": -7.015643119812012
+        },
+        {
+          "id": 43900,
+          "token": " tracing",
+          "bytes": [
+            32,
+            116,
+            114,
+            97,
+            99,
+            105,
+            110,
+            103
+          ],
+          "logprob": -7.5773515701293945
+        },
+        {
+          "id": 13879,
+          "token": " listening",
+          "bytes": [
+            32,
+            108,
+            105,
+            115,
+            116,
+            101,
+            110,
+            105,
+            110,
+            103
+          ],
+          "logprob": -7.805324554443359
+        },
+        {
+          "id": 1141,
+          "token": " its",
+          "bytes": [
+            32,
+            105,
+            116,
+            115
+          ],
+          "logprob": -7.967867851257324
+        },
+        {
+          "id": 41274,
+          "token": " clutch",
+          "bytes": [
+            32,
+            99,
+            108,
+            117,
+            116,
+            99,
+            104
+          ],
+          "logprob": -8.25019359588623
+        },
+        {
+          "id": 1332,
+          "token": " where",
+          "bytes": [
+            32,
+            119,
+            104,
+            101,
+            114,
+            101
+          ],
+          "logprob": -8.3566255569458
+        },
+        {
+          "id": 274,
+          "token": " s",
+          "bytes": [
+            32,
+            115
+          ],
+          "logprob": -8.442767143249512
+        },
+        {
+          "id": 9668,
+          "token": " holding",
+          "bytes": [
+            32,
+            104,
+            111,
+            108,
+            100,
+            105,
+            110,
+            103
+          ],
+          "logprob": -8.69542407989502
+        },
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -8.899728775024414
+        },
+        {
+          "id": 1016,
+          "token": " pe",
+          "bytes": [
+            32,
+            112,
+            101
+          ],
+          "logprob": -9.07983112335205
+        },
+        {
+          "id": 1505,
+          "token": " cr",
+          "bytes": [
+            32,
+            99,
+            114
+          ],
+          "logprob": -9.11811637878418
+        },
+        {
+          "id": 43471,
+          "token": " observing",
+          "bytes": [
+            32,
+            111,
+            98,
+            115,
+            101,
+            114,
+            118,
+            105,
+            110,
+            103
+          ],
+          "logprob": -9.223902702331543
+        },
+        {
+          "id": 18880,
+          "token": " wrapped",
+          "bytes": [
+            32,
+            119,
+            114,
+            97,
+            112,
+            112,
+            101,
+            100
+          ],
+          "logprob": -9.271806716918945
+        },
+        {
+          "id": 3609,
+          "token": " watch",
+          "bytes": [
+            32,
+            119,
+            97,
+            116,
+            99,
+            104
+          ],
+          "logprob": -9.373244285583496
+        }
+      ]
+    },
+    {
+      "id": 279,
+      "token": " the",
+      "bytes": [
+        32,
+        116,
+        104,
+        101
+      ],
+      "logprob": -0.0004000868066214025,
+      "top_logprobs": [
+        {
+          "id": 279,
+          "token": " the",
+          "bytes": [
+            32,
+            116,
+            104,
+            101
+          ],
+          "logprob": -0.0004000868066214025
+        },
+        {
+          "id": 10849,
+          "token": " rain",
+          "bytes": [
+            32,
+            114,
+            97,
+            105,
+            110
+          ],
+          "logprob": -8.310840606689453
+        },
+        {
+          "id": 430,
+          "token": " as",
+          "bytes": [
+            32,
+            97,
+            115
+          ],
+          "logprob": -9.97737979888916
+        },
+        {
+          "id": 264,
+          "token": " a",
+          "bytes": [
+            32,
+            97
+          ],
+          "logprob": -10.042765617370605
+        },
+        {
+          "id": 28552,
+          "token": " clouds",
+          "bytes": [
+            32,
+            99,
+            108,
+            111,
+            117,
+            100,
+            115
+          ],
+          "logprob": -11.400490760803223
+        },
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -11.765928268432617
+        },
+        {
+          "id": 780,
+          "token": " his",
+          "bytes": [
+            32,
+            104,
+            105,
+            115
+          ],
+          "logprob": -12.037506103515625
+        },
+        {
+          "id": 271,
+          "token": "\n\n",
+          "bytes": [
+            10,
+            10
+          ],
+          "logprob": -12.199495315551758
+        },
+        {
+          "id": 728,
+          "token": " me",
+          "bytes": [
+            32,
+            109,
+            101
+          ],
+          "logprob": -12.958975791931152
+        },
+        {
+          "id": 11456,
+          "token": " snow",
+          "bytes": [
+            32,
+            115,
+            110,
+            111,
+            119
+          ],
+          "logprob": -12.962824821472168
+        },
+        {
+          "id": 1204,
+          "token": " how",
+          "bytes": [
+            32,
+            104,
+            111,
+            119
+          ],
+          "logprob": -12.973724365234375
+        },
+        {
+          "id": 561,
+          "token": " The",
+          "bytes": [
+            32,
+            84,
+            104,
+            101
+          ],
+          "logprob": -13.21065616607666
+        },
+        {
+          "id": 220,
+          "token": " ",
+          "bytes": [
+            32
+          ],
+          "logprob": -13.252047538757324
+        },
+        {
+          "id": 248046,
+          "token": "",
+          "bytes": [],
+          "logprob": -13.36857795715332
+        },
+        {
+          "id": 9467,
+          "token": " stars",
+          "bytes": [
+            32,
+            115,
+            116,
+            97,
+            114,
+            115
+          ],
+          "logprob": -13.412131309509277
+        },
+        {
+          "id": 20413,
+          "token": " silent",
+          "bytes": [
+            32,
+            115,
+            105,
+            108,
+            101,
+            110,
+            116
+          ],
+          "logprob": -13.502253532409668
+        },
+        {
+          "id": 13,
+          "token": ".",
+          "bytes": [
+            46
+          ],
+          "logprob": -13.543235778808594
+        },
+        {
+          "id": 35622,
+          "token": " thunder",
+          "bytes": [
+            32,
+            116,
+            104,
+            117,
+            110,
+            100,
+            101,
+            114
+          ],
+          "logprob": -13.663470268249512
+        },
+        {
+          "id": 27786,
+          "token": " distant",
+          "bytes": [
+            32,
+            100,
+            105,
+            115,
+            116,
+            97,
+            110,
+            116
+          ],
+          "logprob": -13.755702018737793
+        },
+        {
+          "id": 33367,
+          "token": " shadows",
+          "bytes": [
+            32,
+            115,
+            104,
+            97,
+            100,
+            111,
+            119,
+            115
+          ],
+          "logprob": -14.09505844116211
+        }
+      ]
+    },
+    {
+      "id": 10849,
+      "token": " rain",
+      "bytes": [
+        32,
+        114,
+        97,
+        105,
+        110
+      ],
+      "logprob": -0.31600457429885864,
+      "top_logprobs": [
+        {
+          "id": 10849,
+          "token": " rain",
+          "bytes": [
+            32,
+            114,
+            97,
+            105,
+            110
+          ],
+          "logprob": -0.31600457429885864
+        },
+        {
+          "id": 27786,
+          "token": " distant",
+          "bytes": [
+            32,
+            100,
+            105,
+            115,
+            116,
+            97,
+            110,
+            116
+          ],
+          "logprob": -3.1155803203582764
+        },
+        {
+          "id": 14367,
+          "token": " river",
+          "bytes": [
+            32,
+            114,
+            105,
+            118,
+            101,
+            114
+          ],
+          "logprob": -3.49603533744812
+        },
+        {
+          "id": 20413,
+          "token": " silent",
+          "bytes": [
+            32,
+            115,
+            105,
+            108,
+            101,
+            110,
+            116
+          ],
+          "logprob": -3.9544742107391357
+        },
+        {
+          "id": 2972,
+          "token": " **",
+          "bytes": [
+            32,
+            42,
+            42
+          ],
+          "logprob": -4.079470634460449
+        },
+        {
+          "id": 11012,
+          "token": " quiet",
+          "bytes": [
+            32,
+            113,
+            117,
+            105,
+            101,
+            116
+          ],
+          "logprob": -4.267444610595703
+        },
+        {
+          "id": 6353,
+          "token": " morning",
+          "bytes": [
+            32,
+            109,
+            111,
+            114,
+            110,
+            105,
+            110,
+            103
+          ],
+          "logprob": -4.501248359680176
+        },
+        {
+          "id": 11456,
+          "token": " snow",
+          "bytes": [
+            32,
+            115,
+            110,
+            111,
+            119
+          ],
+          "logprob": -4.713881492614746
+        },
+        {
+          "id": 728,
+          "token": " me",
+          "bytes": [
+            32,
+            109,
+            101
+          ],
+          "logprob": -4.774300575256348
+        },
+        {
+          "id": 14527,
+          "token": " silver",
+          "bytes": [
+            32,
+            115,
+            105,
+            108,
+            118,
+            101,
+            114
+          ],
+          "logprob": -4.814635276794434
+        },
+        {
+          "id": 3000,
+          "token": " light",
+          "bytes": [
+            32,
+            108,
+            105,
+            103,
+            104,
+            116
+          ],
+          "logprob": -4.866580963134766
+        },
+        {
+          "id": 6103,
+          "token": " slow",
+          "bytes": [
+            32,
+            115,
+            108,
+            111,
+            119
+          ],
+          "logprob": -4.978421211242676
+        },
+        {
+          "id": 17257,
+          "token": " moon",
+          "bytes": [
+            32,
+            109,
+            111,
+            111,
+            110
+          ],
+          "logprob": -4.985220909118652
+        },
+        {
+          "id": 28552,
+          "token": " clouds",
+          "bytes": [
+            32,
+            99,
+            108,
+            111,
+            117,
+            100,
+            115
+          ],
+          "logprob": -5.111919403076172
+        },
+        {
+          "id": 6797,
+          "token": " sun",
+          "bytes": [
+            32,
+            115,
+            117,
+            110
+          ],
+          "logprob": -5.461592197418213
+        },
+        {
+          "id": 40297,
+          "token": " autumn",
+          "bytes": [
+            32,
+            97,
+            117,
+            116,
+            117,
+            109,
+            110
+          ],
+          "logprob": -5.767614841461182
+        },
+        {
+          "id": 21030,
+          "token": " gentle",
+          "bytes": [
+            32,
+            103,
+            101,
+            110,
+            116,
+            108,
+            101
+          ],
+          "logprob": -5.772468566894531
+        },
+        {
+          "id": 6561,
+          "token": " star",
+          "bytes": [
+            32,
+            115,
+            116,
+            97,
+            114
+          ],
+          "logprob": -5.792266368865967
+        },
+        {
+          "id": 13071,
+          "token": " storm",
+          "bytes": [
+            32,
+            115,
+            116,
+            111,
+            114,
+            109
+          ],
+          "logprob": -5.879319190979004
+        },
+        {
+          "id": 32469,
+          "token": " valley",
+          "bytes": [
+            32,
+            118,
+            97,
+            108,
+            108,
+            101,
+            121
+          ],
+          "logprob": -5.929163932800293
+        }
+      ]
+    },
+    {
+      "id": 4255,
+      "token": " fall",
+      "bytes": [
+        32,
+        102,
+        97,
+        108,
+        108
+      ],
+      "logprob": -0.5528649091720581,
+      "top_logprobs": [
+        {
+          "id": 4255,
+          "token": " fall",
+          "bytes": [
+            32,
+            102,
+            97,
+            108,
+            108
+          ],
+          "logprob": -0.5528649091720581
+        },
+        {
+          "id": 28259,
+          "token": " streak",
+          "bytes": [
+            32,
+            115,
+            116,
+            114,
+            101,
+            97,
+            107
+          ],
+          "logprob": -1.8130024671554565
+        },
+        {
+          "id": 13,
+          "token": ".",
+          "bytes": [
+            46
+          ],
+          "logprob": -2.038201332092285
+        },
+        {
+          "id": 14549,
+          "token": " slide",
+          "bytes": [
+            32,
+            115,
+            108,
+            105,
+            100,
+            101
+          ],
+          "logprob": -3.452328681945801
+        },
+        {
+          "id": 88823,
+          "token": " patter",
+          "bytes": [
+            32,
+            112,
+            97,
+            116,
+            116,
+            101,
+            114
+          ],
+          "logprob": -4.111074447631836
+        },
+        {
+          "id": 27583,
+          "token": " blur",
+          "bytes": [
+            32,
+            98,
+            108,
+            117,
+            114
+          ],
+          "logprob": -4.215475082397461
+        },
+        {
+          "id": 11319,
+          "token": " trace",
+          "bytes": [
+            32,
+            116,
+            114,
+            97,
+            99,
+            101
+          ],
+          "logprob": -4.407486915588379
+        },
+        {
+          "id": 14795,
+          "token": " tap",
+          "bytes": [
+            32,
+            116,
+            97,
+            112
+          ],
+          "logprob": -4.454377174377441
+        },
+        {
+          "id": 70038,
+          "token": " drip",
+          "bytes": [
+            32,
+            100,
+            114,
+            105,
+            112
+          ],
+          "logprob": -4.821453094482422
+        },
+        {
+          "id": 93986,
+          "token": " trickle",
+          "bytes": [
+            32,
+            116,
+            114,
+            105,
+            99,
+            107,
+            108,
+            101
+          ],
+          "logprob": -4.99934196472168
+        },
+        {
+          "id": 22472,
+          "token": " drum",
+          "bytes": [
+            32,
+            100,
+            114,
+            117,
+            109
+          ],
+          "logprob": -6.081988334655762
+        },
+        {
+          "id": 20485,
+          "token": " slip",
+          "bytes": [
+            32,
+            115,
+            108,
+            105,
+            112
+          ],
+          "logprob": -6.245942115783691
+        },
+        {
+          "id": 5215,
+          "token": " pattern",
+          "bytes": [
+            32,
+            112,
+            97,
+            116,
+            116,
+            101,
+            114,
+            110
+          ],
+          "logprob": -6.317030906677246
+        },
+        {
+          "id": 4755,
+          "token": " pour",
+          "bytes": [
+            32,
+            112,
+            111,
+            117,
+            114
+          ],
+          "logprob": -6.3865966796875
+        },
+        {
+          "id": 32524,
+          "token": " drift",
+          "bytes": [
+            32,
+            100,
+            114,
+            105,
+            102,
+            116
+          ],
+          "logprob": -6.495761871337891
+        },
+        {
+          "id": 87398,
+          "token": "drops",
+          "bytes": [
+            100,
+            114,
+            111,
+            112,
+            115
+          ],
+          "logprob": -6.533295631408691
+        },
+        {
+          "id": 9103,
+          "token": " beat",
+          "bytes": [
+            32,
+            98,
+            101,
+            97,
+            116
+          ],
+          "logprob": -7.090958595275879
+        },
+        {
+          "id": 5758,
+          "token": " drop",
+          "bytes": [
+            32,
+            100,
+            114,
+            111,
+            112
+          ],
+          "logprob": -7.170999526977539
+        },
+        {
+          "id": 33486,
+          "token": " splash",
+          "bytes": [
+            32,
+            115,
+            112,
+            108,
+            97,
+            115,
+            104
+          ],
+          "logprob": -7.240159034729004
+        },
+        {
+          "id": 58646,
+          "token": " soak",
+          "bytes": [
+            32,
+            115,
+            111,
+            97,
+            107
+          ],
+          "logprob": -7.290068626403809
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "token": ".",
+      "bytes": [
+        46
+      ],
+      "logprob": -1.1905348300933838,
+      "top_logprobs": [
+        {
+          "id": 13,
+          "token": ".",
+          "bytes": [
+            46
+          ],
+          "logprob": -1.1905348300933838
+        },
+        {
+          "id": 383,
+          "token": " on",
+          "bytes": [
+            32,
+            111,
+            110
+          ],
+          "logprob": -1.2339593172073364
+        },
+        {
+          "id": 2272,
+          "token": " against",
+          "bytes": [
+            32,
+            97,
+            103,
+            97,
+            105,
+            110,
+            115,
+            116
+          ],
+          "logprob": -1.2876055240631104
+        },
+        {
+          "id": 303,
+          "token": " in",
+          "bytes": [
+            32,
+            105,
+            110
+          ],
+          "logprob": -3.117737054824829
+        },
+        {
+          "id": 54166,
+          "token": " softly",
+          "bytes": [
+            32,
+            115,
+            111,
+            102,
+            116,
+            108,
+            121
+          ],
+          "logprob": -3.2615625858306885
+        },
+        {
+          "id": 28314,
+          "token": " gently",
+          "bytes": [
+            32,
+            103,
+            101,
+            110,
+            116,
+            108,
+            121
+          ],
+          "logprob": -3.668438196182251
+        },
+        {
+          "id": 4732,
+          "token": " outside",
+          "bytes": [
+            32,
+            111,
+            117,
+            116,
+            115,
+            105,
+            100,
+            101
+          ],
+          "logprob": -5.269277572631836
+        },
+        {
+          "id": 47733,
+          "token": " silently",
+          "bytes": [
+            32,
+            115,
+            105,
+            108,
+            101,
+            110,
+            116,
+            108,
+            121
+          ],
+          "logprob": -5.518430709838867
+        },
+        {
+          "id": 40584,
+          "token": " steadily",
+          "bytes": [
+            32,
+            115,
+            116,
+            101,
+            97,
+            100,
+            105,
+            108,
+            121
+          ],
+          "logprob": -6.410100936889648
+        },
+        {
+          "id": 28599,
+          "token": " quietly",
+          "bytes": [
+            32,
+            113,
+            117,
+            105,
+            101,
+            116,
+            108,
+            121
+          ],
+          "logprob": -6.415677070617676
+        },
+        {
+          "id": 8366,
+          "token": " onto",
+          "bytes": [
+            32,
+            111,
+            110,
+            116,
+            111
+          ],
+          "logprob": -6.451720237731934
+        },
+        {
+          "id": 1083,
+          "token": " into",
+          "bytes": [
+            32,
+            105,
+            110,
+            116,
+            111
+          ],
+          "logprob": -6.557626724243164
+        },
+        {
+          "id": 1441,
+          "token": " down",
+          "bytes": [
+            32,
+            100,
+            111,
+            119,
+            110
+          ],
+          "logprob": -6.938779830932617
+        },
+        {
+          "id": 11,
+          "token": ",",
+          "bytes": [
+            44
+          ],
+          "logprob": -7.083272933959961
+        },
+        {
+          "id": 321,
+          "token": " and",
+          "bytes": [
+            32,
+            97,
+            110,
+            100
+          ],
+          "logprob": -7.6463623046875
+        },
+        {
+          "id": 1472,
+          "token": " through",
+          "bytes": [
+            32,
+            116,
+            104,
+            114,
+            111,
+            117,
+            103,
+            104
+          ],
+          "logprob": -7.65667724609375
+        },
+        {
+          "id": 13569,
+          "token": " slowly",
+          "bytes": [
+            32,
+            115,
+            108,
+            111,
+            119,
+            108,
+            121
+          ],
+          "logprob": -7.714951515197754
+        },
+        {
+          "id": 1040,
+          "token": " like",
+          "bytes": [
+            32,
+            108,
+            105,
+            107,
+            101
+          ],
+          "logprob": -7.962680816650391
+        },
+        {
+          "id": 888,
+          "token": " over",
+          "bytes": [
+            32,
+            111,
+            118,
+            101,
+            114
+          ],
+          "logprob": -8.374285697937012
+        },
+        {
+          "id": 16421,
+          "token": " heavily",
+          "bytes": [
+            32,
+            104,
+            101,
+            97,
+            118,
+            105,
+            108,
+            121
+          ],
+          "logprob": -8.905437469482422
+        }
+      ]
+    },
+    {
+      "id": 1049,
+      "token": " It",
+      "bytes": [
+        32,
+        73,
+        116
+      ],
+      "logprob": -1.3683068752288818,
+      "top_logprobs": [
+        {
+          "id": 1049,
+          "token": " It",
+          "bytes": [
+            32,
+            73,
+            116
+          ],
+          "logprob": -1.3683068752288818
+        },
+        {
+          "id": 220,
+          "token": " ",
+          "bytes": [
+            32
+          ],
+          "logprob": -1.4524401426315308
+        },
+        {
+          "id": 1216,
+          "token": " He",
+          "bytes": [
+            32,
+            72,
+            101
+          ],
+          "logprob": -1.7598856687545776
+        },
+        {
+          "id": 561,
+          "token": " The",
+          "bytes": [
+            32,
+            84,
+            104,
+            101
+          ],
+          "logprob": -2.0216901302337646
+        },
+        {
+          "id": 8618,
+          "token": " Each",
+          "bytes": [
+            32,
+            69,
+            97,
+            99,
+            104
+          ],
+          "logprob": -2.3945882320404053
+        },
+        {
+          "id": 271,
+          "token": "\n\n",
+          "bytes": [
+            10,
+            10
+          ],
+          "logprob": -3.2888355255126953
+        },
+        {
+          "id": 198,
+          "token": "\n",
+          "bytes": [
+            10
+          ],
+          "logprob": -3.3325822353363037
+        },
+        {
+          "id": 39792,
+          "token": " Outside",
+          "bytes": [
+            32,
+            79,
+            117,
+            116,
+            115,
+            105,
+            100,
+            101
+          ],
+          "logprob": -3.6721436977386475
+        },
+        {
+          "id": 5133,
+          "token": " His",
+          "bytes": [
+            32,
+            72,
+            105,
+            115
+          ],
+          "logprob": -5.1262640953063965
+        },
+        {
+          "id": 248046,
+          "token": "",
+          "bytes": [],
+          "logprob": -6.259122848510742
+        },
+        {
+          "id": 357,
+          "token": " A",
+          "bytes": [
+            32,
+            65
+          ],
+          "logprob": -6.485725402832031
+        },
+        {
+          "id": 695,
+          "token": " \n",
+          "bytes": [
+            32,
+            10
+          ],
+          "logprob": -6.7763519287109375
+        },
+        {
+          "id": 26482,
+          "token": " Inside",
+          "bytes": [
+            32,
+            73,
+            110,
+            115,
+            105,
+            100,
+            101
+          ],
+          "logprob": -6.984407424926758
+        },
+        {
+          "id": 733,
+          "token": " In",
+          "bytes": [
+            32,
+            73,
+            110
+          ],
+          "logprob": -7.250846862792969
+        },
+        {
+          "id": 328,
+          "token": " \"",
+          "bytes": [
+            32,
+            34
+          ],
+          "logprob": -7.442304611206055
+        },
+        {
+          "id": 4558,
+          "token": " \n\n",
+          "bytes": [
+            32,
+            10,
+            10
+          ],
+          "logprob": -7.487884998321533
+        },
+        {
+          "id": 256,
+          "token": "  ",
+          "bytes": [
+            32,
+            32
+          ],
+          "logprob": -7.85673713684082
+        },
+        {
+          "id": 6983,
+          "token": " Every",
+          "bytes": [
+            32,
+            69,
+            118,
+            101,
+            114,
+            121
+          ],
+          "logprob": -8.330402374267578
+        },
+        {
+          "id": 348,
+          "token": " *",
+          "bytes": [
+            32,
+            42
+          ],
+          "logprob": -8.668926239013672
+        },
+        {
+          "id": 21235,
+          "token": " Rain",
+          "bytes": [
+            32,
+            82,
+            97,
+            105,
+            110
+          ],
+          "logprob": -8.681370735168457
+        }
+      ]
+    },
+    {
+      "id": 557,
+      "token": " was",
+      "bytes": [
+        32,
+        119,
+        97,
+        115
+      ],
+      "logprob": -0.10323213785886765,
+      "top_logprobs": [
+        {
+          "id": 557,
+          "token": " was",
+          "bytes": [
+            32,
+            119,
+            97,
+            115
+          ],
+          "logprob": -0.10323213785886765
+        },
+        {
+          "id": 995,
+          "token": " had",
+          "bytes": [
+            32,
+            104,
+            97,
+            100
+          ],
+          "logprob": -2.726811170578003
+        },
+        {
+          "id": 5532,
+          "token": " wasn",
+          "bytes": [
+            32,
+            119,
+            97,
+            115,
+            110
+          ],
+          "logprob": -3.7698771953582764
+        },
+        {
+          "id": 22472,
+          "token": " drum",
+          "bytes": [
+            32,
+            100,
+            114,
+            117,
+            109
+          ],
+          "logprob": -5.3989667892456055
+        },
+        {
+          "id": 46810,
+          "token": " tapped",
+          "bytes": [
+            32,
+            116,
+            97,
+            112,
+            112,
+            101,
+            100
+          ],
+          "logprob": -6.222994804382324
+        },
+        {
+          "id": 9047,
+          "token": " seemed",
+          "bytes": [
+            32,
+            115,
+            101,
+            101,
+            109,
+            101,
+            100
+          ],
+          "logprob": -7.77080774307251
+        },
+        {
+          "id": 280,
+          "token": " p",
+          "bytes": [
+            32,
+            112
+          ],
+          "logprob": -8.65425968170166
+        },
+        {
+          "id": 3727,
+          "token": " started",
+          "bytes": [
+            32,
+            115,
+            116,
+            97,
+            114,
+            116,
+            101,
+            100
+          ],
+          "logprob": -8.717291831970215
+        },
+        {
+          "id": 72805,
+          "token": " pooled",
+          "bytes": [
+            32,
+            112,
+            111,
+            111,
+            108,
+            101,
+            100
+          ],
+          "logprob": -8.91258716583252
+        },
+        {
+          "id": 47749,
+          "token": " dri",
+          "bytes": [
+            32,
+            100,
+            114,
+            105
+          ],
+          "logprob": -8.969988822937012
+        },
+        {
+          "id": 3105,
+          "token": " didn",
+          "bytes": [
+            32,
+            100,
+            105,
+            100,
+            110
+          ],
+          "logprob": -9.061027526855469
+        },
+        {
+          "id": 41514,
+          "token": " poured",
+          "bytes": [
+            32,
+            112,
+            111,
+            117,
+            114,
+            101,
+            100
+          ],
+          "logprob": -9.073958396911621
+        },
+        {
+          "id": 5215,
+          "token": " pattern",
+          "bytes": [
+            32,
+            112,
+            97,
+            116,
+            116,
+            101,
+            114,
+            110
+          ],
+          "logprob": -9.085443496704102
+        },
+        {
+          "id": 55349,
+          "token": " whispered",
+          "bytes": [
+            32,
+            119,
+            104,
+            105,
+            115,
+            112,
+            101,
+            114,
+            101,
+            100
+          ],
+          "logprob": -9.181302070617676
+        },
+        {
+          "id": 1801,
+          "token": " made",
+          "bytes": [
+            32,
+            109,
+            97,
+            100,
+            101
+          ],
+          "logprob": -9.208056449890137
+        },
+        {
+          "id": 5820,
+          "token": " began",
+          "bytes": [
+            32,
+            98,
+            101,
+            103,
+            97,
+            110
+          ],
+          "logprob": -9.208352088928223
+        },
+        {
+          "id": 9103,
+          "token": " beat",
+          "bytes": [
+            32,
+            98,
+            101,
+            97,
+            116
+          ],
+          "logprob": -9.248761177062988
+        },
+        {
+          "id": 13665,
+          "token": " trick",
+          "bytes": [
+            32,
+            116,
+            114,
+            105,
+            99,
+            107
+          ],
+          "logprob": -9.332901954650879
+        },
+        {
+          "id": 10298,
+          "token": " ran",
+          "bytes": [
+            32,
+            114,
+            97,
+            110
+          ],
+          "logprob": -9.405468940734863
+        },
+        {
+          "id": 10729,
+          "token": " fell",
+          "bytes": [
+            32,
+            102,
+            101,
+            108,
+            108
+          ],
+          "logprob": -9.52894115447998
+        }
+      ]
+    }
+  ]
+}

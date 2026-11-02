@@ -1,0 +1,236 @@
+From c878b8ab78ec005382b302e5423498ddf2c1944c Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sun, 1 Nov 2026 08:44:17 -0800
+Subject: [PATCH 18/25] r5: fold routed + shared up/gate into the fused MoE
+ tail (IK_R5_FMOE_UG)
+
+With IK_R5_FMOE=1 and IK_R5_FMOE_UG=1 the decode-time match starts at the routed
+MOE_FUSED_UP_GATE node and runs routed up/gate .. l_out (9 nodes) as one node:
+quantize the input and compute the shared gate logit, then one chunk pool for the
+routed and shared up/gate (same iqk kernel and row mapping), quantize whole rows,
+then per-thread output rows for the down projections and the combine. Nothing is
+written to graph tensors before l_out. 4 barriers instead of 7. Bit-exact.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ ggml/src/ggml.c | 197 +++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 196 insertions(+), 1 deletion(-)
+
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index 93617a55..b2ee843a 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -27913,6 +27913,193 @@ static int r5_fmoe(struct ggml_compute_params * params, const struct ggml_cgraph
+     return i + 7;
+ }
+ 
++// ---- round-5: routed + shared up/gate folded into the fused MoE tail (IK_R5_FMOE_UG, see apply_r5fmug.py) ----
++static int r5_fmug_mode(void) {
++    static int mode = -1;
++    if (mode < 0) { const char * e = getenv("IK_R5_FMOE_UG"); mode = e ? atoi(e) : 0; }
++    return mode;
++}
++
++static int r5_fmug_rows(void) {
++    static int rows = -1;
++    if (rows < 0) { const char * e = getenv("IK_R5_FMOE_CR"); rows = e ? atoi(e) : 32; if (rows < 8) rows = 8; }
++    return rows;
++}
++
++// work-buffer layout: quantized FFN input | gate logit | f32 routed rows | f32 shared row | quantized routed | quantized shared
++struct r5_fmug_layout { enum ggml_type vt_u, vt_r, vt_s; size_t rs_u, rs_r, rs_s, off_g, off_par, off_sh, off_r, off_s, need; };
++
++static struct r5_fmug_layout r5_fmug_lay(struct ggml_tensor * const * n) {
++    const struct ggml_tensor * ugr = n[0], * w0 = n[1]->src[0], * ug = n[5], * ws = n[6]->src[0];
++    struct r5_fmug_layout l;
++    l.vt_u = type_traits[ugr->src[0]->type].vec_dot_type;
++    l.vt_r = type_traits[w0->type].vec_dot_type;
++    l.vt_s = type_traits[ws->type].vec_dot_type;
++    l.rs_u = ggml_row_size(l.vt_u, ugr->src[2]->ne[0]);
++    l.rs_r = ggml_row_size(l.vt_r, ugr->ne[0]);
++    l.rs_s = ggml_row_size(l.vt_s, ug->ne[0]);
++    l.off_g   = GGML_PAD(l.rs_u, 64);
++    l.off_par = l.off_g + 64;
++    l.off_sh  = l.off_par + GGML_PAD(ugr->ne[0]*ugr->ne[1]*sizeof(float), 64);
++    l.off_r   = l.off_sh + GGML_PAD(ug->ne[0]*sizeof(float), 64);
++    l.off_s   = l.off_r + GGML_PAD(ugr->ne[1]*l.rs_r, 64);
++    l.need    = l.off_s + l.rs_s;
++    return l;
++}
++
++#define R5F_FAIL do { r5f_line = __LINE__; return false; } while (0)
++
++static bool r5_fmug_match(const struct ggml_cgraph * g, int i, size_t wsize) {
++    if (i + 8 >= g->n_nodes || g->nodes[i + 1]->op != GGML_OP_MUL_MAT_ID) R5F_FAIL;
++    if (!r5_fmoe_match(g, i + 1, SIZE_MAX)) return false;   // nodes 1..8 are the r5_fmoe pattern
++    struct ggml_tensor * const * n = g->nodes + i;
++    const struct ggml_tensor * ugr = n[0], * down = n[1], * gt = n[4], * ug = n[5];
++    const struct ggml_tensor * x = ugr->src[2], * ids = down->src[2], * up = ugr->src[0], * gate = ugr->src[1];
++    if (ugr->type != GGML_TYPE_F32 || !ggml_is_contiguous(ugr) || down->src[1] != ugr || ugr->src[3] != ids) R5F_FAIL;
++    if (!gate || gate->type != up->type || !ggml_are_same_shape(up, gate) || ugr->src[4] || ugr->src[5]) R5F_FAIL;
++    // the routed node reads a reshape of the normed input that the shared nodes read directly
++    const struct ggml_tensor * xs = ug->src[2];
++    if (gt->src[1] != xs || !(x == xs || (x->view_src == xs && x->data == xs->data))) R5F_FAIL;
++    if (x->type != GGML_TYPE_F32 || !ggml_is_contiguous(x) || ggml_nrows(x) != 1 || ggml_nelements(x) != ggml_nelements(xs)) R5F_FAIL;
++    if (up->ne[0] != x->ne[0] || up->ne[3] != 1 || ugr->ne[0] != up->ne[1] || ugr->ne[1] != ids->ne[0] || ugr->ne[2] != 1) R5F_FAIL;
++    if (ug->src[1]->type != ug->src[0]->type || type_traits[ug->src[0]->type].vec_dot_type != type_traits[up->type].vec_dot_type) R5F_FAIL;
++    if (ug->src[0]->ne[0] != x->ne[0] || ug->ne[0] != ug->src[0]->ne[1]) R5F_FAIL;
++    if (gt->src[0]->ne[0] != x->ne[0] || gt->src[0]->ne[1] != 1 || ggml_nrows(gt->src[0]) != 1) R5F_FAIL;
++    const int cr = r5_fmug_rows();
++    if (ugr->ne[0] % cr || ug->ne[0] % cr) R5F_FAIL;
++    const struct r5_fmug_layout l = r5_fmug_lay(n);
++    if (l.vt_u == GGML_TYPE_F32 || l.vt_r == GGML_TYPE_F32 || l.vt_s == GGML_TYPE_F32) R5F_FAIL;
++    if (l.need > wsize) R5F_FAIL;
++    return true;
++}
++
++#undef R5F_FAIL
++
++static int r5_fmug(struct ggml_compute_params * params, const struct ggml_cgraph * g, int i) {
++    struct ggml_tensor * const * n = g->nodes + i;
++    struct ggml_tensor * ugr = n[0], * down = n[1], * mma = n[2], * a1 = n[3], * gt = n[4], * ug = n[5], * sd = n[6], * gated = n[7], * out = n[8];
++    const int ith = params->ith, nth = params->nth;
++
++    if (r5_fmoe_mode() == 2 && ith == 0) {
++        // debug: the skipped nodes must have no consumers outside the pattern
++        static int n_checked = 0, n_bad = 0;
++        if (n_checked < 200) {
++            for (int k = i + 9; k < g->n_nodes; ++k) {
++                for (int s = 0; s < GGML_MAX_SRC; ++s) {
++                    if (r5_in(g->nodes[k]->src[s], n, 8)) {
++                        ++n_bad;
++                        fprintf(stderr, "r5_fmug: node %d %s reads a skipped node of the pattern at %d\n", k, g->nodes[k]->name, i);
++                    }
++                }
++            }
++            if (++n_checked % 40 == 0) fprintf(stderr, "r5_fmug: consumer check %d patterns, %d external reads\n", n_checked, n_bad);
++        }
++    }
++
++    const struct ggml_tensor * x = ugr->src[2], * ids = down->src[2], * W = mma->src[1], * inp = r5_fmoe_inp(a1, mma);
++    const struct ggml_tensor * up = ugr->src[0], * gate = ugr->src[1], * wg = gt->src[0], * w0 = down->src[0], * ws = sd->src[0];
++    const struct r5_fmug_layout l = r5_fmug_lay(n);
++    char * wq = (char *)params->wdata;
++    const int n_ids = (int)ids->ne[0];
++    const int64_t n_ff = ugr->ne[0], n_sh = ug->ne[0], n_embd = down->ne[0];
++    const int numa_node = ggml_numa_node_for_thread(ith, nth);
++    const int units = (int)(n_embd/16);
++    const int u0 = (int)((int64_t)ith*units/nth), u1 = (int)((int64_t)(ith + 1)*units/nth);
++    const int64_t r0 = 16*(int64_t)u0, nr = 16*(int64_t)(u1 - u0);
++
++    // P0: quantize the FFN input, shared gate logit, snapshot ids, weights and the residual slice
++    if (ith == 0) type_traits[l.vt_u].from_float((const float *)x->data, wq, x->ne[0]);
++    if (ith == nth - 1) {
++        if (!iqk_mul_mat_4d(wg->ne[1], 1, wg->ne[0], wg->ne[2], wg->ne[3], x->ne[2], x->ne[3],
++                            wg->nb[2], wg->nb[3], x->nb[2], x->nb[3], gt->nb[2]/sizeof(float), gt->nb[3]/sizeof(float),
++                            wg->type, ggml_numa_tensor_data(wg, numa_node), wg->nb[1], x->type, x->data, x->nb[1],
++                            (float *)(wq + l.off_g), gt->nb[1]/sizeof(float), 0, 1)) GGML_ABORT("r5_fmug: shared gate type not supported");
++    }
++    int32_t sel[16];
++    float wts[16];
++    for (int j = 0; j < n_ids; ++j) {
++        sel[j] = *(const int32_t *)((const char *)ids->data + j*ids->nb[0]);
++        wts[j] = *(const float *)((const char *)W->data + j*W->nb[1]);
++    }
++    float res[nr > 0 ? nr : 1];
++    if (nr > 0) memcpy(res, (const float *)inp->data + r0, nr*sizeof(float));
++    if (params->shared->cplan && params->shared->cplan->moe_expert_prefetch) {
++        ggml_moe_prefetch_kernel_hook(ugr, ith);
++    }
++    if (ith == 0) {
++        atomic_store(&params->shared->current_chunk, nth);
++        r5_claim_reset(params->shared);
++    }
++    ggml_barrier(params->shared);
++
++    // P1: routed and shared up/gate chunks from one pool (same kernel and row mapping as the original nodes)
++    {
++        const int cr = r5_fmug_rows();
++        const int cpe = (int)(n_ff/cr), cps = (int)(n_sh/cr), n_routed = n_ids*cpe, total = n_routed + cps;
++        float * par = (float *)(wq + l.off_par), * shf = (float *)(wq + l.off_sh);
++        const char * up_r = (const char *)ggml_numa_tensor_data(up, numa_node), * gate_r = (const char *)ggml_numa_tensor_data(gate, numa_node);
++        const void * up_s = ggml_numa_tensor_data(ug->src[0], numa_node), * gate_s = ggml_numa_tensor_data(ug->src[1], numa_node);
++        const float lim_r = *(const float *)(ugr->op_params + 1), sb_r = *(const float *)(ugr->op_params + 2), sbl_r = *(const float *)(ugr->op_params + 3);
++        const float lim_s = *(const float *)(ug->op_params + 1),  sb_s = *(const float *)(ug->op_params + 2),  sbl_s = *(const float *)(ug->op_params + 3);
++        struct { int32_t i1, i2; } map[16];
++        for (int j = 0; j < n_ids; ++j) { map[j].i1 = j; map[j].i2 = 0; }
++        const int nn = r5_claim_nodes();
++        int c = nn > 1 ? r5_claim(params->shared, numa_node, nn, total) : ith;
++        while (c >= 0 && c < total) {
++            if (c < n_routed) {
++                const int j = c/cpe, lc = c - j*cpe;
++                const int32_t a = sel[j];
++                if (a < 0 || a >= up->ne[2]) {
++                    memset(par + j*n_ff + (int64_t)lc*cr, 0, cr*sizeof(float));
++                } else if (!iqk_moe_fused_up_gate(n_ff, 1, up->ne[0], 1, ugr->op_params[0],
++                                up->type, up_r + a*up->nb[2], gate_r + a*up->nb[2], up->nb[1],
++                                l.vt_u, wq, l.rs_u, NULL, NULL, par, n_ff*sizeof(float), n_ids*n_ff*sizeof(float),
++                                &map[j], lim_r, sb_r, sbl_r, lc, cpe)) GGML_ABORT("r5_fmug: routed up/gate failed");
++            } else {
++                if (!iqk_moe_fused_up_gate(n_sh, 1, up->ne[0], 1, ug->op_params[0],
++                                ug->src[0]->type, up_s, gate_s, ug->src[0]->nb[1],
++                                l.vt_u, wq, l.rs_u, NULL, NULL, shf, ug->nb[1], ug->nb[2],
++                                NULL, lim_s, sb_s, sbl_s, c - n_routed, cps)) GGML_ABORT("r5_fmug: shared up/gate failed");
++            }
++            c = nn > 1 ? r5_claim(params->shared, numa_node, nn, total) : atomic_fetch_add(&params->shared->current_chunk, 1);
++        }
++    }
++    ggml_barrier(params->shared);
++
++    // P2: quantize the routed rows and the shared row for the down projections (rows spread over the threads)
++    {
++        const int n_rows = n_ids + 1, step = nth >= n_rows ? nth/n_rows : 1;
++        const float * par = (const float *)(wq + l.off_par), * shf = (const float *)(wq + l.off_sh);
++        for (int r = (ith % step == 0 ? ith/step : n_rows); r < n_rows; r += (nth >= n_rows ? n_rows : nth)) {
++            if (r < n_ids) type_traits[l.vt_r].from_float(par + r*n_ff, wq + l.off_r + r*l.rs_r, n_ff);
++            else           type_traits[l.vt_s].from_float(shf, wq + l.off_s, n_sh);
++        }
++    }
++    ggml_barrier(params->shared);
++
++    // P3: this thread's output rows: routed + shared down rows, then the combine
++    if (nr > 0) {
++        const char * a_r = (const char *)ggml_numa_tensor_data(w0, numa_node);
++        const char * a_s = (const char *)ggml_numa_tensor_data(ws, numa_node);
++        float buf[(n_ids + 3)*nr];
++        for (int j = 0; j < n_ids; ++j) {
++            const int32_t a = sel[j];
++            float * c = buf + j*nr;
++            if (a < 0 || a >= w0->ne[2]) { memset(c, 0, nr*sizeof(float)); continue; }
++            if (!iqk_r5_rows(nr, w0->ne[0], w0->type, a_r + a*w0->nb[2] + r0*w0->nb[1], w0->nb[1],
++                             l.vt_r, wq + l.off_r + j*l.rs_r, l.rs_r, c)) GGML_ABORT("r5_fmug: routed type not supported");
++        }
++        float * sh = buf + n_ids*nr;
++        if (!iqk_r5_rows(nr, ws->ne[0], ws->type, a_s + r0*ws->nb[1], ws->nb[1], l.vt_s, wq + l.off_s, l.rs_s, sh))
++            GGML_ABORT("r5_fmug: shared type not supported");
++        const float xg = *(const float *)(wq + l.off_g);
++        const float gv = gated->op_params[0] == GGML_UNARY_OP_SILU ? ggml_silu_f32(xg) : 1.0f/(1.0f + expf(-xg));
++        const float limit = *(const float *)(gated->op_params + 1);
++        iqk_r5_moe_tail((int)nr, n_ids, buf, nr, wts, res, sh, gv, limit, (float *)out->data + r0, sh + nr, sh + 2*nr);
++    }
++    return i + 8;
++}
++
+ static int ggml_compute_forward(struct ggml_compute_params * params, struct ggml_tensor * tensor,
+         const struct ggml_cgraph * cgraph, int i) {
+ 
+@@ -28099,7 +28286,15 @@ static int ggml_compute_forward(struct ggml_compute_params * params, struct ggml
+             } break;
+         case GGML_OP_MOE_FUSED_UP_GATE:
+             {
+-                ggml_compute_forward_mul_mat_id_up_gate(params, tensor);
++                if (r5_fmoe_mode() > 0 && r5_fmug_mode() > 0 && r5_fmug_match(cgraph, i, params->wsize)) {
++                    i = r5_fmug(params, cgraph, i);
++                } else {
++                    if (r5_fmoe_mode() == 3 && r5_fmug_mode() > 0 && params->ith == 0 && tensor->src[2]->ne[1] == 1 && tensor->src[3]->ne[0] <= 16) {
++                        static int r5u_m = 0;
++                        if (r5u_m++ < 100) fprintf(stderr, "r5_fmug: no match at node %d %s (check line %d)\n", i, tensor->name, r5f_line);
++                    }
++                    ggml_compute_forward_mul_mat_id_up_gate(params, tensor);
++                }
+             } break;
+         case GGML_OP_FUSED_UP_GATE:
+             {
+-- 
+2.53.0
+

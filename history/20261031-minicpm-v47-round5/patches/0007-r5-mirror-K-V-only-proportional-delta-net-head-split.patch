@@ -1,0 +1,80 @@
+From cf81e97984c82f7d9381022fb2190d6058b576c8 Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sat, 31 Oct 2026 19:32:05 -0700
+Subject: [PATCH 07/25] r5: mirror K/V only; proportional delta-net head split;
+ node-bound delta-net state (IK_R5_DNBIND)
+
+---
+ ggml/src/ggml.c              | 20 ++++++++++++++++++++
+ ggml/src/iqk/iqk_mul_mat.cpp |  7 ++++---
+ src/llama.cpp                |  5 +++++
+ 3 files changed, 29 insertions(+), 3 deletions(-)
+
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index ea20ff04..3331f28e 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -25326,6 +25326,26 @@ static void ggml_compute_forward_delta_net_f32(
+         GGML_ASSERT(src6->ne[0] >= (n_tokens - 1)*state_step_stride);
+     }
+ 
++    if (ggml_numa_mirror_active()) {
++        // round-5: bind the state of the heads this thread owns to its NUMA node, once per range
++        static int dnbind = -1;
++        if (dnbind < 0) { const char * e = getenv("IK_R5_DNBIND"); dnbind = e ? atoi(e) > 0 : 1; }
++        static GGML_THREAD_LOCAL const void * bound[256];
++        static GGML_THREAD_LOCAL int n_bound = 0;
++        const int64_t total_heads = n_heads * n_seqs;
++        const int64_t h0 = (int64_t)ith*total_heads/nth, h1 = (int64_t)(ith + 1)*total_heads/nth;
++        if (dnbind && h1 > h0 && n_bound < 256) {
++            const size_t hsz = (size_t)head_dim*head_dim*sizeof(float);
++            const void * ptrs[2] = { (const char *)state_in + h0*hsz, (const char *)state_working + h0*hsz };
++            for (int p = 0; p < 2 && n_bound < 256; ++p) {
++                bool seen = false;
++                for (int b = 0; b < n_bound; ++b) if (bound[b] == ptrs[p]) { seen = true; break; }
++                if (seen || (p == 1 && ptrs[1] == ptrs[0])) continue;
++                ggml_numa_bind((void *)ptrs[p], (size_t)(h1 - h0)*hsz, ggml_numa_node_for_thread(ith, nth));
++                bound[n_bound++] = ptrs[p];
++            }
++        }
++    }
+     if (iqk_fused_delta_net(head_dim, n_heads, gqa_ratio, repeat_type, n_tokens, n_seqs,
+                 src2->nb[1]/sizeof(float), src2->nb[2]/sizeof(float), src2->nb[3]/sizeof(float),
+                 q_data, k_data, v_data, g_data, beta_data, state_in,
+diff --git a/ggml/src/iqk/iqk_mul_mat.cpp b/ggml/src/iqk/iqk_mul_mat.cpp
+index 0f6f7f9b..d55ef898 100644
+--- a/ggml/src/iqk/iqk_mul_mat.cpp
++++ b/ggml/src/iqk/iqk_mul_mat.cpp
+@@ -1778,9 +1778,10 @@ void iqk_fused_delta_net_impl(int n_heads, int gqa_ratio, int repeat_type, int n
+     return;
+ #endif
+     const int total_heads = n_heads * n_seqs;
+-    const int heads_per_thread = (total_heads + nth - 1) / nth;
+-    const int h_start = ith * heads_per_thread;
+-    const int h_end = (h_start + heads_per_thread < total_heads) ? h_start + heads_per_thread : total_heads;
++    // round-5: proportional split so that with nth > total_heads the heads spread over all
++    // threads (and NUMA nodes) instead of landing on threads 0..total_heads-1
++    const int h_start = (int)((int64_t)ith * total_heads / nth);
++    const int h_end   = (int)((int64_t)(ith + 1) * total_heads / nth);
+ 
+ #ifdef __AVX2__
+     static_assert(head_dim % 8 == 0);
+diff --git a/src/llama.cpp b/src/llama.cpp
+index 7e4343c9..1a38cc47 100644
+--- a/src/llama.cpp
++++ b/src/llama.cpp
+@@ -9470,6 +9470,11 @@ static void llama_mirror_kv_cache(struct llama_kv_cache & cache) {
+             if (!t->data || t->view_src || !t->buffer || !ggml_backend_buffer_is_host(t->buffer)) {
+                 continue;
+             }
++            // round-5: recurrent state is accessed via tensor->data only; mirroring it just costs
++            // replication on every state write
++            if (std::find(cache.s_l.begin(), cache.s_l.end(), t) != cache.s_l.end()) {
++                continue;
++            }
+             const llama_kv_cache::numa_mirror_buffer * mb = nullptr;
+             for (auto & cand : cache.numa_mirror_bufs) {
+                 if (cand.buf == t->buffer) { mb = &cand; break; }
+-- 
+2.53.0
+

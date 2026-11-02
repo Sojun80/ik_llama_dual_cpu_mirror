@@ -1,0 +1,13 @@
+base-medium-r0                           ok=True decode=35.444 prompt=402.00
+prof-medium-r0                           ok=True decode=34.694 prompt=400.00
+base-long-r0                             ok=True decode=31.070 prompt=354.79
+prof-long-r0                             ok=True decode=30.778 prompt=350.52
+prof-medium-r1                           ok=True decode=34.818 prompt=399.83
+base-medium-r1                           ok=True decode=36.065 prompt=403.34
+prof-long-r1                             ok=True decode=31.131 prompt=350.89
+base-long-r1                             ok=True decode=31.458 prompt=353.90
+SUMMARY
+base|medium                              decode mean 35.755 [35.444, 36.065]  prompt mean 402.67
+prof|medium                              decode mean 34.756 [34.694, 34.818]  prompt mean 399.91
+base|long                                decode mean 31.264 [31.07, 31.458]  prompt mean 354.35
+prof|long                                decode mean 30.954 [30.778, 31.131]  prompt mean 350.70

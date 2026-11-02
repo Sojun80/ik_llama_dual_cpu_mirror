@@ -1,0 +1,20 @@
+base-r0        code   decode= 46.374 n=512
+base-r0        logs   decode= 44.010 n=512
+base-r0        prose  decode= 46.138 n=512
+ngm-r0         code   decode= 45.720 n=512
+ngm-r0         logs   decode= 51.358 n=512 draft 146/280
+ngm-r0         prose  decode= 45.547 n=512 draft 10/48
+ngs-r0         code   decode= 46.504 n=512
+ngs-r0         logs   decode= 51.395 n=512 draft 113/140
+ngs-r0         prose  decode= 46.385 n=512 draft 4/8
+SUMMARY
+base       code   decode mean  46.374 [46.37]  same_as_base=True
+base       logs   decode mean  44.010 [44.01]  same_as_base=True
+base       prose  decode mean  46.138 [46.14]  same_as_base=True
+ngm        code   decode mean  45.720 [45.72]  same_as_base=True
+ngm        logs   decode mean  51.358 [51.36]  accepted 146/280 = 52%  same_as_base=False
+ngm        prose  decode mean  45.547 [45.55]  accepted 10/48 = 21%  same_as_base=False
+ngs        code   decode mean  46.504 [46.5]  same_as_base=True
+ngs        logs   decode mean  51.395 [51.4]  accepted 113/140 = 81%  same_as_base=True
+ngs        prose  decode mean  46.385 [46.38]  accepted 4/8 = 50%  same_as_base=False
+DONE

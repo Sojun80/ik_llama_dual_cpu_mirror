@@ -1,0 +1,19 @@
+SELECT 32 {24: 68.75309097904186, 32: 69.46538497475265, 48: 68.43761525494062}
+START upstream 1793483934.3449123
+REQUEST upstream medium 0 tokens 2834
+DONE upstream medium 0 timings {'cache_n': 0, 'prompt_n': 2834, 'prompt_ms': 12337.197, 'prompt_per_token_ms': 4.3532805222300635, 'prompt_per_second': 229.7118218992531, 'predicted_n': 512, 'predicted_ms': 27733.874, 'predicted_per_token_ms': 54.27372602739726, 'predicted_per_second': 18.425121567942508} truncated False
+REQUEST upstream medium 1 tokens 2834
+DONE upstream medium 1 timings {'cache_n': 0, 'prompt_n': 2834, 'prompt_ms': 12504.629, 'prompt_per_token_ms': 4.412360268172195, 'prompt_per_second': 226.63607212976888, 'predicted_n': 512, 'predicted_ms': 27737.11, 'predicted_per_token_ms': 54.28005870841488, 'predicted_per_second': 18.422971967879853} truncated False
+REQUEST upstream long 0 tokens 9455
+DONE upstream long 0 timings {'cache_n': 0, 'prompt_n': 9455, 'prompt_ms': 46583.165, 'prompt_per_token_ms': 4.926828662083554, 'prompt_per_second': 202.9703220036681, 'predicted_n': 512, 'predicted_ms': 31990.952, 'predicted_per_token_ms': 62.604602739726026, 'predicted_per_second': 15.973266441086217} truncated False
+REQUEST upstream long 1 tokens 9455
+DONE upstream long 1 timings {'cache_n': 0, 'prompt_n': 9455, 'prompt_ms': 46100.117, 'prompt_per_token_ms': 4.875739502908514, 'prompt_per_second': 205.09709335444856, 'predicted_n': 512, 'predicted_ms': 32135.319, 'predicted_per_token_ms': 62.88712133072407, 'predicted_per_second': 15.90150699919923} truncated False
+START ik 1793484181.9926348
+REQUEST ik medium 0 tokens 2834
+DONE ik medium 0 timings {'prompt_n': 2834, 'prompt_ms': 7064.881, 'prompt_per_token_ms': 2.4929008468595626, 'prompt_per_second': 401.1390991582165, 'predicted_n': 512, 'predicted_ms': 14808.964, 'predicted_per_token_ms': 28.9237578125, 'predicted_per_second': 34.57365417324264, 'n_ctx': 16384, 'n_past': 3345} truncated False
+REQUEST ik medium 1 tokens 2834
+DONE ik medium 1 timings {'prompt_n': 2834, 'prompt_ms': 7055.967, 'prompt_per_token_ms': 2.4897554693013406, 'prompt_per_second': 401.6458693755229, 'predicted_n': 512, 'predicted_ms': 14766.656, 'predicted_per_token_ms': 28.841125, 'predicted_per_second': 34.67271127599911, 'n_ctx': 16384, 'n_past': 3345} truncated False
+REQUEST ik long 0 tokens 9455
+DONE ik long 0 timings {'prompt_n': 9455, 'prompt_ms': 26704.598, 'prompt_per_token_ms': 2.824389000528821, 'prompt_per_second': 354.05887780074426, 'predicted_n': 512, 'predicted_ms': 16645.209, 'predicted_per_token_ms': 32.510173828125, 'predicted_per_second': 30.759601756877913, 'n_ctx': 16384, 'n_past': 9966} truncated False
+REQUEST ik long 1 tokens 9455
+DONE ik long 1 timings {'prompt_n': 9455, 'prompt_ms': 26708.294, 'prompt_per_token_ms': 2.824779904812269, 'prompt_per_second': 354.00988172438116, 'predicted_n': 512, 'predicted_ms': 16665.063, 'predicted_per_token_ms': 32.548951171875, 'predicted_per_second': 30.722956162841992, 'n_ctx': 16384, 'n_past': 9966} truncated False

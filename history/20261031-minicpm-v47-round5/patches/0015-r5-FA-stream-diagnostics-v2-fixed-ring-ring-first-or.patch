@@ -1,0 +1,48 @@
+From f9a3963e3583c8a2e5a07b571f276442471aea55 Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sat, 31 Oct 2026 20:58:13 -0700
+Subject: [PATCH 15/25] r5: FA stream diagnostics v2 (fixed ring, ring-first
+ order)
+
+---
+ ggml/src/iqk/iqk_flash_attn.cpp | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/ggml/src/iqk/iqk_flash_attn.cpp b/ggml/src/iqk/iqk_flash_attn.cpp
+index ae611584..f782acfe 100644
+--- a/ggml/src/iqk/iqk_flash_attn.cpp
++++ b/ggml/src/iqk/iqk_flash_attn.cpp
+@@ -368,6 +368,20 @@ static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, i
+         if (!ring) { ring = (char *)aligned_alloc(2u << 20, kRing); madvise(ring, kRing, MADV_HUGEPAGE); memset(ring, 1, kRing); }
+         const long span = (long)(nek2 - 1)*nbk2 + 2*D;
+         __m256 acc = _mm256_setzero_ps();
++        static const bool ring_first = [] { auto e = getenv("IK_R5_STREAM_ORDER"); return e && atoi(e) > 0; }();
++        if (ring_first) {
++            static thread_local uint64_t tpre, bpre, npre;
++            const size_t m = (size_t)(j1 - j0)*span*2;
++            if (ring_off + m > kRing/2) ring_off = 0;
++            const uint64_t x = __rdtsc();
++            for (size_t o = 0; o < m/2; o += 32) {
++                acc = _mm256_add_ps(acc, _mm256_load_ps((const float *)(ring + ring_off + o)));
++                acc = _mm256_add_ps(acc, _mm256_load_ps((const float *)(ring + kRing/2 + ring_off + o)));
++            }
++            tpre += __rdtsc() - x; bpre += m;
++            ring_off += (m/2 + 4095) & ~(size_t)4095;
++            if (++npre % 640 == 0) { fprintf(stderr, "r5fa-pre ith %d: ring-first 2-stream %.2f bytes/tick\n", ith, (double)bpre/tpre); tpre = bpre = 0; }
++        }
+         const uint64_t a = __rdtsc();
+         for (int j = j0; j < j1; ++j) {
+             const char * kr = (const char *)k + (long)j*stride_k;
+@@ -386,7 +400,8 @@ static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, i
+         }
+         const uint64_t c = __rdtsc();
+         for (size_t o = n/2; o < n + n/2; o += 32) acc = _mm256_add_ps(acc, _mm256_load_ps((const float *)(ring + ring_off + o)));
+-        ring_off += (n + n/2 + 4095) & ~(size_t)4095;
++        static const bool ring_fixed = [] { auto e = getenv("IK_R5_RING_FIXED"); return e && atoi(e) > 0; }();
++        if (!ring_fixed) ring_off += (n + n/2 + 4095) & ~(size_t)4095;
+         const uint64_t d = __rdtsc();
+         const int jj0 = j1 < n_eff ? j1 : 0, jj1 = std::min(n_eff, jj0 + (j1 - j0));
+         for (int j = jj0; j < jj1; ++j) { const char * kr = (const char *)k + (long)j*stride_k;
+-- 
+2.53.0
+

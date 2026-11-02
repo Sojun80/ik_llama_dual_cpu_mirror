@@ -1,0 +1,68 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 15K of event 'cpu/cycles/P'
+# Event count (approx.): 502309609821
+#
+# Overhead  Command       Shared Object      Symbol                                                                                                                                                                                                                                                        
+# ........  ............  .................  ..............................................................................................................................................................................................................................................................
+#
+    97.32%  llama-server  libgomp.so.1.0.0   [.] 0x0000000000026c70
+            |          
+            |--89.79%--0x7bd3317c7c72
+            |          |          
+            |          |--72.93%--ggml_graph_compute_thread.isra.0
+            |          |          ggml_graph_compute._omp_fn.0
+            |          |          |          
+            |          |          |--68.17%--0x7bd32f6a3dfa
+            |          |          |          0x7bd32f7375cc
+            |          |          |          
+            |          |           --4.76%--ggml_graph_compute
+            |          |          
+            |          |--8.85%--ggml_compute_forward_mul_mat
+            |          |          0x59824e7f0a00
+            |          |          
+            |          |--2.60%--ggml_compute_forward_mul_mat_up_gate
+            |          |          |          
+            |          |           --2.39%--0x1
+            |          |                     0x7272610072747300
+            |          |          
+            |          |--2.42%--ggml_compute_forward_mul_mat_id
+            |          |          ggml_compute_forward
+            |          |          ggml_graph_compute_thread.isra.0
+            |          |          ggml_graph_compute._omp_fn.0
+            |          |          |          
+            |          |           --2.29%--0x7bd32f6a3dfa
+            |          |                     0x7bd32f7375cc
+            |          |          
+            |           --2.36%--ggml_compute_forward_mul_mat_id_up_gate
+            |                     ggml_compute_forward
+            |                     ggml_graph_compute_thread.isra.0
+            |                     ggml_graph_compute._omp_fn.0
+            |                     |          
+            |                      --2.13%--0x7bd32f6a3dfa
+            |                                0x7bd32f7375cc
+            |          
+            |--4.46%--0x7bd3317c7c7d
+            |          |          
+            |           --3.58%--ggml_graph_compute_thread.isra.0
+            |                     ggml_graph_compute._omp_fn.0
+            |                     |          
+            |                      --3.33%--0x7bd32f6a3dfa
+            |                                0x7bd32f7375cc
+            |          
+             --2.94%--0x7bd3317c7c79
+                       |          
+                        --2.34%--ggml_graph_compute_thread.isra.0
+                                  ggml_graph_compute._omp_fn.0
+                                  |          
+                                   --2.16%--0x7bd32f6a3dfa
+                                             0x7bd32f7375cc
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

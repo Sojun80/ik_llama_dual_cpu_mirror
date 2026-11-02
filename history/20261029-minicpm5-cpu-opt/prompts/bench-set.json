@@ -1,0 +1,110 @@
+[
+ {
+  "interpretation_id": 4,
+  "kind": "template",
+  "target_id": 896,
+  "prod_prompt_tokens": 497,
+  "prod_completion_tokens": 1934,
+  "prod_tok_per_s": 25.105781645912444,
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are the log interpreter for a machine-monitoring harness.\nHost: Ubuntu 26.04 server 'gigabyte5': dual AMD EPYC 7K62 (192 threads), 120 GB RAM, two NVIDIA RTX 40-series GPUs used for crypto mining and LLM experiments, NVMe root disk. Frequent automated SSH logins from tooling are normal.\nYou label one log message TEMPLATE: a message pattern where <*>, <NUM>, <IP>, <HEX>, <PCI> and similar markers are variable parts.\nGuidance:\n- Classify what the message itself states. Do not invent causes, impact, or recovery that the lines do not show.\n- A single timeout or retry that is followed by success is usually routine.\n- total-vm in OOM messages is the killed process's virtual memory, not host RAM."
+   },
+   {
+    "role": "user",
+    "content": "TEMPLATE (program: agetty, journald priority: err):\n  tty1: invalid character <HEX> in login name\n\nSTATISTICS: seen 1 times on 1 day(s); first 2026-10-25 20:16:26, last 2026-10-25 20:16:26; about 1.0 per hour while active.\n\nSAMPLE LINES with preceding context:\nL13284 2026-10-25 20:16:26 agetty[err]: tty1: invalid character 0x16 in login name   <-- sample\n\nPREVIOUSLY LABELED SIMILAR TEMPLATES (memory):\n- [hardware/error/warning] kernel \"The NVMe device nvme0 is reporting a missing or invalid SUBNQN field.\": flagged 5, consequence observed 0, none observed 0\n- [gpu/error/warning] kernel \"An NVIDIA GPU has fallen off the bus.\": flagged 0, consequence observed 0, none observed 0\n\nAnswer with ONLY a JSON object:\n{\"component\": one of gpu|cpu|memory|disk|filesystem|network|power|thermal|service|auth|scheduler|package|kernel|hardware|application|unknown,\n \"event\": one of start|stop|restart|crash|error|timeout|reset|failure|recovery|degraded|auth_success|auth_failure|session|config|status|other,\n \"severity\": one of info|notice|warning|critical,\n \"routine\": true or false,\n \"summary\": \"one sentence: what the message states\",\n \"evidence\": [\"L<id>\", ...] (lines above that support your label),\n \"uncertain\": \"what cannot be determined from these lines\"}"
+   }
+  ]
+ },
+ {
+  "interpretation_id": 43,
+  "kind": "template",
+  "target_id": 1110,
+  "prod_prompt_tokens": 780,
+  "prod_completion_tokens": 891,
+  "prod_tok_per_s": 25.06538968738897,
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are the log interpreter for a machine-monitoring harness.\nHost: Ubuntu 26.04 server 'gigabyte5': dual AMD EPYC 7K62 (192 threads), 120 GB RAM, two NVIDIA RTX 40-series GPUs used for crypto mining and LLM experiments, NVMe root disk. Frequent automated SSH logins from tooling are normal.\nYou label one log message TEMPLATE: a message pattern where <*>, <NUM>, <IP>, <HEX>, <PCI> and similar markers are variable parts.\nGuidance:\n- Classify what the message itself states. Do not invent causes, impact, or recovery that the lines do not show.\n- A single timeout or retry that is followed by success is usually routine.\n- total-vm in OOM messages is the killed process's virtual memory, not host RAM."
+   },
+   {
+    "role": "user",
+    "content": "TEMPLATE (program: systemd-logind, journald priority: notice):\n  System is rebooting.\n\nSTATISTICS: seen 2 times on 1 day(s); first 2026-10-27 18:50:57, last 2026-10-27 21:53:53; about 0.7 per hour while active.\n\nSAMPLE LINES with preceding context:\nL22290 2026-10-27 18:50:57 systemd-logind[info]: New session '23' of user 'ubuntu' with class 'user' and type 'tty'.\nL22291 2026-10-27 18:50:57 systemd-logind[notice]: The system will reboot now!\nL22292 2026-10-27 18:50:57 systemd[info]: Started session-23.scope - Session 23 of User ubuntu.\nL22293 2026-10-27 18:50:57 systemd-logind[notice]: System is rebooting.   <-- sample\n\nL31799 2026-10-27 21:53:53 sudo[info]: pam_unix(sudo:session): session opened for user root(uid=0) by ubuntu(uid=1001)\nL31800 2026-10-27 21:53:53 sudo[info]: ubuntu :  PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/systemctl reboot\nL31801 2026-10-27 21:53:53 systemd-logind[notice]: The system will reboot now!\nL31802 2026-10-27 21:53:53 systemd-logind[notice]: System is rebooting.   <-- sample\n\nPREVIOUSLY LABELED SIMILAR TEMPLATES (memory):\n- [service/restart/notice] systemd-logind \"The system will reboot now.\": flagged 0, consequence observed 0, none observed 0\n\nAnswer with ONLY a JSON object:\n{\"component\": one of gpu|cpu|memory|disk|filesystem|network|power|thermal|service|auth|scheduler|package|kernel|hardware|application|unknown,\n \"event\": one of start|stop|restart|crash|error|timeout|reset|failure|recovery|degraded|auth_success|auth_failure|session|config|status|other,\n \"severity\": one of info|notice|warning|critical,\n \"routine\": true or false,\n \"summary\": \"one sentence: what the message states\",\n \"evidence\": [\"L<id>\", ...] (lines above that support your label),\n \"uncertain\": \"what cannot be determined from these lines\"}"
+   }
+  ]
+ },
+ {
+  "interpretation_id": 25,
+  "kind": "template",
+  "target_id": 979,
+  "prod_prompt_tokens": 942,
+  "prod_completion_tokens": 1853,
+  "prod_tok_per_s": 24.19668760934401,
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are the log interpreter for a machine-monitoring harness.\nHost: Ubuntu 26.04 server 'gigabyte5': dual AMD EPYC 7K62 (192 threads), 120 GB RAM, two NVIDIA RTX 40-series GPUs used for crypto mining and LLM experiments, NVMe root disk. Frequent automated SSH logins from tooling are normal.\nYou label one log message TEMPLATE: a message pattern where <*>, <NUM>, <IP>, <HEX>, <PCI> and similar markers are variable parts.\nGuidance:\n- Classify what the message itself states. Do not invent causes, impact, or recovery that the lines do not show.\n- A single timeout or retry that is followed by success is usually routine.\n- total-vm in OOM messages is the killed process's virtual memory, not host RAM."
+   },
+   {
+    "role": "user",
+    "content": "TEMPLATE (program: systemd, journald priority: warning):\n  sys-devices-virtual-misc-rfkill.device: Failed to enqueue SYSTEMD_WANTS job, ignoring: Transaction for systemd-rfkill.socket/start is destructive (shutdown.target has 'start' job queued, but 'stop' is included in transaction).\n\nSTATISTICS: seen 2 times on 2 day(s); first 2026-10-25 20:16:50, last 2026-10-26 10:52:18; about 0.1 per hour while active.\n\nSAMPLE LINES with preceding context:\nL13430 2026-10-25 20:16:50 systemd[info]: Closed systemd-ask-password.socket - Query the User Interactively for a Password.\nL13431 2026-10-25 20:16:50 openipmi[info]: * Stopping ipmi drivers.\nL13432 2026-10-25 20:16:50 systemd[notice]: Requested transaction contradicts existing jobs: Transaction for systemd-rfkill.socket/start is destructive (shutdown.target has 'start' job queued, but 'stop' is included in transaction).\nL13433 2026-10-25 20:16:50 systemd[warning]: sys-devices-virtual-misc-rfkill.device: Failed to enqueue SYSTEMD_WANTS job, ignoring: Transaction for systemd-rfkill.socket/start is destructive (shutdown.target has 'start' job queued, but 'stop' is included in transaction).   <-- sample\n\nL18738 2026-10-26 10:52:18 systemd[info]: systemd-networkd-persistent-storage.service: Deactivated successfully.\nL18739 2026-10-26 10:52:18 systemd[info]: Stopped systemd-networkd-persistent-storage.service - Enable Persistent Storage in systemd-networkd.\nL18740 2026-10-26 10:52:18 systemd[notice]: Requested transaction contradicts existing jobs: Transaction for systemd-rfkill.socket/start is destructive (shutdown.target has 'start' job queued, but 'stop' is included in transaction).\nL18741 2026-10-26 10:52:18 systemd[warning]: sys-devices-virtual-misc-rfkill.device: Failed to enqueue SYSTEMD_WANTS job, ignoring: Transaction for systemd-rfkill.socket/start is destructive (shutdown.target has 'start' job queued, but 'stop' is included in transaction).   <-- sample\n\nPREVIOUSLY LABELED SIMILAR TEMPLATES (memory):\n- [network/failure/warning] systemd-networkd \"systemd-networkd warning about a destructive transaction conflict preventing hostname service start\": flagged 4, consequence observed 2, none observed 0\n- [service/failure/warning] systemd \"systemd failed to enqueue a job for the sound card device due to a destructive transaction conflict, ignoring the job.\": flagged 2, consequence observed 0, none observed 0\n\nAnswer with ONLY a JSON object:\n{\"component\": one of gpu|cpu|memory|disk|filesystem|network|power|thermal|service|auth|scheduler|package|kernel|hardware|application|unknown,\n \"event\": one of start|stop|restart|crash|error|timeout|reset|failure|recovery|degraded|auth_success|auth_failure|session|config|status|other,\n \"severity\": one of info|notice|warning|critical,\n \"routine\": true or false,\n \"summary\": \"one sentence: what the message states\",\n \"evidence\": [\"L<id>\", ...] (lines above that support your label),\n \"uncertain\": \"what cannot be determined from these lines\"}"
+   }
+  ]
+ },
+ {
+  "interpretation_id": 34,
+  "kind": "template",
+  "target_id": 1169,
+  "prod_prompt_tokens": 1021,
+  "prod_completion_tokens": 2322,
+  "prod_tok_per_s": 23.855246732833304,
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are the log interpreter for a machine-monitoring harness.\nHost: Ubuntu 26.04 server 'gigabyte5': dual AMD EPYC 7K62 (192 threads), 120 GB RAM, two NVIDIA RTX 40-series GPUs used for crypto mining and LLM experiments, NVMe root disk. Frequent automated SSH logins from tooling are normal.\nYou label one log message TEMPLATE: a message pattern where <*>, <NUM>, <IP>, <HEX>, <PCI> and similar markers are variable parts.\nGuidance:\n- Classify what the message itself states. Do not invent causes, impact, or recovery that the lines do not show.\n- A single timeout or retry that is followed by success is usually routine.\n- total-vm in OOM messages is the killed process's virtual memory, not host RAM."
+   },
+   {
+    "role": "user",
+    "content": "TEMPLATE (program: kernel, journald priority: warning):\n  NVRM: GPU <PCI> init failed during probe (ret=<NUM>).\n\nSTATISTICS: seen 2 times on 1 day(s); first 2026-10-27 21:50:09, last 2026-10-27 21:50:09; about 2.0 per hour while active.\n\nSAMPLE LINES with preceding context:\nL31248 2026-10-27 21:50:09 kernel[warning]: NVRM: RmFetchGspRmImages: No firmware image found\nL31249 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:c1:00.0: RmInitAdapter failed! (0x61:0x56:2036)\nL31250 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:c1:00.0: rm_init_adapter failed, device minor number 0\nL31251 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:c1:00.0 init failed during probe (ret=-5).   <-- sample\n\nL31253 2026-10-27 21:50:09 kernel[warning]: NVRM: RmFetchGspRmImages: No firmware image found\nL31254 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:21:00.0: RmInitAdapter failed! (0x61:0x56:2036)\nL31255 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:21:00.0: rm_init_adapter failed, device minor number 1\nL31256 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:21:00.0 init failed during probe (ret=-5).   <-- sample\n\nPREVIOUSLY LABELED SIMILAR TEMPLATES (memory):\n- [gpu/failure/warning] kernel \"NVRM GPU adapter initialization failed for two GPUs with device minor numbers 0 and 1.\": flagged 1, consequence observed 0, none observed 0\n- [gpu/failure/warning] kernel \"NVRM RmInitAdapter failed during GPU adapter initialization\": flagged 1, consequence observed 0, none observed 0\n- [service/failure/warning] kernel \"nvidia-persistenced fails to initialize due to a NVRM client kernel module version mismatch between the persistence daemon and the current kernel module.\": flagged 1, consequence observed 0, none observed 0\n- [gpu/error/warning] kernel \"The kernel cannot find an NVIDIA GPU.\": flagged 6, consequence observed 0, none observed 0\n- [gpu/error/warning] kernel \"No NVIDIA GPU firmware image was found.\": flagged 1, consequence observed 0, none observed 0\n\nAnswer with ONLY a JSON object:\n{\"component\": one of gpu|cpu|memory|disk|filesystem|network|power|thermal|service|auth|scheduler|package|kernel|hardware|application|unknown,\n \"event\": one of start|stop|restart|crash|error|timeout|reset|failure|recovery|degraded|auth_success|auth_failure|session|config|status|other,\n \"severity\": one of info|notice|warning|critical,\n \"routine\": true or false,\n \"summary\": \"one sentence: what the message states\",\n \"evidence\": [\"L<id>\", ...] (lines above that support your label),\n \"uncertain\": \"what cannot be determined from these lines\"}"
+   }
+  ]
+ },
+ {
+  "interpretation_id": 32,
+  "kind": "template",
+  "target_id": 1167,
+  "prod_prompt_tokens": 1055,
+  "prod_completion_tokens": 2676,
+  "prod_tok_per_s": 23.43867720482445,
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are the log interpreter for a machine-monitoring harness.\nHost: Ubuntu 26.04 server 'gigabyte5': dual AMD EPYC 7K62 (192 threads), 120 GB RAM, two NVIDIA RTX 40-series GPUs used for crypto mining and LLM experiments, NVMe root disk. Frequent automated SSH logins from tooling are normal.\nYou label one log message TEMPLATE: a message pattern where <*>, <NUM>, <IP>, <HEX>, <PCI> and similar markers are variable parts.\nGuidance:\n- Classify what the message itself states. Do not invent causes, impact, or recovery that the lines do not show.\n- A single timeout or retry that is followed by success is usually routine.\n- total-vm in OOM messages is the killed process's virtual memory, not host RAM."
+   },
+   {
+    "role": "user",
+    "content": "TEMPLATE (program: kernel, journald priority: warning):\n  NVRM: GPU <PCI>: RmInitAdapter failed! (<HEX>:<HEX>:<NUM>)\n\nSTATISTICS: seen 2 times on 1 day(s); first 2026-10-27 21:50:09, last 2026-10-27 21:50:09; about 2.0 per hour while active.\n\nSAMPLE LINES with preceding context:\nL31246 2026-10-27 21:50:09 kernel[info]: nvidia 0000:21:00.0: vgaarb: VGA decodes changed: olddecodes=none,decodes=none:owns=none\nL31247 2026-10-27 21:50:09 kernel[warning]: nvidia 0000:c1:00.0: Direct firmware load for nvidia/615.78.08/ucodes_ga10x.bin failed with error -2\nL31248 2026-10-27 21:50:09 kernel[warning]: NVRM: RmFetchGspRmImages: No firmware image found\nL31249 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:c1:00.0: RmInitAdapter failed! (0x61:0x56:2036)   <-- sample\n\nL31251 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:c1:00.0 init failed during probe (ret=-5).\nL31252 2026-10-27 21:50:09 kernel[warning]: nvidia 0000:21:00.0: Direct firmware load for nvidia/615.78.08/ucodes_ga10x.bin failed with error -2\nL31253 2026-10-27 21:50:09 kernel[warning]: NVRM: RmFetchGspRmImages: No firmware image found\nL31254 2026-10-27 21:50:09 kernel[warning]: NVRM: GPU 0000:21:00.0: RmInitAdapter failed! (0x61:0x56:2036)   <-- sample\n\nPREVIOUSLY LABELED SIMILAR TEMPLATES (memory):\n- [gpu/failure/warning] kernel \"GPU adapter initialization failed during probe with ret=-5\": flagged 1, consequence observed 0, none observed 0\n- [gpu/failure/warning] kernel \"NVRM GPU adapter initialization failed for two GPUs with device minor numbers 0 and 1.\": flagged 1, consequence observed 0, none observed 0\n- [service/failure/warning] kernel \"nvidia-persistenced fails to initialize due to a NVRM client kernel module version mismatch between the persistence daemon and the current kernel module.\": flagged 1, consequence observed 0, none observed 0\n- [gpu/error/warning] kernel \"The kernel cannot find an NVIDIA GPU.\": flagged 6, consequence observed 0, none observed 0\n- [gpu/error/warning] kernel \"No NVIDIA GPU firmware image was found.\": flagged 1, consequence observed 0, none observed 0\n\nAnswer with ONLY a JSON object:\n{\"component\": one of gpu|cpu|memory|disk|filesystem|network|power|thermal|service|auth|scheduler|package|kernel|hardware|application|unknown,\n \"event\": one of start|stop|restart|crash|error|timeout|reset|failure|recovery|degraded|auth_success|auth_failure|session|config|status|other,\n \"severity\": one of info|notice|warning|critical,\n \"routine\": true or false,\n \"summary\": \"one sentence: what the message states\",\n \"evidence\": [\"L<id>\", ...] (lines above that support your label),\n \"uncertain\": \"what cannot be determined from these lines\"}"
+   }
+  ]
+ },
+ {
+  "interpretation_id": 26,
+  "kind": "template",
+  "target_id": 981,
+  "prod_prompt_tokens": 1511,
+  "prod_completion_tokens": 3059,
+  "prod_tok_per_s": 22.146820995487584,
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are the log interpreter for a machine-monitoring harness.\nHost: Ubuntu 26.04 server 'gigabyte5': dual AMD EPYC 7K62 (192 threads), 120 GB RAM, two NVIDIA RTX 40-series GPUs used for crypto mining and LLM experiments, NVMe root disk. Frequent automated SSH logins from tooling are normal.\nYou label one log message TEMPLATE: a message pattern where <*>, <NUM>, <IP>, <HEX>, <PCI> and similar markers are variable parts.\nGuidance:\n- Classify what the message itself states. Do not invent causes, impact, or recovery that the lines do not show.\n- A single timeout or retry that is followed by success is usually routine.\n- total-vm in OOM messages is the killed process's virtual memory, not host RAM."
+   },
+   {
+    "role": "user",
+    "content": "TEMPLATE (program: systemd, journald priority: warning):\n  sys-devices-pci0<NUM>:<NUM>-<PCI>-<PCI>-<PCI>-<PCI>-sound-card0-controlC0.device: Failed to enqueue <*> job, ignoring: Transaction for sound.target/start is destructive <*> has 'start' job queued, but 'stop' is included in transaction).\n\nSTATISTICS: seen 4 times on 2 day(s); first 2026-10-25 20:16:50, last 2026-10-26 10:52:18; about 0.3 per hour while active.\n\nSAMPLE LINES with preceding context:\nL13436 2026-10-25 20:16:50 systemd[warning]: sys-devices-pci0000:20-0000:20:03.1-0000:21:00.0-0000:22:00.0-0000:23:00.1-sound-card0-controlC0.device: Failed to enqueue SYSTEMD_USER_WANTS job, ignoring: Transaction for sound.target/start is destructive (exit.target has 'start' job queued, but 'stop' is included in transaction).\nL13437 2026-10-25 20:16:50 systemd[info]: Stopped systemd-networkd-persistent-storage.service - Enable Persistent Storage in systemd-networkd.\nL13438 2026-10-25 20:16:50 systemd[notice]: Requested transaction contradicts existing jobs: Transaction for sound.target/start is destructive (poweroff.target has 'start' job queued, but 'stop' is included in transaction).\nL13439 2026-10-25 20:16:50 systemd[warning]: sys-devices-pci0000:20-0000:20:03.1-0000:21:00.0-0000:22:00.0-0000:23:00.1-sound-card0-controlC0.device: Failed to enqueue SYSTEMD_WANTS job, ignoring: Transaction for sound.target/start is destructive (poweroff.target has 'start' job queued, but 'stop' is included in transaction).   <-- sample\n\nL18732 2026-10-26 10:52:18 systemd[info]: Stopping ssh-agent.socket - OpenSSH Agent socket...\nL18733 2026-10-26 10:52:18 systemd[info]: Closed systemd-ask-password.socket - Query the User Interactively for a Password.\nL18734 2026-10-26 10:52:18 systemd[notice]: Requested transaction contradicts existing jobs: Transaction for sound.target/start is destructive (systemd-poweroff.service has 'start' job queued, but 'stop' is included in transaction).\nL18735 2026-10-26 10:52:18 systemd[warning]: sys-devices-pci0000:20-0000:20:03.1-0000:21:00.0-0000:22:00.0-0000:23:00.1-sound-card0-controlC0.device: Failed to enqueue SYSTEMD_WANTS job, ignoring: Transaction for sound.target/start is destructive (systemd-poweroff.service has 'start' job queued, but 'stop' is included in transaction).   <-- sample\n\nL18734 2026-10-26 10:52:18 systemd[notice]: Requested transaction contradicts existing jobs: Transaction for sound.target/start is destructive (systemd-poweroff.service has 'start' job queued, but 'stop' is included in transaction).\nL18735 2026-10-26 10:52:18 systemd[warning]: sys-devices-pci0000:20-0000:20:03.1-0000:21:00.0-0000:22:00.0-0000:23:00.1-sound-card0-controlC0.device: Failed to enqueue SYSTEMD_WANTS job, ignoring: Transaction for sound.target/start is destructive (systemd-poweroff.service has 'start' job queued, but 'stop' is included in transaction).\nL18736 2026-10-26 10:52:18 systemd[notice]: Requested transaction contradicts existing jobs: Transaction for sound.target/start is destructive (exit.target has 'start' job queued, but 'stop' is included in transaction).\nL18737 2026-10-26 10:52:18 systemd[warning]: sys-devices-pci0000:20-0000:20:03.1-0000:21:00.0-0000:22:00.0-0000:23:00.1-sound-card0-controlC0.device: Failed to enqueue SYSTEMD_USER_WANTS job, ignoring: Transaction for sound.target/start is destructive (exit.target has 'start' job queued, but 'stop' is included in transaction).   <-- sample\n\nPREVIOUSLY LABELED SIMILAR TEMPLATES (memory):\n- [network/failure/warning] systemd-networkd \"systemd-networkd warning about a destructive transaction conflict preventing hostname service start\": flagged 4, consequence observed 2, none observed 0\n- [service/failure/warning] systemd \"systemd failed to enqueue a service job due to a destructive transaction conflict.\": flagged 2, consequence observed 0, none observed 0\n\nAnswer with ONLY a JSON object:\n{\"component\": one of gpu|cpu|memory|disk|filesystem|network|power|thermal|service|auth|scheduler|package|kernel|hardware|application|unknown,\n \"event\": one of start|stop|restart|crash|error|timeout|reset|failure|recovery|degraded|auth_success|auth_failure|session|config|status|other,\n \"severity\": one of info|notice|warning|critical,\n \"routine\": true or false,\n \"summary\": \"one sentence: what the message states\",\n \"evidence\": [\"L<id>\", ...] (lines above that support your label),\n \"uncertain\": \"what cannot be determined from these lines\"}"
+   }
+  ]
+ }
+]

@@ -1,0 +1,17 @@
+s32u-medium-r0                           ok=True decode=34.176 prompt=409.46
+s32r-medium-r0                           ok=True decode=33.160 prompt=408.00
+m64u-medium-r0                           ok=True decode=36.623 prompt=522.54
+m64r-medium-r0                           ok=True decode=37.993 prompt=520.24
+s32u-long-r0                             ok=True decode=29.547 prompt=358.05
+s32r-long-r0                             ok=True decode=30.290 prompt=355.76
+m64u-long-r0                             ok=True decode=31.482 prompt=465.32
+m64r-long-r0                             ok=True decode=32.779 prompt=464.28
+SUMMARY
+s32u|medium                              decode mean 34.176 [34.176]  prompt mean 409.46
+s32r|medium                              decode mean 33.160 [33.16]  prompt mean 408.00
+m64u|medium                              decode mean 36.623 [36.623]  prompt mean 522.54
+m64r|medium                              decode mean 37.993 [37.993]  prompt mean 520.24
+s32u|long                                decode mean 29.547 [29.547]  prompt mean 358.05
+s32r|long                                decode mean 30.290 [30.29]  prompt mean 355.76
+m64u|long                                decode mean 31.482 [31.482]  prompt mean 465.32
+m64r|long                                decode mean 32.779 [32.779]  prompt mean 464.28

@@ -1,0 +1,14 @@
+{
+ "out": "runs/03-dyn",
+ "config": [
+  "base32=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server:32:base",
+  "dyn75=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-dyn/bin/llama-server:32:base:IK_R5_DYN=1",
+  "dyn50=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-dyn/bin/llama-server:32:base:IK_R5_DYN=1,IK_R5_DYN_STATIC=50"
+ ],
+ "cases": "medium,long",
+ "rounds": 2,
+ "n_predict": 512,
+ "probs": false,
+ "prof": false,
+ "perf": false
+}

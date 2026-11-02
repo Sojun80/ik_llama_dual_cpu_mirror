@@ -1,0 +1,16 @@
+START upstream
+DONE upstream prompt tokens 1156 content chars 64
+START ik
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/equivalence.py", line 10, in <module>
+    if srv.poll() is not None:raise RuntimeError(f'{engine} exited {srv.returncode}')
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: ik exited 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/equivalence.py", line 18, in <module>
+    os.killpg(srv.pid,signal.SIGTERM)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+ProcessLookupError: [Errno 3] No such process

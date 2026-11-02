@@ -1,0 +1,19 @@
+base-medium-r0                           ok=True decode=46.091 prompt=541.57
+kvl-medium-r0                            ok=True decode=45.022 prompt=531.89
+sh-medium-r0                             ok=True decode=48.502 prompt=539.50
+base-long-r0                             ok=True decode=41.848 prompt=473.32
+kvl-long-r0                              ok=True decode=42.412 prompt=476.23
+sh-long-r0                               ok=True decode=46.142 prompt=477.54
+sh-medium-r1                             ok=True decode=48.418 prompt=539.46
+kvl-medium-r1                            ok=True decode=46.321 prompt=529.83
+base-medium-r1                           ok=True decode=47.198 prompt=534.04
+sh-long-r1                               ok=True decode=46.607 prompt=477.00
+kvl-long-r1                              ok=True decode=41.740 prompt=478.04
+base-long-r1                             ok=True decode=41.855 prompt=477.64
+SUMMARY
+base|medium                              decode mean 46.645 [46.091, 47.198]  prompt mean 537.81
+kvl|medium                               decode mean 45.671 [45.022, 46.321]  prompt mean 530.86
+sh|medium                                decode mean 48.460 [48.502, 48.418]  prompt mean 539.48
+base|long                                decode mean 41.852 [41.848, 41.855]  prompt mean 475.48
+kvl|long                                 decode mean 42.076 [42.412, 41.74]  prompt mean 477.13
+sh|long                                  decode mean 46.374 [46.142, 46.607]  prompt mean 477.27

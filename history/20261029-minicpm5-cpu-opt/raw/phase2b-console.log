@@ -1,0 +1,38 @@
+  S5 prod-build spread16 tb48 THP fa-off   #0 prompt=575(434 t/s) gen=2904 31.99 t/s 92.1s
+  S5 prod-build spread16 tb48 THP fa-off   #1 prompt=590(379 t/s) gen=5117 28.43 t/s 181.6s
+  S5 prod-build spread16 tb48 THP fa-off   #2 prompt=841(389 t/s) gen=1850 32.10 t/s 59.8s
+  S5 prod-build spread16 tb48 THP fa-off   #3 prompt=853(389 t/s) gen=1288 33.00 t/s 41.2s
+  S5 prod-build spread16 tb48 THP fa-off   #4 prompt=880(391 t/s) gen=4929 27.84 t/s 179.3s
+  S5 prod-build spread16 tb48 THP fa-off   #5 prompt=1365(382 t/s) gen=2284 29.78 t/s 80.3s
+SUMMARY S5 prod-build spread16 tb48 THP fa-off decode median 30.88 pooled 29.58 tok/s, pp median 389, 18372 tokens
+  (server ignored SIGTERM for 20 s; sending SIGKILL)
+  S6 prod-build spread16 tb48 THP fa-on    #0 prompt=575(499 t/s) gen=1643 33.17 t/s 50.7s
+  S6 prod-build spread16 tb48 THP fa-on    #1 prompt=590(396 t/s) gen=1725 32.18 t/s 55.1s
+  S6 prod-build spread16 tb48 THP fa-on    #2 prompt=841(427 t/s) gen=1078 32.23 t/s 35.4s
+  S6 prod-build spread16 tb48 THP fa-on    #3 prompt=853(429 t/s) gen=3076 29.29 t/s 107.0s
+  S6 prod-build spread16 tb48 THP fa-on    #4 prompt=880(433 t/s) gen=1134 31.87 t/s 37.6s
+  S6 prod-build spread16 tb48 THP fa-on    #5 prompt=1365(425 t/s) gen=2880 27.84 t/s 106.7s
+SUMMARY S6 prod-build spread16 tb48 THP fa-on decode median 32.02 pooled 30.32 tok/s, pp median 428, 11536 tokens
+  (server ignored SIGTERM for 20 s; sending SIGKILL)
+  S7 znver2 spread16 tb48 THP              #0 prompt=575(497 t/s) gen=881 34.22 t/s 26.9s
+  S7 znver2 spread16 tb48 THP              #1 prompt=590(397 t/s) gen=857 33.27 t/s 27.2s
+  S7 znver2 spread16 tb48 THP              #2 prompt=841(428 t/s) gen=2243 30.15 t/s 76.3s
+  S7 znver2 spread16 tb48 THP              #3 prompt=853(429 t/s) gen=2335 30.01 t/s 79.8s
+  S7 znver2 spread16 tb48 THP              #4 prompt=880(434 t/s) gen=2528 29.64 t/s 87.3s
+  S7 znver2 spread16 tb48 THP              #5 prompt=1365(426 t/s) gen=1310 29.77 t/s 47.2s
+SUMMARY S7 znver2 spread16 tb48 THP        decode median 30.08 pooled 30.51 tok/s, pp median 429, 10154 tokens
+  S8 prod-build spread12 tb48 THP          #0 prompt=575(499 t/s) gen=1647 28.85 t/s 58.2s
+  S8 prod-build spread12 tb48 THP          #1 prompt=590(390 t/s) gen=870 29.44 t/s 31.1s
+  S8 prod-build spread12 tb48 THP          #2 prompt=841(425 t/s) gen=3079 25.21 t/s 124.1s
+  S8 prod-build spread12 tb48 THP          #3 prompt=853(425 t/s) gen=1661 27.17 t/s 63.1s
+  S8 prod-build spread12 tb48 THP          #4 prompt=880(428 t/s) gen=1893 26.59 t/s 73.2s
+  S8 prod-build spread12 tb48 THP          #5 prompt=1365(423 t/s) gen=2201 24.84 t/s 91.8s
+SUMMARY S8 prod-build spread12 tb48 THP    decode median 26.88 pooled 26.43 tok/s, pp median 425, 11351 tokens
+  S9 prod-build spread16 tb48 THP repeat   #0 prompt=575(498 t/s) gen=1643 32.08 t/s 52.4s
+  S9 prod-build spread16 tb48 THP repeat   #1 prompt=590(395 t/s) gen=1725 31.18 t/s 56.8s
+  S9 prod-build spread16 tb48 THP repeat   #2 prompt=841(428 t/s) gen=1078 31.33 t/s 36.4s
+  S9 prod-build spread16 tb48 THP repeat   #3 prompt=853(430 t/s) gen=3076 28.50 t/s 109.9s
+  S9 prod-build spread16 tb48 THP repeat   #4 prompt=880(433 t/s) gen=1134 31.02 t/s 38.6s
+  S9 prod-build spread16 tb48 THP repeat   #5 prompt=1365(425 t/s) gen=2880 27.32 t/s 108.6s
+SUMMARY S9 prod-build spread16 tb48 THP repeat decode median 31.10 pooled 29.53 tok/s, pp median 429, 11536 tokens
+  (server ignored SIGTERM for 20 s; sending SIGKILL)

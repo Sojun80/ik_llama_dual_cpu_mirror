@@ -1,0 +1,21 @@
+pf-medium-r0                             ok=True decode=44.271 prompt=523.81
+dns-medium-r0                            ok=True decode=38.506 prompt=517.84
+pf-long-r0                               ok=True decode=39.976 prompt=459.23
+dns-long-r0                              ok=True decode=35.713 prompt=465.84
+dns-medium-r1                            ok=True decode=38.830 prompt=519.91
+pf-medium-r1                             ok=True decode=45.264 prompt=519.21
+dns-long-r1                              ok=True decode=36.178 prompt=461.36
+pf-long-r1                               ok=True decode=40.576 prompt=466.71
+pf-medium-r2                             ok=True decode=44.168 prompt=522.85
+dns-medium-r2                            ok=True decode=39.254 prompt=518.81
+pf-long-r2                               ok=True decode=39.290 prompt=465.96
+dns-long-r2                              ok=True decode=35.018 prompt=461.10
+dns-medium-r3                            ok=True decode=39.192 prompt=523.98
+pf-medium-r3                             ok=True decode=44.609 prompt=518.59
+dns-long-r3                              ok=True decode=36.182 prompt=463.01
+pf-long-r3                               ok=True decode=39.443 prompt=467.95
+SUMMARY
+pf|medium                                decode mean 44.578 [44.271, 45.264, 44.168, 44.609]  prompt mean 521.12
+dns|medium                               decode mean 38.945 [38.506, 38.83, 39.254, 39.192]  prompt mean 520.13
+pf|long                                  decode mean 39.821 [39.976, 40.576, 39.29, 39.443]  prompt mean 464.96
+dns|long                                 decode mean 35.773 [35.713, 36.178, 35.018, 36.182]  prompt mean 462.83

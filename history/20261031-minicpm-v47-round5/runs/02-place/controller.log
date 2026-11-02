@@ -1,0 +1,31 @@
+base32-medium-r0                         ok=True decode=36.111 prompt=402.12
+rr24-medium-r0                           ok=True decode=36.452 prompt=397.36
+rr30-medium-r0                           ok=True decode=36.066 prompt=394.57
+rr36-medium-r0                           ok=True decode=36.040 prompt=397.81
+rr48-medium-r0                           ok=True decode=35.994 prompt=398.59
+base32-long-r0                           ok=True decode=31.779 prompt=353.28
+rr24-long-r0                             ok=True decode=31.806 prompt=350.25
+rr30-long-r0                             ok=True decode=31.698 prompt=349.49
+rr36-long-r0                             ok=True decode=30.445 prompt=350.13
+rr48-long-r0                             ok=True decode=31.362 prompt=348.94
+rr48-medium-r1                           ok=True decode=35.230 prompt=396.43
+rr36-medium-r1                           ok=True decode=35.546 prompt=388.60
+rr30-medium-r1                           ok=True decode=35.379 prompt=395.02
+rr24-medium-r1                           ok=True decode=36.587 prompt=397.41
+base32-medium-r1                         ok=True decode=36.083 prompt=401.68
+rr48-long-r1                             ok=True decode=31.425 prompt=350.62
+rr36-long-r1                             ok=True decode=30.395 prompt=350.81
+rr30-long-r1                             ok=True decode=31.779 prompt=349.78
+rr24-long-r1                             ok=True decode=31.638 prompt=350.47
+base32-long-r1                           ok=True decode=32.001 prompt=354.06
+SUMMARY
+base32|medium                            decode mean 36.097 [36.111, 36.083]  prompt mean 401.90
+rr24|medium                              decode mean 36.520 [36.452, 36.587]  prompt mean 397.38
+rr30|medium                              decode mean 35.722 [36.066, 35.379]  prompt mean 394.79
+rr36|medium                              decode mean 35.793 [36.04, 35.546]  prompt mean 393.21
+rr48|medium                              decode mean 35.612 [35.994, 35.23]  prompt mean 397.51
+base32|long                              decode mean 31.890 [31.779, 32.001]  prompt mean 353.67
+rr24|long                                decode mean 31.722 [31.806, 31.638]  prompt mean 350.36
+rr30|long                                decode mean 31.739 [31.698, 31.779]  prompt mean 349.63
+rr36|long                                decode mean 30.420 [30.445, 30.395]  prompt mean 350.47
+rr48|long                                decode mean 31.393 [31.362, 31.425]  prompt mean 349.78

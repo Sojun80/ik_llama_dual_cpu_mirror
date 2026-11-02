@@ -1,0 +1,12 @@
+A n1-packed16 (prod layout)                   prod          t=16  rc=0 tg128@d0=8.0 tg128@d2048=7.2
+B n1-packed16 THP                             prod          t=16  rc=0 tg128@d0=32.3 tg128@d2048=26.1
+C n1-spread16                                 znver2-omp    t=16  rc=0 tg128@d0=14.1 tg128@d2048=9.6
+D n1-spread16 THP                             znver2-omp    t=16  rc=0 tg128@d0=49.9 tg128@d2048=30.1
+E n1-spread16 THP                             prod          t=16  rc=0 tg128@d0=48.4 tg128@d2048=33.9
+F n1-packed16 THP                             znver2-omp    t=16  rc=0 tg128@d0=31.8 tg128@d2048=24.4
+A n1-packed16 (prod layout)                   prod          t=16  rc=0 tg128@d0=8.3 tg128@d2048=7.4
+B n1-packed16 THP                             prod          t=16  rc=0 tg128@d0=30.0 tg128@d2048=23.3
+C n1-spread16                                 znver2-omp    t=16  rc=0 tg128@d0=16.6 tg128@d2048=14.5
+D n1-spread16 THP                             znver2-omp    t=16  rc=0 tg128@d0=48.1 tg128@d2048=28.6
+E n1-spread16 THP                             prod          t=16  rc=0 tg128@d0=48.7 tg128@d2048=30.6
+F n1-packed16 THP                             znver2-omp    t=16  rc=0 tg128@d0=29.4 tg128@d2048=23.4

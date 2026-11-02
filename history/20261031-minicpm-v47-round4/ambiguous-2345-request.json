@@ -1,0 +1,22 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "You are analyzing system and application logs to help a systems administrator understand what happened.\n\nRead the supplied logs carefully.\n\nIdentify meaningful failures, unusual behavior, and operational problems.\n\nFor each significant finding:\n\n- Explain what happened.\n- Cite the relevant log entries or line identifiers.\n- Explain how the evidence supports your interpretation.\n- Connect related events when justified.\n- Distinguish confirmed observations from possible explanations.\n- State when the evidence is insufficient to determine the cause.\n\nAvoid inventing events, causes, timestamps, or details not supported by the logs.\n\nDo not treat every warning as a significant incident.\n\nIf the logs do not establish a meaningful problem, say so.\n\nProvide a useful technical analysis in natural language. Organize your answer however you think is clearest.\n\nYou may be concise when the evidence is straightforward or detailed when the situation requires explanation.\n\nLogs:\nL3001 2026-10-29T06:00:00Z host-c api[640]: GET /health status=200 duration_ms=5\nL3002 2026-10-29T06:02:00Z host-c web[641]: WARN upstream request duration_ms=4800 endpoint=/orders\nL3003 2026-10-29T06:02:01Z host-c proxy[642]: upstream response status=504 service=orders request_id=r100\nL3004 2026-10-29T06:02:02Z host-c web[641]: retry scheduled request_id=r100\nL3005 2026-10-29T06:02:04Z host-c web[641]: retry completed status=200 request_id=r100\nL3006 2026-10-29T06:03:00Z host-c web[641]: WARN upstream request duration_ms=5100 endpoint=/orders\nL3007 2026-10-29T06:03:01Z host-c proxy[642]: upstream response status=504 service=orders request_id=r101\nL3008 2026-10-29T06:03:03Z host-c web[641]: retry completed status=200 request_id=r101\nL3009 2026-10-29T06:04:00Z host-c metrics[650]: orders.service process present; cpu=21%; memory=42%\nL3010 2026-10-29T06:05:00Z host-c api[640]: GET /health status=200 duration_ms=7\n"
+    }
+  ],
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 0,
+  "min_p": 0.0,
+  "repeat_penalty": 1.0,
+  "presence_penalty": 0.0,
+  "seed": 2345,
+  "max_tokens": 8192,
+  "stream": true,
+  "cache_prompt": false,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "return_progress": true
+}

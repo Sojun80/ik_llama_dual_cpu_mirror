@@ -1,0 +1,22 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "You are analyzing system and application logs to help a systems administrator understand what happened.\n\nRead the supplied logs carefully.\n\nIdentify meaningful failures, unusual behavior, and operational problems.\n\nFor each significant finding:\n\n- Explain what happened.\n- Cite the relevant log entries or line identifiers.\n- Explain how the evidence supports your interpretation.\n- Connect related events when justified.\n- Distinguish confirmed observations from possible explanations.\n- State when the evidence is insufficient to determine the cause.\n\nAvoid inventing events, causes, timestamps, or details not supported by the logs.\n\nDo not treat every warning as a significant incident.\n\nIf the logs do not establish a meaningful problem, say so.\n\nProvide a useful technical analysis in natural language. Organize your answer however you think is clearest.\n\nYou may be concise when the evidence is straightforward or detailed when the situation requires explanation.\n\nLogs:\nL2001 2026-10-29T04:00:00Z host-b systemd[1]: Started inventory.service\nL2002 2026-10-29T04:00:03Z host-b inventory[412]: startup complete; listening on port 8080\nL2003 2026-10-29T04:01:00Z host-b api[420]: GET /health status=200 duration_ms=3\nL2004 Oct 29 04:03:00 host-b cron[714]: starting scheduled log rotation\nL2005 2026-10-29T04:03:01Z host-b logrotate[715]: rotated and compressed application log successfully\nL2006 {\"timestamp\":\"2026-10-29T04:05:00Z\",\"service\":\"inventory\",\"level\":\"WARN\",\"message\":\"request timed out, retrying\"}\nL2007 2026-10-29T04:05:01Z host-b inventory[412]: retry succeeded status=200 attempt=2\nL2008 2026-10-29T04:10:00Z host-b backup[430]: daily snapshot verified\nL2009 Oct 29 04:15:00 host-b sshd[500]: Accepted publickey for deploy from 192.0.2.12\nL2010 2026-10-29T04:20:00Z host-b api[420]: GET /health status=200 duration_ms=4\n"
+    }
+  ],
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 0,
+  "min_p": 0.0,
+  "repeat_penalty": 1.0,
+  "presence_penalty": 0.0,
+  "seed": 1234,
+  "max_tokens": 8192,
+  "stream": true,
+  "cache_prompt": false,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "return_progress": true
+}

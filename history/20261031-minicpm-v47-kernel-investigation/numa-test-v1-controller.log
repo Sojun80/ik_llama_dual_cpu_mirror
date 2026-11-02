@@ -1,0 +1,7 @@
+START global
+ERROR global RuntimeError('server exited 1') Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-kernel-investigation/numa-test.py", line 12, in <module>
+    if srv.poll()!=None:raise RuntimeError('server exited '+str(srv.returncode))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: server exited 1
+

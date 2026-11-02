@@ -1,0 +1,12 @@
+{
+ "out": "runs/55-flush-none2",
+ "config": [
+  "s32=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-prof/bin/llama-server:32:base:IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1,IK_R5_PINONCE=1,IK_R5_FMOE=1,IK_R5_FMOE_UG=1"
+ ],
+ "cases": "medium,long",
+ "rounds": 1,
+ "n_predict": 256,
+ "probs": false,
+ "prof": true,
+ "perf": false
+}

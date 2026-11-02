@@ -1,0 +1,14 @@
+{
+ "out": "runs/13-mirror-ab",
+ "config": [
+  "m48=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror/bin/llama-server:48:16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93:R5_MODE=mirror,R5_MIRROR=weights",
+  "m48x=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror/bin/llama-server:48:16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93:R5_MODE=mirror,R5_MIRROR=weights,IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1",
+  "m64x=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror/bin/llama-server:64:16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,19,27,35,43,23,31,39,47,48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61:R5_MODE=mirror,R5_MIRROR=weights,IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1"
+ ],
+ "cases": "medium,long",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": false,
+ "prof": false,
+ "perf": false
+}

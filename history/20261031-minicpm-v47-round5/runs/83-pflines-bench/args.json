@@ -1,0 +1,14 @@
+{
+ "out": "runs/83-pflines-bench",
+ "config": [
+  "lead4=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server:64:16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,19,27,35,43,23,31,39,47,48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61:R5_MODE=mirror,R5_MIRROR=all,IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1,IK_R5_PINONCE=1,IK_R5_FMOE=1,IK_R5_FMOE_UG=1,IK_R5_NONUMAB=1,IK_R5_PF=1,IK_R5_PF_LEADER=1",
+  "lead2=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server:64:16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,19,27,35,43,23,31,39,47,48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61:R5_MODE=mirror,R5_MIRROR=all,IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1,IK_R5_PINONCE=1,IK_R5_FMOE=1,IK_R5_FMOE_UG=1,IK_R5_NONUMAB=1,IK_R5_PF=1,IK_R5_PF_LEADER=1,IK_R5_PF_LINES=2",
+  "nolead2=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server:64:16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,19,27,35,43,23,31,39,47,48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61:R5_MODE=mirror,R5_MIRROR=all,IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1,IK_R5_PINONCE=1,IK_R5_FMOE=1,IK_R5_FMOE_UG=1,IK_R5_NONUMAB=1,IK_R5_PF=1,IK_R5_PF_LINES=2"
+ ],
+ "cases": "medium,long",
+ "rounds": 4,
+ "n_predict": 512,
+ "probs": false,
+ "prof": false,
+ "perf": false
+}

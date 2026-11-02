@@ -1,0 +1,65 @@
+  S0 prod-build packed16 4K                #0 prompt=575(245 t/s) gen=1643 7.82 t/s 212.3s
+  S0 prod-build packed16 4K                #1 prompt=590(240 t/s) gen=1725 7.79 t/s 224.0s
+  S0 prod-build packed16 4K                #2 prompt=841(238 t/s) gen=1078 7.85 t/s 140.9s
+  S0 prod-build packed16 4K                #3 prompt=853(238 t/s) gen=3076 7.63 t/s 406.6s
+  S0 prod-build packed16 4K                #4 prompt=880(243 t/s) gen=1134 7.86 t/s 147.9s
+  S0 prod-build packed16 4K                #5 prompt=1365(217 t/s) gen=2880 7.59 t/s 385.7s
+SUMMARY S0 prod-build packed16 4K          decode median 7.80 pooled 7.72 tok/s, pp median 239, 11536 tokens
+  S1 prod-build packed16 THP               #0 prompt=575(263 t/s) gen=1643 23.79 t/s 71.2s
+  S1 prod-build packed16 THP               #1 prompt=590(251 t/s) gen=1725 23.24 t/s 76.6s
+  S1 prod-build packed16 THP               #2 prompt=841(252 t/s) gen=1078 23.35 t/s 49.5s
+  S1 prod-build packed16 THP               #3 prompt=853(253 t/s) gen=3076 21.85 t/s 144.2s
+  S1 prod-build packed16 THP               #4 prompt=880(255 t/s) gen=1134 23.40 t/s 51.9s
+  S1 prod-build packed16 THP               #5 prompt=1365(247 t/s) gen=2880 21.23 t/s 141.2s
+SUMMARY S1 prod-build packed16 THP         decode median 23.30 pooled 22.44 tok/s, pp median 253, 11536 tokens
+  S2 prod-build spread16 THP               #0 prompt=575(265 t/s) gen=1643 33.39 t/s 51.4s
+  S2 prod-build spread16 THP               #1 prompt=590(232 t/s) gen=1725 31.10 t/s 58.0s
+  S2 prod-build spread16 THP               #2 prompt=841(254 t/s) gen=1078 32.61 t/s 36.4s
+  S2 prod-build spread16 THP               #3 prompt=853(254 t/s) gen=3076 15.87 t/s 197.1s
+  S2 prod-build spread16 THP               #4 prompt=880(255 t/s) gen=1134 32.35 t/s 38.5s
+  S2 prod-build spread16 THP               #5 prompt=1365(247 t/s) gen=2880 26.68 t/s 113.5s
+SUMMARY S2 prod-build spread16 THP         decode median 31.73 pooled 24.32 tok/s, pp median 254, 11536 tokens
+  S3 znver2 spread16 THP                   #0 prompt=575(265 t/s) gen=881 35.65 t/s 26.9s
+  S3 znver2 spread16 THP                   #1 prompt=590(255 t/s) gen=857 34.68 t/s 27.0s
+  S3 znver2 spread16 THP                   #2 prompt=841(251 t/s) gen=2243 22.36 t/s 103.7s
+  S3 znver2 spread16 THP                   #3 prompt=853(256 t/s) gen=2335 26.39 t/s 91.8s
+  S3 znver2 spread16 THP                   #4 prompt=880(257 t/s) gen=2528 22.04 t/s 118.1s
+  S3 znver2 spread16 THP                   #5 prompt=1365(203 t/s) gen=1310 31.30 t/s 48.6s
+SUMMARY S3 znver2 spread16 THP             decode median 28.85 pooled 25.74 tok/s, pp median 255, 10154 tokens
+  S4 prod-build spread16 tb48 THP          #0 prompt=575(489 t/s) gen=1643 33.51 t/s 50.2s
+  S4 prod-build spread16 tb48 THP          #1 prompt=590(389 t/s) gen=1725 32.53 t/s 54.5s
+  S4 prod-build spread16 tb48 THP          #2 prompt=841(421 t/s) gen=1078 32.45 t/s 35.2s
+  S4 prod-build spread16 tb48 THP          #3 prompt=853(421 t/s) gen=3076 29.60 t/s 106.0s
+  S4 prod-build spread16 tb48 THP          #4 prompt=880(424 t/s) gen=1134 32.26 t/s 37.2s
+  S4 prod-build spread16 tb48 THP          #5 prompt=1365(417 t/s) gen=2880 28.18 t/s 105.5s
+SUMMARY S4 prod-build spread16 tb48 THP    decode median 32.36 pooled 30.65 tok/s, pp median 421, 11536 tokens
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261029-minicpm5-cpu-opt/scripts/serve_bench.py", line 96, in <module>
+    proc.wait(timeout=60)
+    ~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1279, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2076, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['sudo', '-n', 'systemd-run', '--scope', '-q', '--uid=ubuntu', '--gid=ubuntu', '-p', 'AllowedCPUs=48-95', '-p', 'AllowedMemoryNodes=1', '--', 'env', 'LD_LIBRARY_PATH=/home/ubuntu/llm-evaluations/20261028-tiny-logwatch/cpu-build/bin', 'GLIBC_TUNABLES=glibc.malloc.hugetlb=1', 'numactl', '--physcpubind=48-95', '--membind=1', '/home/ubuntu/llm-evaluations/20261028-tiny-logwatch/cpu-build/bin/llama-server', '-m', '/home/ubuntu/casebook-runtime/models/MiniCPM5-2B-Q4_K_M.gguf', '--load-mode', 'none', '-ngl', '0', '-t', '16', '-tb', '48', '-c', '16384', '--host', '127.0.0.1', '--port', '19160', '--parallel', '1', '-C', '0x111113131313000000000000', '--cpu-strict', '1', '-Cb', '0xffffffffffff000000000000', '--cpu-strict-batch', '1']' timed out after 60 seconds
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261029-minicpm5-cpu-opt/scripts/serve_bench.py", line 69, in <module>
+    d = json.loads(urllib.request.urlopen(req, timeout=1500).read())
+                   ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 500: Internal Server Error

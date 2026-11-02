@@ -1,0 +1,9 @@
+s32f-medium-r0                           ok=True decode=32.506 prompt=407.06
+s32u-medium-r0                           ok=True decode=35.643 prompt=409.99
+m64f-medium-r0                           ok=True decode=37.766 prompt=519.66
+m64u-medium-r0                           ok=True decode=38.812 prompt=523.18
+SUMMARY
+s32f|medium                              decode mean 32.506 [32.506]  prompt mean 407.06
+s32u|medium                              decode mean 35.643 [35.643]  prompt mean 409.99
+m64f|medium                              decode mean 37.766 [37.766]  prompt mean 519.66
+m64u|medium                              decode mean 38.812 [38.812]  prompt mean 523.18

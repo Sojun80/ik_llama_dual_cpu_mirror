@@ -1,0 +1,9 @@
+r5: prefetch upcoming weights while waiting at barriers (IK_R5_PF)
+
+Before each node barrier every thread queues its static rows of the next
+single-token dense matmuls (IK_R5_DYN's static share) from its node-local
+mirror copy, and r5_fmug queues the thread's down rows once the experts
+are known. The NUMA barrier spin loops issue prefetcht1 from that queue.
+Bit-exact; mirror decode +4.5% at 2.8K, +7.8% at 9.4K (runs/78).
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

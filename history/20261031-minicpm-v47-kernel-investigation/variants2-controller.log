@@ -1,0 +1,6 @@
+START upstream32-noignore
+DONE upstream32-noignore timings {'cache_n': 0, 'prompt_n': 9455, 'prompt_ms': 45938.729, 'prompt_per_token_ms': 4.858670438921205, 'prompt_per_second': 205.81762286022322, 'predicted_n': 16, 'predicted_ms': 886.783, 'predicted_per_token_ms': 59.11886666666667, 'predicted_per_second': 16.915073924511407} output '\nThe old man sat by the window, watching the rain fall. It was'
+START ik-noignore
+DONE ik-noignore timings {'prompt_n': 9455, 'prompt_ms': 26909.113, 'prompt_per_token_ms': 2.8460193548387096, 'prompt_per_second': 351.3679547891452, 'predicted_n': 16, 'predicted_ms': 545.776, 'predicted_per_token_ms': 34.111, 'predicted_per_second': 29.316056404092524, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall on the me'
+START ik-no-checkpoints
+DONE ik-no-checkpoints timings {'prompt_n': 9455, 'prompt_ms': 26665.334, 'prompt_per_token_ms': 2.820236277102062, 'prompt_per_second': 354.58022014650186, 'predicted_n': 16, 'predicted_ms': 523.133, 'predicted_per_token_ms': 32.6958125, 'predicted_per_second': 30.584956406879318, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall.  It'

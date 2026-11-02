@@ -1,0 +1,22 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "A service logged an error and then restarted successfully. What is known, and what is unknown? Answer briefly."
+    }
+  ],
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 0,
+  "min_p": 0.0,
+  "repeat_penalty": 1.0,
+  "presence_penalty": 0.0,
+  "seed": 1234,
+  "max_tokens": 256,
+  "stream": true,
+  "cache_prompt": false,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "return_progress": true
+}

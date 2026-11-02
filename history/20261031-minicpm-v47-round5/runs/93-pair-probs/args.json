@@ -1,0 +1,12 @@
+{
+ "out": "runs/93-pair-probs",
+ "config": [
+  "pfP=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server:64:16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,56,57,58,59,60,61,64,65,66,67,72,73,74,75,80,81,82,83,88,89,90,91,68,76,84,92:R5_MODE=mirror,R5_MIRROR=all,IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1,IK_R5_PINONCE=1,IK_R5_FMOE=1,IK_R5_FMOE_UG=1,IK_R5_NONUMAB=1,IK_R5_PF=1"
+ ],
+ "cases": "medium,long",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": true,
+ "prof": false,
+ "perf": false
+}

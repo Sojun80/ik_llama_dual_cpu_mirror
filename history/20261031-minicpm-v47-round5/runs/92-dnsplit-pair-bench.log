@@ -1,0 +1,25 @@
+pf-medium-r0                             ok=True decode=44.489 prompt=529.37
+pfP-medium-r0                            ok=True decode=45.424 prompt=525.58
+dnsP-medium-r0                           ok=True decode=45.144 prompt=529.14
+pf-long-r0                               ok=True decode=39.335 prompt=471.74
+pfP-long-r0                              ok=True decode=40.144 prompt=477.10
+dnsP-long-r0                             ok=True decode=40.087 prompt=473.98
+dnsP-medium-r1                           ok=True decode=44.944 prompt=529.03
+pfP-medium-r1                            ok=True decode=46.145 prompt=534.16
+pf-medium-r1                             ok=True decode=43.713 prompt=531.69
+dnsP-long-r1                             ok=True decode=38.962 prompt=472.69
+pfP-long-r1                              ok=True decode=40.171 prompt=473.98
+pf-long-r1                               ok=True decode=39.710 prompt=470.45
+pf-medium-r2                             ok=True decode=44.432 prompt=531.90
+pfP-medium-r2                            ok=True decode=44.629 prompt=531.65
+dnsP-medium-r2                           ok=True decode=44.870 prompt=533.43
+pf-long-r2                               ok=True decode=38.481 prompt=463.94
+pfP-long-r2                              ok=True decode=40.539 prompt=478.87
+dnsP-long-r2                             ok=True decode=40.124 prompt=476.42
+SUMMARY
+pf|medium                                decode mean 44.211 [44.489, 43.713, 44.432]  prompt mean 530.99
+pfP|medium                               decode mean 45.399 [45.424, 46.145, 44.629]  prompt mean 530.46
+dnsP|medium                              decode mean 44.986 [45.144, 44.944, 44.87]  prompt mean 530.53
+pf|long                                  decode mean 39.175 [39.335, 39.71, 38.481]  prompt mean 468.71
+pfP|long                                 decode mean 40.285 [40.144, 40.171, 40.539]  prompt mean 476.65
+dnsP|long                                decode mean 39.724 [40.087, 38.962, 40.124]  prompt mean 474.36

@@ -1,0 +1,1 @@
+Terminated                 sudo -n perf record -F 99 -g -p "$P" -o postcheckpoint-perf.data -- sleep 8 > postcheckpoint-perf-capture.log 2>&1

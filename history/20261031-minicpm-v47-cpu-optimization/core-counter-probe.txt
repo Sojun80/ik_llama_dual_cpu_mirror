@@ -1,0 +1,11 @@
+
+ Performance counter stats for 'system wide':
+
+         167736405      ls_refills_from_sys.ls_mabresp_lcl_dram                                      
+         547371815      ls_hw_pf_dc_fill.ls_mabresp_lcl_dram                                      
+            136738      ls_refills_from_sys.ls_mabresp_rmt_dram                                      
+      105272417801      cycles                                                                
+       74083709993      instructions                                                          
+
+       2.017063234 seconds time elapsed
+

@@ -1,0 +1,85 @@
+64cccf831000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server mapped=42 active=0 N1=42 kernelpagesize_kB=4
+64cccf85b000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server mapped=933 active=0 N1=933 kernelpagesize_kB=4
+64cccfd04000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server mapped=70 active=0 N1=70 kernelpagesize_kB=4
+64cccfdc9000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server anon=8 dirty=8 active=0 N0=4 N1=4 kernelpagesize_kB=4
+64cccfdd1000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server anon=2 dirty=2 mapped=9 active=0 N0=1 N1=8 kernelpagesize_kB=4
+64ccd0243000 interleave:0-1 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+64ccf7a78000 interleave:0-1 heap anon=375 dirty=375 active=0 N0=188 N1=187 kernelpagesize_kB=4
+64ccf7c00000 interleave:0-1 heap anon=17408 dirty=17408 active=0 N0=8704 N1=8704 kernelpagesize_kB=4
+74e21c6c6000 interleave:0-1 anon=2229 dirty=2229 active=629 N0=1115 N1=1114 kernelpagesize_kB=4
+74e28d7a8000 interleave:0-1 anon=100138 dirty=100138 active=48 N0=1172 N1=98966 kernelpagesize_kB=4
+74e2d0200000 interleave:0-1
+74e2d47f9000 interleave:0-1 anon=201 dirty=201 active=132 N0=100 N1=101 kernelpagesize_kB=4
+74e2d8000000 interleave:0-1 anon=512 dirty=512 active=0 N0=512 kernelpagesize_kB=4
+74e2d8200000 interleave:0-1
+74e2dc000000 interleave:0-1 anon=512 dirty=512 active=0 N0=512 kernelpagesize_kB=4
+74e2dc200000 interleave:0-1
+74e2e0000000 interleave:0-1 anon=512 dirty=512 active=0 N0=512 kernelpagesize_kB=4
+74e2e0200000 interleave:0-1
+74e2e4000000 interleave:0-1 anon=512 dirty=512 active=0 N0=512 kernelpagesize_kB=4
+74e2e4200000 interleave:0-1
+74e2e8000000 interleave:0-1 anon=512 dirty=512 active=0 N0=512 kernelpagesize_kB=4
+74e2e8200000 interleave:0-1
+74e2ec000000 interleave:0-1 anon=512 dirty=512 active=0 N0=512 kernelpagesize_kB=4
+74e2ec200000 interleave:0-1
+74e2f0000000 interleave:0-1 anon=512 dirty=512 active=0 N0=512 kernelpagesize_kB=4
+74e2f0200000 interleave:0-1
+74e2f401d000 interleave:0-1 anon=135 dirty=135 active=101 N0=68 N1=67 kernelpagesize_kB=4
+74e2f6df8000 interleave:0-1 anon=41 dirty=41 active=28 N0=21 N1=20 kernelpagesize_kB=4
+74e2f7dfa000 interleave:0-1 anon=5171828 dirty=5171828 active=0 N0=35642 N1=5136186 kernelpagesize_kB=4
+74e7e7000000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=39 mapmax=27 active=0 N1=39 kernelpagesize_kB=4
+74e7e7028000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=352 mapmax=29 active=0 N0=33 N1=319 kernelpagesize_kB=4
+74e7e71c0000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=62 mapmax=29 active=0 N1=62 kernelpagesize_kB=4
+74e7e720e000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 anon=4 dirty=4 active=0 N0=2 N1=2 kernelpagesize_kB=4
+74e7e7212000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 anon=2 dirty=2 active=0 N0=1 N1=1 kernelpagesize_kB=4
+74e7e7214000 interleave:0-1 anon=5 dirty=5 active=0 N0=4 N1=1 kernelpagesize_kB=4
+74e7e7400000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 mapped=163 mapmax=2 active=0 N0=163 kernelpagesize_kB=4
+74e7e74a3000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 mapped=205 mapmax=2 active=0 N0=197 N1=8 kernelpagesize_kB=4
+74e7e75fe000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 mapped=27 mapmax=2 active=0 N0=27 kernelpagesize_kB=4
+74e7e768a000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 anon=15 dirty=15 active=0 N0=8 N1=7 kernelpagesize_kB=4
+74e7e7699000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 anon=3 dirty=3 active=0 N0=1 N1=2 kernelpagesize_kB=4
+74e7e769c000 interleave:0-1 anon=3 dirty=3 active=0 N0=2 N1=1 kernelpagesize_kB=4
+74e7e7800000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so mapped=27 active=0 N1=27 kernelpagesize_kB=4
+74e7e781b000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so mapped=949 active=0 N1=949 kernelpagesize_kB=4
+74e7e904f000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so mapped=46 active=0 N1=46 kernelpagesize_kB=4
+74e7e90ee000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so anon=11 dirty=11 mapped=14 active=0 N0=6 N1=8 kernelpagesize_kB=4
+74e7e90fc000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so anon=2 dirty=2 active=0 N0=1 N1=1 kernelpagesize_kB=4
+74e7e90fe000 interleave:0-1 anon=135 dirty=135 active=0 N0=68 N1=67 kernelpagesize_kB=4
+74e7e9200000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so mapped=74 active=0 N1=74 kernelpagesize_kB=4
+74e7e924a000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so mapped=470 active=0 N1=470 kernelpagesize_kB=4
+74e7e9543000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so mapped=73 active=0 N1=73 kernelpagesize_kB=4
+74e7e95cc000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so anon=5 dirty=5 active=0 N0=3 N1=2 kernelpagesize_kB=4
+74e7e95d1000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so anon=4 dirty=4 active=0 N0=2 N1=2 kernelpagesize_kB=4
+74e7e9601000 interleave:0-1 anon=14 dirty=14 active=0 N0=7 N1=7 kernelpagesize_kB=4
+74e7e9610000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 mapped=11 mapmax=2 active=0 N0=11 kernelpagesize_kB=4
+74e7e961b000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 mapped=65 mapmax=2 active=0 N0=65 kernelpagesize_kB=4
+74e7e965d000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 mapped=13 mapmax=2 active=0 N0=13 kernelpagesize_kB=4
+74e7e966d000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4
+74e7e966e000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+74e7e966f000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 mapped=4 mapmax=5 active=0 N0=4 kernelpagesize_kB=4
+74e7e9673000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 mapped=16 mapmax=5 active=0 N0=16 kernelpagesize_kB=4
+74e7e9697000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 mapped=4 mapmax=5 active=0 N0=4 kernelpagesize_kB=4
+74e7e969b000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4
+74e7e969c000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+74e7e969d000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=17 mapmax=21 active=0 N1=17 kernelpagesize_kB=4
+74e7e96af000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=106 mapmax=21 active=0 N0=23 N1=83 kernelpagesize_kB=4
+74e7e974f000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=21 mapmax=21 active=0 N0=20 N1=1 kernelpagesize_kB=4
+74e7e97c1000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+74e7e97c2000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4
+74e7e97c3000 interleave:0-1 anon=2 dirty=2 active=0 N0=1 N1=1 kernelpagesize_kB=4
+74e7e97d1000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so mapped=17 active=0 N1=17 kernelpagesize_kB=4
+74e7e97e2000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so mapped=46 active=0 N1=46 kernelpagesize_kB=4
+74e7e98b2000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so mapped=25 active=0 N1=25 kernelpagesize_kB=4
+74e7e98cb000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so anon=1 dirty=1 active=0 N0=1 kernelpagesize_kB=4
+74e7e98cc000 interleave:0-1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so anon=2 dirty=2 active=0 N0=1 N1=1 kernelpagesize_kB=4
+74e7e98ce000 interleave:0-1 anon=3 dirty=3 active=0 N0=2 N1=1 kernelpagesize_kB=4
+74e7e98d1000 interleave:0-1
+74e7e98d5000 interleave:0-1
+74e7e98d7000 interleave:0-1
+74e7e98d9000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=1 mapmax=27 active=0 N1=1 kernelpagesize_kB=4
+74e7e98da000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=46 mapmax=28 active=0 N1=46 kernelpagesize_kB=4
+74e7e9909000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=11 mapmax=27 active=0 N1=11 kernelpagesize_kB=4
+74e7e9914000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 anon=2 dirty=2 active=0 N0=1 N1=1 kernelpagesize_kB=4
+74e7e9916000 interleave:0-1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+74e7e9917000 interleave:0-1 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+7ffc3c1ab000 interleave:0-1 stack anon=34 dirty=34 active=1 N0=17 N1=17 kernelpagesize_kB=4

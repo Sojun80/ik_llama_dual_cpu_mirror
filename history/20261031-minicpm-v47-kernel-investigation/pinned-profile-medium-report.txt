@@ -1,0 +1,127 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 20K of event 'cpu/cycles/P'
+# Event count (approx.): 864929135007
+#
+# Overhead  Command       Shared Object      Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+# ........  ............  .................  ........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+#
+    32.98%  llama-server  libggml.so         [.] void (anonymous namespace)::mul_mat_qX_K_q8_2_X4_T<(anonymous namespace)::DequantizerQ4K_AVX2, 1>(int, void const*, unsigned long, DataInfo const&, int)
+            |          
+             --31.61%--void (anonymous namespace)::mul_mat_qX_K_q8_2_X4_T<(anonymous namespace)::DequantizerQ4K_AVX2, 1>(int, void const*, unsigned long, DataInfo const&, int)
+                       |          
+                       |--16.67%--iqk_mul_mat
+                       |          iqk_mul_mat_4d
+                       |          ggml_compute_forward_mul_mat
+                       |          |          
+                       |           --13.36%--0x55beea347bc0
+                       |          
+                       |--12.35%--(anonymous namespace)::MulMat::mul_mat_up_gate_NxM(int, void const*, void const*, unsigned long, float const*, float const*, DataInfo&, int, int, int, float, float, float)::{lambda(void (*)(int, void const*, unsigned long, DataInfo const&, int), DataInfo const&, int, int, int)#1}::operator()(void (*)(int, void const*, unsigned long, DataInfo const&, int), DataInfo const&, int, int, int) const [clone .constprop.1]
+                       |          (anonymous namespace)::MulMat::mul_mat_up_gate_NxM(int, void const*, void const*, unsigned long, float const*, float const*, DataInfo&, int, int, int, float, float, float)
+                       |          iqk_moe_fused_up_gate
+                       |          |          
+                       |          |--10.79%--ggml_compute_forward_mul_mat_id_up_gate
+                       |          |          ggml_compute_forward
+                       |          |          ggml_graph_compute_thread.isra.0
+                       |          |          ggml_graph_compute._omp_fn.0
+                       |          |          |          
+                       |          |           --10.44%--0x7f42cc2a3dfa
+                       |          |                     0x7f42cc3375cc
+                       |          |          
+                       |           --1.56%--ggml_compute_forward_mul_mat_up_gate
+                       |          
+                        --2.59%--iqk_mul_mat_moe
+                                  ggml_compute_forward_mul_mat_id
+                                  ggml_compute_forward
+                                  ggml_graph_compute_thread.isra.0
+                                  ggml_graph_compute._omp_fn.0
+                                  |          
+                                   --2.54%--0x7f42cc2a3dfa
+                                             0x7f42cc3375cc
+
+    24.35%  llama-server  libgomp.so.1.0.0   [.] 0x0000000000026c70
+            |          
+            |--18.92%--0x7f42cc5c7c72
+            |          |          
+            |           --16.37%--ggml_graph_compute_thread.isra.0
+            |                     ggml_graph_compute._omp_fn.0
+            |                     |          
+            |                      --16.15%--0x7f42cc2a3dfa
+            |                                0x7f42cc3375cc
+            |          
+             --2.78%--0x7f42cc5c7c7d
+                       |          
+                        --2.33%--ggml_graph_compute_thread.isra.0
+                                  ggml_graph_compute._omp_fn.0
+                                  |          
+                                   --2.28%--0x7f42cc2a3dfa
+                                             0x7f42cc3375cc
+
+    22.11%  llama-server  libggml.so         [.] void (anonymous namespace)::mul_mat_qY_K_q8_2_X4_T<(anonymous namespace)::DequantizerQ6K_AVX2, 1>(int, void const*, unsigned long, DataInfo const&, int)
+            |          
+             --21.68%--void (anonymous namespace)::mul_mat_qY_K_q8_2_X4_T<(anonymous namespace)::DequantizerQ6K_AVX2, 1>(int, void const*, unsigned long, DataInfo const&, int)
+                       |          
+                       |--17.58%--iqk_mul_mat
+                       |          iqk_mul_mat_4d
+                       |          ggml_compute_forward_mul_mat
+                       |          |          
+                       |           --17.50%--0x55beea347bc0
+                       |          
+                        --4.11%--iqk_mul_mat_moe
+                                  ggml_compute_forward_mul_mat_id
+                                  ggml_compute_forward
+                                  ggml_graph_compute_thread.isra.0
+                                  ggml_graph_compute._omp_fn.0
+                                  |          
+                                   --3.97%--0x7f42cc2a3dfa
+                                             0x7f42cc3375cc
+
+     3.59%  llama-server  libggml.so         [.] void (anonymous namespace)::mul_mat_Qx_Qy_MxN_fa4<(anonymous namespace)::QFT<float, 4>, (anonymous namespace)::QFT<unsigned short, 8> >(int, char const*, unsigned long, int, DataInfo const&)
+            |          
+             --3.51%--void (anonymous namespace)::mul_mat_Qx_Qy_MxN_fa4<(anonymous namespace)::QFT<float, 4>, (anonymous namespace)::QFT<unsigned short, 8> >(int, char const*, unsigned long, int, DataInfo const&)
+                       iqk_gemm_default_floats(int, int, char const*, unsigned long, DataInfo&, int)
+
+     2.98%  llama-server  libgomp.so.1.0.0   [.] 0x0000000000026a80
+            |          
+             --2.73%--0x7f42cc5c7a82
+                       0x7f42cc2a3dfa
+                       0x7f42cc3375cc
+
+     2.89%  llama-server  libggml.so         [.] void (anonymous namespace)::iqk_fused_delta_net_impl<128>(int, int, int, int, int, unsigned long, unsigned long, unsigned long, float const*, float const*, float const*, float const*, float const*, float const*, float*, float*, float*, int, int, int)
+            |          
+             --2.80%--void (anonymous namespace)::iqk_fused_delta_net_impl<128>(int, int, int, int, int, unsigned long, unsigned long, unsigned long, float const*, float const*, float const*, float const*, float const*, float const*, float*, float*, float*, int, int, int)
+                       iqk_fused_delta_net
+                       ggml_compute_forward
+                       ggml_graph_compute_thread.isra.0
+                       ggml_graph_compute._omp_fn.0
+                       |          
+                        --2.72%--0x7f42cc2a3dfa
+                                  0x7f42cc3375cc
+
+     2.76%  llama-server  libggml.so         [.] void (anonymous namespace)::FlashQKV<256, 8, 64>::accumulate_qkv<(anonymous namespace)::HelperF16, (anonymous namespace)::FlashMS<8, 64> >((anonymous namespace)::HelperF16 const&, (anonymous namespace)::FlashMS<8, 64> const&)
+            |          
+             --2.67%--void (anonymous namespace)::FlashQKV<256, 8, 64>::accumulate_qkv<(anonymous namespace)::HelperF16, (anonymous namespace)::FlashMS<8, 64> >((anonymous namespace)::HelperF16 const&, (anonymous namespace)::FlashMS<8, 64> const&)
+                       void (anonymous namespace)::iqk_flash_helper<256, 256, 64, (anonymous namespace)::HelperF16, (anonymous namespace)::HelperF16>((anonymous namespace)::HelperF16&, (anonymous namespace)::HelperF16&, int, int, int, int, int, float const*, char const*, float, float, float*, float const*, int, float*, float*)
+                       bool (anonymous namespace)::iqk_flash_helper_T<256, 256, 64>(ggml_type, ggml_type, int, int, int, int, int, int, int, float const*, char const*, char const*, char const*, float, float, float*, float const*, int, float*, float*)
+                       iqk_flash_attn_noalibi
+                       ggml_compute_forward_flash_attn_ext_f16
+                       ggml_compute_forward
+                       ggml_graph_compute_thread.isra.0
+                       ggml_graph_compute._omp_fn.0
+                       |          
+                        --2.56%--0x7f42cc2a3dfa
+                                  0x7f42cc3375cc
+
+     1.42%  llama-server  libggml.so         [.] void (anonymous namespace)::mul_mat_Qx_Qy_MxN<(anonymous namespace)::QFT<float, 1>, (anonymous namespace)::QFT<float, 4> >(int, char const*, unsigned long, int, DataInfo const&)
+            |          
+             --1.33%--void (anonymous namespace)::mul_mat_Qx_Qy_MxN<(anonymous namespace)::QFT<float, 1>, (anonymous namespace)::QFT<float, 4> >(int, char const*, unsigned long, int, DataInfo const&)
+                       void (anonymous namespace)::mul_mat_fX_fY_T<1, float, float>(int, void const*, unsigned long, DataInfo const&, int)
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

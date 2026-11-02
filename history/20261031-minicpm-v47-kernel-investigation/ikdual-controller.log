@@ -1,0 +1,6 @@
+START node1
+DONE node1 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7541.785, 'prompt_per_token_ms': 2.6820003556187766, 'prompt_per_second': 372.85602811535995, 'predicted_n': 64, 'predicted_ms': 2697.701, 'predicted_per_token_ms': 42.151578125, 'predicted_per_second': 23.723904168771853, 'n_ctx': 16384, 'n_past': 2875}
+DONE node1 524 match True timings {'prompt_n': 9436, 'prompt_ms': 28086.027, 'prompt_per_token_ms': 2.9764759431962693, 'prompt_per_second': 335.96777500783577, 'predicted_n': 64, 'predicted_ms': 3098.405, 'predicted_per_token_ms': 48.412578125, 'predicted_per_second': 20.655789026934826, 'n_ctx': 16384, 'n_past': 9499}
+START interleave
+DONE interleave 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7521.734, 'prompt_per_token_ms': 2.6748698435277385, 'prompt_per_second': 373.84996597858947, 'predicted_n': 64, 'predicted_ms': 2667.219, 'predicted_per_token_ms': 41.675296875, 'predicted_per_second': 23.995030029405157, 'n_ctx': 16384, 'n_past': 2875}
+DONE interleave 524 match True timings {'prompt_n': 9436, 'prompt_ms': 28127.613, 'prompt_per_token_ms': 2.980883107248834, 'prompt_per_second': 335.4710547247646, 'predicted_n': 64, 'predicted_ms': 3067.108, 'predicted_per_token_ms': 47.9235625, 'predicted_per_second': 20.86656224691142, 'n_ctx': 16384, 'n_past': 9499}

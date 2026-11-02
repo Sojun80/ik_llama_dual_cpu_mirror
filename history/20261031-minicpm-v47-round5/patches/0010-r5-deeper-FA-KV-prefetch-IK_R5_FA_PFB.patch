@@ -1,0 +1,36 @@
+From cf5162b63c46e867924467e30d27d0cfd7163b31 Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sat, 31 Oct 2026 19:46:03 -0700
+Subject: [PATCH 10/25] r5: deeper FA KV prefetch (IK_R5_FA_PFB)
+
+---
+ ggml/src/iqk/iqk_flash_attn.cpp | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/ggml/src/iqk/iqk_flash_attn.cpp b/ggml/src/iqk/iqk_flash_attn.cpp
+index eab8f752..616f2346 100644
+--- a/ggml/src/iqk/iqk_flash_attn.cpp
++++ b/ggml/src/iqk/iqk_flash_attn.cpp
+@@ -114,10 +114,18 @@ static void partial(int j0, int j1, int nkvh, int rk,
+     std::memset(O_all, 0, sizeof(float)*nh*D);
+     const long span_k = (nkvh - 1)*nbk2 + 2*D;   // bytes of one position K row over all KV heads
+     const long span_v = (nkvh - 1)*nbv2 + 2*D;
++    static const int pfb = [] { auto e = getenv("IK_R5_FA_PFB"); int v = e ? atoi(e) : 3; return v < 1 ? 1 : v; }();
++    // upfront burst: the first pfb blocks (the first one is needed right away)
++    for (int j = j0; j < std::min(j1, j0 + pfb*JB); ++j) {
++        const char * kr = k + (long)j*stride_k;
++        const char * vr = v + (long)j*stride_v;
++        for (long o = 0; o < span_k; o += 64) _mm_prefetch(kr + o, _MM_HINT_T1);
++        for (long o = 0; o < span_v; o += 64) _mm_prefetch(vr + o, _MM_HINT_T1);
++    }
+     if (dbg_enabled()) { uint64_t t = __rdtsc(); r5ph[0] += t - tp; tp = t; }
+     for (int jb = j0; jb < j1; jb += JB) {
+         const int nj = std::min(JB, j1 - jb);
+-        const int jn = jb + JB, nn = std::max(0, std::min(JB, j1 - jn));
++        const int jn = jb + pfb*JB, nn = std::max(0, std::min(JB, j1 - jn));
+         // ---- scores S[h][j] = (scale*q_h) . k_j
+         for (int kh = 0; kh < nkvh; ++kh) {
+             const char * kbase = k + kh*nbk2;
+-- 
+2.53.0
+

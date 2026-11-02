@@ -1,0 +1,7 @@
+  S10 prod-build spread24 tb48 THP         #0 prompt=575(497 t/s) gen=1208 34.31 t/s 36.3s
+  S10 prod-build spread24 tb48 THP         #1 prompt=590(406 t/s) gen=2004 32.64 t/s 62.8s
+  S10 prod-build spread24 tb48 THP         #2 prompt=841(437 t/s) gen=1707 32.35 t/s 54.7s
+  S10 prod-build spread24 tb48 THP         #3 prompt=853(439 t/s) gen=1354 32.71 t/s 43.3s
+  S10 prod-build spread24 tb48 THP         #4 prompt=880(442 t/s) gen=1049 32.85 t/s 33.9s
+  S10 prod-build spread24 tb48 THP         #5 prompt=1365(430 t/s) gen=1322 31.43 t/s 45.2s
+SUMMARY S10 prod-build spread24 tb48 THP   decode median 32.68 pooled 32.68 tok/s, pp median 438, 8644 tokens

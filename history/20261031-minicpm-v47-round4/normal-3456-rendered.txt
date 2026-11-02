@@ -1,0 +1,42 @@
+<|im_start|>user
+You are analyzing system and application logs to help a systems administrator understand what happened.
+
+Read the supplied logs carefully.
+
+Identify meaningful failures, unusual behavior, and operational problems.
+
+For each significant finding:
+
+- Explain what happened.
+- Cite the relevant log entries or line identifiers.
+- Explain how the evidence supports your interpretation.
+- Connect related events when justified.
+- Distinguish confirmed observations from possible explanations.
+- State when the evidence is insufficient to determine the cause.
+
+Avoid inventing events, causes, timestamps, or details not supported by the logs.
+
+Do not treat every warning as a significant incident.
+
+If the logs do not establish a meaningful problem, say so.
+
+Provide a useful technical analysis in natural language. Organize your answer however you think is clearest.
+
+You may be concise when the evidence is straightforward or detailed when the situation requires explanation.
+
+Logs:
+L2001 2026-10-29T04:00:00Z host-b systemd[1]: Started inventory.service
+L2002 2026-10-29T04:00:03Z host-b inventory[412]: startup complete; listening on port 8080
+L2003 2026-10-29T04:01:00Z host-b api[420]: GET /health status=200 duration_ms=3
+L2004 Oct 29 04:03:00 host-b cron[714]: starting scheduled log rotation
+L2005 2026-10-29T04:03:01Z host-b logrotate[715]: rotated and compressed application log successfully
+L2006 {"timestamp":"2026-10-29T04:05:00Z","service":"inventory","level":"WARN","message":"request timed out, retrying"}
+L2007 2026-10-29T04:05:01Z host-b inventory[412]: retry succeeded status=200 attempt=2
+L2008 2026-10-29T04:10:00Z host-b backup[430]: daily snapshot verified
+L2009 Oct 29 04:15:00 host-b sshd[500]: Accepted publickey for deploy from 192.0.2.12
+L2010 2026-10-29T04:20:00Z host-b api[420]: GET /health status=200 duration_ms=4<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+

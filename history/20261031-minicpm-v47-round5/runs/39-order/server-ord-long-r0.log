@@ -1,0 +1,992 @@
+warning: not compiled with GPU offload support, --gpu-layers option will be ignored
+warning: see main README.md for information on enabling GPU BLAS support
+INFO [                    main] build info | tid="131259304940288" timestamp=1793505274 build=15 commit="47d1e222"
+INFO [                    main] system info | tid="131259304940288" timestamp=1793505274 n_threads=32 n_threads_batch=48 total_threads=192 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 1 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 1 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | "
+CPU: using device CPU - 47228 MiB free
+llama_model_loader: loaded meta data with 45 key-value pairs and 733 tensors from /home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen35moe
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                     general.sampling.top_k i32              = 20
+llama_model_loader: - kv   3:                     general.sampling.top_p f32              = 0.950000
+llama_model_loader: - kv   4:                      general.sampling.temp f32              = 1.000000
+llama_model_loader: - kv   5:                               general.name str              = 35a3_hf_v47_0923
+llama_model_loader: - kv   6:                           general.finetune str              = 35a3_hf_v47_0923
+llama_model_loader: - kv   7:                         general.size_label str              = 256x2.6B
+llama_model_loader: - kv   8:                      qwen35moe.block_count u32              = 40
+llama_model_loader: - kv   9:                   qwen35moe.context_length u32              = 262144
+llama_model_loader: - kv  10:                 qwen35moe.embedding_length u32              = 2048
+llama_model_loader: - kv  11:             qwen35moe.attention.head_count u32              = 16
+llama_model_loader: - kv  12:          qwen35moe.attention.head_count_kv u32              = 2
+llama_model_loader: - kv  13:          qwen35moe.rope.dimension_sections arr[i32,4]       = [11, 11, 10, 0]
+llama_model_loader: - kv  14:                   qwen35moe.rope.freq_base f32              = 10000000.000000
+llama_model_loader: - kv  15: qwen35moe.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  16:                     qwen35moe.expert_count u32              = 256
+llama_model_loader: - kv  17:                qwen35moe.expert_used_count u32              = 8
+llama_model_loader: - kv  18:             qwen35moe.attention.key_length u32              = 256
+llama_model_loader: - kv  19:           qwen35moe.attention.value_length u32              = 256
+llama_model_loader: - kv  20:       qwen35moe.expert_feed_forward_length u32              = 512
+llama_model_loader: - kv  21: qwen35moe.expert_shared_feed_forward_length u32              = 512
+llama_model_loader: - kv  22:                  qwen35moe.ssm.conv_kernel u32              = 4
+llama_model_loader: - kv  23:                   qwen35moe.ssm.state_size u32              = 128
+llama_model_loader: - kv  24:                  qwen35moe.ssm.group_count u32              = 16
+llama_model_loader: - kv  25:               qwen35moe.ssm.time_step_rank u32              = 32
+llama_model_loader: - kv  26:                   qwen35moe.ssm.inner_size u32              = 4096
+llama_model_loader: - kv  27:       qwen35moe.attention.recurrent_layers arr[bool,40]     = [true, true, true, false, true, true,...
+llama_model_loader: - kv  28:          qwen35moe.full_attention_interval u32              = 4
+llama_model_loader: - kv  29:             qwen35moe.rope.dimension_count u32              = 64
+llama_model_loader: - kv  30:               qwen35moe.rope.section_order str              = zyxt
+llama_model_loader: - kv  31:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  32:                         tokenizer.ggml.pre str              = qwen35
+llama_model_loader: - kv  33:                      tokenizer.ggml.tokens arr[str,248144]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  34:                  tokenizer.ggml.token_type arr[i32,248144]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  35:                      tokenizer.ggml.merges arr[str,247587]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  36:                tokenizer.ggml.bos_token_id u32              = 248045
+llama_model_loader: - kv  37:                tokenizer.ggml.eos_token_id u32              = 248046
+llama_model_loader: - kv  38:            tokenizer.ggml.unknown_token_id u32              = 248077
+llama_model_loader: - kv  39:            tokenizer.ggml.padding_token_id u32              = 248044
+llama_model_loader: - kv  40:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  41:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  42:                    tokenizer.chat_template str              = {%- macro render_content(content, is_...
+llama_model_loader: - kv  43:               general.quantization_version u32              = 2
+llama_model_loader: - kv  44:                          general.file_type u32              = 15
+llama_model_loader: - type  f32:  301 tensors
+llama_model_loader: - type q4_K:  371 tensors
+llama_model_loader: - type q6_K:   61 tensors
+load: 0 unused tokens
+load: printing all EOG tokens:
+load:   - 248044 ('<|endoftext|>')
+load:   - 248046 ('<|im_end|>')
+load:   - 248063 ('<|fim_pad|>')
+load:   - 248064 ('<|repo_name|>')
+load:   - 248065 ('<|file_sep|>')
+load: special tokens cache size = 100
+load: token to piece cache size = 1.7588 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = qwen35moe
+llm_load_print_meta: n_ctx_train      = 262144
+llm_load_print_meta: n_embd           = 2048
+llm_load_print_meta: n_layer          = 40
+llm_load_print_meta: n_head           = 16
+llm_load_print_meta: n_head_kv        = 2
+llm_load_print_meta: n_rot            = 64
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_swa_pattern    = 1
+llm_load_print_meta: n_embd_head_k    = 256
+llm_load_print_meta: n_embd_head_v    = 256
+llm_load_print_meta: n_gqa            = 8
+llm_load_print_meta: n_embd_k_gqa     = 512
+llm_load_print_meta: n_embd_v_gqa     = 512
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 0
+llm_load_print_meta: n_expert         = 256
+llm_load_print_meta: n_expert_used    = 8
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 40
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 262144
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: mrope sections   = [11, 11, 10, 0]
+llm_load_print_meta: ssm_d_conv       = 4
+llm_load_print_meta: ssm_d_inner      = 4096
+llm_load_print_meta: ssm_d_state      = 128
+llm_load_print_meta: ssm_dt_rank      = 32
+llm_load_print_meta: ssm_n_group      = 16
+llm_load_print_meta: model type       = 35B.A3B
+llm_load_print_meta: model ftype      = Q4_K - Medium
+llm_load_print_meta: model params     = 34.660 B
+llm_load_print_meta: model size       = 19.702 GiB (4.883 BPW) 
+llm_load_print_meta: repeating layers = 19.048 GiB (4.863 BPW, 33.643 B parameters)
+llm_load_print_meta: general.name     = 35a3_hf_v47_0923
+print_info: vocab type            = BPE
+print_info: n_vocab               = 248144
+print_info: n_merges              = 247587
+print_info: BOS token             = 248045 '<|im_start|>'
+print_info: EOS token             = 248046 '<|im_end|>'
+print_info: EOT token             = 248046 '<|im_end|>'
+print_info: UNK token             = 248077 '<unk>'
+print_info: PAD token             = 248044 '<|endoftext|>'
+print_info: LF token              = 198 'Ċ'
+print_info: FIM PRE token         = 248060 '<|fim_prefix|>'
+print_info: FIM SUF token         = 248062 '<|fim_suffix|>'
+print_info: FIM MID token         = 248061 '<|fim_middle|>'
+print_info: FIM PAD token         = 248063 '<|fim_pad|>'
+print_info: FIM REP token         = 248064 '<|repo_name|>'
+print_info: FIM SEP token         = 248065 '<|file_sep|>'
+print_info: EOG token             = 248044 '<|endoftext|>'
+print_info: EOG token             = 248046 '<|im_end|>'
+print_info: EOG token             = 248063 '<|fim_pad|>'
+print_info: EOG token             = 248064 '<|repo_name|>'
+print_info: EOG token             = 248065 '<|file_sep|>'
+print_info: max token length      = 256
+======================================= HAVE_FANCY_SIMD is NOT defined
+------------------- Layer sizes:
+Layer  0:    524.29,      2.09,    526.38       56.00  MiB
+Layer  1:    524.29,      2.09,    526.38       56.00  MiB
+Layer  2:    524.29,      2.09,    526.38       56.00  MiB
+Layer  3:    516.85,     32.00,    548.85       56.00  MiB
+Layer  4:    524.29,      2.09,    526.38       56.00  MiB
+Layer  5:    453.91,      2.09,    456.00       56.00  MiB
+Layer  6:    453.91,      2.09,    456.00       56.00  MiB
+Layer  7:    516.85,     32.00,    548.85       56.00  MiB
+Layer  8:    453.91,      2.09,    456.00       56.00  MiB
+Layer  9:    453.91,      2.09,    456.00       56.00  MiB
+Layer 10:    524.29,      2.09,    526.38       56.00  MiB
+Layer 11:    450.34,     32.00,    482.34       56.00  MiB
+Layer 12:    453.91,      2.09,    456.00       56.00  MiB
+Layer 13:    524.29,      2.09,    526.38       56.00  MiB
+Layer 14:    453.91,      2.09,    456.00       56.00  MiB
+Layer 15:    450.34,     32.00,    482.34       56.00  MiB
+Layer 16:    524.29,      2.09,    526.38       56.00  MiB
+Layer 17:    453.91,      2.09,    456.00       56.00  MiB
+Layer 18:    453.91,      2.09,    456.00       56.00  MiB
+Layer 19:    516.85,     32.00,    548.85       56.00  MiB
+Layer 20:    453.91,      2.09,    456.00       56.00  MiB
+Layer 21:    453.91,      2.09,    456.00       56.00  MiB
+Layer 22:    524.29,      2.09,    526.38       56.00  MiB
+Layer 23:    450.34,     32.00,    482.34       56.00  MiB
+Layer 24:    453.91,      2.09,    456.00       56.00  MiB
+Layer 25:    524.29,      2.09,    526.38       56.00  MiB
+Layer 26:    453.91,      2.09,    456.00       56.00  MiB
+Layer 27:    450.34,     32.00,    482.34       56.00  MiB
+Layer 28:    524.29,      2.09,    526.38       56.00  MiB
+Layer 29:    453.91,      2.09,    456.00       56.00  MiB
+Layer 30:    453.91,      2.09,    456.00       56.00  MiB
+Layer 31:    516.85,     32.00,    548.85       56.00  MiB
+Layer 32:    453.91,      2.09,    456.00       56.00  MiB
+Layer 33:    453.91,      2.09,    456.00       56.00  MiB
+Layer 34:    524.29,      2.09,    526.38       56.00  MiB
+Layer 35:    516.85,     32.00,    548.85       56.00  MiB
+Layer 36:    524.29,      2.09,    526.38       56.00  MiB
+Layer 37:    524.29,      2.09,    526.38       56.00  MiB
+Layer 38:    524.29,      2.09,    526.38       56.00  MiB
+Layer 39:    516.85,     32.00,    548.85       56.00  MiB
+Layer 40:    397.57,    428.66,    826.23 MiB (output layer)
+--------------------------------------------------------------------------
+Total   :  19505.04,    811.47,  20316.51 MiB
+Memory required for model tensors + cache: 20714 MiB
+Memory available on all devices - compute: 46071 MiB
+llm_load_tensors: ggml ctx size =    0.35 MiB
+llm_load_tensors:        CPU buffer size = 20176.00 MiB (total of 1 resident buffers)
+..................................................................................................
+llama_init_from_model: n_ctx         = 16384
+llama_init_from_model: n_batch       = 2048
+llama_init_from_model: n_ubatch      = 512
+llama_init_from_model: flash_attn    = 1
+llama_init_from_model: attn_max_b    = 256
+llama_init_from_model: fused_moe     = 1
+llama_init_from_model: grouped er    = 0
+llama_init_from_model: fused_up_gate = 1
+llama_init_from_model: fused_mmad    = 1
+llama_init_from_model: rope_cache    = 0
+llama_init_from_model: graph_reuse   = 1
+llama_init_from_model: k_cache_hadam = 0
+llama_init_from_model: v_cache_hadam = 0
+llama_init_from_model: split_mode_graph_scheduling = 0
+llama_init_from_model: reduce_type   = f16
+llama_init_from_model: sched_async   = 0
+llama_init_from_model: ser           = -1, 0
+llama_init_from_model: freq_base     = 10000000.0
+llama_init_from_model: freq_scale    = 1
+llama_kv_cache_init:        CPU KV buffer size =   384.00 MiB
+llama_init_from_model: KV self size  =  320.00 MiB, K (f16):  160.00 MiB, V (f16):  160.00 MiB
+llama_init_from_model:        CPU  output buffer size =     0.95 MiB
+llama_init_from_model:        CPU compute buffer size =   490.00 MiB
+llama_init_from_model: graph nodes  = 2673
+llama_init_from_model: graph splits = 1
+llama_init_from_model: enabling only_active_experts scheduling
+llama_init_from_gpt_params: pinning CPU worker threads to logical CPUs: 48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95
+INFO [                    init] initializing slots | tid="131259304940288" timestamp=1793505275 n_slots=1
+srv          init: Exclude reasoning tokens when selecting slot based on similarity: start: <think>, end: </think>
+use `--reasoning-tokens none` to disable.
+INFO [                    init] new slot | tid="131259304940288" timestamp=1793505275 id_slot=0 n_ctx_slot=16384
+prompt cache is enabled, size limit: 8192 MiB
+use `--cache-ram 0` to disable the prompt cache
+INFO [                    main] model loaded | tid="131259304940288" timestamp=1793505275
+init: chat template, example_format: '<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+'
+INFO [                    main] HTTP server listening | tid="131259304940288" timestamp=1793505275 n_threads_http="191" port="19185" hostname="127.0.0.1"
+INFO [              slots_idle] all slots are idle | tid="131259304940288" timestamp=1793505275
+INFO [     process_single_task] slot data | tid="131259304940288" timestamp=1793505275 id_task=0 n_idle_slots=1 n_processing_slots=0
+INFO [              slots_idle] all slots are idle | tid="131259304940288" timestamp=1793505275
+INFO [      log_server_request] request | tid="131235895572160" timestamp=1793505275 remote_addr="127.0.0.1" remote_port=42280 status=200 method="GET" path="/health" params={}
+INFO [      log_server_request] request | tid="131235887179456" timestamp=1793505275 remote_addr="127.0.0.1" remote_port=42282 status=200 method="POST" path="/tokenize" params={}
+======== Prompt cache: cache size: 0, n_keep: 0, n_discarded_prompt: 0, cache_ram_n_min: 0, f_keep: 0.00, cache_ram_similarity: 0.50
+WARN [   launch_slot_with_task] %s
+ | ="ctx_shift is not supported by recurrent model, it will be disabled"
+INFO [   launch_slot_with_task] slot is processing task | tid="131259304940288" timestamp=1793505275 id_slot=0 id_task=1
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505275 id_slot=0 id_task=1 p0=0
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505275 id_slot=0 id_task=1 p0=4
+INFO [           release_slots] slot released | tid="131259304940288" timestamp=1793505276 id_slot=0 id_task=1 n_ctx=16384 n_past=40 n_system_tokens=0 n_cache_tokens=40 truncated=false
+INFO [              slots_idle] all slots are idle | tid="131259304940288" timestamp=1793505276
+INFO [      log_server_request] request | tid="131235878786752" timestamp=1793505276 remote_addr="127.0.0.1" remote_port=42284 status=200 method="POST" path="/completion" params={}
+slot print_timing: id  0 | task 1 | 
+prompt eval time =      87.66 ms /     9 tokens (    9.74 ms per token,   102.66 tokens per second)
+       eval time =     856.28 ms /    32 tokens (   26.76 ms per token,    37.37 tokens per second)
+      total time =     943.94 ms /    41 tokens
+======== Prompt cache: cache size: 40, n_keep: 0, n_discarded_prompt: 0, cache_ram_n_min: 0, f_keep: 0.00, cache_ram_similarity: 0.50
+updating prompt cache
+ - saving prompt with length 40, total state size = 63.596 MiB
+prompt cache save took 17.64 ms
+ - looking for better prompt, base f_keep = 0.000, sim = 0.000, n_keep = 0, n_discarded_prompt = 0
+ - cache state: 1 prompts, 63.596 MiB (limits: 8192.000 MiB, 0 tokens, 5152 est)
+   - prompt 0x632b4c4f7b10:      40 tokens,       0 discarded, checkpoints:  0,    63.596 MiB
+prompt cache load took 0.82 ms
+INFO [   launch_slot_with_task] slot is processing task | tid="131259304940288" timestamp=1793505276 id_slot=0 id_task=35
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505276 id_slot=0 id_task=35 p0=0
+slot create_check: id  0 | task 35 | created context checkpoint 1 of 32 (pos_min = 2047, pos_max = 2047, n_tokens = 2048, size = 62.830 MiB, took 15.26 ms)
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505281 id_slot=0 id_task=35 p0=2048
+slot create_check: id  0 | task 35 | created context checkpoint 2 of 32 (pos_min = 4095, pos_max = 4095, n_tokens = 4096, size = 62.845 MiB, took 15.87 ms)
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505286 id_slot=0 id_task=35 p0=4096
+slot create_check: id  0 | task 35 | created context checkpoint 3 of 32 (pos_min = 6143, pos_max = 6143, n_tokens = 6144, size = 62.861 MiB, took 17.46 ms)
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505292 id_slot=0 id_task=35 p0=6144
+slot create_check: id  0 | task 35 | created context checkpoint 4 of 32 (pos_min = 8191, pos_max = 8191, n_tokens = 8192, size = 62.877 MiB, took 17.13 ms)
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505298 id_slot=0 id_task=35 p0=8192
+slot create_check: id  0 | task 35 | created context checkpoint 5 of 32 (pos_min = 9449, pos_max = 9449, n_tokens = 9450, size = 62.886 MiB, took 16.52 ms)
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="131259304940288" timestamp=1793505302 id_slot=0 id_task=35 p0=9450
+slot create_check: id  0 | task 35 | created context checkpoint 6 of 32 (pos_min = 9455, pos_max = 9455, n_tokens = 9456, size = 62.886 MiB, took 81.62 ms)
+r5fa-pre ith 0: ring-first 2-stream 0.71 bytes/tick
+r5fa-stream2 ith 0: KVi 0.47 KVs 4.24 R2 1.08 R1 1.68 bytes/tick
+r5fa: calls 640 nek1 9728 n_eff 9487 per 304 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 201963 mean 171965  wait mean 693600 | k % 4096 = 0
+r5fa-phase ith 16 (positions 304): setup 28039  scores 74271  softmax 13453  V 64698  merge 26042 ticks/call
+r5fa-phase ith 1 (positions 304): setup 14437  scores 69081  softmax 13495  V 65884  merge 22234 ticks/call
+r5fa-phase ith 18 (positions 304): setup 25460  scores 66478  softmax 13522  V 64680  merge 22282 ticks/call
+r5fa-phase ith 11 (positions 304): setup 21908  scores 59427  softmax 11430  V 53860  merge 23682 ticks/call
+r5fa-phase ith 27 (positions 304): setup 24007  scores 68844  softmax 14835  V 64790  merge 20689 ticks/call
+r5fa-phase ith 21 (positions 304): setup 25622  scores 72120  softmax 13213  V 66012  merge 20715 ticks/call
+r5fa-phase ith 9 (positions 304): setup 30741  scores 87126  softmax 15172  V 67633  merge 20631 ticks/call
+r5fa-phase ith 10 (positions 304): setup 24923  scores 70657  softmax 12142  V 62741  merge 20457 ticks/call
+r5fa-phase ith 20 (positions 304): setup 24513  scores 69092  softmax 13283  V 62358  merge 23586 ticks/call
+r5fa-phase ith 6 (positions 304): setup 31160  scores 82742  softmax 14701  V 68660  merge 22863 ticks/call
+r5fa-phase ith 31 (positions 63): setup 29661  scores 40465  softmax 8650  V 39739  merge 26095 ticks/call
+r5fa-phase ith 5 (positions 304): setup 24634  scores 66322  softmax 11603  V 58104  merge 26773 ticks/call
+r5fa-phase ith 26 (positions 304): setup 24994  scores 69629  softmax 13203  V 62507  merge 23551 ticks/call
+r5fa-phase ith 7 (positions 304): setup 25204  scores 69792  softmax 12759  V 62653  merge 22622 ticks/call
+r5fa-phase ith 2 (positions 304): setup 21424  scores 68048  softmax 13640  V 59374  merge 25293 ticks/call
+r5fa-phase ith 30 (positions 304): setup 26975  scores 72229  softmax 12037  V 60025  merge 25482 ticks/call
+r5fa-phase ith 22 (positions 304): setup 27048  scores 71300  softmax 12309  V 65101  merge 26332 ticks/call
+r5fa-phase ith 28 (positions 304): setup 27355  scores 72634  softmax 13496  V 64733  merge 26451 ticks/call
+r5fa-phase ith 12 (positions 304): setup 28460  scores 75275  softmax 13564  V 66085  merge 26140 ticks/call
+r5fa-phase ith 19 (positions 304): setup 24703  scores 67823  softmax 13608  V 65888  merge 25601 ticks/call
+r5fa-phase ith 4 (positions 304): setup 21782  scores 69596  softmax 13121  V 63427  merge 24773 ticks/call
+r5fa-phase ith 25 (positions 304): setup 23601  scores 66727  softmax 13230  V 64323  merge 25587 ticks/call
+r5fa-phase ith 3 (positions 304): setup 26507  scores 77566  softmax 14766  V 68524  merge 24938 ticks/call
+r5fa-phase ith 14 (positions 304): setup 28595  scores 73592  softmax 13293  V 64414  merge 25635 ticks/call
+r5fa-phase ith 23 (positions 304): setup 27020  scores 70420  softmax 13354  V 66817  merge 26353 ticks/call
+r5fa-phase ith 29 (positions 304): setup 26743  scores 70685  softmax 13417  V 65402  merge 26509 ticks/call
+r5fa-phase ith 17 (positions 304): setup 26057  scores 73024  softmax 13439  V 66728  merge 26416 ticks/call
+r5fa-phase ith 15 (positions 304): setup 26998  scores 63726  softmax 11486  V 56811  merge 28725 ticks/call
+r5fa-phase ith 13 (positions 304): setup 27089  scores 63608  softmax 11430  V 56776  merge 28378 ticks/call
+r5fa-phase ith 8 (positions 304): setup 23059  scores 60272  softmax 11391  V 53982  merge 25409 ticks/call
+r5fa-phase ith 0 (positions 304): setup 21014  scores 81682  softmax 13898  V 69598  merge 22728 ticks/call
+r5fa-phase ith 24 (positions 304): setup 25356  scores 66241  softmax 12984  V 65142  merge 23568 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.68 bytes/tick
+r5fa-stream2 ith 1: KVi 0.47 KVs 2.64 R2 1.07 R1 1.69 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.36 bytes/tick
+r5fa-stream2 ith 2: KVi 0.70 KVs 1.85 R2 1.02 R1 1.64 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 3: KVi 0.51 KVs 4.91 R2 1.15 R1 1.50 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 4: KVi 0.50 KVs 2.21 R2 1.17 R1 1.51 bytes/tick
+r5fa-pre ith 31: ring-first 2-stream 1.36 bytes/tick
+r5fa-pre ith 30: ring-first 2-stream 1.34 bytes/tick
+r5fa-pre ith 8: ring-first 2-stream 3.17 bytes/tick
+r5fa-pre ith 13: ring-first 2-stream 2.50 bytes/tick
+r5fa-pre ith 15: ring-first 2-stream 2.56 bytes/tick
+r5fa-pre ith 26: ring-first 2-stream 0.96 bytes/tick
+r5fa-pre ith 6: ring-first 2-stream 0.94 bytes/tick
+r5fa-pre ith 5: ring-first 2-stream 1.31 bytes/tick
+r5fa-stream2 ith 8: KVi 1.99 KVs 1.41 R2 1.94 R1 1.56 bytes/tick
+r5fa-pre ith 7: ring-first 2-stream 0.96 bytes/tick
+r5fa-pre ith 10: ring-first 2-stream 0.97 bytes/tick
+r5fa-stream2 ith 15: KVi 1.54 KVs 1.29 R2 1.33 R1 1.25 bytes/tick
+r5fa-pre ith 9: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 27: ring-first 2-stream 0.96 bytes/tick
+r5fa-pre ith 11: ring-first 2-stream 3.11 bytes/tick
+r5fa-stream2 ith 26: KVi 0.58 KVs 1.89 R2 1.46 R1 1.82 bytes/tick
+r5fa-pre ith 20: ring-first 2-stream 0.95 bytes/tick
+r5fa-pre ith 22: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 28: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 7: KVi 0.58 KVs 2.01 R2 1.44 R1 1.75 bytes/tick
+r5fa-pre ith 14: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 17: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 29: ring-first 2-stream 0.74 bytes/tick
+r5fa-stream2 ith 10: KVi 0.58 KVs 2.04 R2 1.48 R1 1.76 bytes/tick
+r5fa-stream2 ith 11: KVi 2.05 KVs 1.41 R2 1.85 R1 1.53 bytes/tick
+r5fa-pre ith 16: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 24: ring-first 2-stream 0.67 bytes/tick
+r5fa-stream2 ith 28: KVi 0.55 KVs 1.77 R2 1.28 R1 1.48 bytes/tick
+r5fa-pre ith 18: ring-first 2-stream 0.67 bytes/tick
+r5fa-pre ith 25: ring-first 2-stream 0.65 bytes/tick
+r5fa-pre ith 19: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 31: KVi 0.85 KVs 1.18 R2 1.02 R1 1.23 bytes/tick
+r5fa-stream2 ith 13: KVi 1.55 KVs 1.29 R2 1.32 R1 1.25 bytes/tick
+r5fa-pre ith 21: ring-first 2-stream 0.98 bytes/tick
+r5fa-stream2 ith 30: KVi 0.70 KVs 1.71 R2 1.00 R1 1.63 bytes/tick
+r5fa-stream2 ith 14: KVi 0.56 KVs 1.82 R2 1.23 R1 1.46 bytes/tick
+r5fa-stream2 ith 6: KVi 0.58 KVs 4.26 R2 1.40 R1 1.76 bytes/tick
+r5fa-pre ith 12: ring-first 2-stream 0.75 bytes/tick
+r5fa-stream2 ith 17: KVi 0.54 KVs 1.81 R2 1.26 R1 1.45 bytes/tick
+r5fa-stream2 ith 5: KVi 0.77 KVs 1.79 R2 1.02 R1 1.39 bytes/tick
+r5fa-stream2 ith 24: KVi 0.48 KVs 2.58 R2 1.03 R1 1.63 bytes/tick
+r5fa-stream2 ith 16: KVi 0.56 KVs 1.83 R2 1.25 R1 1.45 bytes/tick
+r5fa-pre ith 23: ring-first 2-stream 0.74 bytes/tick
+r5fa-stream2 ith 18: KVi 0.48 KVs 2.58 R2 1.04 R1 1.65 bytes/tick
+r5fa-stream2 ith 20: KVi 0.58 KVs 1.94 R2 1.46 R1 1.69 bytes/tick
+r5fa-stream2 ith 27: KVi 0.58 KVs 2.09 R2 1.42 R1 1.73 bytes/tick
+r5fa-stream2 ith 22: KVi 0.54 KVs 1.80 R2 1.27 R1 1.44 bytes/tick
+r5fa-stream2 ith 29: KVi 0.55 KVs 1.83 R2 1.22 R1 1.45 bytes/tick
+r5fa-stream2 ith 21: KVi 0.58 KVs 2.05 R2 1.51 R1 1.73 bytes/tick
+r5fa-stream2 ith 25: KVi 0.52 KVs 2.55 R2 1.12 R1 1.47 bytes/tick
+r5fa-stream2 ith 9: KVi 0.60 KVs 4.16 R2 1.43 R1 1.77 bytes/tick
+r5fa-stream2 ith 19: KVi 0.51 KVs 2.31 R2 1.16 R1 1.49 bytes/tick
+r5fa-stream2 ith 12: KVi 0.57 KVs 1.86 R2 1.20 R1 1.43 bytes/tick
+r5fa-stream2 ith 23: KVi 0.55 KVs 1.83 R2 1.22 R1 1.45 bytes/tick
+r5fa-pre ith 0: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 0: KVi 0.51 KVs 4.41 R2 1.05 R1 1.58 bytes/tick
+r5fa: calls 1280 nek1 9728 n_eff 9551 per 304 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 378671 mean 313617  wait mean 621033 | k % 4096 = 0
+r5fa-phase ith 7 (positions 304): setup 23796  scores 144121  softmax 26085  V 126305  merge 34630 ticks/call
+r5fa-phase ith 23 (positions 304): setup 25022  scores 137508  softmax 25391  V 133384  merge 43826 ticks/call
+r5fa-phase ith 27 (positions 304): setup 24193  scores 139579  softmax 29910  V 129622  merge 33589 ticks/call
+r5fa-phase ith 9 (positions 304): setup 36241  scores 174699  softmax 30199  V 135925  merge 31458 ticks/call
+r5fa-phase ith 24 (positions 304): setup 15327  scores 132638  softmax 26485  V 128293  merge 39711 ticks/call
+r5fa-phase ith 1 (positions 304): setup 16067  scores 134169  softmax 23332  V 126892  merge 35754 ticks/call
+r5fa-phase ith 18 (positions 304): setup 15865  scores 133038  softmax 25055  V 129263  merge 38621 ticks/call
+r5fa-phase ith 26 (positions 304): setup 24509  scores 140773  softmax 28885  V 125753  merge 39674 ticks/call
+r5fa-phase ith 20 (positions 304): setup 23866  scores 142291  softmax 27635  V 126048  merge 39477 ticks/call
+r5fa-phase ith 6 (positions 304): setup 34854  scores 166694  softmax 29951  V 138810  merge 34898 ticks/call
+r5fa-phase ith 30 (positions 304): setup 33421  scores 145072  softmax 23884  V 119209  merge 42593 ticks/call
+r5fa-phase ith 2 (positions 304): setup 22910  scores 121979  softmax 24676  V 115198  merge 40362 ticks/call
+r5fa-phase ith 13 (positions 304): setup 38086  scores 127239  softmax 23709  V 112334  merge 47137 ticks/call
+r5fa-phase ith 19 (positions 304): setup 19350  scores 134008  softmax 24598  V 129205  merge 41788 ticks/call
+r5fa-phase ith 4 (positions 304): setup 18426  scores 134789  softmax 23935  V 126117  merge 39174 ticks/call
+r5fa-phase ith 3 (positions 304): setup 32797  scores 151653  softmax 27060  V 132383  merge 39427 ticks/call
+r5fa-phase ith 25 (positions 304): setup 17162  scores 131768  softmax 24786  V 127607  merge 41965 ticks/call
+r5fa-phase ith 28 (positions 304): setup 23965  scores 140129  softmax 26720  V 128725  merge 44239 ticks/call
+r5fa-phase ith 16 (positions 304): setup 25422  scores 145110  softmax 25941  V 130914  merge 43655 ticks/call
+r5fa-phase ith 12 (positions 304): setup 26272  scores 148387  softmax 26367  V 130514  merge 42928 ticks/call
+r5fa-phase ith 11 (positions 304): setup 32017  scores 119424  softmax 22257  V 107637  merge 37483 ticks/call
+r5fa-phase ith 22 (positions 304): setup 23194  scores 139403  softmax 25110  V 128762  merge 43977 ticks/call
+r5fa-phase ith 5 (positions 304): setup 24214  scores 129345  softmax 23031  V 116264  merge 43110 ticks/call
+r5fa-phase ith 31 (positions 127): setup 62793  scores 40584  softmax 10521  V 49813  merge 43704 ticks/call
+r5fa-phase ith 8 (positions 304): setup 31813  scores 121793  softmax 22800  V 108480  merge 42083 ticks/call
+r5fa-phase ith 29 (positions 304): setup 24379  scores 137324  softmax 27310  V 130286  merge 44137 ticks/call
+r5fa-phase ith 15 (positions 304): setup 37145  scores 128202  softmax 22136  V 112514  merge 47189 ticks/call
+r5fa-phase ith 0 (positions 304): setup 29749  scores 159362  softmax 24028  V 135423  merge 36313 ticks/call
+r5fa-phase ith 14 (positions 304): setup 26333  scores 144205  softmax 26646  V 128868  merge 42107 ticks/call
+r5fa-phase ith 17 (positions 304): setup 24099  scores 141519  softmax 26062  V 131238  merge 43645 ticks/call
+r5fa-phase ith 10 (positions 304): setup 24932  scores 142705  softmax 23961  V 124629  merge 31159 ticks/call
+r5fa-phase ith 21 (positions 304): setup 25159  scores 146147  softmax 26524  V 132742  merge 33430 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.68 bytes/tick
+r5fa-stream2 ith 1: KVi 0.49 KVs 2.63 R2 1.05 R1 1.61 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.38 bytes/tick
+r5fa-stream2 ith 2: KVi 0.72 KVs 1.81 R2 1.02 R1 1.65 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.66 bytes/tick
+r5fa-stream2 ith 3: KVi 0.53 KVs 4.64 R2 1.25 R1 1.46 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.67 bytes/tick
+r5fa-stream2 ith 4: KVi 0.53 KVs 2.24 R2 1.24 R1 1.48 bytes/tick
+r5fa-pre ith 11: ring-first 2-stream 3.13 bytes/tick
+r5fa-pre ith 5: ring-first 2-stream 1.32 bytes/tick
+r5fa-pre ith 29: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 31: ring-first 2-stream 1.45 bytes/tick
+r5fa-pre ith 15: ring-first 2-stream 2.57 bytes/tick
+r5fa-pre ith 8: ring-first 2-stream 3.17 bytes/tick
+r5fa-pre ith 30: ring-first 2-stream 1.36 bytes/tick
+r5fa-pre ith 7: ring-first 2-stream 0.96 bytes/tick
+r5fa-pre ith 6: ring-first 2-stream 0.94 bytes/tick
+r5fa-stream2 ith 31: KVi 1.18 KVs 0.67 R2 1.10 R1 0.84 bytes/tick
+r5fa-pre ith 26: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 20: ring-first 2-stream 0.96 bytes/tick
+r5fa-pre ith 14: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 17: ring-first 2-stream 0.75 bytes/tick
+r5fa-stream2 ith 8: KVi 2.02 KVs 1.45 R2 1.99 R1 1.58 bytes/tick
+r5fa-pre ith 16: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 22: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 23: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 12: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 28: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 21: ring-first 2-stream 0.99 bytes/tick
+r5fa-pre ith 27: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 9: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 10: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 19: ring-first 2-stream 0.67 bytes/tick
+r5fa-pre ith 25: ring-first 2-stream 0.63 bytes/tick
+r5fa-stream2 ith 7: KVi 0.59 KVs 2.02 R2 1.46 R1 1.74 bytes/tick
+r5fa-pre ith 13: ring-first 2-stream 2.54 bytes/tick
+r5fa-pre ith 18: ring-first 2-stream 0.68 bytes/tick
+r5fa-pre ith 24: ring-first 2-stream 0.68 bytes/tick
+r5fa-stream2 ith 23: KVi 0.56 KVs 1.81 R2 1.22 R1 1.42 bytes/tick
+r5fa-stream2 ith 11: KVi 2.09 KVs 1.42 R2 1.90 R1 1.58 bytes/tick
+r5fa-stream2 ith 29: KVi 0.56 KVs 1.80 R2 1.22 R1 1.43 bytes/tick
+r5fa-stream2 ith 15: KVi 1.58 KVs 1.31 R2 1.33 R1 1.26 bytes/tick
+r5fa-stream2 ith 16: KVi 0.56 KVs 1.80 R2 1.26 R1 1.44 bytes/tick
+r5fa-stream2 ith 5: KVi 0.70 KVs 1.74 R2 0.94 R1 1.28 bytes/tick
+r5fa-stream2 ith 30: KVi 0.72 KVs 1.64 R2 1.01 R1 1.62 bytes/tick
+r5fa-stream2 ith 21: KVi 0.59 KVs 2.04 R2 1.54 R1 1.71 bytes/tick
+r5fa-stream2 ith 6: KVi 0.58 KVs 4.30 R2 1.42 R1 1.75 bytes/tick
+r5fa-stream2 ith 27: KVi 0.59 KVs 2.08 R2 1.45 R1 1.71 bytes/tick
+r5fa-stream2 ith 17: KVi 0.56 KVs 1.79 R2 1.26 R1 1.43 bytes/tick
+r5fa-stream2 ith 12: KVi 0.58 KVs 1.85 R2 1.20 R1 1.43 bytes/tick
+r5fa-stream2 ith 26: KVi 0.59 KVs 1.90 R2 1.48 R1 1.80 bytes/tick
+r5fa-stream2 ith 20: KVi 0.59 KVs 1.95 R2 1.48 R1 1.68 bytes/tick
+r5fa-stream2 ith 22: KVi 0.55 KVs 1.79 R2 1.28 R1 1.43 bytes/tick
+r5fa-stream2 ith 19: KVi 0.53 KVs 2.33 R2 1.22 R1 1.44 bytes/tick
+r5fa-stream2 ith 9: KVi 0.61 KVs 4.09 R2 1.46 R1 1.75 bytes/tick
+r5fa-stream2 ith 24: KVi 0.50 KVs 2.57 R2 1.01 R1 1.62 bytes/tick
+r5fa-stream2 ith 18: KVi 0.49 KVs 2.58 R2 1.02 R1 1.64 bytes/tick
+r5fa-stream2 ith 10: KVi 0.59 KVs 2.03 R2 1.49 R1 1.75 bytes/tick
+r5fa-stream2 ith 13: KVi 1.59 KVs 1.32 R2 1.33 R1 1.27 bytes/tick
+r5fa-stream2 ith 25: KVi 0.54 KVs 2.58 R2 1.17 R1 1.43 bytes/tick
+r5fa-stream2 ith 14: KVi 0.57 KVs 1.79 R2 1.23 R1 1.44 bytes/tick
+r5fa-stream2 ith 28: KVi 0.56 KVs 1.76 R2 1.28 R1 1.47 bytes/tick
+r5fa-pre ith 0: ring-first 2-stream 0.72 bytes/tick
+r5fa-stream2 ith 0: KVi 0.49 KVs 4.20 R2 1.05 R1 1.59 bytes/tick
+r5fa: calls 1920 nek1 9728 n_eff 9615 per 304 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 374852 mean 315697  wait mean 610677 | k % 4096 = 0
+r5fa-phase ith 15 (positions 304): setup 37148  scores 127488  softmax 22992  V 111764  merge 45489 ticks/call
+r5fa-phase ith 18 (positions 304): setup 16591  scores 133989  softmax 25365  V 129706  merge 36981 ticks/call
+r5fa-phase ith 6 (positions 304): setup 34757  scores 167475  softmax 30150  V 140159  merge 34797 ticks/call
+r5fa-phase ith 7 (positions 304): setup 24621  scores 143832  softmax 25410  V 125404  merge 34448 ticks/call
+r5fa-phase ith 20 (positions 304): setup 24593  scores 142286  softmax 26269  V 125671  merge 37931 ticks/call
+r5fa-phase ith 1 (positions 304): setup 16335  scores 135851  softmax 23280  V 128423  merge 35064 ticks/call
+r5fa-phase ith 24 (positions 304): setup 15701  scores 133877  softmax 27440  V 128823  merge 37982 ticks/call
+r5fa-phase ith 11 (positions 304): setup 30485  scores 118326  softmax 22252  V 107429  merge 35430 ticks/call
+r5fa-phase ith 23 (positions 304): setup 24928  scores 138043  softmax 24906  V 134345  merge 42298 ticks/call
+r5fa-phase ith 14 (positions 304): setup 26430  scores 145875  softmax 25794  V 128488  merge 40686 ticks/call
+r5fa-phase ith 29 (positions 304): setup 25060  scores 139048  softmax 27577  V 129671  merge 42525 ticks/call
+r5fa-phase ith 17 (positions 304): setup 24721  scores 142418  softmax 27072  V 131513  merge 42058 ticks/call
+r5fa-phase ith 2 (positions 304): setup 24241  scores 125345  softmax 25090  V 114840  merge 39483 ticks/call
+r5fa-phase ith 30 (positions 304): setup 32648  scores 143188  softmax 23983  V 118655  merge 41142 ticks/call
+r5fa-phase ith 19 (positions 304): setup 18769  scores 136030  softmax 25177  V 131063  merge 39635 ticks/call
+r5fa-phase ith 21 (positions 304): setup 25390  scores 144191  softmax 26600  V 133127  merge 32982 ticks/call
+r5fa-phase ith 27 (positions 304): setup 24047  scores 140101  softmax 29172  V 130430  merge 33062 ticks/call
+r5fa-phase ith 4 (positions 304): setup 17405  scores 136577  softmax 24506  V 127431  merge 37568 ticks/call
+r5fa-phase ith 3 (positions 304): setup 30683  scores 152467  softmax 27121  V 135499  merge 37896 ticks/call
+r5fa-phase ith 25 (positions 304): setup 16776  scores 133596  softmax 25288  V 129137  merge 39784 ticks/call
+r5fa-phase ith 9 (positions 304): setup 35491  scores 173823  softmax 29388  V 135140  merge 30910 ticks/call
+r5fa-phase ith 10 (positions 304): setup 25636  scores 143572  softmax 24974  V 123257  merge 30645 ticks/call
+r5fa-phase ith 5 (positions 304): setup 23845  scores 127929  softmax 23414  V 116850  merge 42822 ticks/call
+r5fa-phase ith 31 (positions 191): setup 57372  scores 68725  softmax 15103  V 65884  merge 42645 ticks/call
+r5fa-phase ith 16 (positions 304): setup 25144  scores 145975  softmax 26343  V 130314  merge 42075 ticks/call
+r5fa-phase ith 22 (positions 304): setup 23981  scores 139962  softmax 25492  V 127889  merge 42429 ticks/call
+r5fa-phase ith 12 (positions 304): setup 27552  scores 149378  softmax 27092  V 130442  merge 41506 ticks/call
+r5fa-phase ith 28 (positions 304): setup 24596  scores 139900  softmax 26343  V 128909  merge 42682 ticks/call
+r5fa-phase ith 13 (positions 304): setup 36924  scores 127271  softmax 22871  V 111451  merge 45050 ticks/call
+r5fa-phase ith 8 (positions 304): setup 31835  scores 121683  softmax 22651  V 108168  merge 40694 ticks/call
+r5fa-phase ith 0 (positions 304): setup 29299  scores 160173  softmax 23758  V 135687  merge 35278 ticks/call
+r5fa-phase ith 26 (positions 304): setup 25410  scores 143242  softmax 27983  V 124973  merge 38126 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 1: KVi 0.48 KVs 2.59 R2 1.04 R1 1.61 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.37 bytes/tick
+r5fa-stream2 ith 2: KVi 0.71 KVs 1.74 R2 1.01 R1 1.64 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.67 bytes/tick
+r5fa-stream2 ith 3: KVi 0.51 KVs 4.70 R2 1.20 R1 1.50 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.68 bytes/tick
+r5fa-stream2 ith 4: KVi 0.50 KVs 2.34 R2 1.18 R1 1.53 bytes/tick
+r5fa-pre ith 8: ring-first 2-stream 3.20 bytes/tick
+r5fa-pre ith 30: ring-first 2-stream 1.35 bytes/tick
+r5fa-pre ith 5: ring-first 2-stream 1.32 bytes/tick
+r5fa-pre ith 19: ring-first 2-stream 0.68 bytes/tick
+r5fa-pre ith 18: ring-first 2-stream 0.69 bytes/tick
+r5fa-pre ith 11: ring-first 2-stream 3.15 bytes/tick
+r5fa-pre ith 10: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 21: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 9: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 27: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 7: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 26: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 6: ring-first 2-stream 0.95 bytes/tick
+r5fa-pre ith 20: ring-first 2-stream 0.96 bytes/tick
+r5fa-pre ith 29: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 14: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 11: KVi 2.09 KVs 1.47 R2 1.97 R1 1.64 bytes/tick
+r5fa-pre ith 23: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 12: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 19: KVi 0.50 KVs 2.48 R2 1.16 R1 1.52 bytes/tick
+r5fa-pre ith 22: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 28: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 16: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 21: KVi 0.59 KVs 2.05 R2 1.53 R1 1.72 bytes/tick
+r5fa-stream2 ith 7: KVi 0.59 KVs 2.01 R2 1.47 R1 1.75 bytes/tick
+r5fa-pre ith 17: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 26: KVi 0.59 KVs 1.90 R2 1.49 R1 1.82 bytes/tick
+r5fa-pre ith 13: ring-first 2-stream 2.56 bytes/tick
+r5fa-stream2 ith 20: KVi 0.59 KVs 1.95 R2 1.50 R1 1.69 bytes/tick
+r5fa-pre ith 15: ring-first 2-stream 2.60 bytes/tick
+r5fa-pre ith 25: ring-first 2-stream 0.64 bytes/tick
+r5fa-pre ith 31: ring-first 2-stream 1.40 bytes/tick
+r5fa-pre ith 24: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 8: KVi 2.02 KVs 1.45 R2 2.01 R1 1.59 bytes/tick
+r5fa-stream2 ith 14: KVi 0.57 KVs 1.78 R2 1.24 R1 1.46 bytes/tick
+r5fa-stream2 ith 5: KVi 0.70 KVs 1.82 R2 0.97 R1 1.33 bytes/tick
+r5fa-stream2 ith 18: KVi 0.48 KVs 2.50 R2 1.03 R1 1.60 bytes/tick
+r5fa-stream2 ith 23: KVi 0.56 KVs 1.80 R2 1.22 R1 1.46 bytes/tick
+r5fa-stream2 ith 9: KVi 0.61 KVs 4.15 R2 1.46 R1 1.75 bytes/tick
+r5fa-stream2 ith 10: KVi 0.59 KVs 2.05 R2 1.49 R1 1.76 bytes/tick
+r5fa-stream2 ith 6: KVi 0.59 KVs 4.22 R2 1.44 R1 1.76 bytes/tick
+r5fa-stream2 ith 27: KVi 0.60 KVs 2.10 R2 1.45 R1 1.71 bytes/tick
+r5fa-stream2 ith 29: KVi 0.56 KVs 1.79 R2 1.23 R1 1.44 bytes/tick
+r5fa-stream2 ith 12: KVi 0.59 KVs 1.81 R2 1.21 R1 1.42 bytes/tick
+r5fa-stream2 ith 30: KVi 0.72 KVs 1.68 R2 0.99 R1 1.63 bytes/tick
+r5fa-stream2 ith 24: KVi 0.48 KVs 2.47 R2 1.03 R1 1.58 bytes/tick
+r5fa-stream2 ith 25: KVi 0.51 KVs 2.73 R2 1.12 R1 1.51 bytes/tick
+r5fa-stream2 ith 13: KVi 1.59 KVs 1.33 R2 1.34 R1 1.28 bytes/tick
+r5fa-stream2 ith 22: KVi 0.56 KVs 1.76 R2 1.29 R1 1.42 bytes/tick
+r5fa-stream2 ith 31: KVi 1.13 KVs 1.04 R2 0.86 R1 0.76 bytes/tick
+r5fa-stream2 ith 28: KVi 0.56 KVs 1.72 R2 1.30 R1 1.47 bytes/tick
+r5fa-stream2 ith 17: KVi 0.56 KVs 1.79 R2 1.27 R1 1.45 bytes/tick
+r5fa-stream2 ith 15: KVi 1.58 KVs 1.32 R2 1.35 R1 1.27 bytes/tick
+r5fa-stream2 ith 16: KVi 0.57 KVs 1.77 R2 1.27 R1 1.44 bytes/tick
+r5fa-pre ith 0: ring-first 2-stream 0.72 bytes/tick
+r5fa-stream2 ith 0: KVi 0.47 KVs 4.21 R2 1.05 R1 1.63 bytes/tick
+r5fa: calls 2560 nek1 9728 n_eff 9679 per 304 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 376821 mean 319369  wait mean 609363 | k % 4096 = 0
+r5fa-phase ith 11 (positions 304): setup 30648  scores 118442  softmax 22295  V 108499  merge 35271 ticks/call
+r5fa-phase ith 15 (positions 304): setup 37144  scores 128274  softmax 23173  V 112965  merge 46011 ticks/call
+r5fa-phase ith 10 (positions 304): setup 25492  scores 143709  softmax 24847  V 124145  merge 30754 ticks/call
+r5fa-phase ith 9 (positions 304): setup 35213  scores 175191  softmax 29582  V 135275  merge 31052 ticks/call
+r5fa-phase ith 21 (positions 304): setup 24992  scores 145533  softmax 26037  V 133212  merge 32938 ticks/call
+r5fa-phase ith 24 (positions 304): setup 15577  scores 134678  softmax 27123  V 129945  merge 38407 ticks/call
+r5fa-phase ith 18 (positions 304): setup 16743  scores 133781  softmax 25119  V 130254  merge 37652 ticks/call
+r5fa-phase ith 26 (positions 304): setup 24406  scores 140993  softmax 27728  V 127351  merge 38105 ticks/call
+r5fa-phase ith 6 (positions 304): setup 34857  scores 166325  softmax 31726  V 141098  merge 34910 ticks/call
+r5fa-phase ith 7 (positions 304): setup 23709  scores 143944  softmax 26267  V 126441  merge 34613 ticks/call
+r5fa-phase ith 20 (positions 304): setup 24324  scores 142159  softmax 27152  V 125697  merge 37888 ticks/call
+r5fa-phase ith 17 (positions 304): setup 25361  scores 143967  softmax 28294  V 132543  merge 42144 ticks/call
+r5fa-phase ith 14 (positions 304): setup 28686  scores 146878  softmax 26190  V 129973  merge 40793 ticks/call
+r5fa-phase ith 29 (positions 304): setup 27014  scores 140118  softmax 27864  V 130558  merge 42559 ticks/call
+r5fa-phase ith 23 (positions 304): setup 26131  scores 139420  softmax 26625  V 133875  merge 42295 ticks/call
+r5fa-phase ith 5 (positions 304): setup 23958  scores 130562  softmax 22806  V 115582  merge 41312 ticks/call
+r5fa-phase ith 31 (positions 255): setup 40325  scores 107362  softmax 19853  V 90131  merge 41137 ticks/call
+r5fa-phase ith 2 (positions 304): setup 26743  scores 130090  softmax 26683  V 115742  merge 39364 ticks/call
+r5fa-phase ith 30 (positions 304): setup 32168  scores 142441  softmax 25800  V 118745  merge 41043 ticks/call
+r5fa-phase ith 19 (positions 304): setup 18582  scores 136476  softmax 24956  V 132526  merge 39562 ticks/call
+r5fa-phase ith 4 (positions 304): setup 16464  scores 137840  softmax 24233  V 128468  merge 37436 ticks/call
+r5fa-phase ith 25 (positions 304): setup 16046  scores 133990  softmax 26224  V 131016  merge 39793 ticks/call
+r5fa-phase ith 28 (positions 304): setup 25189  scores 142654  softmax 26132  V 130433  merge 42660 ticks/call
+r5fa-phase ith 16 (positions 304): setup 26187  scores 149872  softmax 26717  V 131291  merge 41969 ticks/call
+r5fa-phase ith 22 (positions 304): setup 24948  scores 142223  softmax 25916  V 129884  merge 42387 ticks/call
+r5fa-phase ith 12 (positions 304): setup 28246  scores 152226  softmax 26872  V 131029  merge 41418 ticks/call
+r5fa-phase ith 8 (positions 304): setup 32833  scores 122581  softmax 22701  V 109278  merge 40547 ticks/call
+r5fa-phase ith 3 (positions 304): setup 28743  scores 153712  softmax 27934  V 134717  merge 37793 ticks/call
+r5fa-phase ith 0 (positions 304): setup 29468  scores 161590  softmax 23815  V 135642  merge 35935 ticks/call
+r5fa-phase ith 13 (positions 304): setup 37475  scores 126991  softmax 22264  V 111549  merge 45221 ticks/call
+r5fa-phase ith 1 (positions 304): setup 16878  scores 137143  softmax 23569  V 129218  merge 35433 ticks/call
+r5fa-phase ith 27 (positions 304): setup 24612  scores 138482  softmax 29676  V 130232  merge 33071 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 1: KVi 0.47 KVs 2.58 R2 1.03 R1 1.63 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.38 bytes/tick
+r5fa-stream2 ith 2: KVi 0.73 KVs 1.71 R2 1.01 R1 1.67 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.67 bytes/tick
+r5fa-stream2 ith 3: KVi 0.48 KVs 4.76 R2 1.09 R1 1.61 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.68 bytes/tick
+r5fa-stream2 ith 4: KVi 0.47 KVs 2.46 R2 1.08 R1 1.64 bytes/tick
+r5fa-pre ith 11: ring-first 2-stream 3.14 bytes/tick
+r5fa-pre ith 31: ring-first 2-stream 1.34 bytes/tick
+r5fa-pre ith 29: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 24: ring-first 2-stream 0.69 bytes/tick
+r5fa-pre ith 15: ring-first 2-stream 2.61 bytes/tick
+r5fa-pre ith 30: ring-first 2-stream 1.36 bytes/tick
+r5fa-pre ith 6: ring-first 2-stream 0.95 bytes/tick
+r5fa-pre ith 26: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 7: ring-first 2-stream 0.97 bytes/tick
+r5fa-stream2 ith 31: KVi 1.01 KVs 1.54 R2 0.77 R1 1.08 bytes/tick
+r5fa-pre ith 5: ring-first 2-stream 1.32 bytes/tick
+r5fa-pre ith 20: ring-first 2-stream 0.96 bytes/tick
+r5fa-stream2 ith 29: KVi 0.56 KVs 1.78 R2 1.23 R1 1.45 bytes/tick
+r5fa-pre ith 21: ring-first 2-stream 0.99 bytes/tick
+r5fa-pre ith 10: ring-first 2-stream 0.98 bytes/tick
+r5fa-stream2 ith 15: KVi 1.59 KVs 1.29 R2 1.36 R1 1.26 bytes/tick
+r5fa-pre ith 9: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 27: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 22: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 28: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 12: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 6: KVi 0.59 KVs 4.27 R2 1.41 R1 1.77 bytes/tick
+r5fa-pre ith 17: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 26: KVi 0.59 KVs 1.93 R2 1.46 R1 1.81 bytes/tick
+r5fa-pre ith 14: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 23: ring-first 2-stream 0.75 bytes/tick
+r5fa-pre ith 13: ring-first 2-stream 2.57 bytes/tick
+r5fa-pre ith 8: ring-first 2-stream 3.19 bytes/tick
+r5fa-pre ith 18: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 21: KVi 0.60 KVs 2.06 R2 1.51 R1 1.71 bytes/tick
+r5fa-stream2 ith 9: KVi 0.62 KVs 4.15 R2 1.43 R1 1.74 bytes/tick
+r5fa-stream2 ith 10: KVi 0.60 KVs 2.07 R2 1.46 R1 1.73 bytes/tick
+r5fa-pre ith 25: ring-first 2-stream 0.64 bytes/tick
+r5fa-stream2 ith 27: KVi 0.60 KVs 2.12 R2 1.41 R1 1.69 bytes/tick
+r5fa-stream2 ith 11: KVi 2.09 KVs 1.47 R2 1.96 R1 1.65 bytes/tick
+r5fa-stream2 ith 5: KVi 0.69 KVs 1.80 R2 1.02 R1 1.41 bytes/tick
+r5fa-pre ith 16: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 7: KVi 0.59 KVs 2.04 R2 1.45 R1 1.76 bytes/tick
+r5fa-stream2 ith 30: KVi 0.73 KVs 1.70 R2 0.99 R1 1.61 bytes/tick
+r5fa-stream2 ith 24: KVi 0.47 KVs 2.48 R2 1.00 R1 1.62 bytes/tick
+r5fa-stream2 ith 20: KVi 0.59 KVs 1.96 R2 1.47 R1 1.70 bytes/tick
+r5fa-pre ith 19: ring-first 2-stream 0.68 bytes/tick
+r5fa-stream2 ith 28: KVi 0.55 KVs 1.74 R2 1.29 R1 1.49 bytes/tick
+r5fa-stream2 ith 8: KVi 2.04 KVs 1.45 R2 2.01 R1 1.60 bytes/tick
+r5fa-stream2 ith 18: KVi 0.47 KVs 2.49 R2 1.00 R1 1.64 bytes/tick
+r5fa-stream2 ith 22: KVi 0.55 KVs 1.75 R2 1.28 R1 1.45 bytes/tick
+r5fa-stream2 ith 17: KVi 0.56 KVs 1.78 R2 1.26 R1 1.46 bytes/tick
+r5fa-stream2 ith 12: KVi 0.57 KVs 1.83 R2 1.20 R1 1.44 bytes/tick
+r5fa-stream2 ith 25: KVi 0.48 KVs 2.86 R2 1.05 R1 1.62 bytes/tick
+r5fa-stream2 ith 13: KVi 1.61 KVs 1.31 R2 1.36 R1 1.27 bytes/tick
+r5fa-stream2 ith 14: KVi 0.57 KVs 1.77 R2 1.23 R1 1.46 bytes/tick
+r5fa-stream2 ith 23: KVi 0.56 KVs 1.78 R2 1.22 R1 1.46 bytes/tick
+r5fa-stream2 ith 19: KVi 0.47 KVs 2.59 R2 1.06 R1 1.61 bytes/tick
+r5fa-stream2 ith 16: KVi 0.56 KVs 1.79 R2 1.26 R1 1.46 bytes/tick
+r5fa-pre ith 0: ring-first 2-stream 0.72 bytes/tick
+r5fa-stream2 ith 0: KVi 0.48 KVs 4.23 R2 1.03 R1 1.65 bytes/tick
+r5fa: calls 3200 nek1 9984 n_eff 9743 per 312 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 378568 mean 321586  wait mean 633340 | k % 4096 = 0
+r5fa-phase ith 13 (positions 312): setup 38553  scores 128602  softmax 22130  V 111832  merge 45754 ticks/call
+r5fa-phase ith 18 (positions 312): setup 16822  scores 136373  softmax 25865  V 129435  merge 38022 ticks/call
+r5fa-phase ith 1 (positions 312): setup 16933  scores 137679  softmax 23743  V 129837  merge 36052 ticks/call
+r5fa-phase ith 7 (positions 312): setup 23867  scores 145112  softmax 24651  V 127388  merge 34359 ticks/call
+r5fa-phase ith 20 (positions 312): setup 23491  scores 144725  softmax 27597  V 126361  merge 38439 ticks/call
+r5fa-phase ith 6 (positions 312): setup 34370  scores 169273  softmax 30830  V 140677  merge 34817 ticks/call
+r5fa-phase ith 26 (positions 312): setup 24328  scores 142122  softmax 28034  V 126734  merge 38550 ticks/call
+r5fa-phase ith 27 (positions 312): setup 24893  scores 140294  softmax 27600  V 130875  merge 33561 ticks/call
+r5fa-phase ith 21 (positions 312): setup 25932  scores 144796  softmax 27466  V 133869  merge 33378 ticks/call
+r5fa-phase ith 10 (positions 312): setup 24772  scores 145353  softmax 24529  V 124257  merge 31120 ticks/call
+r5fa-phase ith 9 (positions 312): setup 35015  scores 174616  softmax 30665  V 136649  merge 31459 ticks/call
+r5fa-phase ith 8 (positions 312): setup 31797  scores 123193  softmax 22653  V 109166  merge 40977 ticks/call
+r5fa-phase ith 2 (positions 312): setup 28213  scores 134382  softmax 25149  V 116805  merge 39299 ticks/call
+r5fa-phase ith 30 (positions 312): setup 30970  scores 142926  softmax 25266  V 118425  merge 41682 ticks/call
+r5fa-phase ith 23 (positions 312): setup 25808  scores 141214  softmax 26087  V 135682  merge 42532 ticks/call
+r5fa-phase ith 17 (positions 312): setup 25699  scores 146137  softmax 27634  V 133013  merge 42360 ticks/call
+r5fa-phase ith 14 (positions 312): setup 27238  scores 149894  softmax 25942  V 131144  merge 41020 ticks/call
+r5fa-phase ith 29 (positions 312): setup 25592  scores 141187  softmax 27143  V 132448  merge 42934 ticks/call
+r5fa-phase ith 12 (positions 312): setup 27268  scores 152878  softmax 26900  V 131845  merge 41766 ticks/call
+r5fa-phase ith 28 (positions 312): setup 25097  scores 144431  softmax 25637  V 130552  merge 43033 ticks/call
+r5fa-phase ith 22 (positions 312): setup 24320  scores 144138  softmax 24807  V 130540  merge 42743 ticks/call
+r5fa-phase ith 16 (positions 312): setup 25338  scores 151637  softmax 26652  V 133573  merge 42429 ticks/call
+r5fa-phase ith 3 (positions 312): setup 29295  scores 156153  softmax 26580  V 136225  merge 36804 ticks/call
+r5fa-phase ith 19 (positions 312): setup 19125  scores 138249  softmax 23912  V 133622  merge 39387 ticks/call
+r5fa-phase ith 4 (positions 312): setup 17175  scores 138664  softmax 24876  V 130100  merge 36414 ticks/call
+r5fa-phase ith 25 (positions 312): setup 16328  scores 135124  softmax 27368  V 132003  merge 39601 ticks/call
+r5fa-phase ith 31 (positions 71): setup 39749  scores 107239  softmax 20004  V 96367  merge 41399 ticks/call
+r5fa-phase ith 5 (positions 312): setup 25852  scores 133334  softmax 22457  V 117684  merge 41591 ticks/call
+r5fa-phase ith 11 (positions 312): setup 30578  scores 119285  softmax 21639  V 107698  merge 35311 ticks/call
+r5fa-phase ith 15 (positions 312): setup 37146  scores 128385  softmax 22601  V 114639  merge 45898 ticks/call
+r5fa-phase ith 0 (positions 312): setup 28473  scores 162510  softmax 23694  V 138441  merge 36607 ticks/call
+r5fa-phase ith 24 (positions 312): setup 15648  scores 134740  softmax 28427  V 130016  merge 38869 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.71 bytes/tick
+r5fa-stream2 ith 1: KVi 0.47 KVs 2.58 R2 1.01 R1 1.65 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.39 bytes/tick
+r5fa-stream2 ith 2: KVi 0.73 KVs 1.75 R2 1.05 R1 1.66 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 3: KVi 0.51 KVs 4.70 R2 1.12 R1 1.53 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.71 bytes/tick
+r5fa-stream2 ith 4: KVi 0.51 KVs 2.23 R2 1.15 R1 1.52 bytes/tick
+r5fa-pre ith 31: ring-first 2-stream 1.39 bytes/tick
+r5fa-pre ith 21: ring-first 2-stream 0.99 bytes/tick
+r5fa-pre ith 11: ring-first 2-stream 3.18 bytes/tick
+r5fa-pre ith 18: ring-first 2-stream 0.69 bytes/tick
+r5fa-pre ith 15: ring-first 2-stream 2.64 bytes/tick
+r5fa-pre ith 5: ring-first 2-stream 1.34 bytes/tick
+r5fa-pre ith 10: ring-first 2-stream 0.99 bytes/tick
+r5fa-pre ith 9: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 27: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 7: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 6: ring-first 2-stream 0.95 bytes/tick
+r5fa-stream2 ith 11: KVi 2.10 KVs 1.50 R2 1.93 R1 1.64 bytes/tick
+r5fa-stream2 ith 21: KVi 0.61 KVs 2.04 R2 1.55 R1 1.75 bytes/tick
+r5fa-stream2 ith 15: KVi 1.58 KVs 1.32 R2 1.38 R1 1.28 bytes/tick
+r5fa-pre ith 26: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 30: ring-first 2-stream 1.37 bytes/tick
+r5fa-pre ith 8: ring-first 2-stream 3.26 bytes/tick
+r5fa-pre ith 12: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 9: KVi 0.63 KVs 4.16 R2 1.48 R1 1.78 bytes/tick
+r5fa-pre ith 16: ring-first 2-stream 0.77 bytes/tick
+r5fa-stream2 ith 10: KVi 0.61 KVs 2.04 R2 1.53 R1 1.77 bytes/tick
+r5fa-pre ith 28: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 23: ring-first 2-stream 0.75 bytes/tick
+r5fa-stream2 ith 6: KVi 0.60 KVs 4.22 R2 1.44 R1 1.78 bytes/tick
+r5fa-pre ith 14: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 7: KVi 0.60 KVs 2.03 R2 1.49 R1 1.77 bytes/tick
+r5fa-pre ith 19: ring-first 2-stream 0.71 bytes/tick
+r5fa-stream2 ith 8: KVi 2.05 KVs 1.51 R2 2.01 R1 1.66 bytes/tick
+r5fa-pre ith 25: ring-first 2-stream 0.67 bytes/tick
+r5fa-pre ith 13: ring-first 2-stream 2.62 bytes/tick
+r5fa-stream2 ith 31: KVi 1.07 KVs 1.18 R2 0.97 R1 1.24 bytes/tick
+r5fa-pre ith 20: ring-first 2-stream 0.97 bytes/tick
+r5fa-stream2 ith 5: KVi 0.77 KVs 1.83 R2 1.04 R1 1.40 bytes/tick
+r5fa-pre ith 22: ring-first 2-stream 0.77 bytes/tick
+r5fa-stream2 ith 16: KVi 0.57 KVs 1.80 R2 1.27 R1 1.46 bytes/tick
+r5fa-stream2 ith 27: KVi 0.62 KVs 2.09 R2 1.46 R1 1.74 bytes/tick
+r5fa-stream2 ith 14: KVi 0.57 KVs 1.79 R2 1.25 R1 1.46 bytes/tick
+r5fa-stream2 ith 19: KVi 0.53 KVs 2.28 R2 1.15 R1 1.47 bytes/tick
+r5fa-pre ith 17: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 29: ring-first 2-stream 0.75 bytes/tick
+r5fa-stream2 ith 26: KVi 0.60 KVs 1.92 R2 1.50 R1 1.83 bytes/tick
+r5fa-pre ith 24: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 25: KVi 0.54 KVs 2.53 R2 1.12 R1 1.46 bytes/tick
+r5fa-stream2 ith 12: KVi 0.58 KVs 1.86 R2 1.23 R1 1.42 bytes/tick
+r5fa-stream2 ith 20: KVi 0.60 KVs 1.96 R2 1.50 R1 1.70 bytes/tick
+r5fa-stream2 ith 18: KVi 0.49 KVs 2.60 R2 1.03 R1 1.72 bytes/tick
+r5fa-stream2 ith 30: KVi 0.83 KVs 1.67 R2 0.99 R1 1.63 bytes/tick
+r5fa-stream2 ith 13: KVi 1.61 KVs 1.34 R2 1.37 R1 1.27 bytes/tick
+r5fa-stream2 ith 28: KVi 0.56 KVs 1.77 R2 1.30 R1 1.49 bytes/tick
+r5fa-stream2 ith 23: KVi 0.57 KVs 1.79 R2 1.24 R1 1.45 bytes/tick
+r5fa-stream2 ith 22: KVi 0.55 KVs 1.79 R2 1.30 R1 1.44 bytes/tick
+r5fa-stream2 ith 24: KVi 0.49 KVs 2.59 R2 1.02 R1 1.70 bytes/tick
+r5fa-stream2 ith 17: KVi 0.56 KVs 1.78 R2 1.27 R1 1.45 bytes/tick
+r5fa-stream2 ith 29: KVi 0.57 KVs 1.78 R2 1.25 R1 1.44 bytes/tick
+r5fa-pre ith 0: ring-first 2-stream 0.72 bytes/tick
+r5fa-stream2 ith 0: KVi 0.51 KVs 4.38 R2 1.04 R1 1.67 bytes/tick
+r5fa: calls 3840 nek1 9984 n_eff 9807 per 312 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 388319 mean 322020  wait mean 640127 | k % 4096 = 0
+r5fa-phase ith 19 (positions 312): setup 19610  scores 138570  softmax 23081  V 135156  merge 39695 ticks/call
+r5fa-phase ith 30 (positions 312): setup 35007  scores 151423  softmax 24459  V 122794  merge 39976 ticks/call
+r5fa-phase ith 9 (positions 312): setup 35700  scores 180441  softmax 32143  V 139207  merge 30410 ticks/call
+r5fa-phase ith 21 (positions 312): setup 25571  scores 147263  softmax 30834  V 135379  merge 32327 ticks/call
+r5fa-phase ith 11 (positions 312): setup 30739  scores 121210  softmax 20975  V 110235  merge 34725 ticks/call
+r5fa-phase ith 1 (positions 312): setup 16084  scores 140252  softmax 24346  V 130520  merge 33660 ticks/call
+r5fa-phase ith 18 (positions 312): setup 17209  scores 137079  softmax 26843  V 133673  merge 35921 ticks/call
+r5fa-phase ith 24 (positions 312): setup 15390  scores 136844  softmax 29056  V 132164  merge 36654 ticks/call
+r5fa-phase ith 20 (positions 312): setup 23768  scores 147952  softmax 28432  V 129361  merge 36641 ticks/call
+r5fa-phase ith 7 (positions 312): setup 24109  scores 149601  softmax 23149  V 129834  merge 33363 ticks/call
+r5fa-phase ith 26 (positions 312): setup 25047  scores 147760  softmax 25833  V 128782  merge 36945 ticks/call
+r5fa-phase ith 6 (positions 312): setup 34960  scores 175210  softmax 28880  V 142220  merge 34266 ticks/call
+r5fa-phase ith 31 (positions 135): setup 64220  scores 43398  softmax 10741  V 52488  merge 41443 ticks/call
+r5fa-phase ith 15 (positions 312): setup 36406  scores 130117  softmax 21537  V 116135  merge 43756 ticks/call
+r5fa-phase ith 5 (positions 312): setup 23569  scores 131500  softmax 23078  V 121030  merge 41253 ticks/call
+r5fa-phase ith 8 (positions 312): setup 31205  scores 126323  softmax 21704  V 110291  merge 39058 ticks/call
+r5fa-phase ith 23 (positions 312): setup 25204  scores 142003  softmax 25065  V 135910  merge 41250 ticks/call
+r5fa-phase ith 14 (positions 312): setup 27755  scores 151233  softmax 25015  V 133794  merge 39361 ticks/call
+r5fa-phase ith 17 (positions 312): setup 24848  scores 146287  softmax 27610  V 135701  merge 41054 ticks/call
+r5fa-phase ith 4 (positions 312): setup 18682  scores 140085  softmax 24948  V 129398  merge 37963 ticks/call
+r5fa-phase ith 3 (positions 312): setup 32792  scores 157530  softmax 25743  V 135564  merge 38228 ticks/call
+r5fa-phase ith 16 (positions 312): setup 24625  scores 154623  softmax 26531  V 135651  merge 40748 ticks/call
+r5fa-phase ith 22 (positions 312): setup 24513  scores 145055  softmax 23911  V 131763  merge 41932 ticks/call
+r5fa-phase ith 25 (positions 312): setup 17166  scores 136081  softmax 27601  V 130505  merge 39929 ticks/call
+r5fa-phase ith 29 (positions 312): setup 23877  scores 140928  softmax 26154  V 133134  merge 41495 ticks/call
+r5fa-phase ith 13 (positions 312): setup 37080  scores 132642  softmax 22504  V 114383  merge 43317 ticks/call
+r5fa-phase ith 28 (positions 312): setup 25194  scores 144843  softmax 26943  V 131552  merge 41607 ticks/call
+r5fa-phase ith 12 (positions 312): setup 26822  scores 149915  softmax 27946  V 134327  merge 40184 ticks/call
+r5fa-phase ith 0 (positions 312): setup 28579  scores 165590  softmax 23575  V 141975  merge 34256 ticks/call
+r5fa-phase ith 2 (positions 312): setup 23626  scores 133489  softmax 23592  V 118658  merge 38433 ticks/call
+r5fa-phase ith 10 (positions 312): setup 25446  scores 147085  softmax 25064  V 127469  merge 30095 ticks/call
+r5fa-phase ith 27 (positions 312): setup 23995  scores 141303  softmax 24528  V 134007  merge 32436 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 1: KVi 0.49 KVs 2.66 R2 1.05 R1 1.73 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.41 bytes/tick
+r5fa-stream2 ith 2: KVi 0.72 KVs 1.84 R2 1.15 R1 1.68 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 3: KVi 0.54 KVs 4.73 R2 1.24 R1 1.44 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 4: KVi 0.54 KVs 2.18 R2 1.25 R1 1.45 bytes/tick
+r5fa-pre ith 11: ring-first 2-stream 3.18 bytes/tick
+r5fa-pre ith 5: ring-first 2-stream 1.36 bytes/tick
+r5fa-pre ith 29: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 24: ring-first 2-stream 0.70 bytes/tick
+r5fa-pre ith 25: ring-first 2-stream 0.66 bytes/tick
+r5fa-pre ith 8: ring-first 2-stream 3.26 bytes/tick
+r5fa-pre ith 30: ring-first 2-stream 1.39 bytes/tick
+r5fa-pre ith 26: ring-first 2-stream 0.97 bytes/tick
+r5fa-stream2 ith 11: KVi 2.15 KVs 1.52 R2 1.97 R1 1.68 bytes/tick
+r5fa-pre ith 6: ring-first 2-stream 0.96 bytes/tick
+r5fa-stream2 ith 29: KVi 0.58 KVs 1.76 R2 1.25 R1 1.43 bytes/tick
+r5fa-pre ith 20: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 9: ring-first 2-stream 1.01 bytes/tick
+r5fa-pre ith 21: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 27: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 10: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 12: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 28: ring-first 2-stream 0.78 bytes/tick
+r5fa-pre ith 22: ring-first 2-stream 0.78 bytes/tick
+r5fa-stream2 ith 8: KVi 2.08 KVs 1.49 R2 2.03 R1 1.66 bytes/tick
+r5fa-pre ith 17: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 14: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 16: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 23: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 26: KVi 0.61 KVs 1.92 R2 1.51 R1 1.81 bytes/tick
+r5fa-pre ith 15: ring-first 2-stream 2.65 bytes/tick
+r5fa-stream2 ith 6: KVi 0.60 KVs 4.24 R2 1.45 R1 1.77 bytes/tick
+r5fa-pre ith 13: ring-first 2-stream 2.61 bytes/tick
+r5fa-stream2 ith 20: KVi 0.60 KVs 1.97 R2 1.51 R1 1.70 bytes/tick
+r5fa-pre ith 18: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 9: KVi 0.63 KVs 4.19 R2 1.51 R1 1.76 bytes/tick
+r5fa-pre ith 19: ring-first 2-stream 0.70 bytes/tick
+r5fa-pre ith 31: ring-first 2-stream 1.47 bytes/tick
+r5fa-pre ith 7: ring-first 2-stream 0.97 bytes/tick
+r5fa-stream2 ith 30: KVi 0.89 KVs 1.67 R2 0.98 R1 1.63 bytes/tick
+r5fa-stream2 ith 25: KVi 0.55 KVs 2.53 R2 1.17 R1 1.42 bytes/tick
+r5fa-stream2 ith 24: KVi 0.49 KVs 2.60 R2 1.01 R1 1.76 bytes/tick
+r5fa-stream2 ith 27: KVi 0.61 KVs 2.10 R2 1.49 R1 1.72 bytes/tick
+r5fa-stream2 ith 5: KVi 0.71 KVs 1.79 R2 0.92 R1 1.27 bytes/tick
+r5fa-stream2 ith 21: KVi 0.61 KVs 2.05 R2 1.58 R1 1.72 bytes/tick
+r5fa-stream2 ith 10: KVi 0.61 KVs 2.06 R2 1.56 R1 1.74 bytes/tick
+r5fa-stream2 ith 7: KVi 0.60 KVs 2.03 R2 1.51 R1 1.76 bytes/tick
+r5fa-stream2 ith 18: KVi 0.49 KVs 2.64 R2 1.02 R1 1.77 bytes/tick
+r5fa-stream2 ith 31: KVi 1.30 KVs 0.68 R2 1.11 R1 0.84 bytes/tick
+r5fa-stream2 ith 28: KVi 0.56 KVs 1.77 R2 1.29 R1 1.48 bytes/tick
+r5fa-stream2 ith 12: KVi 0.59 KVs 1.85 R2 1.21 R1 1.41 bytes/tick
+r5fa-stream2 ith 15: KVi 1.61 KVs 1.33 R2 1.38 R1 1.29 bytes/tick
+r5fa-stream2 ith 17: KVi 0.57 KVs 1.77 R2 1.27 R1 1.45 bytes/tick
+r5fa-stream2 ith 19: KVi 0.54 KVs 2.30 R2 1.23 R1 1.41 bytes/tick
+r5fa-stream2 ith 13: KVi 1.61 KVs 1.35 R2 1.35 R1 1.30 bytes/tick
+r5fa-stream2 ith 14: KVi 0.58 KVs 1.78 R2 1.24 R1 1.47 bytes/tick
+r5fa-stream2 ith 22: KVi 0.56 KVs 1.78 R2 1.28 R1 1.43 bytes/tick
+r5fa-stream2 ith 23: KVi 0.58 KVs 1.78 R2 1.22 R1 1.44 bytes/tick
+r5fa-stream2 ith 16: KVi 0.57 KVs 1.81 R2 1.24 R1 1.45 bytes/tick
+r5fa-pre ith 0: ring-first 2-stream 0.73 bytes/tick
+r5fa-stream2 ith 0: KVi 0.49 KVs 4.35 R2 1.03 R1 1.72 bytes/tick
+r5fa: calls 4480 nek1 9984 n_eff 9871 per 312 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 386016 mean 323704  wait mean 632677 | k % 4096 = 0
+r5fa-phase ith 17 (positions 312): setup 25380  scores 147655  softmax 27100  V 134876  merge 40912 ticks/call
+r5fa-phase ith 0 (positions 312): setup 28394  scores 166516  softmax 24113  V 141025  merge 34699 ticks/call
+r5fa-phase ith 9 (positions 312): setup 35187  scores 177768  softmax 31886  V 138892  merge 30331 ticks/call
+r5fa-phase ith 27 (positions 312): setup 23978  scores 142305  softmax 24331  V 133438  merge 32944 ticks/call
+r5fa-phase ith 24 (positions 312): setup 15083  scores 138613  softmax 28201  V 132215  merge 36634 ticks/call
+r5fa-phase ith 1 (positions 312): setup 16351  scores 140857  softmax 24231  V 131658  merge 33364 ticks/call
+r5fa-phase ith 20 (positions 312): setup 23777  scores 147816  softmax 27084  V 129334  merge 36533 ticks/call
+r5fa-phase ith 6 (positions 312): setup 34981  scores 174300  softmax 29360  V 143535  merge 33825 ticks/call
+r5fa-phase ith 26 (positions 312): setup 25296  scores 147711  softmax 24909  V 129159  merge 36933 ticks/call
+r5fa-phase ith 7 (positions 312): setup 24113  scores 149879  softmax 22868  V 129736  merge 33513 ticks/call
+r5fa-phase ith 22 (positions 312): setup 24751  scores 144911  softmax 23182  V 132306  merge 41555 ticks/call
+r5fa-phase ith 16 (positions 312): setup 24896  scores 154913  softmax 28015  V 135466  merge 40456 ticks/call
+r5fa-phase ith 12 (positions 312): setup 27346  scores 150542  softmax 26255  V 133346  merge 39849 ticks/call
+r5fa-phase ith 28 (positions 312): setup 25466  scores 143374  softmax 26687  V 131652  merge 41178 ticks/call
+r5fa-phase ith 2 (positions 312): setup 25624  scores 134269  softmax 23492  V 117790  merge 37983 ticks/call
+r5fa-phase ith 30 (positions 312): setup 32894  scores 151988  softmax 23251  V 123820  merge 39820 ticks/call
+r5fa-phase ith 19 (positions 312): setup 19515  scores 138940  softmax 22447  V 134032  merge 38914 ticks/call
+r5fa-phase ith 4 (positions 312): setup 17778  scores 139231  softmax 24652  V 130511  merge 37086 ticks/call
+r5fa-phase ith 3 (positions 312): setup 31072  scores 159462  softmax 26066  V 136736  merge 37444 ticks/call
+r5fa-phase ith 25 (positions 312): setup 16548  scores 137016  softmax 26632  V 132059  merge 39895 ticks/call
+r5fa-phase ith 31 (positions 199): setup 57141  scores 73548  softmax 14905  V 69918  merge 41615 ticks/call
+r5fa-phase ith 18 (positions 312): setup 16233  scores 138094  softmax 26282  V 133314  merge 35710 ticks/call
+r5fa-phase ith 23 (positions 312): setup 25811  scores 143283  softmax 25981  V 135908  merge 41112 ticks/call
+r5fa-phase ith 8 (positions 312): setup 30982  scores 124445  softmax 21145  V 112435  merge 39411 ticks/call
+r5fa-phase ith 5 (positions 312): setup 23458  scores 132317  softmax 22607  V 120143  merge 40891 ticks/call
+r5fa-phase ith 13 (positions 312): setup 36716  scores 130572  softmax 22262  V 115988  merge 43338 ticks/call
+r5fa-phase ith 14 (positions 312): setup 27541  scores 153067  softmax 24964  V 133514  merge 39516 ticks/call
+r5fa-phase ith 29 (positions 312): setup 25512  scores 142722  softmax 26554  V 134081  merge 41443 ticks/call
+r5fa-phase ith 11 (positions 312): setup 30693  scores 120912  softmax 20392  V 109894  merge 34821 ticks/call
+r5fa-phase ith 15 (positions 312): setup 36390  scores 130463  softmax 21157  V 115412  merge 43906 ticks/call
+r5fa-phase ith 21 (positions 312): setup 25168  scores 148653  softmax 29973  V 135610  merge 32176 ticks/call
+r5fa-phase ith 10 (positions 312): setup 25055  scores 146476  softmax 24927  V 127655  merge 30019 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.72 bytes/tick
+r5fa-stream2 ith 1: KVi 0.48 KVs 2.66 R2 1.04 R1 1.74 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.42 bytes/tick
+r5fa-stream2 ith 2: KVi 0.73 KVs 1.79 R2 1.14 R1 1.70 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 3: KVi 0.51 KVs 4.75 R2 1.17 R1 1.51 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.71 bytes/tick
+r5fa-stream2 ith 4: KVi 0.50 KVs 2.31 R2 1.17 R1 1.56 bytes/tick
+r5fa-pre ith 8: ring-first 2-stream 3.26 bytes/tick
+r5fa-pre ith 5: ring-first 2-stream 1.36 bytes/tick
+r5fa-pre ith 22: ring-first 2-stream 0.78 bytes/tick
+r5fa-pre ith 19: ring-first 2-stream 0.71 bytes/tick
+r5fa-pre ith 31: ring-first 2-stream 1.42 bytes/tick
+r5fa-pre ith 11: ring-first 2-stream 3.18 bytes/tick
+r5fa-pre ith 30: ring-first 2-stream 1.39 bytes/tick
+r5fa-pre ith 21: ring-first 2-stream 1.01 bytes/tick
+r5fa-pre ith 10: ring-first 2-stream 1.00 bytes/tick
+r5fa-pre ith 9: ring-first 2-stream 1.01 bytes/tick
+r5fa-pre ith 27: ring-first 2-stream 0.99 bytes/tick
+r5fa-pre ith 16: ring-first 2-stream 0.78 bytes/tick
+r5fa-pre ith 17: ring-first 2-stream 0.77 bytes/tick
+r5fa-pre ith 14: ring-first 2-stream 0.77 bytes/tick
+r5fa-stream2 ith 11: KVi 2.14 KVs 1.51 R2 1.99 R1 1.72 bytes/tick
+r5fa-pre ith 29: ring-first 2-stream 0.76 bytes/tick
+r5fa-stream2 ith 31: KVi 1.22 KVs 1.07 R2 0.89 R1 0.77 bytes/tick
+r5fa-pre ith 20: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 26: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 6: ring-first 2-stream 0.97 bytes/tick
+r5fa-pre ith 7: ring-first 2-stream 0.98 bytes/tick
+r5fa-pre ith 23: ring-first 2-stream 0.76 bytes/tick
+r5fa-pre ith 15: ring-first 2-stream 2.65 bytes/tick
+r5fa-pre ith 28: ring-first 2-stream 0.78 bytes/tick
+r5fa-stream2 ith 9: KVi 0.63 KVs 4.18 R2 1.47 R1 1.77 bytes/tick
+r5fa-stream2 ith 21: KVi 0.61 KVs 2.07 R2 1.55 R1 1.74 bytes/tick
+r5fa-pre ith 13: ring-first 2-stream 2.63 bytes/tick
+r5fa-pre ith 18: ring-first 2-stream 0.70 bytes/tick
+r5fa-pre ith 25: ring-first 2-stream 0.66 bytes/tick
+r5fa-stream2 ith 8: KVi 2.08 KVs 1.51 R2 2.02 R1 1.67 bytes/tick
+r5fa-stream2 ith 22: KVi 0.56 KVs 1.75 R2 1.29 R1 1.43 bytes/tick
+r5fa-stream2 ith 5: KVi 0.72 KVs 1.90 R2 0.98 R1 1.40 bytes/tick
+r5fa-stream2 ith 16: KVi 0.57 KVs 1.77 R2 1.26 R1 1.45 bytes/tick
+r5fa-stream2 ith 6: KVi 0.60 KVs 4.25 R2 1.47 R1 1.78 bytes/tick
+r5fa-stream2 ith 19: KVi 0.50 KVs 2.45 R2 1.14 R1 1.53 bytes/tick
+r5fa-pre ith 12: ring-first 2-stream 0.77 bytes/tick
+r5fa-stream2 ith 10: KVi 0.61 KVs 2.06 R2 1.54 R1 1.74 bytes/tick
+r5fa-stream2 ith 20: KVi 0.60 KVs 1.95 R2 1.53 R1 1.71 bytes/tick
+r5fa-pre ith 24: ring-first 2-stream 0.70 bytes/tick
+r5fa-stream2 ith 17: KVi 0.57 KVs 1.75 R2 1.28 R1 1.45 bytes/tick
+r5fa-stream2 ith 26: KVi 0.61 KVs 1.91 R2 1.52 R1 1.82 bytes/tick
+r5fa-stream2 ith 30: KVi 0.90 KVs 1.69 R2 0.96 R1 1.65 bytes/tick
+r5fa-stream2 ith 14: KVi 0.59 KVs 1.75 R2 1.25 R1 1.46 bytes/tick
+r5fa-stream2 ith 27: KVi 0.61 KVs 2.11 R2 1.46 R1 1.73 bytes/tick
+r5fa-stream2 ith 25: KVi 0.51 KVs 2.73 R2 1.11 R1 1.54 bytes/tick
+r5fa-stream2 ith 18: KVi 0.48 KVs 2.57 R2 1.02 R1 1.74 bytes/tick
+r5fa-stream2 ith 15: KVi 1.60 KVs 1.34 R2 1.39 R1 1.29 bytes/tick
+r5fa-stream2 ith 28: KVi 0.57 KVs 1.74 R2 1.30 R1 1.48 bytes/tick
+r5fa-stream2 ith 7: KVi 0.60 KVs 2.01 R2 1.52 R1 1.77 bytes/tick
+r5fa-stream2 ith 29: KVi 0.58 KVs 1.75 R2 1.25 R1 1.41 bytes/tick
+r5fa-stream2 ith 13: KVi 1.62 KVs 1.35 R2 1.37 R1 1.29 bytes/tick
+r5fa-stream2 ith 24: KVi 0.48 KVs 2.55 R2 1.01 R1 1.73 bytes/tick
+r5fa-stream2 ith 23: KVi 0.58 KVs 1.76 R2 1.23 R1 1.43 bytes/tick
+r5fa-stream2 ith 12: KVi 0.59 KVs 1.82 R2 1.22 R1 1.41 bytes/tick
+r5fa-pre ith 0: ring-first 2-stream 0.73 bytes/tick
+r5fa-stream2 ith 0: KVi 0.47 KVs 4.22 R2 1.04 R1 1.70 bytes/tick
+r5fa: calls 5120 nek1 9984 n_eff 9935 per 312 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 390374 mean 326820  wait mean 625421 | k % 4096 = 0
+r5fa-phase ith 21 (positions 312): setup 25094  scores 149314  softmax 32065  V 137357  merge 32830 ticks/call
+r5fa-phase ith 2 (positions 312): setup 25815  scores 134091  softmax 23976  V 119261  merge 38038 ticks/call
+r5fa-phase ith 10 (positions 312): setup 25024  scores 147751  softmax 26246  V 128461  merge 30796 ticks/call
+r5fa-phase ith 9 (positions 312): setup 34840  scores 180046  softmax 32507  V 138529  merge 31162 ticks/call
+r5fa-phase ith 12 (positions 312): setup 27754  scores 153711  softmax 26484  V 133815  merge 40863 ticks/call
+r5fa-phase ith 28 (positions 312): setup 25342  scores 144521  softmax 27285  V 132559  merge 42060 ticks/call
+r5fa-phase ith 16 (positions 312): setup 25530  scores 156739  softmax 27655  V 135613  merge 41481 ticks/call
+r5fa-phase ith 22 (positions 312): setup 24625  scores 146957  softmax 23571  V 132364  merge 41887 ticks/call
+r5fa-phase ith 24 (positions 312): setup 15274  scores 138233  softmax 28272  V 132472  merge 37536 ticks/call
+r5fa-phase ith 1 (positions 312): setup 17051  scores 139681  softmax 24961  V 133195  merge 34078 ticks/call
+r5fa-phase ith 18 (positions 312): setup 15754  scores 138653  softmax 25739  V 133807  merge 36815 ticks/call
+r5fa-phase ith 15 (positions 312): setup 36083  scores 131333  softmax 21617  V 114726  merge 44321 ticks/call
+r5fa-phase ith 11 (positions 312): setup 31237  scores 123219  softmax 20476  V 109982  merge 35126 ticks/call
+r5fa-phase ith 3 (positions 312): setup 28339  scores 158336  softmax 26680  V 138668  merge 37554 ticks/call
+r5fa-phase ith 19 (positions 312): setup 18077  scores 140187  softmax 22465  V 136024  merge 39071 ticks/call
+r5fa-phase ith 4 (positions 312): setup 16391  scores 139734  softmax 25603  V 131298  merge 36460 ticks/call
+r5fa-phase ith 25 (positions 312): setup 15823  scores 138161  softmax 26949  V 134219  merge 39489 ticks/call
+r5fa-phase ith 6 (positions 312): setup 35538  scores 174080  softmax 31965  V 147178  merge 34064 ticks/call
+r5fa-phase ith 8 (positions 312): setup 31185  scores 125128  softmax 21502  V 110580  merge 39982 ticks/call
+r5fa-phase ith 0 (positions 312): setup 29000  scores 165019  softmax 24151  V 140413  merge 34560 ticks/call
+r5fa-phase ith 29 (positions 312): setup 25438  scores 142549  softmax 27586  V 133363  merge 42195 ticks/call
+r5fa-phase ith 23 (positions 312): setup 26390  scores 142839  softmax 27041  V 136411  merge 41864 ticks/call
+r5fa-phase ith 20 (positions 312): setup 24548  scores 149297  softmax 28170  V 129420  merge 37294 ticks/call
+r5fa-phase ith 26 (positions 312): setup 25862  scores 148705  softmax 24754  V 129578  merge 37560 ticks/call
+r5fa-phase ith 7 (positions 312): setup 23905  scores 151158  softmax 22933  V 130622  merge 34343 ticks/call
+r5fa-phase ith 31 (positions 263): setup 39490  scores 112124  softmax 19672  V 93305  merge 40753 ticks/call
+r5fa-phase ith 5 (positions 312): setup 24498  scores 133644  softmax 23210  V 119286  merge 40223 ticks/call
+r5fa-phase ith 17 (positions 312): setup 25950  scores 148548  softmax 27852  V 135265  merge 41714 ticks/call
+r5fa-phase ith 14 (positions 312): setup 27355  scores 154312  softmax 24987  V 134205  merge 40405 ticks/call
+r5fa-phase ith 13 (positions 312): setup 37205  scores 130582  softmax 22072  V 114369  merge 44271 ticks/call
+r5fa-phase ith 30 (positions 312): setup 33147  scores 149318  softmax 23953  V 123308  merge 40364 ticks/call
+r5fa-phase ith 27 (positions 312): setup 24532  scores 144762  softmax 23994  V 134647  merge 33084 ticks/call
+r5fa-pre ith 1: ring-first 2-stream 0.72 bytes/tick
+r5fa-stream2 ith 1: KVi 0.47 KVs 2.57 R2 1.02 R1 1.71 bytes/tick
+r5fa-pre ith 2: ring-first 2-stream 1.41 bytes/tick
+r5fa-stream2 ith 2: KVi 0.73 KVs 1.74 R2 1.12 R1 1.69 bytes/tick
+r5fa-pre ith 3: ring-first 2-stream 0.69 bytes/tick
+r5fa-stream2 ith 3: KVi 0.48 KVs 4.85 R2 1.10 R1 1.64 bytes/tick
+r5fa-pre ith 4: ring-first 2-stream 0.71 bytes/tick
+r5fa-stream2 ith 4: KVi 0.47 KVs 2.49 R2 1.09 R1 1.68 bytes/tick
+slot print_timing: id  0 | task 35 | 
+prompt eval time =   25855.74 ms /  9455 tokens (    2.73 ms per token,   365.68 tokens per second)
+       eval time =   21130.52 ms /   512 tokens (   41.27 ms per token,    24.23 tokens per second)
+      total time =   46986.26 ms /  9967 tokens
+INFO [      log_server_request] request | tid="131235870394048" timestamp=1793505323 remote_addr="127.0.0.1" remote_port=42290 status=200 method="POST" path="/completion" params={}
+slot create_check: id  0 | task 35 | created context checkpoint 7 of 32 (pos_min = 9965, pos_max = 9965, n_tokens = 9966, size = 62.890 MiB, took 78.31 ms)
+INFO [           release_slots] slot released | tid="131259304940288" timestamp=1793505323 id_slot=0 id_task=35 n_ctx=16384 n_past=9966 n_system_tokens=0 n_cache_tokens=9966 truncated=false
+INFO [              slots_idle] all slots are idle | tid="131259304940288" timestamp=1793505323

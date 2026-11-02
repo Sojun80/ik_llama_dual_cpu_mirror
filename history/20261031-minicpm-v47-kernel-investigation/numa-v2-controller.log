@@ -1,0 +1,8 @@
+START global
+PLACEMENT global Total                     9058.23        11644.77        20703.01
+DONE global 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7511.824, 'prompt_per_token_ms': 2.6713456614509243, 'prompt_per_second': 374.3431688495364, 'predicted_n': 64, 'predicted_ms': 2666.39, 'predicted_per_token_ms': 41.66234375, 'predicted_per_second': 24.002490258364308, 'n_ctx': 16384, 'n_past': 2875}
+DONE global 524 match True timings {'prompt_n': 9436, 'prompt_ms': 27976.453, 'prompt_per_token_ms': 2.9648636074607886, 'prompt_per_second': 337.2836434983377, 'predicted_n': 64, 'predicted_ms': 3045.539, 'predicted_per_token_ms': 47.586546875, 'predicted_per_second': 21.01434261718533, 'n_ctx': 16384, 'n_past': 9499}
+START local
+PLACEMENT local Total                     9058.25        11646.08        20704.33
+DONE local 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7509.674, 'prompt_per_token_ms': 2.6705810810810813, 'prompt_per_second': 374.45034231845483, 'predicted_n': 64, 'predicted_ms': 2589.999, 'predicted_per_token_ms': 40.468734375, 'predicted_per_second': 24.710434251132916, 'n_ctx': 16384, 'n_past': 2875}
+DONE local 524 match True timings {'prompt_n': 9436, 'prompt_ms': 27981.767, 'prompt_per_token_ms': 2.9654267698177192, 'prompt_per_second': 337.21959017098527, 'predicted_n': 64, 'predicted_ms': 2980.962, 'predicted_per_token_ms': 46.57753125, 'predicted_per_second': 21.46957928346621, 'n_ctx': 16384, 'n_past': 9499}

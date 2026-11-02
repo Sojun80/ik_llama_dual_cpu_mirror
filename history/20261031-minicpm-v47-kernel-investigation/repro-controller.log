@@ -1,0 +1,22 @@
+server pid 564144
+REQUEST_START 1793477858.6902492
+EVENT 1793477976.5333476 b'data: {"content":" ","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477976.533443 b'\n'
+EVENT 1793477980.9499018 b'data: {"content":"1","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477980.9499564 b'\n'
+EVENT 1793477983.3564982 b'data: {"content":",","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477983.3565934 b'\n'
+EVENT 1793477983.3904846 b'data: {"content":" ","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477983.3905663 b'\n'
+EVENT 1793477983.4235923 b'data: {"content":"2","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477983.4236755 b'\n'
+EVENT 1793477983.4567528 b'data: {"content":",","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477983.456849 b'\n'
+EVENT 1793477983.4904952 b'data: {"content":" ","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477983.4905875 b'\n'
+EVENT 1793477983.5237184 b'data: {"content":"3","stop":false,"id_slot":0,"multimodal":false}\n'
+EVENT 1793477983.5238054 b'\n'
+EVENT 1793477983.5256345 b'data: {"content":"","generated_text":" 1, 2, 3","id_slot":0,"stop":true,"model":"/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf","tokens_predicted":8,'
+EVENT 1793477983.5257068 b'\n'
+REQUEST_FINISHED 1793477983.525927
+SERVER_STOPPED 0

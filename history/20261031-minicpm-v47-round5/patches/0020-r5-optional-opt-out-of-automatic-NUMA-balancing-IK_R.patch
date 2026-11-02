@@ -1,0 +1,46 @@
+From 4ab938e6607f20fc3faedbc5178756de4191a386 Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sun, 1 Nov 2026 11:06:19 -0800
+Subject: [PATCH 20/25] r5: optional opt-out of automatic NUMA balancing
+ (IK_R5_NONUMAB)
+
+In mirror mode the server is only CPU-pinned, so its memory has the default
+task policy with migrate-on-fault, and kernel NUMA balancing keeps unmapping
+and migrating the shared runtime pages both nodes touch every token (heap
+thread-pool/barrier page, work and compute buffers): 6-12K page faults and
+200-500 migrations per 480 decode tokens. IK_R5_NONUMAB=1 sets an explicit
+MPOL_LOCAL task policy in ggml_numa_init before any worker thread exists:
+same allocation, no migrate-on-fault, so the balancer skips the process.
+No system setting changes. Bit-exact; decode faults/migrations go to ~0, but
+decode speed is unchanged within noise.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ ggml/src/ggml.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index 07b29482..c24bca0c 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -5122,6 +5122,17 @@ void ggml_numa_init(enum ggml_numa_strategy numa_flag) {
+         g_state.numa.mirror_flags = GGML_NUMA_MIRROR_ALL;
+     }
+ 
++    // round-5 (IK_R5_NONUMAB=1): explicit MPOL_LOCAL task policy for this thread and the threads it creates later.
++    // Allocates like the default policy but without migrate-on-fault, so automatic NUMA balancing no longer unmaps
++    // and migrates the shared runtime pages (heap, work and compute buffers) that both nodes touch every token.
++    {
++        const char * e = getenv("IK_R5_NONUMAB");
++        if (e && atoi(e) > 0) {
++            const long rc = syscall(SYS_set_mempolicy, 4 /* MPOL_LOCAL */, NULL, 0UL);
++            fprintf(stderr, "ggml_numa_init: IK_R5_NONUMAB: MPOL_LOCAL task policy %s\n", rc == 0 ? "set" : "FAILED");
++        }
++    }
++
+     GGML_PRINT_DEBUG("numa strategy %u\n",g_state.numa.numa_strategy);
+ 
+     g_state.numa.cpuset = ggml_get_numa_affinity();
+-- 
+2.53.0
+

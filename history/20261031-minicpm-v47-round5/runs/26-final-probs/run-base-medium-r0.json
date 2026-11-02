@@ -1,0 +1,857 @@
+{
+ "tag": "base-medium-r0",
+ "config": {
+  "name": "base",
+  "bin": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server",
+  "threads": 32,
+  "cpus": "48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95",
+  "env": {},
+  "mode": "node1",
+  "mirror": "weights"
+ },
+ "case": "medium",
+ "round": 0,
+ "cmd": [
+  "numactl",
+  "--physcpubind=48-95",
+  "--membind=1",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server",
+  "-m",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "-ngl",
+  "0",
+  "--no-mmap",
+  "-t",
+  "32",
+  "-tb",
+  "48",
+  "--cpu-range",
+  "48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95",
+  "-c",
+  "16384",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "19185",
+  "--parallel",
+  "1"
+ ],
+ "start": 1793501917.7897742,
+ "numastat": "---\nHuge                         0.00            0.00            0.00\nHeap                         0.00           70.20           70.20\nStack                        0.00            0.13            0.13\nPrivate                      2.25        20631.96        20634.21\n----------------  --------------- --------------- ---------------\nTotal                        2.25        20702.29        20704.54\n",
+ "timings": {
+  "prompt_n": 2834,
+  "prompt_ms": 7271.55,
+  "prompt_per_token_ms": 2.5658256880733945,
+  "prompt_per_second": 389.7380888531331,
+  "predicted_n": 32,
+  "predicted_ms": 1041.597,
+  "predicted_per_token_ms": 32.54990625,
+  "predicted_per_second": 30.722054691017735,
+  "n_ctx": 16384,
+  "n_past": 2865
+ },
+ "content": "\nThe meadow paper silent cloudy autumn planet winter silver mirror planet winter quiet circle orange yellow field quiet mountain meadow velvet valley shadow copper valley honey silent forest morning",
+ "completion_probabilities": [
+  {
+   "content": "\n",
+   "probs": [
+    {
+     "tok_str": "\n",
+     "prob": 0.8501696586608887
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.12178019434213638
+    },
+    {
+     "tok_str": " The",
+     "prob": 0.004466457758098841
+    },
+    {
+     "tok_str": " ",
+     "prob": 0.0032660416327416897
+    },
+    {
+     "tok_str": " \"",
+     "prob": 0.002525029005482793
+    }
+   ]
+  },
+  {
+   "content": "The",
+   "probs": [
+    {
+     "tok_str": "The",
+     "prob": 0.49446654319763184
+    },
+    {
+     "tok_str": "In",
+     "prob": 0.07248448580503464
+    },
+    {
+     "tok_str": "A",
+     "prob": 0.038414329290390015
+    },
+    {
+     "tok_str": "I",
+     "prob": 0.0348571315407753
+    },
+    {
+     "tok_str": "Once",
+     "prob": 0.01725592650473118
+    }
+   ]
+  },
+  {
+   "content": " me",
+   "probs": [
+    {
+     "tok_str": " me",
+     "prob": 0.3605697751045227
+    },
+    {
+     "tok_str": " valley",
+     "prob": 0.056068215519189835
+    },
+    {
+     "tok_str": " silver",
+     "prob": 0.03881310299038887
+    },
+    {
+     "tok_str": " old",
+     "prob": 0.032024431973695755
+    },
+    {
+     "tok_str": " moon",
+     "prob": 0.029220763593912125
+    }
+   ]
+  },
+  {
+   "content": "adow",
+   "probs": [
+    {
+     "tok_str": "adow",
+     "prob": 0.9995137453079224
+    },
+    {
+     "tok_str": "adows",
+     "prob": 0.00048034568317234516
+    },
+    {
+     "tok_str": "ADOW",
+     "prob": 2.8111157917010132e-06
+    },
+    {
+     "tok_str": "andering",
+     "prob": 9.81622747531219e-07
+    },
+    {
+     "tok_str": "ad",
+     "prob": 8.157084039339679e-07
+    }
+   ]
+  },
+  {
+   "content": " paper",
+   "probs": [
+    {
+     "tok_str": " paper",
+     "prob": 0.37418174743652344
+    },
+    {
+     "tok_str": " was",
+     "prob": 0.25302377343177795
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.151899054646492
+    },
+    {
+     "tok_str": " lay",
+     "prob": 0.08436236530542374
+    },
+    {
+     "tok_str": " stretched",
+     "prob": 0.06645718961954117
+    }
+   ]
+  },
+  {
+   "content": " silent",
+   "probs": [
+    {
+     "tok_str": " silent",
+     "prob": 0.726996898651123
+    },
+    {
+     "tok_str": " was",
+     "prob": 0.17228935658931732
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.03701813519001007
+    },
+    {
+     "tok_str": " lay",
+     "prob": 0.011082576587796211
+    },
+    {
+     "tok_str": " silently",
+     "prob": 0.006166283506900072
+    }
+   ]
+  },
+  {
+   "content": " cloudy",
+   "probs": [
+    {
+     "tok_str": " cloudy",
+     "prob": 0.9794579744338989
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.008071466349065304
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0038825946394354105
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0009707061108201742
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0009628388215787709
+    }
+   ]
+  },
+  {
+   "content": " autumn",
+   "probs": [
+    {
+     "tok_str": " autumn",
+     "prob": 0.9978852868080139
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0004542144015431404
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00029590592021122575
+    },
+    {
+     "tok_str": " planet",
+     "prob": 0.00026847742265090346
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00023215226246975362
+    }
+   ]
+  },
+  {
+   "content": " planet",
+   "probs": [
+    {
+     "tok_str": " planet",
+     "prob": 0.9944809675216675
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0009638954070396721
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0009503399487584829
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.0005702542839571834
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0005347452242858708
+    }
+   ]
+  },
+  {
+   "content": " winter",
+   "probs": [
+    {
+     "tok_str": " winter",
+     "prob": 0.9876870512962341
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.002343844622373581
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0014071767218410969
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.001367878750897944
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0010542955715209246
+    }
+   ]
+  },
+  {
+   "content": " silver",
+   "probs": [
+    {
+     "tok_str": " silver",
+     "prob": 0.9970171451568604
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0004745890328194946
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00037673275801353157
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0003758435195777565
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.0002909971517510712
+    }
+   ]
+  },
+  {
+   "content": " mirror",
+   "probs": [
+    {
+     "tok_str": " mirror",
+     "prob": 0.996640682220459
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0005180080770514905
+    },
+    {
+     "tok_str": " planet",
+     "prob": 0.0004443240468390286
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.00041664420859888196
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0003164065710734576
+    }
+   ]
+  },
+  {
+   "content": " planet",
+   "probs": [
+    {
+     "tok_str": " planet",
+     "prob": 0.9820294976234436
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0036085627507418394
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0031819469295442104
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0016838735900819302
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.0012054742546752095
+    }
+   ]
+  },
+  {
+   "content": " winter",
+   "probs": [
+    {
+     "tok_str": " winter",
+     "prob": 0.9982792139053345
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.00034243613481521606
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00032342513441108167
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00019870235701091588
+    },
+    {
+     "tok_str": " quiet",
+     "prob": 0.0001971759629668668
+    }
+   ]
+  },
+  {
+   "content": " quiet",
+   "probs": [
+    {
+     "tok_str": " quiet",
+     "prob": 0.9976644515991211
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0004154842172283679
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00029022019589319825
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0002552600926719606
+    },
+    {
+     "tok_str": " circle",
+     "prob": 0.0002027625305345282
+    }
+   ]
+  },
+  {
+   "content": " circle",
+   "probs": [
+    {
+     "tok_str": " circle",
+     "prob": 0.9980846643447876
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.000347755616530776
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0003059896407648921
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00026216174592263997
+    },
+    {
+     "tok_str": " orange",
+     "prob": 0.00025800205185078084
+    }
+   ]
+  },
+  {
+   "content": " orange",
+   "probs": [
+    {
+     "tok_str": " orange",
+     "prob": 0.9949052333831787
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0014404731336981058
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0009429733618162572
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0008806645055301487
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.000537099433131516
+    }
+   ]
+  },
+  {
+   "content": " yellow",
+   "probs": [
+    {
+     "tok_str": " yellow",
+     "prob": 0.9992625117301941
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0001938013156177476
+    },
+    {
+     "tok_str": " field",
+     "prob": 8.42023582663387e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 8.240224997280166e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 6.7654371378012e-05
+    }
+   ]
+  },
+  {
+   "content": " field",
+   "probs": [
+    {
+     "tok_str": " field",
+     "prob": 0.9996083378791809
+    },
+    {
+     "tok_str": "\n",
+     "prob": 9.541002509649843e-05
+    },
+    {
+     "tok_str": " me",
+     "prob": 7.245776214404032e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 5.464998321258463e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 4.852134588873014e-05
+    }
+   ]
+  },
+  {
+   "content": " quiet",
+   "probs": [
+    {
+     "tok_str": " quiet",
+     "prob": 0.9986434578895569
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0004606578149832785
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.0003416234685573727
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0002532264043111354
+    },
+    {
+     "tok_str": "...",
+     "prob": 6.646184192504734e-05
+    }
+   ]
+  },
+  {
+   "content": " mountain",
+   "probs": [
+    {
+     "tok_str": " mountain",
+     "prob": 0.9995595812797546
+    },
+    {
+     "tok_str": " me",
+     "prob": 0.0003675521002151072
+    },
+    {
+     "tok_str": " mountains",
+     "prob": 1.975188024516683e-05
+    },
+    {
+     "tok_str": "\n",
+     "prob": 1.3113317436364014e-05
+    },
+    {
+     "tok_str": " Mountain",
+     "prob": 9.877819138637278e-06
+    }
+   ]
+  },
+  {
+   "content": " me",
+   "probs": [
+    {
+     "tok_str": " me",
+     "prob": 0.9997360110282898
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00010957355698337778
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 6.597851461265236e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 3.110347824986093e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 1.8898850612458773e-05
+    }
+   ]
+  },
+  {
+   "content": "adow",
+   "probs": [
+    {
+     "tok_str": "adow",
+     "prob": 0.9999943971633911
+    },
+    {
+     "tok_str": "adows",
+     "prob": 2.9310094760148786e-06
+    },
+    {
+     "tok_str": "ADOW",
+     "prob": 1.310595962422667e-06
+    },
+    {
+     "tok_str": "...",
+     "prob": 9.004476737572986e-07
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 1.602941352984999e-07
+    }
+   ]
+  },
+  {
+   "content": " velvet",
+   "probs": [
+    {
+     "tok_str": " velvet",
+     "prob": 0.997374415397644
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0007935719913803041
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.0005211722454987466
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0003844547609332949
+    },
+    {
+     "tok_str": " valley",
+     "prob": 0.00026012767921201885
+    }
+   ]
+  },
+  {
+   "content": " valley",
+   "probs": [
+    {
+     "tok_str": " valley",
+     "prob": 0.9993928670883179
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0002500821719877422
+    },
+    {
+     "tok_str": ".",
+     "prob": 7.045353413559496e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 6.896036211401224e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 5.706877709599212e-05
+    }
+   ]
+  },
+  {
+   "content": " shadow",
+   "probs": [
+    {
+     "tok_str": " shadow",
+     "prob": 0.9997351765632629
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00011268293746979907
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 3.44522632076405e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 3.2480984373250976e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 2.1902364096604288e-05
+    }
+   ]
+  },
+  {
+   "content": " copper",
+   "probs": [
+    {
+     "tok_str": " copper",
+     "prob": 0.9993429780006409
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00021717937488574535
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0001302692835452035
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 9.888670319924131e-05
+    },
+    {
+     "tok_str": "\u94dc",
+     "prob": 4.996702409698628e-05
+    }
+   ]
+  },
+  {
+   "content": " valley",
+   "probs": [
+    {
+     "tok_str": " valley",
+     "prob": 0.9994605183601379
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00022114823514129966
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 9.74592549027875e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 5.64820620638784e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 4.544585317489691e-05
+    }
+   ]
+  },
+  {
+   "content": " honey",
+   "probs": [
+    {
+     "tok_str": " honey",
+     "prob": 0.9997598528862
+    },
+    {
+     "tok_str": "\n",
+     "prob": 8.611927478341386e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 4.101401646039449e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 2.3549178877146915e-05
+    },
+    {
+     "tok_str": " ...",
+     "prob": 1.8053198800771497e-05
+    }
+   ]
+  },
+  {
+   "content": " silent",
+   "probs": [
+    {
+     "tok_str": " silent",
+     "prob": 0.9972921013832092
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0011783026857301593
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.000683292921166867
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00017737667076289654
+    },
+    {
+     "tok_str": " silence",
+     "prob": 0.00010133864270756021
+    }
+   ]
+  },
+  {
+   "content": " forest",
+   "probs": [
+    {
+     "tok_str": " forest",
+     "prob": 0.9995194673538208
+    },
+    {
+     "tok_str": " morning",
+     "prob": 0.00021435931557789445
+    },
+    {
+     "tok_str": "\n",
+     "prob": 7.96865060692653e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 4.216608067508787e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 3.925036799046211e-05
+    }
+   ]
+  },
+  {
+   "content": " morning",
+   "probs": [
+    {
+     "tok_str": " morning",
+     "prob": 0.9992334842681885
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00017903046682476997
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0001745546469464898
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.00011099623225163668
+    },
+    {
+     "tok_str": " ...",
+     "prob": 8.260599861387163e-05
+    }
+   ]
+  }
+ ],
+ "ok": true
+}

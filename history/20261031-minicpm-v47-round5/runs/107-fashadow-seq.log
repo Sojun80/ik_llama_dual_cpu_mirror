@@ -1,0 +1,14 @@
+base     A   prompt_n=3016 cached=3165 decode=43.22
+base     A2  prompt_n=7 cached=3177 decode=43.53
+base     B   prompt_n=15 cached=174 decode=47.10
+base     A3  prompt_n=3 cached=3165 decode=43.69
+sh       A   prompt_n=3016 cached=3165 decode=44.92
+sh       A2  prompt_n=7 cached=3177 decode=45.73
+sh       B   prompt_n=15 cached=174 decode=47.82
+sh       A3  prompt_n=3 cached=3165 decode=45.79
+SUMMARY
+sh vs base A  : content same=True  probs bitwise same=True
+sh vs base A2 : content same=True  probs bitwise same=True
+sh vs base B  : content same=True  probs bitwise same=True
+sh vs base A3 : content same=True  probs bitwise same=True
+DONE

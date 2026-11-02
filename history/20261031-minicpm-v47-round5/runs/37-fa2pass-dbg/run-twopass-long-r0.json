@@ -1,0 +1,61 @@
+{
+ "tag": "twopass-long-r0",
+ "config": {
+  "name": "twopass",
+  "bin": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server",
+  "threads": 32,
+  "cpus": "48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95",
+  "env": {
+   "IK_R5_DYN": "1",
+   "IK_R5_FA": "1",
+   "IK_R5_HUGE": "1",
+   "IK_R5_FA_DEBUG": "1",
+   "IK_R5_FA_2PASS": "1"
+  },
+  "mode": "node1",
+  "mirror": "weights"
+ },
+ "case": "long",
+ "round": 0,
+ "cmd": [
+  "numactl",
+  "--physcpubind=48-95",
+  "--membind=1",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server",
+  "-m",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "-ngl",
+  "0",
+  "--no-mmap",
+  "-t",
+  "32",
+  "-tb",
+  "48",
+  "--cpu-range",
+  "48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95",
+  "-c",
+  "16384",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "19185",
+  "--parallel",
+  "1"
+ ],
+ "start": 1793505031.63168,
+ "numastat": "---\nHuge                         0.00            0.00            0.00\nHeap                         0.00           71.71           71.71\nStack                        0.00            0.14            0.14\nPrivate                      2.25        20634.46        20636.71\n----------------  --------------- --------------- ---------------\nTotal                        2.25        20706.30        20708.55\n",
+ "timings": {
+  "prompt_n": 9455,
+  "prompt_ms": 25580.125,
+  "prompt_per_token_ms": 2.705460074034902,
+  "prompt_per_second": 369.62290059176803,
+  "predicted_n": 512,
+  "predicted_ms": 16081.452,
+  "predicted_per_token_ms": 31.4090859375,
+  "predicted_per_second": 31.83792110314417,
+  "n_ctx": 16384,
+  "n_past": 9966
+ },
+ "content": "\nThe old man sat by the window, watching the rain fall on the meadow. The sky was a dull gray, and the clouds hung low over the distant forest. He remembered the days when the valley was full of life, when the river sang and the birds chirped in the trees. Now, it was quiet, almost silent. The only sound was the gentle patter of rain on the glass.\n\nHe picked up a small, smooth stone from the windowsill. It was cold to the touch, and he turned it over in his hand. It was a marble, white with streaks of gray, like the clouds above. He thought of the children who used to play in the meadow, throwing stones into the river. They had laughed and run, their voices echoing through the valley. Now, the meadow was empty, and the river flowed silently.\n\nThe old man sighed, and placed the stone back on the windowsill. He looked out at the world, feeling a deep sense of loss. The world had changed, and he was left behind, a silent observer of the passing time. The rain continued to fall, and the clouds drifted slowly across the sky. The forest stood tall and dark, a silent witness to the changes that had come to the valley.\n\nAs the day wore on, the rain began to slow, and the clouds started to break. A sliver of sunlight peeked through, illuminating the meadow with a soft, golden light. The old man smiled, feeling a glimmer of hope. Perhaps, just perhaps, the world would change again, and the valley would once more be filled with life and laughter.\n\nHe stood up, and walked to the door. He opened it, and stepped out into the meadow. The air was fresh and clean, and the grass was wet with rain. He took a deep breath, and felt the cool air fill his lungs. He looked up at the sky, and saw the sun breaking through the clouds. The world was beautiful, and he was alive to see it.\n\nThe old man began to walk, his steps slow and deliberate. He walked towards the forest, where the trees stood tall and proud. He knew that the forest was full of life, even if it was silent. The birds were there, the animals were there, and the river flowed through it all. He felt a sense of peace, knowing that the world was still there, still beautiful, and still full of wonder.\n\nAs he walked, he thought",
+ "ok": true
+}

@@ -1,0 +1,1083 @@
+# r5prof graphs=512 n_nodes=2633 threads=64 resets=2 tsc_MHz=2600.0
+# per graph (us): total=24120.6 fork(first start)=42.5 join=10.7 sum_node_wall=24109.9
+# executed nodes per graph: 863
+
+## by class (us per graph; n = nodes per graph; GB/s = src0 bytes / wall, meaningless for *_ID/MOE ops)
+op|name                                                          n      wall      maxc     meanc      tail  startlat   wall%     GB/s type0
+MOE_FUSED_UP_GATE|ffn_moe_gate_par-N                            40    5940.5    5825.5    5101.0      74.9      40.1  24.64%   1016.7 q4_K
+FLASH_ATTN_EXT|fa-N                                             10    4373.1    4348.6    4241.8      15.4      10.0  18.14%      0.0 f32
+DELTA_NET|delta_net_fused_raw-N                                 30    2364.3    2323.2     983.1      11.7      30.6   9.81%      0.1 f32
+MUL_MAT|qkv_mixed-N                                             30    2110.4    2054.7    1822.7      27.5      34.0   8.75%    162.8 q6_K
+MUL_MAT|result_output                                            1    1838.9    1837.5    1792.9       0.3       1.0   7.63%    226.7 q6_K
+MUL_MAT|linear_attn_out-N                                       30    1305.7    1240.6    1008.5      17.4      53.3   5.42%    108.4 q4_K
+MUL_MAT|ffn_moe_logits-N                                        40     774.4     687.8     538.6      51.1      36.5   3.21%    108.3 f32
+MUL_MAT|Qaux-N                                                  10     711.3     694.0     567.0       6.5      10.9   2.95%    132.7 q4_K
+SSM_CONV|conv_output_raw-N                                      30     564.8     520.1     360.8      12.2      32.8   2.34%      5.2 f32
+MUL_MAT|attn_out-N                                              10     438.5     423.7     336.3       3.8      11.7   1.82%    107.6 q4_K
+MUL_MAT|alpha-N                                                 30     343.3     303.1     190.2      11.4      28.3   1.42%      3.2 q4_K
+CONT|new_conv_states_cont-N                                     30     235.0     172.2      95.8      31.4      28.2   0.97%     16.7 f32
+UNARY|conv_output_silu-N                                        30     213.2     144.0      20.3      38.1      28.4   0.88%      4.6 f32
+FUSED_RMS_NORM|attn_rms_norm-N                                  30     201.4      51.7      19.2      81.2      56.8   0.84%      2.4 f32
+SOFT_MAX|ffn_moe_probs-N                                        40     193.0     148.0       5.6       5.3      38.0   0.80%      0.2 f32
+FUSED_MUL_UNARY|attn_out_norm-N                                 30     191.9     103.1      27.5      33.4      55.2   0.80%      2.6 f32
+CPY|conv_state_cpy-N                                            30     191.7      82.5      40.1      76.5      30.5   0.80%     15.4 f32
+FUSED_RMS_NORM|ffn_inp_normed-N                                 40     173.7     159.7       4.9       8.7      38.1   0.72%      1.9 f32
+SUM_ROWS|ffn_moe_weights_sum-N                                  40     152.1      54.5      17.5      61.8      38.2   0.63%      0.0 f32
+ADD|alpha_biased-N                                              30     129.8      30.5       6.6      48.4      50.1   0.54%      0.0 f32
+ADD|ssm_output-N                                                30     129.6      82.6       7.0      13.1      32.0   0.54%      1.9 f32
+MUL|g_in-N                                                      30     105.0      25.9       9.2      52.4      29.1   0.44%      0.0 f32
+FUSED_RMS_NORM|attn_norm-N                                      10     104.0      80.7       2.8       6.3      15.8   0.43%      0.8 f32
+UNARY|a_softplus-N                                              30      98.4      27.3       6.8      41.6      32.6   0.41%      0.0 f32
+ROPE|Qcur_roped-N                                               10      82.1      67.3      19.6       4.0       9.7   0.34%      2.0 f32
+MUL|qkv_gated-N                                                 10      76.2      58.1       3.5       3.1      14.0   0.32%      2.2 f32
+CPY|v_cache_view-N (copy of Vcur-N)                             10      63.1      44.4      31.4      14.9      13.4   0.26%      0.3 f32
+CONT|gate_cont-N                                                10      58.2      15.4       5.9      24.2      17.1   0.24%      5.5 f32
+GET_ROWS|inp_embd                                                1      54.6       5.8       1.3       6.6      42.5   0.23%   5234.2 q4_K
+UNARY|gate-N                                                    10      45.5      17.1       4.5      13.1      15.0   0.19%      3.6 f32
+CONT|Qcur_cont-N                                                10      45.0      15.7       6.0      18.3       9.8   0.19%      7.1 f32
+ROPE|Kcur_roped-N                                               10      40.0      25.3       1.9       6.0       9.2   0.17%      0.5 f32
+FUSED_RMS_NORM|Qcur_normed-N                                    10      37.0      15.8       3.2      11.5       9.7   0.15%      4.4 f32
+FUSED_RMS_NORM|Kcur_normed-N                                    10      31.7       9.3       1.4      13.2       9.3   0.13%      0.6 f32
+FUSED_RMS_NORM|node_1                                            1      15.3      13.2       1.6       0.7       2.0   0.06%      0.5 f32
+FUSED_RMS_NORM|node_671                                          1      10.9       8.7       0.3       0.6       1.6   0.05%      0.7 f32
+FUSED_RMS_NORM|node_408                                          1      10.8       8.5       0.2       0.7       1.3   0.04%      0.8 f32
+FUSED_RMS_NORM|node_73                                           1      10.5       8.3       0.3       1.1       1.2   0.04%      0.8 f32
+FUSED_RMS_NORM|node_2368                                         1      10.3       8.2       0.3       0.5       1.6   0.04%      0.8 f32
+FUSED_RMS_NORM|node_1842                                         1      10.1       7.9       0.2       0.6       1.6   0.04%      0.8 f32
+FUSED_RMS_NORM|node_2512                                         1       9.9       7.9       0.3       0.8       1.6   0.04%      0.8 f32
+FUSED_RMS_NORM|node_264                                          1       9.7       7.8       0.3       0.9       1.0   0.04%      0.8 f32
+CPY|cache_k_l3 (view) (copy of Kcur_roped-N)                     1       9.5       7.0       5.4       2.1       0.9   0.04%      0.2 f32
+FUSED_RMS_NORM|node_2177                                         1       9.5       7.7       0.2       0.5       1.5   0.04%      0.9 f32
+FUSED_RMS_NORM|node_527                                          1       9.4       7.4       0.3       0.6       1.4   0.04%      0.9 f32
+FUSED_RMS_NORM|node_1053                                         1       9.4       6.9       0.2       0.8       1.7   0.04%      0.9 f32
+FUSED_RMS_NORM|node_2249                                         1       9.2       7.2       0.2       0.9       1.5   0.04%      0.9 f32
+FUSED_RMS_NORM|node_2440                                         1       9.2       7.3       0.3       0.6       1.4   0.04%      0.9 f32
+FUSED_RMS_NORM|node_790                                          1       9.1       7.1       0.2       0.7       1.3   0.04%      0.9 f32
+FUSED_RMS_NORM|node_1651                                         1       9.1       7.0       0.2       0.6       1.5   0.04%      0.9 f32
+FUSED_RMS_NORM|node_1986                                         1       8.9       6.8       0.2       0.8       1.3   0.04%      0.9 f32
+FUSED_RMS_NORM|node_336                                          1       8.8       7.0       0.3       0.6       1.3   0.04%      0.9 f32
+FUSED_RMS_NORM|node_1460                                         1       8.8       6.7       0.2       0.4       1.4   0.04%      0.9 f32
+FUSED_RMS_NORM|node_862                                          1       8.6       6.7       0.2       0.7       1.4   0.04%      1.0 f32
+FUSED_RMS_NORM|node_599                                          1       8.5       6.7       0.2       0.7       1.0   0.04%      1.0 f32
+CPY|cache_k_l39 (view) (copy of Kcur_roped-N)                    1       8.5       5.0       3.9       3.2       1.0   0.04%      0.2 f32
+FUSED_RMS_NORM|node_145                                          1       8.5       6.7       0.2       0.7       1.1   0.04%      1.0 f32
+FUSED_RMS_NORM|node_2105                                         1       8.4       6.7       0.2       0.5       1.3   0.03%      1.0 f32
+CPY|cache_k_l23 (view) (copy of Kcur_roped-N)                    1       8.3       5.6       4.5       2.5       1.0   0.03%      0.2 f32
+FUSED_RMS_NORM|node_1723                                         1       8.3       6.2       0.3       0.6       1.6   0.03%      1.0 f32
+CPY|cache_k_l7 (view) (copy of Kcur_roped-N)                     1       8.3       4.6       3.5       3.5       1.0   0.03%      0.2 f32
+FUSED_RMS_NORM|node_934                                          1       8.3       6.5       0.2       0.5       1.3   0.03%      1.0 f32
+CPY|cache_k_l27 (view) (copy of Kcur_roped-N)                    1       7.8       4.7       3.6       2.7       0.9   0.03%      0.3 f32
+FUSED_RMS_NORM|node_1197                                         1       7.8       6.0       0.2       0.4       1.3   0.03%      1.1 f32
+FUSED_RMS_NORM|node_1914                                         1       7.7       5.9       0.2       0.4       1.4   0.03%      1.1 f32
+L2_NORM|node_357                                                 1       7.6       1.7       0.5       4.4       1.3   0.03%      1.1 f32
+CPY|cache_k_l19 (view) (copy of Kcur_roped-N)                    1       7.5       5.2       4.1       2.0       1.0   0.03%      0.3 f32
+FUSED_RMS_NORM|node_1388                                         1       7.4       5.5       0.2       0.5       1.3   0.03%      1.1 f32
+CPY|cache_k_l31 (view) (copy of Kcur_roped-N)                    1       7.2       4.1       3.1       2.8       0.9   0.03%      0.3 f32
+FUSED_RMS_NORM|node_1125                                         1       7.2       5.2       0.2       0.4       1.2   0.03%      1.1 f32
+L2_NORM|node_2389                                                1       7.1       1.5       0.3       4.3       1.2   0.03%      1.1 f32
+FUSED_RMS_NORM|node_1579                                         1       7.1       5.2       0.2       0.4       1.2   0.03%      1.2 f32
+CPY|cache_k_l15 (view) (copy of Kcur_roped-N)                    1       7.0       4.3       3.4       2.5       1.0   0.03%      0.3 f32
+CPY|cache_k_l35 (view) (copy of Kcur_roped-N)                    1       6.8       4.2       3.1       2.2       1.0   0.03%      0.3 f32
+CPY|cache_k_l11 (view) (copy of Kcur_roped-N)                    1       6.7       4.1       3.1       2.2       0.9   0.03%      0.3 f32
+L2_NORM|node_692                                                 1       6.4       1.5       0.3       3.5       1.2   0.03%      1.3 f32
+FUSED_RMS_NORM|result_norm                                       1       6.4       4.5       0.3       0.5       1.2   0.03%      1.3 f32
+L2_NORM|node_1215                                                1       6.2       1.7       0.5       1.4       2.3   0.03%      1.3 f32
+FUSED_RMS_NORM|node_1316                                         1       6.2       4.6       0.2       0.4       0.9   0.03%      1.3 f32
+L2_NORM|node_1744                                                1       6.2       1.5       0.3       3.5       1.1   0.03%      1.3 f32
+L2_NORM|node_166                                                 1       6.1       1.3       0.3       3.4       1.1   0.03%      1.4 f32
+L2_NORM|node_1143                                                1       6.1       2.0       0.5       1.9       2.2   0.03%      1.4 f32
+L2_NORM|node_2004                                                1       6.0       1.8       0.4       1.6       2.3   0.02%      1.4 f32
+L2_NORM|node_1481                                                1       5.8       1.5       0.4       2.9       1.2   0.02%      1.4 f32
+L2_NORM|node_811                                                 1       5.7       1.2       0.2       3.0       1.4   0.02%      1.4 f32
+L2_NORM|node_1672                                                1       5.7       1.3       0.3       3.1       1.2   0.02%      1.4 f32
+L2_NORM|node_1337                                                1       5.5       1.3       0.3       2.8       1.2   0.02%      1.5 f32
+L2_NORM|node_1218                                                1       5.5       1.2       0.3       3.1       1.1   0.02%      1.5 f32
+L2_NORM|node_1478                                                1       5.5       1.7       0.5       1.7       1.9   0.02%      1.5 f32
+L2_NORM|node_1406                                                1       5.3       1.7       0.4       1.5       2.0   0.02%      1.5 f32
+L2_NORM|node_1409                                                1       5.2       1.3       0.4       2.7       1.1   0.02%      1.6 f32
+L2_NORM|node_1146                                                1       5.1       1.3       0.3       2.2       1.3   0.02%      1.6 f32
+L2_NORM|node_19                                                  1       5.1       3.3       1.5       0.7       1.1   0.02%      1.6 f32
+L2_NORM|node_1074                                                1       5.1       1.4       0.3       2.3       1.2   0.02%      1.6 f32
+L2_NORM|node_1597                                                1       5.1       1.8       0.5       2.0       1.6   0.02%      1.6 f32
+L2_NORM|node_808                                                 1       5.0       1.8       0.3       2.1       1.6   0.02%      1.6 f32
+L2_NORM|node_883                                                 1       5.0       1.4       0.3       2.4       1.1   0.02%      1.6 f32
+L2_NORM|node_1932                                                1       4.9       2.0       0.5       1.6       1.7   0.02%      1.7 f32
+L2_NORM|node_955                                                 1       4.9       1.3       0.3       2.1       1.3   0.02%      1.7 f32
+L2_NORM|node_1071                                                1       4.8       1.6       0.5       1.9       1.5   0.02%      1.7 f32
+L2_NORM|node_1863                                                1       4.8       1.4       0.3       2.1       1.4   0.02%      1.7 f32
+L2_NORM|node_1600                                                1       4.8       1.3       0.3       2.1       1.3   0.02%      1.7 f32
+L2_NORM|node_952                                                 1       4.8       1.5       0.3       2.2       1.5   0.02%      1.7 f32
+L2_NORM|node_22                                                  1       4.8       1.2       0.2       2.6       0.9   0.02%      1.7 f32
+L2_NORM|node_2461                                                1       4.8       1.3       0.3       2.3       1.2   0.02%      1.7 f32
+L2_NORM|node_880                                                 1       4.8       1.7       0.4       1.8       1.6   0.02%      1.7 f32
+L2_NORM|node_2533                                                1       4.7       1.4       0.4       2.0       1.2   0.02%      1.7 f32
+L2_NORM|node_1935                                                1       4.7       1.4       0.3       2.1       1.3   0.02%      1.7 f32
+L2_NORM|node_689                                                 1       4.7       1.7       0.6       1.8       1.4   0.02%      1.7 f32
+L2_NORM|node_2123                                                1       4.7       1.7       0.5       1.5       1.5   0.02%      1.7 f32
+L2_NORM|node_1334                                                1       4.7       1.6       0.5       1.8       1.5   0.02%      1.7 f32
+L2_NORM|node_91                                                  1       4.7       1.6       0.5       2.0       1.2   0.02%      1.7 f32
+L2_NORM|node_2386                                                1       4.7       1.7       0.6       1.5       1.6   0.02%      1.7 f32
+L2_NORM|node_1669                                                1       4.7       1.7       0.4       1.7       1.6   0.02%      1.8 f32
+L2_NORM|node_2267                                                1       4.7       2.1       0.6       1.4       1.5   0.02%      1.8 f32
+L2_NORM|node_2458                                                1       4.7       1.7       0.5       1.6       1.5   0.02%      1.8 f32
+L2_NORM|node_429                                                 1       4.6       1.4       0.3       2.0       1.3   0.02%      1.8 f32
+L2_NORM|node_1741                                                1       4.6       1.9       0.6       1.4       1.6   0.02%      1.8 f32
+L2_NORM|node_285                                                 1       4.6       1.2       0.2       2.2       1.2   0.02%      1.8 f32
+L2_NORM|node_163                                                 1       4.6       1.6       0.5       1.8       1.4   0.02%      1.8 f32
+L2_NORM|node_2530                                                1       4.6       1.6       0.5       1.6       1.5   0.02%      1.8 f32
+L2_NORM|node_548                                                 1       4.6       1.3       0.3       2.0       1.1   0.02%      1.8 f32
+L2_NORM|node_282                                                 1       4.6       1.8       0.6       1.5       1.4   0.02%      1.8 f32
+L2_NORM|node_2126                                                1       4.5       1.3       0.2       2.0       1.2   0.02%      1.8 f32
+L2_NORM|node_2198                                                1       4.5       1.3       0.3       2.1       1.1   0.02%      1.8 f32
+L2_NORM|node_94                                                  1       4.5       1.2       0.2       2.1       1.1   0.02%      1.8 f32
+L2_NORM|node_2195                                                1       4.4       1.9       0.5       1.4       1.6   0.02%      1.8 f32
+L2_NORM|node_2007                                                1       4.4       1.2       0.3       1.9       1.1   0.02%      1.9 f32
+L2_NORM|node_1860                                                1       4.4       1.5       0.3       1.7       1.5   0.02%      1.9 f32
+L2_NORM|node_426                                                 1       4.4       1.6       0.5       1.5       1.4   0.02%      1.9 f32
+L2_NORM|node_617                                                 1       4.4       1.6       0.4       1.8       1.3   0.02%      1.9 f32
+L2_NORM|node_620                                                 1       4.3       1.2       0.2       1.9       1.1   0.02%      1.9 f32
+L2_NORM|node_354                                                 1       4.3       1.7       0.5       1.4       1.4   0.02%      1.9 f32
+L2_NORM|node_2270                                                1       4.3       1.1       0.2       1.9       1.1   0.02%      1.9 f32
+ADD|node_768                                                     1       4.1       2.2       0.2       1.0       0.9   0.02%      2.0 f32
+L2_NORM|node_545                                                 1       4.1       1.6       0.5       1.4       1.3   0.02%      2.0 f32
+ADD|node_2609                                                    1       3.6       1.8       0.2       0.4       1.0   0.01%      2.3 f32
+ADD|node_1820                                                    1       3.4       1.9       0.2       0.5       0.9   0.01%      2.4 f32
+ADD|node_242                                                     1       3.4       2.0       0.2       0.4       0.9   0.01%      2.4 f32
+ADD|node_1294                                                    1       3.4       1.7       0.1       0.4       1.0   0.01%      2.4 f32
+ADD|node_505                                                     1       3.4       2.0       0.1       0.4       0.9   0.01%      2.4 f32
+ADD|node_1031                                                    1       3.3       1.9       0.2       0.4       0.9   0.01%      2.5 f32
+ADD|node_1557                                                    1       3.2       1.8       0.1       0.4       0.9   0.01%      2.5 f32
+ADD|node_2083                                                    1       3.2       1.7       0.2       0.5       0.9   0.01%      2.6 f32
+ADD|node_2346                                                    1       3.2       1.7       0.2       0.5       0.9   0.01%      2.6 f32
+
+## per thread (us per graph): compute in dense MUL_MAT nodes, compute in all nodes
+thr  0 cpu  16  mul_mat    6474.2  all   17190.4
+thr  1 cpu  24  mul_mat    6169.4  all   18581.3
+thr  2 cpu  32  mul_mat    6296.8  all   16892.9
+thr  3 cpu  40  mul_mat    6335.6  all   18904.6
+thr  4 cpu  20  mul_mat    6289.1  all   16668.1
+thr  5 cpu  28  mul_mat    6162.5  all   18578.4
+thr  6 cpu  36  mul_mat    6289.2  all   16913.6
+thr  7 cpu  44  mul_mat    6346.5  all   18913.2
+thr  8 cpu  17  mul_mat    6312.8  all   16451.3
+thr  9 cpu  25  mul_mat    6171.9  all   18549.0
+thr 10 cpu  33  mul_mat    6313.2  all   16801.0
+thr 11 cpu  41  mul_mat    6375.1  all   18836.9
+thr 12 cpu  21  mul_mat    6269.3  all   16577.5
+thr 13 cpu  29  mul_mat    6198.8  all   18580.2
+thr 14 cpu  37  mul_mat    6331.6  all   16875.0
+thr 15 cpu  45  mul_mat    6346.5  all   18840.6
+thr 16 cpu  18  mul_mat    6293.9  all   16326.2
+thr 17 cpu  26  mul_mat    6206.9  all   18451.9
+thr 18 cpu  34  mul_mat    6328.8  all   16681.1
+thr 19 cpu  42  mul_mat    6366.0  all   18673.6
+thr 20 cpu  22  mul_mat    6284.7  all   16443.4
+thr 21 cpu  30  mul_mat    6178.5  all   18390.6
+thr 22 cpu  38  mul_mat    6312.6  all   16650.1
+thr 23 cpu  46  mul_mat    6352.9  all   18657.8
+thr 24 cpu  19  mul_mat    6303.6  all   16328.5
+thr 25 cpu  27  mul_mat    6166.0  all   18433.5
+thr 26 cpu  35  mul_mat    6329.8  all   16690.8
+thr 27 cpu  43  mul_mat    6365.8  all   18710.5
+thr 28 cpu  23  mul_mat    6253.7  all   16408.9
+thr 29 cpu  31  mul_mat    6167.5  all   18384.3
+thr 30 cpu  39  mul_mat    6289.1  all   16671.6
+thr 31 cpu  47  mul_mat    6307.2  all   18618.6
+thr 32 cpu  48  mul_mat    6303.3  all   16487.5
+thr 33 cpu  49  mul_mat    6311.9  all   17813.5
+thr 34 cpu  52  mul_mat    6218.0  all   16269.0
+thr 35 cpu  56  mul_mat    6284.4  all   18494.2
+thr 36 cpu  57  mul_mat    6304.1  all   16506.7
+thr 37 cpu  60  mul_mat    6175.1  all   18089.3
+thr 38 cpu  64  mul_mat    6129.2  all   15933.4
+thr 39 cpu  65  mul_mat    6188.6  all   16989.8
+thr 40 cpu  68  mul_mat    6203.2  all   15857.1
+thr 41 cpu  72  mul_mat    6127.4  all   17472.9
+thr 42 cpu  73  mul_mat    6133.4  all   15743.6
+thr 43 cpu  76  mul_mat    6183.2  all   17239.0
+thr 44 cpu  80  mul_mat    6256.5  all   16420.0
+thr 45 cpu  84  mul_mat    6166.7  all   17345.1
+thr 46 cpu  88  mul_mat    6262.7  all   16328.4
+thr 47 cpu  92  mul_mat    6186.9  all   17720.2
+thr 48 cpu  81  mul_mat    6227.3  all   16359.8
+thr 49 cpu  89  mul_mat    6262.7  all   18051.8
+thr 50 cpu  50  mul_mat    6300.5  all   16614.0
+thr 51 cpu  58  mul_mat    6282.4  all   18604.6
+thr 52 cpu  66  mul_mat    6163.2  all   16064.9
+thr 53 cpu  74  mul_mat    6123.3  all   17479.4
+thr 54 cpu  82  mul_mat    6230.6  all   16405.7
+thr 55 cpu  90  mul_mat    6243.0  all   18054.0
+thr 56 cpu  51  mul_mat    6306.5  all   16618.6
+thr 57 cpu  59  mul_mat    6323.8  all   18634.0
+thr 58 cpu  67  mul_mat    6192.5  all   16108.6
+thr 59 cpu  75  mul_mat    6131.3  all   17523.8
+thr 60 cpu  83  mul_mat    6274.6  all   16446.6
+thr 61 cpu  91  mul_mat    6278.9  all   18043.5
+thr 62 cpu  53  mul_mat    6217.4  all   16342.4
+thr 63 cpu  61  mul_mat    6219.1  all   18145.4
+
+## by node (us per executed instance)
+  idx span op               name                                     type0                     ne0                    ne1     wall     maxc    meanc     tail      lat   latmax
+    0    1 GET_ROWS         inp_embd                                 q4_K          2048x248144x1x1                1x1x1x1    54.61     5.77     1.31     6.57    42.52    45.12
+    1    1 FUSED_RMS_NORM   node_1                                   f32                2048x1x1x1             2048x1x1x1    15.34    13.24     1.64     0.75     2.01     2.91
+    2    3 MUL_MAT          qkv_mixed-0                              q6_K            2048x8192x1x1             2048x1x1x1   173.83   172.72   147.88     0.38     1.99     2.77
+    6    1 MUL_MAT          alpha-0                                  q4_K              2048x32x1x1             2048x1x1x1    10.78     9.87     5.86     0.40     0.92     1.33
+   15    1 SSM_CONV         conv_output_raw-0                        f32                3x8192x1x1             8192x1x1x1    22.47    20.96    15.26     0.43     1.11     2.12
+   17    1 UNARY            conv_output_silu-0                       f32                8192x1x1x1                0x0x0x0    10.38     8.19     2.64     1.14     0.94     1.12
+   19    1 L2_NORM          node_19                                  f32                128x16x1x1                0x0x0x0     5.09     3.26     1.47     0.75     1.10     1.41
+   22    1 L2_NORM          node_22                                  f32                128x16x1x1                0x0x0x0     4.79     1.24     0.23     2.63     0.92     1.13
+   26    1 ADD              alpha_biased-0                           f32                  32x1x1x1               32x1x1x1     5.06     2.40     1.02     0.81     1.61     2.19
+   27    1 UNARY            a_softplus-0                             f32                  32x1x1x1                0x0x0x0     3.33     2.08     0.27     0.70     0.96     1.21
+   28    1 MUL              g_in-0                                   f32                  32x1x1x1               32x1x1x1     4.12     2.49     1.10     0.68     0.95     1.18
+   32    6 DELTA_NET        delta_net_fused_raw-0                    f32                128x1x16x1             128x1x16x1    83.69    82.27    38.48     0.45     1.00     1.56
+   39    1 CONT             new_conv_states_cont-0                   f32                3x8192x1x1                0x0x0x0    12.38    10.02     5.59     1.39     0.89     1.08
+   42    1 CPY              conv_state_cpy-0                         f32               24576x1x1x1            24576x1x1x1     6.14     3.12     1.58     1.69     1.18     1.48
+   46    1 FUSED_RMS_NORM   attn_rms_norm-0                          f32                128x32x1x1              128x1x1x1     5.87     2.17     0.87     1.88     1.48     2.07
+   47    1 FUSED_MUL_UNARY  attn_out_norm-0                          f32                128x32x1x1             128x32x1x1     8.11     6.07     2.69     0.57     1.54     2.13
+   49    1 MUL_MAT          linear_attn_out-0                        q4_K            4096x2048x1x1             4096x1x1x1    38.53    36.07    31.72     1.20     1.69     2.22
+   51    1 ADD              ssm_output-0                             f32                2048x1x1x1             2048x1x1x1     4.23     1.87     0.19     0.83     1.59     2.07
+   52    1 FUSED_RMS_NORM   ffn_inp_normed-0                         f32                2048x1x1x1             2048x1x1x1     5.46     4.71     0.13     0.22     1.24     1.66
+   53    1 MUL_MAT          ffn_moe_logits-0                         f32              2048x256x1x1             2048x1x1x1    16.82    14.37    11.41     1.55     0.87     1.07
+   54    5 SOFT_MAX         ffn_moe_probs-0                          f32                 256x1x1x1                0x0x0x0     6.13     5.04     0.45     0.09     0.95     1.14
+   60    2 SUM_ROWS         ffn_moe_weights_sum-0                    f32                   8x1x1x1                0x0x0x0     3.56     1.31     0.33     1.33     0.97     1.50
+   64    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-0                       q4_K           2048x512x256x1         2048x512x256x1   217.20   214.71   186.07     1.42     0.99     1.23
+   73    1 FUSED_RMS_NORM   node_73                                  f32                2048x1x1x1             2048x1x1x1    10.53     8.30     0.28     1.07     1.20     1.54
+   74    3 MUL_MAT          qkv_mixed-1                              q6_K            2048x8192x1x1             2048x1x1x1    85.16    83.55    72.24     0.32     1.26     1.53
+   78    1 MUL_MAT          alpha-1                                  q4_K              2048x32x1x1             2048x1x1x1    11.02     9.55     6.13     0.49     0.94     1.35
+   87    1 SSM_CONV         conv_output_raw-1                        f32                3x8192x1x1             8192x1x1x1    19.26    17.89    12.68     0.35     1.06     1.38
+   89    1 UNARY            conv_output_silu-1                       f32                8192x1x1x1                0x0x0x0     7.94     5.93     1.10     1.01     0.93     1.11
+   91    1 L2_NORM          node_91                                  f32                128x16x1x1                0x0x0x0     4.70     1.61     0.52     1.97     1.24     1.70
+   94    1 L2_NORM          node_94                                  f32                128x16x1x1                0x0x0x0     4.49     1.19     0.23     2.05     1.07     1.37
+   98    1 ADD              alpha_biased-1                           f32                  32x1x1x1               32x1x1x1     4.29     0.69     0.22     2.05     1.38     1.96
+   99    1 UNARY            a_softplus-1                             f32                  32x1x1x1                0x0x0x0     3.92     0.73     0.24     2.20     1.05     1.30
+  100    1 MUL              g_in-1                                   f32                  32x1x1x1               32x1x1x1     3.74     0.76     0.25     2.21     0.96     1.15
+  104    6 DELTA_NET        delta_net_fused_raw-1                    f32                128x1x16x1             128x1x16x1    79.30    78.08    34.64     0.31     1.01     1.29
+  111    1 CONT             new_conv_states_cont-1                   f32                3x8192x1x1                0x0x0x0     8.71     6.12     3.67     1.57     0.95     1.33
+  114    1 CPY              conv_state_cpy-1                         f32               24576x1x1x1            24576x1x1x1     5.66     2.83     1.34     1.69     1.06     1.34
+  118    1 FUSED_RMS_NORM   attn_rms_norm-1                          f32                128x32x1x1              128x1x1x1     5.99     1.59     0.61     2.30     1.61     2.52
+  119    1 FUSED_MUL_UNARY  attn_out_norm-1                          f32                128x32x1x1             128x32x1x1     4.90     2.84     0.78     0.85     1.37     1.93
+  121    1 MUL_MAT          linear_attn_out-1                        q4_K            4096x2048x1x1             4096x1x1x1    34.53    32.35    28.58     0.82     1.60     2.17
+  123    1 ADD              ssm_output-1                             f32                2048x1x1x1             2048x1x1x1     5.31     3.36     0.20     0.51     1.40     1.92
+  124    1 FUSED_RMS_NORM   ffn_inp_normed-1                         f32                2048x1x1x1             2048x1x1x1     4.21     3.96     0.12     0.19     1.01     1.25
+  125    1 MUL_MAT          ffn_moe_logits-1                         f32              2048x256x1x1             2048x1x1x1    17.04    14.51    11.56     1.62     0.93     1.09
+  126    5 SOFT_MAX         ffn_moe_probs-1                          f32                 256x1x1x1                0x0x0x0     4.77     3.71     0.13     0.07     0.96     1.17
+  132    2 SUM_ROWS         ffn_moe_weights_sum-1                    f32                   8x1x1x1                0x0x0x0     3.39     1.02     0.32     1.65     0.93     1.12
+  136    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-1                       q4_K           2048x512x256x1         2048x512x256x1   165.61   163.24   141.33     1.32     0.99     1.22
+  145    1 FUSED_RMS_NORM   node_145                                 f32                2048x1x1x1             2048x1x1x1     8.47     6.68     0.25     0.71     1.12     1.36
+  146    3 MUL_MAT          qkv_mixed-2                              q6_K            2048x8192x1x1             2048x1x1x1    61.59    59.43    56.51     1.32     1.15     1.36
+  150    1 MUL_MAT          alpha-2                                  q4_K              2048x32x1x1             2048x1x1x1    11.49    10.04     6.33     0.46     0.95     1.22
+  159    1 SSM_CONV         conv_output_raw-2                        f32                3x8192x1x1             8192x1x1x1    18.28    16.83    12.11     0.38     1.07     1.32
+  161    1 UNARY            conv_output_silu-2                       f32                8192x1x1x1                0x0x0x0     7.08     4.99     0.93     1.02     0.96     1.15
+  163    1 L2_NORM          node_163                                 f32                128x16x1x1                0x0x0x0     4.62     1.58     0.52     1.79     1.37     1.83
+  166    1 L2_NORM          node_166                                 f32                128x16x1x1                0x0x0x0     6.06     1.32     0.29     3.44     1.13     1.48
+  170    1 ADD              alpha_biased-2                           f32                  32x1x1x1               32x1x1x1     5.16     1.17     0.31     2.00     1.99     2.78
+  171    1 UNARY            a_softplus-2                             f32                  32x1x1x1                0x0x0x0     3.51     0.95     0.28     1.50     1.21     1.53
+  172    1 MUL              g_in-2                                   f32                  32x1x1x1               32x1x1x1     3.98     0.78     0.25     2.34     0.99     1.18
+  176    6 DELTA_NET        delta_net_fused_raw-2                    f32                128x1x16x1             128x1x16x1    64.65    63.19    26.99     0.43     1.03     1.54
+  183    1 CONT             new_conv_states_cont-2                   f32                3x8192x1x1                0x0x0x0     8.98     6.59     3.55     1.39     0.90     1.25
+  186    1 CPY              conv_state_cpy-2                         f32               24576x1x1x1            24576x1x1x1     6.98     3.10     1.44     2.81     1.00     1.26
+  190    1 FUSED_RMS_NORM   attn_rms_norm-2                          f32                128x32x1x1              128x1x1x1     7.69     1.93     0.61     3.01     2.65     3.52
+  191    1 FUSED_MUL_UNARY  attn_out_norm-2                          f32                128x32x1x1             128x32x1x1     8.52     4.10     1.01     1.81     2.43     3.31
+  193    1 MUL_MAT          linear_attn_out-2                        q4_K            4096x2048x1x1             4096x1x1x1    37.76    35.44    30.07     0.58     1.60     2.10
+  195    1 ADD              ssm_output-2                             f32                2048x1x1x1             2048x1x1x1     4.04     2.58     0.19     0.41     0.96     1.15
+  196    1 FUSED_RMS_NORM   ffn_inp_normed-2                         f32                2048x1x1x1             2048x1x1x1     4.04     3.77     0.11     0.21     0.93     1.07
+  197    1 MUL_MAT          ffn_moe_logits-2                         f32              2048x256x1x1             2048x1x1x1    26.05    24.23    20.18     0.88     0.93     1.13
+  198    5 SOFT_MAX         ffn_moe_probs-2                          f32                 256x1x1x1                0x0x0x0     4.80     3.67     0.12     0.07     0.98     1.17
+  204    2 SUM_ROWS         ffn_moe_weights_sum-2                    f32                   8x1x1x1                0x0x0x0     4.47     1.25     0.36     2.35     0.97     1.45
+  208    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-2                       q4_K           2048x512x256x1         2048x512x256x1   165.23   161.28   133.46     2.78     1.08     2.33
+  217    1 FUSED_RMS_NORM   attn_norm-3                              f32                2048x1x1x1             2048x1x1x1    11.76     9.54     0.36     0.71     1.49     1.99
+  218    3 MUL_MAT          Qaux-3                                   q4_K            2048x8192x1x1             2048x1x1x1    61.17    59.73    54.77     0.52     1.01     1.23
+  222    1 CONT             Qcur_cont-3                              f32                256x16x1x1                0x0x0x0     3.86     1.43     0.59     1.46     0.93     1.18
+  223    1 FUSED_RMS_NORM   Qcur_normed-3                            f32                256x16x1x1              256x1x1x1     3.55     1.52     0.28     1.09     0.96     1.17
+  225    1 FUSED_RMS_NORM   Kcur_normed-3                            f32                 256x2x1x1              256x1x1x1     3.10     0.91     0.09     1.28     0.92     1.10
+  226    1 ROPE             Qcur_roped-3                             f32                256x16x1x1                4x1x1x1    11.93    10.58     4.31     0.27     0.97     1.17
+  227    1 ROPE             Kcur_roped-3                             f32                 256x2x1x1                4x1x1x1     4.14     2.63     0.23     0.50     0.91     1.22
+  229    1 CPY              cache_k_l3 (view) (copy of Kcur_roped-3) f32                 256x2x1x1              256x2x1x1     9.51     7.00     5.36     2.10     0.94     1.15
+  231    1 CPY              v_cache_view-3 (copy of Vcur-3)          f32                 512x1x1x1              512x1x1x1     5.75     3.92     2.90     1.56     1.03     1.28
+  235    1 FLASH_ATTN_EXT   fa-3                                     f32                256x1x16x1            256x256x2x1   462.20   459.80   449.24     1.38     1.00     1.27
+  238    1 CONT             gate_cont-3                              f32                256x16x1x1                0x0x0x0     5.63     1.70     0.67     2.49     1.55     2.33
+  239    1 UNARY            gate-3                                   f32                4096x1x1x1                0x0x0x0     6.31     4.11     1.56     0.55     1.37     1.94
+  240    1 MUL              qkv_gated-3                              f32                4096x1x1x1             4096x1x1x1     8.40     6.92     0.40     0.38     1.28     1.70
+  241    1 MUL_MAT          attn_out-3                               q4_K            4096x2048x1x1             4096x1x1x1    58.79    57.57    40.65     0.25     1.06     1.43
+  242    1 ADD              node_242                                 f32                2048x1x1x1             2048x1x1x1     3.43     2.05     0.16     0.41     0.93     1.10
+  243    1 FUSED_RMS_NORM   ffn_inp_normed-3                         f32                2048x1x1x1             2048x1x1x1     4.27     3.89     0.13     0.16     0.95     1.14
+  244    1 MUL_MAT          ffn_moe_logits-3                         f32              2048x256x1x1             2048x1x1x1    17.30    15.12    12.28     1.31     0.88     1.05
+  245    5 SOFT_MAX         ffn_moe_probs-3                          f32                 256x1x1x1                0x0x0x0     4.85     3.77     0.16     0.08     0.95     1.16
+  251    2 SUM_ROWS         ffn_moe_weights_sum-3                    f32                   8x1x1x1                0x0x0x0     3.92     1.64     0.62     1.21     0.97     1.16
+  255    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-3                       q4_K           2048x512x256x1         2048x512x256x1   164.96   162.98   143.24     0.90     1.03     1.28
+  264    1 FUSED_RMS_NORM   node_264                                 f32                2048x1x1x1             2048x1x1x1     9.67     7.82     0.27     0.86     1.04     1.31
+  265    3 MUL_MAT          qkv_mixed-4                              q6_K            2048x8192x1x1             2048x1x1x1    71.54    69.59    66.39     1.12     1.11     1.33
+  269    1 MUL_MAT          alpha-4                                  q4_K              2048x32x1x1             2048x1x1x1    11.14     9.74     6.07     0.45     0.93     1.13
+  278    1 SSM_CONV         conv_output_raw-4                        f32                3x8192x1x1             8192x1x1x1    19.63    18.20    12.28     0.31     1.14     2.13
+  280    1 UNARY            conv_output_silu-4                       f32                8192x1x1x1                0x0x0x0     6.46     4.39     0.59     1.05     0.95     1.11
+  282    1 L2_NORM          node_282                                 f32                128x16x1x1                0x0x0x0     4.57     1.77     0.63     1.46     1.38     1.82
+  285    1 L2_NORM          node_285                                 f32                128x16x1x1                0x0x0x0     4.63     1.24     0.23     2.16     1.18     1.54
+  289    1 ADD              alpha_biased-4                           f32                  32x1x1x1               32x1x1x1     3.89     0.74     0.16     1.68     1.47     1.93
+  290    1 UNARY            a_softplus-4                             f32                  32x1x1x1                0x0x0x0     3.12     0.78     0.19     1.39     1.07     1.33
+  291    1 MUL              g_in-4                                   f32                  32x1x1x1               32x1x1x1     4.30     0.78     0.30     2.62     0.96     1.17
+  295    6 DELTA_NET        delta_net_fused_raw-4                    f32                128x1x16x1             128x1x16x1    75.95    74.61    32.24     0.35     1.04     2.00
+  302    1 CONT             new_conv_states_cont-4                   f32                3x8192x1x1                0x0x0x0     8.96     6.39     3.06     1.55     0.94     1.31
+  305    1 CPY              conv_state_cpy-4                         f32               24576x1x1x1            24576x1x1x1     6.07     2.56     1.09     2.27     1.03     1.45
+  309    1 FUSED_RMS_NORM   attn_rms_norm-4                          f32                128x32x1x1              128x1x1x1     6.24     1.73     0.70     2.19     1.83     2.79
+  310    1 FUSED_MUL_UNARY  attn_out_norm-4                          f32                128x32x1x1             128x32x1x1     6.53     3.47     0.94     1.10     1.83     2.49
+  312    1 MUL_MAT          linear_attn_out-4                        q4_K            4096x2048x1x1             4096x1x1x1    40.15    38.44    31.91     0.31     1.86     2.44
+  314    1 ADD              ssm_output-4                             f32                2048x1x1x1             2048x1x1x1     3.73     1.78     0.23     0.97     0.91     1.10
+  315    1 FUSED_RMS_NORM   ffn_inp_normed-4                         f32                2048x1x1x1             2048x1x1x1     5.56     4.79     0.14     0.34     0.89     1.16
+  316    1 MUL_MAT          ffn_moe_logits-4                         f32              2048x256x1x1             2048x1x1x1    17.68    15.78    11.81     1.12     0.87     1.08
+  317    5 SOFT_MAX         ffn_moe_probs-4                          f32                 256x1x1x1                0x0x0x0     4.64     3.47     0.13     0.25     0.92     1.08
+  323    2 SUM_ROWS         ffn_moe_weights_sum-4                    f32                   8x1x1x1                0x0x0x0     3.77     1.46     0.52     1.30     0.98     1.43
+  327    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-4                       q4_K           2048x512x256x1         2048x512x256x1   161.27   158.56   138.63     1.68     0.98     1.20
+  336    1 FUSED_RMS_NORM   node_336                                 f32                2048x1x1x1             2048x1x1x1     8.83     7.03     0.25     0.61     1.33     1.84
+  337    3 MUL_MAT          qkv_mixed-5                              q4_K            2048x8192x1x1             2048x1x1x1    56.63    54.77    51.85     1.20     0.94     1.12
+  341    1 MUL_MAT          alpha-5                                  q4_K              2048x32x1x1             2048x1x1x1    11.14     9.92     6.12     0.29     0.93     1.14
+  350    1 SSM_CONV         conv_output_raw-5                        f32                3x8192x1x1             8192x1x1x1    18.42    16.95    12.45     0.40     1.10     1.83
+  352    1 UNARY            conv_output_silu-5                       f32                8192x1x1x1                0x0x0x0     6.94     4.92     0.60     0.97     0.97     1.17
+  354    1 L2_NORM          node_354                                 f32                128x16x1x1                0x0x0x0     4.31     1.65     0.52     1.42     1.40     1.82
+  357    1 L2_NORM          node_357                                 f32                128x16x1x1                0x0x0x0     7.55     1.72     0.46     4.37     1.29     1.99
+  361    1 ADD              alpha_biased-5                           f32                  32x1x1x1               32x1x1x1     4.93     1.32     0.20     1.46     2.23     3.10
+  362    1 UNARY            a_softplus-5                             f32                  32x1x1x1                0x0x0x0     3.17     0.91     0.21     1.30     1.12     1.42
+  363    1 MUL              g_in-5                                   f32                  32x1x1x1               32x1x1x1     3.07     0.75     0.24     1.38     0.97     1.22
+  367    6 DELTA_NET        delta_net_fused_raw-5                    f32                128x1x16x1             128x1x16x1    82.27    81.04    35.72     0.30     1.02     1.69
+  374    1 CONT             new_conv_states_cont-5                   f32                3x8192x1x1                0x0x0x0     9.15     7.04     3.62     1.04     0.96     1.51
+  377    1 CPY              conv_state_cpy-5                         f32               24576x1x1x1            24576x1x1x1     6.44     2.42     1.19     2.77     1.11     1.39
+  381    1 FUSED_RMS_NORM   attn_rms_norm-5                          f32                128x32x1x1              128x1x1x1     6.09     1.71     0.69     2.32     1.63     2.37
+  382    1 FUSED_MUL_UNARY  attn_out_norm-5                          f32                128x32x1x1             128x32x1x1     5.13     2.62     0.68     1.05     1.52     2.05
+  384    1 MUL_MAT          linear_attn_out-5                        q4_K            4096x2048x1x1             4096x1x1x1    42.57    40.87    32.68     0.36     1.64     2.14
+  386    1 ADD              ssm_output-5                             f32                2048x1x1x1             2048x1x1x1     4.02     2.66     0.23     0.39     0.91     1.16
+  387    1 FUSED_RMS_NORM   ffn_inp_normed-5                         f32                2048x1x1x1             2048x1x1x1     4.11     3.89     0.12     0.18     0.93     1.08
+  388    1 MUL_MAT          ffn_moe_logits-5                         f32              2048x256x1x1             2048x1x1x1    22.80    21.51    16.62     0.32     0.94     1.12
+  389    5 SOFT_MAX         ffn_moe_probs-5                          f32                 256x1x1x1                0x0x0x0     4.56     3.52     0.15     0.09     0.92     1.11
+  395    2 SUM_ROWS         ffn_moe_weights_sum-5                    f32                   8x1x1x1                0x0x0x0     3.37     1.40     0.43     1.17     0.94     1.11
+  399    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-5                       q4_K           2048x512x256x1         2048x512x256x1   127.40   124.93   110.33     1.38     0.99     1.25
+  408    1 FUSED_RMS_NORM   node_408                                 f32                2048x1x1x1             2048x1x1x1    10.75     8.50     0.25     0.72     1.25     1.87
+  409    3 MUL_MAT          qkv_mixed-6                              q4_K            2048x8192x1x1             2048x1x1x1    63.83    62.40    54.33     0.33     1.07     1.30
+  413    1 MUL_MAT          alpha-6                                  q4_K              2048x32x1x1             2048x1x1x1    11.26     9.67     6.20     0.63     0.90     1.06
+  422    1 SSM_CONV         conv_output_raw-6                        f32                3x8192x1x1             8192x1x1x1    19.82    18.35    12.75     0.39     1.08     1.62
+  424    1 UNARY            conv_output_silu-6                       f32                8192x1x1x1                0x0x0x0     6.24     4.05     0.52     1.19     0.94     1.15
+  426    1 L2_NORM          node_426                                 f32                128x16x1x1                0x0x0x0     4.36     1.59     0.50     1.50     1.41     1.82
+  429    1 L2_NORM          node_429                                 f32                128x16x1x1                0x0x0x0     4.64     1.35     0.31     1.98     1.28     1.63
+  433    1 ADD              alpha_biased-6                           f32                  32x1x1x1               32x1x1x1     3.77     0.90     0.28     1.53     1.45     1.93
+  434    1 UNARY            a_softplus-6                             f32                  32x1x1x1                0x0x0x0     3.28     0.99     0.28     1.35     1.09     1.34
+  435    1 MUL              g_in-6                                   f32                  32x1x1x1               32x1x1x1     3.75     1.02     0.35     1.74     0.97     1.19
+  439    6 DELTA_NET        delta_net_fused_raw-6                    f32                128x1x16x1             128x1x16x1    93.01    91.57    37.80     0.42     1.04     1.85
+  446    1 CONT             new_conv_states_cont-6                   f32                3x8192x1x1                0x0x0x0     6.58     4.63     2.64     0.99     0.89     1.15
+  449    1 CPY              conv_state_cpy-6                         f32               24576x1x1x1            24576x1x1x1     7.60     3.36     1.38     3.30     0.98     1.24
+  453    1 FUSED_RMS_NORM   attn_rms_norm-6                          f32                128x32x1x1              128x1x1x1     9.25     2.31     0.72     3.32     2.71     4.55
+  454    1 FUSED_MUL_UNARY  attn_out_norm-6                          f32                128x32x1x1             128x32x1x1     9.28     5.03     1.16     1.69     2.39     3.24
+  456    1 MUL_MAT          linear_attn_out-6                        q4_K            4096x2048x1x1             4096x1x1x1    32.92    30.93    27.23     0.58     1.70     2.13
+  458    1 ADD              ssm_output-6                             f32                2048x1x1x1             2048x1x1x1     3.89     2.55     0.26     0.39     0.93     1.18
+  459    1 FUSED_RMS_NORM   ffn_inp_normed-6                         f32                2048x1x1x1             2048x1x1x1     4.06     3.86     0.12     0.16     0.94     1.09
+  460    1 MUL_MAT          ffn_moe_logits-6                         f32              2048x256x1x1             2048x1x1x1    17.21    14.70    11.59     1.61     0.93     1.07
+  461    5 SOFT_MAX         ffn_moe_probs-6                          f32                 256x1x1x1                0x0x0x0     4.67     3.62     0.11     0.07     0.95     1.14
+  467    2 SUM_ROWS         ffn_moe_weights_sum-6                    f32                   8x1x1x1                0x0x0x0     3.75     1.41     0.50     1.37     0.94     1.10
+  471    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-6                       q4_K           2048x512x256x1         2048x512x256x1   159.71   156.36   129.28     2.32     1.00     1.24
+  480    1 FUSED_RMS_NORM   attn_norm-7                              f32                2048x1x1x1             2048x1x1x1    12.17     9.68     0.31     0.45     1.65     2.58
+  481    3 MUL_MAT          Qaux-7                                   q4_K            2048x8192x1x1             2048x1x1x1    90.81    89.37    66.88     0.42     1.00     1.19
+  485    1 CONT             Qcur_cont-7                              f32                256x16x1x1                0x0x0x0     4.60     1.69     0.56     2.03     0.94     1.19
+  486    1 FUSED_RMS_NORM   Qcur_normed-7                            f32                256x16x1x1              256x1x1x1     3.97     1.57     0.27     1.45     0.95     1.16
+  488    1 FUSED_RMS_NORM   Kcur_normed-7                            f32                 256x2x1x1              256x1x1x1     3.96     1.01     0.23     2.02     0.92     1.10
+  489    1 ROPE             Qcur_roped-7                             f32                256x16x1x1                4x1x1x1     7.72     6.23     1.68     0.41     0.98     1.20
+  490    1 ROPE             Kcur_roped-7                             f32                 256x2x1x1                4x1x1x1     4.07     2.81     0.30     0.42     0.92     1.08
+  492    1 CPY              cache_k_l7 (view) (copy of Kcur_roped-7) f32                 256x2x1x1              256x2x1x1     8.28     4.58     3.52     3.49     0.96     1.17
+  494    1 CPY              v_cache_view-7 (copy of Vcur-7)          f32                 512x1x1x1              512x1x1x1     7.26     5.40     3.40     1.57     1.96     2.79
+  498    1 FLASH_ATTN_EXT   fa-7                                     f32                256x1x16x1            256x256x2x1   441.82   438.85   427.75     1.96     1.00     1.22
+  501    1 CONT             gate_cont-7                              f32                256x16x1x1                0x0x0x0     7.41     1.78     0.57     3.25     2.20     3.43
+  502    1 UNARY            gate-7                                   f32                4096x1x1x1                0x0x0x0     5.74     2.04     0.42     1.22     1.84     3.09
+  503    1 MUL              qkv_gated-7                              f32                4096x1x1x1             4096x1x1x1     7.74     6.13     0.33     0.29     1.34     1.80
+  504    1 MUL_MAT          attn_out-7                               q4_K            4096x2048x1x1             4096x1x1x1    33.53    32.21    27.51     0.37     1.01     1.24
+  505    1 ADD              node_505                                 f32                2048x1x1x1             2048x1x1x1     3.39     2.04     0.14     0.38     0.91     1.08
+  506    1 FUSED_RMS_NORM   ffn_inp_normed-7                         f32                2048x1x1x1             2048x1x1x1     4.93     4.47     0.13     0.29     0.93     1.10
+  507    1 MUL_MAT          ffn_moe_logits-7                         f32              2048x256x1x1             2048x1x1x1    17.30    14.91    12.09     1.55     0.88     1.12
+  508    5 SOFT_MAX         ffn_moe_probs-7                          f32                 256x1x1x1                0x0x0x0     4.53     3.45     0.12     0.06     0.96     1.15
+  514    2 SUM_ROWS         ffn_moe_weights_sum-7                    f32                   8x1x1x1                0x0x0x0     3.51     1.36     0.45     1.10     0.95     1.14
+  518    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-7                       q4_K           2048x512x256x1         2048x512x256x1   151.40   148.31   122.36     2.03     1.01     1.22
+  527    1 FUSED_RMS_NORM   node_527                                 f32                2048x1x1x1             2048x1x1x1     9.44     7.36     0.26     0.63     1.40     1.84
+  528    3 MUL_MAT          qkv_mixed-8                              q4_K            2048x8192x1x1             2048x1x1x1   134.15   132.86    95.54     0.35     0.96     1.23
+  532    1 MUL_MAT          alpha-8                                  q4_K              2048x32x1x1             2048x1x1x1    11.75    10.38     6.61     0.44     0.95     1.37
+  541    1 SSM_CONV         conv_output_raw-8                        f32                3x8192x1x1             8192x1x1x1    16.38    14.91    10.10     0.39     1.08     1.37
+  543    1 UNARY            conv_output_silu-8                       f32                8192x1x1x1                0x0x0x0     7.43     5.38     0.60     1.03     0.95     1.12
+  545    1 L2_NORM          node_545                                 f32                128x16x1x1                0x0x0x0     4.12     1.58     0.47     1.41     1.27     1.60
+  548    1 L2_NORM          node_548                                 f32                128x16x1x1                0x0x0x0     4.57     1.33     0.29     2.02     1.12     1.45
+  552    1 ADD              alpha_biased-8                           f32                  32x1x1x1               32x1x1x1     3.61     0.73     0.18     1.41     1.37     1.86
+  553    1 UNARY            a_softplus-8                             f32                  32x1x1x1                0x0x0x0     3.49     0.75     0.17     1.66     1.09     1.42
+  554    1 MUL              g_in-8                                   f32                  32x1x1x1               32x1x1x1     3.71     0.84     0.31     1.90     0.96     1.19
+  558    6 DELTA_NET        delta_net_fused_raw-8                    f32                128x1x16x1             128x1x16x1    81.14    79.80    34.52     0.34     1.02     1.26
+  565    1 CONT             new_conv_states_cont-8                   f32                3x8192x1x1                0x0x0x0     6.85     4.88     2.80     0.97     0.91     1.23
+  568    1 CPY              conv_state_cpy-8                         f32               24576x1x1x1            24576x1x1x1     5.97     2.47     1.17     2.53     1.00     1.42
+  572    1 FUSED_RMS_NORM   attn_rms_norm-8                          f32                128x32x1x1              128x1x1x1     6.47     1.58     0.65     2.57     1.70     2.78
+  573    1 FUSED_MUL_UNARY  attn_out_norm-8                          f32                128x32x1x1             128x32x1x1     5.25     3.14     0.79     0.65     1.46     2.01
+  575    1 MUL_MAT          linear_attn_out-8                        q4_K            4096x2048x1x1             4096x1x1x1    35.12    33.32    28.49     0.54     1.71     2.41
+  577    1 ADD              ssm_output-8                             f32                2048x1x1x1             2048x1x1x1     4.36     2.91     0.20     0.40     0.99     1.29
+  578    1 FUSED_RMS_NORM   ffn_inp_normed-8                         f32                2048x1x1x1             2048x1x1x1     4.68     4.38     0.13     0.25     0.94     1.10
+  579    1 MUL_MAT          ffn_moe_logits-8                         f32              2048x256x1x1             2048x1x1x1    16.78    14.31    11.42     1.58     0.93     1.07
+  580    5 SOFT_MAX         ffn_moe_probs-8                          f32                 256x1x1x1                0x0x0x0     4.87     3.81     0.14     0.08     0.96     1.14
+  586    2 SUM_ROWS         ffn_moe_weights_sum-8                    f32                   8x1x1x1                0x0x0x0     3.30     0.96     0.24     1.77     0.95     1.13
+  590    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-8                       q4_K           2048x512x256x1         2048x512x256x1   182.75   180.98   154.35     0.74     0.97     1.33
+  599    1 FUSED_RMS_NORM   node_599                                 f32                2048x1x1x1             2048x1x1x1     8.49     6.73     0.21     0.73     0.99     1.23
+  600    3 MUL_MAT          qkv_mixed-9                              q4_K            2048x8192x1x1             2048x1x1x1    51.73    49.99    46.26     0.94     1.04     1.26
+  604    1 MUL_MAT          alpha-9                                  q4_K              2048x32x1x1             2048x1x1x1    11.45     9.85     6.38     0.66     0.92     1.09
+  613    1 SSM_CONV         conv_output_raw-9                        f32                3x8192x1x1             8192x1x1x1    19.58    18.20    12.65     0.34     1.08     1.40
+  615    1 UNARY            conv_output_silu-9                       f32                8192x1x1x1                0x0x0x0     8.06     6.09     0.63     0.96     0.96     1.13
+  617    1 L2_NORM          node_617                                 f32                128x16x1x1                0x0x0x0     4.35     1.56     0.45     1.77     1.26     1.62
+  620    1 L2_NORM          node_620                                 f32                128x16x1x1                0x0x0x0     4.32     1.20     0.24     1.88     1.07     1.36
+  624    1 ADD              alpha_biased-9                           f32                  32x1x1x1               32x1x1x1     3.92     0.73     0.18     1.68     1.42     1.92
+  625    1 UNARY            a_softplus-9                             f32                  32x1x1x1                0x0x0x0     4.00     0.88     0.26     2.06     1.10     1.42
+  626    1 MUL              g_in-9                                   f32                  32x1x1x1               32x1x1x1     3.64     0.75     0.26     1.95     0.97     1.17
+  630    6 DELTA_NET        delta_net_fused_raw-9                    f32                128x1x16x1             128x1x16x1    76.27    75.00    31.91     0.33     1.01     1.32
+  637    1 CONT             new_conv_states_cont-9                   f32                3x8192x1x1                0x0x0x0     7.96     6.00     3.47     0.82     0.95     1.62
+  640    1 CPY              conv_state_cpy-9                         f32               24576x1x1x1            24576x1x1x1     5.77     2.57     1.26     2.11     0.99     1.27
+  644    1 FUSED_RMS_NORM   attn_rms_norm-9                          f32                128x32x1x1              128x1x1x1     6.22     1.39     0.57     2.65     1.79     2.53
+  645    1 FUSED_MUL_UNARY  attn_out_norm-9                          f32                128x32x1x1             128x32x1x1     6.31     3.25     0.81     1.26     1.68     2.30
+  647    1 MUL_MAT          linear_attn_out-9                        q4_K            4096x2048x1x1             4096x1x1x1    38.52    36.33    32.06     0.76     1.74     2.26
+  649    1 ADD              ssm_output-9                             f32                2048x1x1x1             2048x1x1x1     4.78     3.18     0.28     0.46     1.17     1.53
+  650    1 FUSED_RMS_NORM   ffn_inp_normed-9                         f32                2048x1x1x1             2048x1x1x1     4.28     3.95     0.11     0.19     0.94     1.20
+  651    1 MUL_MAT          ffn_moe_logits-9                         f32              2048x256x1x1             2048x1x1x1    16.20    13.78    11.40     1.63     0.89     1.05
+  652    5 SOFT_MAX         ffn_moe_probs-9                          f32                 256x1x1x1                0x0x0x0     4.66     3.63     0.13     0.08     0.96     1.16
+  658    2 SUM_ROWS         ffn_moe_weights_sum-9                    f32                   8x1x1x1                0x0x0x0     3.47     1.24     0.40     1.42     0.94     1.10
+  662    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-9                       q4_K           2048x512x256x1         2048x512x256x1   156.10   153.00   131.73     2.01     1.02     1.54
+  671    1 FUSED_RMS_NORM   node_671                                 f32                2048x1x1x1             2048x1x1x1    10.92     8.68     0.27     0.61     1.64     2.13
+  672    3 MUL_MAT          qkv_mixed-10                             q6_K            2048x8192x1x1             2048x1x1x1    82.99    81.43    71.56     0.48     1.03     1.24
+  676    1 MUL_MAT          alpha-10                                 q4_K              2048x32x1x1             2048x1x1x1    11.34     9.88     6.18     0.41     0.97     1.14
+  685    1 SSM_CONV         conv_output_raw-10                       f32                3x8192x1x1             8192x1x1x1    19.26    17.86    12.91     0.34     1.08     1.52
+  687    1 UNARY            conv_output_silu-10                      f32                8192x1x1x1                0x0x0x0     6.59     4.52     0.57     1.08     0.95     1.12
+  689    1 L2_NORM          node_689                                 f32                128x16x1x1                0x0x0x0     4.72     1.69     0.56     1.77     1.39     1.91
+  692    1 L2_NORM          node_692                                 f32                128x16x1x1                0x0x0x0     6.42     1.52     0.31     3.50     1.18     1.72
+  696    1 ADD              alpha_biased-10                          f32                  32x1x1x1               32x1x1x1     5.70     1.55     0.25     1.83     2.24     3.32
+  697    1 UNARY            a_softplus-10                            f32                  32x1x1x1                0x0x0x0     3.07     0.83     0.14     1.32     1.12     1.41
+  698    1 MUL              g_in-10                                  f32                  32x1x1x1               32x1x1x1     3.76     1.05     0.32     1.74     0.97     1.16
+  702    6 DELTA_NET        delta_net_fused_raw-10                   f32                128x1x16x1             128x1x16x1    87.12    85.74    37.10     0.35     1.03     1.31
+  709    1 CONT             new_conv_states_cont-10                  f32                3x8192x1x1                0x0x0x0     9.53     6.89     3.19     1.59     0.96     1.24
+  712    1 CPY              conv_state_cpy-10                        f32               24576x1x1x1            24576x1x1x1     8.42     3.32     1.36     3.87     1.20     1.48
+  716    1 FUSED_RMS_NORM   attn_rms_norm-10                         f32                128x32x1x1              128x1x1x1    10.88     3.26     1.02     4.28     3.19     5.12
+  717    1 FUSED_MUL_UNARY  attn_out_norm-10                         f32                128x32x1x1             128x32x1x1     9.27     5.33     1.28     1.16     2.77     3.91
+  719    1 MUL_MAT          linear_attn_out-10                       q4_K            4096x2048x1x1             4096x1x1x1    44.93    43.48    31.61     0.31     1.34     1.67
+  721    1 ADD              ssm_output-10                            f32                2048x1x1x1             2048x1x1x1     4.17     2.69     0.31     0.39     0.91     1.21
+  722    1 FUSED_RMS_NORM   ffn_inp_normed-10                        f32                2048x1x1x1             2048x1x1x1     4.18     3.92     0.11     0.19     0.95     1.11
+  723    1 MUL_MAT          ffn_moe_logits-10                        f32              2048x256x1x1             2048x1x1x1    33.58    32.32    23.10     0.29     0.93     1.07
+  724    5 SOFT_MAX         ffn_moe_probs-10                         f32                 256x1x1x1                0x0x0x0     4.96     3.85     0.14     0.06     0.94     1.18
+  730    2 SUM_ROWS         ffn_moe_weights_sum-10                   f32                   8x1x1x1                0x0x0x0     3.78     1.12     0.30     2.09     0.96     1.10
+  734    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-10                      q4_K           2048x512x256x1         2048x512x256x1   168.89   165.58   140.78     2.27     0.98     1.17
+  743    1 FUSED_RMS_NORM   attn_norm-11                             f32                2048x1x1x1             2048x1x1x1    10.37     8.39     0.30     0.43     1.50     2.07
+  744    3 MUL_MAT          Qaux-11                                  q4_K            2048x8192x1x1             2048x1x1x1   144.97   143.58    95.92     0.42     0.97     1.18
+  748    1 CONT             Qcur_cont-11                             f32                256x16x1x1                0x0x0x0     4.44     1.64     0.63     1.41     0.93     1.59
+  749    1 FUSED_RMS_NORM   Qcur_normed-11                           f32                256x16x1x1              256x1x1x1     3.58     1.74     0.46     0.99     0.99     1.20
+  751    1 FUSED_RMS_NORM   Kcur_normed-11                           f32                 256x2x1x1              256x1x1x1     2.80     0.94     0.08     1.04     0.93     1.11
+  752    1 ROPE             Qcur_roped-11                            f32                256x16x1x1                4x1x1x1     8.07     6.51     1.82     0.46     0.95     1.25
+  753    1 ROPE             Kcur_roped-11                            f32                 256x2x1x1                4x1x1x1     3.68     2.30     0.14     0.52     0.93     1.09
+  755    1 CPY              cache_k_l11 (view) (copy of Kcur_roped-11) f32                 256x2x1x1              256x2x1x1     6.68     4.12     3.13     2.20     0.95     1.12
+  757    1 CPY              v_cache_view-11 (copy of Vcur-11)        f32                 512x1x1x1              512x1x1x1     6.32     4.42     3.33     1.51     1.13     1.38
+  761    1 FLASH_ATTN_EXT   fa-11                                    f32                256x1x16x1            256x256x2x1   436.99   434.78   424.37     1.18     1.03     1.29
+  764    1 CONT             gate_cont-11                             f32                256x16x1x1                0x0x0x0     5.53     1.54     0.60     2.77     1.37     2.11
+  765    1 UNARY            gate-11                                  f32                4096x1x1x1                0x0x0x0     3.63     1.18     0.31     0.99     1.19     1.66
+  766    1 MUL              qkv_gated-11                             f32                4096x1x1x1             4096x1x1x1     8.01     6.56     0.30     0.27     1.15     1.54
+  767    1 MUL_MAT          attn_out-11                              q4_K            4096x2048x1x1             4096x1x1x1    33.08    31.76    27.21     0.37     1.02     1.26
+  768    1 ADD              node_768                                 f32                2048x1x1x1             2048x1x1x1     4.14     2.20     0.20     0.96     0.92     1.12
+  769    1 FUSED_RMS_NORM   ffn_inp_normed-11                        f32                2048x1x1x1             2048x1x1x1     5.54     4.78     0.14     0.29     0.93     1.13
+  770    1 MUL_MAT          ffn_moe_logits-11                        f32              2048x256x1x1             2048x1x1x1    17.49    15.35    12.66     1.27     0.92     1.10
+  771    5 SOFT_MAX         ffn_moe_probs-11                         f32                 256x1x1x1                0x0x0x0     4.59     3.41     0.12     0.21     0.93     1.10
+  777    2 SUM_ROWS         ffn_moe_weights_sum-11                   f32                   8x1x1x1                0x0x0x0     3.62     1.12     0.37     1.41     0.99     1.26
+  781    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-11                      q4_K           2048x512x256x1         2048x512x256x1   117.18   114.80   102.03     1.39     1.01     1.65
+  790    1 FUSED_RMS_NORM   node_790                                 f32                2048x1x1x1             2048x1x1x1     9.13     7.10     0.22     0.71     1.30     1.53
+  791    3 MUL_MAT          qkv_mixed-12                             q4_K            2048x8192x1x1             2048x1x1x1    47.35    45.48    42.52     0.95     1.16     1.34
+  795    1 MUL_MAT          alpha-12                                 q4_K              2048x32x1x1             2048x1x1x1    11.58    10.18     6.19     0.44     0.95     1.44
+  804    1 SSM_CONV         conv_output_raw-12                       f32                3x8192x1x1             8192x1x1x1    15.35    13.82     9.51     0.43     1.08     1.28
+  806    1 UNARY            conv_output_silu-12                      f32                8192x1x1x1                0x0x0x0     6.64     4.40     0.54     1.21     0.96     1.16
+  808    1 L2_NORM          node_808                                 f32                128x16x1x1                0x0x0x0     5.05     1.76     0.33     2.14     1.63     2.12
+  811    1 L2_NORM          node_811                                 f32                128x16x1x1                0x0x0x0     5.69     1.17     0.22     3.01     1.37     1.83
+  815    1 ADD              alpha_biased-12                          f32                  32x1x1x1               32x1x1x1     3.67     0.74     0.15     1.49     1.41     1.87
+  816    1 UNARY            a_softplus-12                            f32                  32x1x1x1                0x0x0x0     3.09     0.85     0.21     1.21     1.06     1.32
+  817    1 MUL              g_in-12                                  f32                  32x1x1x1               32x1x1x1     3.09     0.92     0.30     1.30     0.98     1.16
+  821    6 DELTA_NET        delta_net_fused_raw-12                   f32                128x1x16x1             128x1x16x1   106.74   105.34    40.53     0.31     1.05     1.58
+  828    1 CONT             new_conv_states_cont-12                  f32                3x8192x1x1                0x0x0x0     6.74     4.68     2.67     1.06     0.91     1.35
+  831    1 CPY              conv_state_cpy-12                        f32               24576x1x1x1            24576x1x1x1     5.87     2.75     1.38     2.00     0.96     1.40
+  835    1 FUSED_RMS_NORM   attn_rms_norm-12                         f32                128x32x1x1              128x1x1x1     5.86     1.49     0.52     2.55     1.58     2.20
+  836    1 FUSED_MUL_UNARY  attn_out_norm-12                         f32                128x32x1x1             128x32x1x1     5.47     2.99     0.78     0.88     1.52     2.04
+  838    1 MUL_MAT          linear_attn_out-12                       q4_K            4096x2048x1x1             4096x1x1x1    36.24    33.68    30.09     1.02     1.64     2.09
+  840    1 ADD              ssm_output-12                            f32                2048x1x1x1             2048x1x1x1     6.00     3.98     0.27     0.44     1.40     1.89
+  841    1 FUSED_RMS_NORM   ffn_inp_normed-12                        f32                2048x1x1x1             2048x1x1x1     4.16     3.96     0.11     0.17     0.98     1.16
+  842    1 MUL_MAT          ffn_moe_logits-12                        f32              2048x256x1x1             2048x1x1x1    17.34    14.79    11.82     1.66     0.94     1.08
+  843    5 SOFT_MAX         ffn_moe_probs-12                         f32                 256x1x1x1                0x0x0x0     4.91     3.66     0.17     0.30     0.92     1.13
+  849    2 SUM_ROWS         ffn_moe_weights_sum-12                   f32                   8x1x1x1                0x0x0x0     4.60     1.68     0.60     1.89     0.98     2.01
+  853    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-12                      q4_K           2048x512x256x1         2048x512x256x1   111.56   108.99    99.60     1.53     1.02     1.31
+  862    1 FUSED_RMS_NORM   node_862                                 f32                2048x1x1x1             2048x1x1x1     8.56     6.67     0.20     0.71     1.38     1.92
+  863    3 MUL_MAT          qkv_mixed-13                             q6_K            2048x8192x1x1             2048x1x1x1    63.29    61.29    58.05     1.13     1.33     1.64
+  867    1 MUL_MAT          alpha-13                                 q4_K              2048x32x1x1             2048x1x1x1    11.41    10.13     6.44     0.33     0.93     1.24
+  876    1 SSM_CONV         conv_output_raw-13                       f32                3x8192x1x1             8192x1x1x1    20.69    19.30    13.51     0.34     1.09     1.36
+  878    1 UNARY            conv_output_silu-13                      f32                8192x1x1x1                0x0x0x0     6.57     4.40     0.61     1.12     0.95     1.28
+  880    1 L2_NORM          node_880                                 f32                128x16x1x1                0x0x0x0     4.75     1.67     0.41     1.84     1.56     2.05
+  883    1 L2_NORM          node_883                                 f32                128x16x1x1                0x0x0x0     5.00     1.39     0.27     2.39     1.07     1.34
+  887    1 ADD              alpha_biased-13                          f32                  32x1x1x1               32x1x1x1     4.40     0.80     0.10     2.15     1.57     2.02
+  888    1 UNARY            a_softplus-13                            f32                  32x1x1x1                0x0x0x0     3.04     0.79     0.16     1.28     1.04     1.28
+  889    1 MUL              g_in-13                                  f32                  32x1x1x1               32x1x1x1     3.09     0.77     0.27     1.40     0.97     1.15
+  893    6 DELTA_NET        delta_net_fused_raw-13                   f32                128x1x16x1             128x1x16x1    82.01    80.78    36.80     0.31     1.02     1.64
+  900    1 CONT             new_conv_states_cont-13                  f32                3x8192x1x1                0x0x0x0     7.55     5.59     3.24     0.93     0.95     1.69
+  903    1 CPY              conv_state_cpy-13                        f32               24576x1x1x1            24576x1x1x1     5.40     2.65     1.38     1.66     0.98     1.25
+  907    1 FUSED_RMS_NORM   attn_rms_norm-13                         f32                128x32x1x1              128x1x1x1     5.89     1.54     0.63     2.35     1.58     2.33
+  908    1 FUSED_MUL_UNARY  attn_out_norm-13                         f32                128x32x1x1             128x32x1x1     5.21     2.60     0.68     1.03     1.54     2.08
+  910    1 MUL_MAT          linear_attn_out-13                       q4_K            4096x2048x1x1             4096x1x1x1    35.03    33.18    29.41     0.56     1.64     2.20
+  912    1 ADD              ssm_output-13                            f32                2048x1x1x1             2048x1x1x1     4.36     2.99     0.30     0.38     0.99     1.23
+  913    1 FUSED_RMS_NORM   ffn_inp_normed-13                        f32                2048x1x1x1             2048x1x1x1     3.99     3.80     0.11     0.16     0.92     1.06
+  914    1 MUL_MAT          ffn_moe_logits-13                        f32              2048x256x1x1             2048x1x1x1    16.71    14.19    11.54     1.69     0.94     1.09
+  915    5 SOFT_MAX         ffn_moe_probs-13                         f32                 256x1x1x1                0x0x0x0     4.54     3.44     0.11     0.13     0.95     1.15
+  921    2 SUM_ROWS         ffn_moe_weights_sum-13                   f32                   8x1x1x1                0x0x0x0     4.74     1.71     0.63     2.02     0.95     1.13
+  925    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-13                      q4_K           2048x512x256x1         2048x512x256x1   120.49   117.78   106.35     1.65     1.02     1.42
+  934    1 FUSED_RMS_NORM   node_934                                 f32                2048x1x1x1             2048x1x1x1     8.27     6.46     0.23     0.48     1.27     1.78
+  935    3 MUL_MAT          qkv_mixed-14                             q4_K            2048x8192x1x1             2048x1x1x1    48.25    46.28    43.49     1.24     1.03     1.21
+  939    1 MUL_MAT          alpha-14                                 q4_K              2048x32x1x1             2048x1x1x1    11.35     9.94     6.18     0.50     0.90     1.12
+  948    1 SSM_CONV         conv_output_raw-14                       f32                3x8192x1x1             8192x1x1x1    18.85    17.42    12.22     0.38     1.08     1.82
+  950    1 UNARY            conv_output_silu-14                      f32                8192x1x1x1                0x0x0x0     6.17     3.78     0.50     1.37     0.97     1.13
+  952    1 L2_NORM          node_952                                 f32                128x16x1x1                0x0x0x0     4.79     1.54     0.35     2.24     1.47     1.85
+  955    1 L2_NORM          node_955                                 f32                128x16x1x1                0x0x0x0     4.91     1.30     0.28     2.13     1.33     1.74
+  959    1 ADD              alpha_biased-14                          f32                  32x1x1x1               32x1x1x1     4.12     0.80     0.11     1.86     1.52     2.00
+  960    1 UNARY            a_softplus-14                            f32                  32x1x1x1                0x0x0x0     3.33     0.77     0.18     1.55     1.06     1.32
+  961    1 MUL              g_in-14                                  f32                  32x1x1x1               32x1x1x1     3.64     0.68     0.26     2.13     0.96     1.14
+  965    6 DELTA_NET        delta_net_fused_raw-14                   f32                128x1x16x1             128x1x16x1    61.34    59.99    26.75     0.28     1.01     1.38
+  972    1 CONT             new_conv_states_cont-14                  f32                3x8192x1x1                0x0x0x0     6.97     5.08     3.03     0.90     0.91     1.24
+  975    1 CPY              conv_state_cpy-14                        f32               24576x1x1x1            24576x1x1x1     6.62     3.29     1.48     2.40     0.96     1.22
+  979    1 FUSED_RMS_NORM   attn_rms_norm-14                         f32                128x32x1x1              128x1x1x1     7.38     1.98     0.70     2.95     2.32     2.97
+  980    1 FUSED_MUL_UNARY  attn_out_norm-14                         f32                128x32x1x1             128x32x1x1     6.92     3.80     0.93     1.25     2.09     2.97
+  982    1 MUL_MAT          linear_attn_out-14                       q4_K            4096x2048x1x1             4096x1x1x1    33.23    31.13    27.26     0.61     2.21     3.30
+  984    1 ADD              ssm_output-14                            f32                2048x1x1x1             2048x1x1x1     3.96     2.56     0.23     0.47     0.92     1.11
+  985    1 FUSED_RMS_NORM   ffn_inp_normed-14                        f32                2048x1x1x1             2048x1x1x1     4.37     4.11     0.13     0.23     0.94     1.08
+  986    1 MUL_MAT          ffn_moe_logits-14                        f32              2048x256x1x1             2048x1x1x1    17.60    15.40    11.90     1.31     0.93     1.08
+  987    5 SOFT_MAX         ffn_moe_probs-14                         f32                 256x1x1x1                0x0x0x0     4.99     3.93     0.12     0.09     0.95     1.14
+  993    2 SUM_ROWS         ffn_moe_weights_sum-14                   f32                   8x1x1x1                0x0x0x0     3.98     1.48     0.49     1.65     0.94     1.12
+  997    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-14                      q4_K           2048x512x256x1         2048x512x256x1   114.75   110.41    99.12     3.36     1.06     1.83
+ 1006    1 FUSED_RMS_NORM   attn_norm-15                             f32                2048x1x1x1             2048x1x1x1    15.58    11.89     0.33     1.05     2.31     3.49
+ 1007    3 MUL_MAT          Qaux-15                                  q4_K            2048x8192x1x1             2048x1x1x1    76.74    74.58    70.39     0.84     1.40     1.77
+ 1011    1 CONT             Qcur_cont-15                             f32                256x16x1x1                0x0x0x0     3.75     1.34     0.47     1.35     0.97     1.17
+ 1012    1 FUSED_RMS_NORM   Qcur_normed-15                           f32                256x16x1x1              256x1x1x1     3.52     1.58     0.31     1.02     0.95     1.13
+ 1014    1 FUSED_RMS_NORM   Kcur_normed-15                           f32                 256x2x1x1              256x1x1x1     3.24     1.09     0.21     1.18     0.93     1.14
+ 1015    1 ROPE             Qcur_roped-15                            f32                256x16x1x1                4x1x1x1     7.64     6.18     1.62     0.39     0.96     1.18
+ 1016    1 ROPE             Kcur_roped-15                            f32                 256x2x1x1                4x1x1x1     3.84     2.37     0.23     0.60     0.92     1.08
+ 1018    1 CPY              cache_k_l15 (view) (copy of Kcur_roped-15) f32                 256x2x1x1              256x2x1x1     6.98     4.32     3.36     2.46     0.97     1.39
+ 1020    1 CPY              v_cache_view-15 (copy of Vcur-15)        f32                 512x1x1x1              512x1x1x1     5.80     3.92     2.84     1.62     1.13     1.42
+ 1024    1 FLASH_ATTN_EXT   fa-15                                    f32                256x1x16x1            256x256x2x1   421.88   418.80   409.46     2.24     0.98     1.21
+ 1027    1 CONT             gate_cont-15                             f32                256x16x1x1                0x0x0x0     6.95     2.01     0.60     3.05     2.25     2.91
+ 1028    1 UNARY            gate-15                                  f32                4096x1x1x1                0x0x0x0     5.07     1.55     0.31     1.88     1.90     2.40
+ 1029    1 MUL              qkv_gated-15                             f32                4096x1x1x1             4096x1x1x1     7.77     5.53     0.43     0.30     1.90     2.39
+ 1030    1 MUL_MAT          attn_out-15                              q4_K            4096x2048x1x1             4096x1x1x1    86.11    84.74    65.77     0.24     1.37     1.81
+ 1031    1 ADD              node_1031                                f32                2048x1x1x1             2048x1x1x1     3.34     1.89     0.16     0.42     0.93     1.16
+ 1032    1 FUSED_RMS_NORM   ffn_inp_normed-15                        f32                2048x1x1x1             2048x1x1x1     4.87     4.25     0.13     0.33     1.01     1.38
+ 1033    1 MUL_MAT          ffn_moe_logits-15                        f32              2048x256x1x1             2048x1x1x1    24.38    22.40    18.67     1.12     0.87     1.08
+ 1034    5 SOFT_MAX         ffn_moe_probs-15                         f32                 256x1x1x1                0x0x0x0     5.38     3.79     0.14     0.55     0.98     1.16
+ 1040    2 SUM_ROWS         ffn_moe_weights_sum-15                   f32                   8x1x1x1                0x0x0x0     4.50     1.06     0.32     2.47     0.98     1.18
+ 1044    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-15                      q4_K           2048x512x256x1         2048x512x256x1   120.51   116.83   103.46     2.75     1.03     1.95
+ 1053    1 FUSED_RMS_NORM   node_1053                                f32                2048x1x1x1             2048x1x1x1     9.41     6.87     0.23     0.75     1.73     2.22
+ 1054    3 MUL_MAT          qkv_mixed-16                             q6_K            2048x8192x1x1             2048x1x1x1    77.53    75.63    67.34     0.50     1.22     1.57
+ 1058    1 MUL_MAT          alpha-16                                 q4_K              2048x32x1x1             2048x1x1x1    11.40    10.08     6.18     0.29     0.96     1.16
+ 1067    1 SSM_CONV         conv_output_raw-16                       f32                3x8192x1x1             8192x1x1x1    16.09    14.62     9.56     0.37     1.07     1.28
+ 1069    1 UNARY            conv_output_silu-16                      f32                8192x1x1x1                0x0x0x0     6.94     4.67     0.58     1.24     0.95     1.16
+ 1071    1 L2_NORM          node_1071                                f32                128x16x1x1                0x0x0x0     4.83     1.64     0.50     1.88     1.51     1.90
+ 1074    1 L2_NORM          node_1074                                f32                128x16x1x1                0x0x0x0     5.07     1.42     0.27     2.30     1.21     1.61
+ 1078    1 ADD              alpha_biased-16                          f32                  32x1x1x1               32x1x1x1     3.83     0.90     0.30     1.59     1.45     1.91
+ 1079    1 UNARY            a_softplus-16                            f32                  32x1x1x1                0x0x0x0     3.23     1.04     0.31     1.17     1.07     1.31
+ 1080    1 MUL              g_in-16                                  f32                  32x1x1x1               32x1x1x1     3.01     0.70     0.18     1.44     0.97     1.15
+ 1084    6 DELTA_NET        delta_net_fused_raw-16                   f32                128x1x16x1             128x1x16x1    62.61    61.42    24.00     0.30     1.02     1.47
+ 1091    1 CONT             new_conv_states_cont-16                  f32                3x8192x1x1                0x0x0x0     6.53     4.36     2.63     1.14     0.97     1.31
+ 1094    1 CPY              conv_state_cpy-16                        f32               24576x1x1x1            24576x1x1x1     6.00     2.76     1.52     2.18     0.96     1.30
+ 1098    1 FUSED_RMS_NORM   attn_rms_norm-16                         f32                128x32x1x1              128x1x1x1     6.43     1.60     0.57     2.73     1.80     2.42
+ 1099    1 FUSED_MUL_UNARY  attn_out_norm-16                         f32                128x32x1x1             128x32x1x1     6.06     3.33     0.94     1.09     1.89     2.77
+ 1101    1 MUL_MAT          linear_attn_out-16                       q4_K            4096x2048x1x1             4096x1x1x1    34.41    32.34    28.55     0.60     2.04     2.92
+ 1103    1 ADD              ssm_output-16                            f32                2048x1x1x1             2048x1x1x1     3.79     2.41     0.21     0.40     0.94     1.17
+ 1104    1 FUSED_RMS_NORM   ffn_inp_normed-16                        f32                2048x1x1x1             2048x1x1x1     4.05     3.78     0.12     0.18     0.93     1.14
+ 1105    1 MUL_MAT          ffn_moe_logits-16                        f32              2048x256x1x1             2048x1x1x1    17.21    14.98    11.90     1.32     0.95     1.09
+ 1106    5 SOFT_MAX         ffn_moe_probs-16                         f32                 256x1x1x1                0x0x0x0     4.75     3.49     0.11     0.31     0.95     1.12
+ 1112    2 SUM_ROWS         ffn_moe_weights_sum-16                   f32                   8x1x1x1                0x0x0x0     4.23     1.43     0.50     1.76     0.96     1.17
+ 1116    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-16                      q4_K           2048x512x256x1         2048x512x256x1   198.80   196.16   163.68     1.71     0.99     1.24
+ 1125    1 FUSED_RMS_NORM   node_1125                                f32                2048x1x1x1             2048x1x1x1     7.16     5.25     0.24     0.44     1.22     1.60
+ 1126    3 MUL_MAT          qkv_mixed-17                             q4_K            2048x8192x1x1             2048x1x1x1    52.07    50.09    47.08     1.20     0.99     1.19
+ 1130    1 MUL_MAT          alpha-17                                 q4_K              2048x32x1x1             2048x1x1x1    11.70    10.42     6.62     0.28     0.95     1.18
+ 1139    1 SSM_CONV         conv_output_raw-17                       f32                3x8192x1x1             8192x1x1x1    20.97    19.53    13.80     0.40     1.06     1.23
+ 1141    1 UNARY            conv_output_silu-17                      f32                8192x1x1x1                0x0x0x0     7.50     5.25     0.62     1.18     0.95     1.19
+ 1143    1 L2_NORM          node_1143                                f32                128x16x1x1                0x0x0x0     6.05     1.96     0.49     1.87     2.19     3.83
+ 1146    1 L2_NORM          node_1146                                f32                128x16x1x1                0x0x0x0     5.14     1.32     0.27     2.19     1.26     1.95
+ 1150    1 ADD              alpha_biased-17                          f32                  32x1x1x1               32x1x1x1     4.20     0.77     0.15     1.99     1.44     1.98
+ 1151    1 UNARY            a_softplus-17                            f32                  32x1x1x1                0x0x0x0     3.11     0.74     0.20     1.38     1.02     1.29
+ 1152    1 MUL              g_in-17                                  f32                  32x1x1x1               32x1x1x1     3.62     0.80     0.30     2.03     0.97     1.14
+ 1156    6 DELTA_NET        delta_net_fused_raw-17                   f32                128x1x16x1             128x1x16x1    88.24    86.95    36.24     0.36     1.00     1.20
+ 1163    1 CONT             new_conv_states_cont-17                  f32                3x8192x1x1                0x0x0x0     8.41     6.52     3.60     0.87     0.94     1.38
+ 1166    1 CPY              conv_state_cpy-17                        f32               24576x1x1x1            24576x1x1x1     5.98     2.78     1.26     2.10     0.96     1.21
+ 1170    1 FUSED_RMS_NORM   attn_rms_norm-17                         f32                128x32x1x1              128x1x1x1     7.31     1.48     0.53     3.45     2.36     3.08
+ 1171    1 FUSED_MUL_UNARY  attn_out_norm-17                         f32                128x32x1x1             128x32x1x1     6.79     3.29     0.94     1.33     2.17     3.21
+ 1173    1 MUL_MAT          linear_attn_out-17                       q4_K            4096x2048x1x1             4096x1x1x1    60.42    57.19    40.50     0.33     2.24     3.49
+ 1175    1 ADD              ssm_output-17                            f32                2048x1x1x1             2048x1x1x1     4.07     2.62     0.23     0.37     0.97     1.18
+ 1176    1 FUSED_RMS_NORM   ffn_inp_normed-17                        f32                2048x1x1x1             2048x1x1x1     4.08     3.91     0.11     0.13     0.94     1.10
+ 1177    1 MUL_MAT          ffn_moe_logits-17                        f32              2048x256x1x1             2048x1x1x1    16.44    14.09    11.50     1.52     0.93     1.07
+ 1178    5 SOFT_MAX         ffn_moe_probs-17                         f32                 256x1x1x1                0x0x0x0     4.74     3.64     0.12     0.13     0.95     1.12
+ 1184    2 SUM_ROWS         ffn_moe_weights_sum-17                   f32                   8x1x1x1                0x0x0x0     3.20     0.91     0.22     1.84     0.94     1.08
+ 1188    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-17                      q4_K           2048x512x256x1         2048x512x256x1   160.14   158.07   138.90     1.24     0.97     1.22
+ 1197    1 FUSED_RMS_NORM   node_1197                                f32                2048x1x1x1             2048x1x1x1     7.78     5.98     0.21     0.37     1.27     1.64
+ 1198    3 MUL_MAT          qkv_mixed-18                             q4_K            2048x8192x1x1             2048x1x1x1    84.62    82.97    62.46     0.46     1.02     1.34
+ 1202    1 MUL_MAT          alpha-18                                 q4_K              2048x32x1x1             2048x1x1x1    11.60    10.28     6.37     0.28     0.98     1.19
+ 1211    1 SSM_CONV         conv_output_raw-18                       f32                3x8192x1x1             8192x1x1x1    20.32    18.59    12.99     0.45     1.08     1.56
+ 1213    1 UNARY            conv_output_silu-18                      f32                8192x1x1x1                0x0x0x0     7.02     4.71     0.57     1.28     0.94     1.12
+ 1215    1 L2_NORM          node_1215                                f32                128x16x1x1                0x0x0x0     6.25     1.70     0.47     1.35     2.31     4.45
+ 1218    1 L2_NORM          node_1218                                f32                128x16x1x1                0x0x0x0     5.53     1.20     0.30     3.07     1.15     1.46
+ 1222    1 ADD              alpha_biased-18                          f32                  32x1x1x1               32x1x1x1     6.46     2.24     0.47     0.91     2.29     4.38
+ 1223    1 UNARY            a_softplus-18                            f32                  32x1x1x1                0x0x0x0     3.26     1.00     0.26     1.17     1.19     1.48
+ 1224    1 MUL              g_in-18                                  f32                  32x1x1x1               32x1x1x1     3.74     0.71     0.24     2.17     0.98     1.16
+ 1228    6 DELTA_NET        delta_net_fused_raw-18                   f32                128x1x16x1             128x1x16x1    75.80    74.44    29.78     0.37     1.03     1.40
+ 1235    1 CONT             new_conv_states_cont-18                  f32                3x8192x1x1                0x0x0x0     9.37     7.39     3.52     0.95     0.93     1.26
+ 1238    1 CPY              conv_state_cpy-18                        f32               24576x1x1x1            24576x1x1x1     5.61     2.68     1.35     1.83     0.94     1.20
+ 1242    1 FUSED_RMS_NORM   attn_rms_norm-18                         f32                128x32x1x1              128x1x1x1     5.75     1.79     0.62     1.91     1.46     2.31
+ 1243    1 FUSED_MUL_UNARY  attn_out_norm-18                         f32                128x32x1x1             128x32x1x1     5.03     2.87     0.75     0.90     1.45     2.05
+ 1245    1 MUL_MAT          linear_attn_out-18                       q4_K            4096x2048x1x1             4096x1x1x1    71.79    69.77    45.92     0.21     1.61     2.06
+ 1247    1 ADD              ssm_output-18                            f32                2048x1x1x1             2048x1x1x1     3.81     2.38     0.20     0.36     0.96     1.19
+ 1248    1 FUSED_RMS_NORM   ffn_inp_normed-18                        f32                2048x1x1x1             2048x1x1x1     4.10     3.93     0.11     0.11     0.93     1.08
+ 1249    1 MUL_MAT          ffn_moe_logits-18                        f32              2048x256x1x1             2048x1x1x1    28.72    27.42    16.89     0.39     0.90     1.05
+ 1250    5 SOFT_MAX         ffn_moe_probs-18                         f32                 256x1x1x1                0x0x0x0     5.37     4.19     0.14     0.08     0.96     1.15
+ 1256    2 SUM_ROWS         ffn_moe_weights_sum-18                   f32                   8x1x1x1                0x0x0x0     3.62     1.61     0.55     0.98     0.95     1.13
+ 1260    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-18                      q4_K           2048x512x256x1         2048x512x256x1   191.86   189.56   164.80     1.36     0.98     1.16
+ 1269    1 FUSED_RMS_NORM   attn_norm-19                             f32                2048x1x1x1             2048x1x1x1     7.24     5.29     0.25     0.46     1.10     1.80
+ 1270    3 MUL_MAT          Qaux-19                                  q4_K            2048x8192x1x1             2048x1x1x1    78.03    76.00    48.59     0.69     1.07     1.63
+ 1274    1 CONT             Qcur_cont-19                             f32                256x16x1x1                0x0x0x0     4.07     1.60     0.64     1.22     1.06     1.35
+ 1275    1 FUSED_RMS_NORM   Qcur_normed-19                           f32                256x16x1x1              256x1x1x1     3.45     1.54     0.29     1.00     0.94     1.19
+ 1277    1 FUSED_RMS_NORM   Kcur_normed-19                           f32                 256x2x1x1              256x1x1x1     2.86     0.87     0.08     1.09     0.94     1.20
+ 1278    1 ROPE             Qcur_roped-19                            f32                256x16x1x1                4x1x1x1     7.79     6.33     1.72     0.42     0.95     1.16
+ 1279    1 ROPE             Kcur_roped-19                            f32                 256x2x1x1                4x1x1x1     4.12     2.39     0.15     0.89     0.92     1.08
+ 1281    1 CPY              cache_k_l19 (view) (copy of Kcur_roped-19) f32                 256x2x1x1              256x2x1x1     7.54     5.16     4.14     1.98     0.95     1.15
+ 1283    1 CPY              v_cache_view-19 (copy of Vcur-19)        f32                 512x1x1x1              512x1x1x1     5.79     3.93     2.94     1.35     1.04     1.35
+ 1287    1 FLASH_ATTN_EXT   fa-19                                    f32                256x1x16x1            256x256x2x1   484.85   482.53   466.10     1.43     0.98     1.18
+ 1290    1 CONT             gate_cont-19                             f32                256x16x1x1                0x0x0x0     5.59     1.48     0.58     2.35     1.42     2.18
+ 1291    1 UNARY            gate-19                                  f32                4096x1x1x1                0x0x0x0     3.82     1.31     0.36     1.17     1.18     1.81
+ 1292    1 MUL              qkv_gated-19                             f32                4096x1x1x1             4096x1x1x1     5.37     3.98     0.31     0.23     1.04     1.39
+ 1293    1 MUL_MAT          attn_out-19                              q4_K            4096x2048x1x1             4096x1x1x1    41.64    39.82    28.97     0.39     1.16     1.77
+ 1294    1 ADD              node_1294                                f32                2048x1x1x1             2048x1x1x1     3.43     1.74     0.13     0.41     0.97     1.35
+ 1295    1 FUSED_RMS_NORM   ffn_inp_normed-19                        f32                2048x1x1x1             2048x1x1x1     4.66     4.15     0.13     0.28     0.96     1.18
+ 1296    1 MUL_MAT          ffn_moe_logits-19                        f32              2048x256x1x1             2048x1x1x1    18.84    16.98    13.52     1.00     0.89     1.14
+ 1297    5 SOFT_MAX         ffn_moe_probs-19                         f32                 256x1x1x1                0x0x0x0     5.13     3.65     0.16     0.48     0.94     1.13
+ 1303    2 SUM_ROWS         ffn_moe_weights_sum-19                   f32                   8x1x1x1                0x0x0x0     4.66     1.62     0.60     1.92     0.99     1.75
+ 1307    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-19                      q4_K           2048x512x256x1         2048x512x256x1   183.69   181.77   155.86     1.04     0.98     1.17
+ 1316    1 FUSED_RMS_NORM   node_1316                                f32                2048x1x1x1             2048x1x1x1     6.23     4.59     0.21     0.37     0.95     1.36
+ 1317    3 MUL_MAT          qkv_mixed-20                             q4_K            2048x8192x1x1             2048x1x1x1    53.41    51.42    46.15     1.09     0.96     1.27
+ 1321    1 MUL_MAT          alpha-20                                 q4_K              2048x32x1x1             2048x1x1x1    11.52    10.27     6.28     0.26     0.96     1.28
+ 1330    1 SSM_CONV         conv_output_raw-20                       f32                3x8192x1x1             8192x1x1x1    16.58    14.86     9.96     0.61     1.11     1.48
+ 1332    1 UNARY            conv_output_silu-20                      f32                8192x1x1x1                0x0x0x0     5.88     3.52     0.49     1.35     0.95     1.17
+ 1334    1 L2_NORM          node_1334                                f32                128x16x1x1                0x0x0x0     4.70     1.57     0.51     1.77     1.48     1.95
+ 1337    1 L2_NORM          node_1337                                f32                128x16x1x1                0x0x0x0     5.55     1.30     0.25     2.83     1.25     1.71
+ 1341    1 ADD              alpha_biased-20                          f32                  32x1x1x1               32x1x1x1     5.15     1.20     0.22     1.53     1.93     3.12
+ 1342    1 UNARY            a_softplus-20                            f32                  32x1x1x1                0x0x0x0     3.38     0.95     0.21     1.28     1.24     1.65
+ 1343    1 MUL              g_in-20                                  f32                  32x1x1x1               32x1x1x1     3.49     0.74     0.25     1.84     0.99     1.17
+ 1347    6 DELTA_NET        delta_net_fused_raw-20                   f32                128x1x16x1             128x1x16x1    73.66    71.97    27.52     0.76     1.03     1.43
+ 1354    1 CONT             new_conv_states_cont-20                  f32                3x8192x1x1                0x0x0x0     6.26     4.31     2.52     0.97     0.97     1.45
+ 1357    1 CPY              conv_state_cpy-20                        f32               24576x1x1x1            24576x1x1x1     6.41     2.17     0.98     3.18     1.00     1.25
+ 1361    1 FUSED_RMS_NORM   attn_rms_norm-20                         f32                128x32x1x1              128x1x1x1     7.43     1.55     0.67     3.61     2.01     3.00
+ 1362    1 FUSED_MUL_UNARY  attn_out_norm-20                         f32                128x32x1x1             128x32x1x1     8.50     3.97     1.11     1.50     2.34     4.73
+ 1364    1 MUL_MAT          linear_attn_out-20                       q4_K            4096x2048x1x1             4096x1x1x1    40.43    37.38    30.14     0.53     2.27     3.78
+ 1366    1 ADD              ssm_output-20                            f32                2048x1x1x1             2048x1x1x1     4.06     2.62     0.28     0.34     0.98     1.20
+ 1367    1 FUSED_RMS_NORM   ffn_inp_normed-20                        f32                2048x1x1x1             2048x1x1x1     4.16     3.88     0.11     0.24     0.93     1.11
+ 1368    1 MUL_MAT          ffn_moe_logits-20                        f32              2048x256x1x1             2048x1x1x1    24.12    22.75    15.75     0.41     0.95     1.14
+ 1369    5 SOFT_MAX         ffn_moe_probs-20                         f32                 256x1x1x1                0x0x0x0     4.93     3.78     0.14     0.07     0.93     1.15
+ 1375    2 SUM_ROWS         ffn_moe_weights_sum-20                   f32                   8x1x1x1                0x0x0x0     4.17     1.15     0.33     2.36     0.94     1.08
+ 1379    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-20                      q4_K           2048x512x256x1         2048x512x256x1   164.84   162.60   141.69     1.40     0.98     1.28
+ 1388    1 FUSED_RMS_NORM   node_1388                                f32                2048x1x1x1             2048x1x1x1     7.44     5.53     0.20     0.45     1.27     1.75
+ 1389    3 MUL_MAT          qkv_mixed-21                             q4_K            2048x8192x1x1             2048x1x1x1   105.80   104.06    74.82     0.37     1.14     1.69
+ 1393    1 MUL_MAT          alpha-21                                 q4_K              2048x32x1x1             2048x1x1x1    11.49    10.18     6.39     0.28     0.96     1.17
+ 1402    1 SSM_CONV         conv_output_raw-21                       f32                3x8192x1x1             8192x1x1x1    21.46    19.77    13.94     0.60     1.12     1.64
+ 1404    1 UNARY            conv_output_silu-21                      f32                8192x1x1x1                0x0x0x0     7.87     5.44     0.68     1.38     0.94     1.14
+ 1406    1 L2_NORM          node_1406                                f32                128x16x1x1                0x0x0x0     5.29     1.73     0.44     1.52     1.99     3.43
+ 1409    1 L2_NORM          node_1409                                f32                128x16x1x1                0x0x0x0     5.24     1.28     0.36     2.70     1.10     1.43
+ 1413    1 ADD              alpha_biased-21                          f32                  32x1x1x1               32x1x1x1     4.58     0.89     0.19     1.98     1.52     2.23
+ 1414    1 UNARY            a_softplus-21                            f32                  32x1x1x1                0x0x0x0     3.11     0.83     0.23     1.37     1.01     1.29
+ 1415    1 MUL              g_in-21                                  f32                  32x1x1x1               32x1x1x1     3.95     0.79     0.23     2.27     0.96     1.14
+ 1419    6 DELTA_NET        delta_net_fused_raw-21                   f32                128x1x16x1             128x1x16x1    88.98    87.63    33.68     0.39     1.02     1.44
+ 1426    1 CONT             new_conv_states_cont-21                  f32                3x8192x1x1                0x0x0x0     8.11     6.22     3.50     0.75     0.99     1.41
+ 1429    1 CPY              conv_state_cpy-21                        f32               24576x1x1x1            24576x1x1x1     6.18     2.41     1.03     2.66     0.99     1.25
+ 1433    1 FUSED_RMS_NORM   attn_rms_norm-21                         f32                128x32x1x1              128x1x1x1     5.95     1.50     0.63     2.51     1.60     2.33
+ 1434    1 FUSED_MUL_UNARY  attn_out_norm-21                         f32                128x32x1x1             128x32x1x1     5.88     2.85     0.71     1.14     1.76     2.38
+ 1436    1 MUL_MAT          linear_attn_out-21                       q4_K            4096x2048x1x1             4096x1x1x1    72.91    70.48    49.00     0.41     1.78     2.35
+ 1438    1 ADD              ssm_output-21                            f32                2048x1x1x1             2048x1x1x1     4.21     2.75     0.23     0.35     0.98     1.24
+ 1439    1 FUSED_RMS_NORM   ffn_inp_normed-21                        f32                2048x1x1x1             2048x1x1x1     4.06     3.90     0.11     0.13     0.94     1.13
+ 1440    1 MUL_MAT          ffn_moe_logits-21                        f32              2048x256x1x1             2048x1x1x1    16.48    14.42    11.56     1.16     0.94     1.11
+ 1441    5 SOFT_MAX         ffn_moe_probs-21                         f32                 256x1x1x1                0x0x0x0     4.98     3.93     0.14     0.06     0.94     1.14
+ 1447    2 SUM_ROWS         ffn_moe_weights_sum-21                   f32                   8x1x1x1                0x0x0x0     3.59     1.44     0.49     1.23     0.94     1.09
+ 1451    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-21                      q4_K           2048x512x256x1         2048x512x256x1   151.24   149.03   130.57     1.32     0.98     1.62
+ 1460    1 FUSED_RMS_NORM   node_1460                                f32                2048x1x1x1             2048x1x1x1     8.80     6.68     0.22     0.42     1.38     1.95
+ 1461    3 MUL_MAT          qkv_mixed-22                             q6_K            2048x8192x1x1             2048x1x1x1    88.27    86.56    73.51     0.40     1.13     1.52
+ 1465    1 MUL_MAT          alpha-22                                 q4_K              2048x32x1x1             2048x1x1x1    11.50    10.18     6.39     0.28     0.96     1.17
+ 1474    1 SSM_CONV         conv_output_raw-22                       f32                3x8192x1x1             8192x1x1x1    19.21    17.57    12.06     0.56     1.11     1.72
+ 1476    1 UNARY            conv_output_silu-22                      f32                8192x1x1x1                0x0x0x0     6.92     4.55     0.58     1.33     0.93     1.13
+ 1478    1 L2_NORM          node_1478                                f32                128x16x1x1                0x0x0x0     5.52     1.70     0.51     1.69     1.91     3.44
+ 1481    1 L2_NORM          node_1481                                f32                128x16x1x1                0x0x0x0     5.83     1.49     0.40     2.93     1.21     1.60
+ 1485    1 ADD              alpha_biased-22                          f32                  32x1x1x1               32x1x1x1     4.25     1.01     0.16     1.51     1.85     2.44
+ 1486    1 UNARY            a_softplus-22                            f32                  32x1x1x1                0x0x0x0     3.28     0.94     0.33     1.48     1.04     1.27
+ 1487    1 MUL              g_in-22                                  f32                  32x1x1x1               32x1x1x1     3.25     0.83     0.29     1.57     0.97     1.13
+ 1491    6 DELTA_NET        delta_net_fused_raw-22                   f32                128x1x16x1             128x1x16x1    84.83    83.30    35.50     0.60     1.00     1.29
+ 1498    1 CONT             new_conv_states_cont-22                  f32                3x8192x1x1                0x0x0x0     7.24     5.11     3.06     1.16     0.94     1.25
+ 1501    1 CPY              conv_state_cpy-22                        f32               24576x1x1x1            24576x1x1x1     7.73     2.83     1.40     3.81     1.03     1.39
+ 1505    1 FUSED_RMS_NORM   attn_rms_norm-22                         f32                128x32x1x1              128x1x1x1     6.92     1.79     0.65     2.63     1.99     2.91
+ 1506    1 FUSED_MUL_UNARY  attn_out_norm-22                         f32                128x32x1x1             128x32x1x1     7.08     4.18     0.93     1.14     2.00     2.76
+ 1508    1 MUL_MAT          linear_attn_out-22                       q4_K            4096x2048x1x1             4096x1x1x1    61.35    58.84    42.87     0.28     1.90     2.59
+ 1510    1 ADD              ssm_output-22                            f32                2048x1x1x1             2048x1x1x1     3.90     2.49     0.25     0.35     0.94     1.16
+ 1511    1 FUSED_RMS_NORM   ffn_inp_normed-22                        f32                2048x1x1x1             2048x1x1x1     4.22     4.02     0.11     0.15     0.94     1.08
+ 1512    1 MUL_MAT          ffn_moe_logits-22                        f32              2048x256x1x1             2048x1x1x1    21.42    19.34    15.75     1.20     0.90     1.06
+ 1513    5 SOFT_MAX         ffn_moe_probs-22                         f32                 256x1x1x1                0x0x0x0     4.77     3.71     0.12     0.05     0.94     1.13
+ 1519    2 SUM_ROWS         ffn_moe_weights_sum-22                   f32                   8x1x1x1                0x0x0x0     3.86     1.64     0.57     1.21     0.95     1.11
+ 1523    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-22                      q4_K           2048x512x256x1         2048x512x256x1   157.49   154.26   135.17     2.26     0.99     1.26
+ 1532    1 FUSED_RMS_NORM   attn_norm-23                             f32                2048x1x1x1             2048x1x1x1     8.60     6.54     0.26     0.57     1.44     1.96
+ 1533    3 MUL_MAT          Qaux-23                                  q4_K            2048x8192x1x1             2048x1x1x1    50.61    48.95    44.08     0.57     1.02     1.30
+ 1537    1 CONT             Qcur_cont-23                             f32                256x16x1x1                0x0x0x0     4.25     1.75     0.68     1.32     1.00     1.30
+ 1538    1 FUSED_RMS_NORM   Qcur_normed-23                           f32                256x16x1x1              256x1x1x1     3.55     1.56     0.32     1.00     0.97     1.20
+ 1540    1 FUSED_RMS_NORM   Kcur_normed-23                           f32                 256x2x1x1              256x1x1x1     2.98     0.97     0.24     1.09     0.92     1.15
+ 1541    1 ROPE             Qcur_roped-23                            f32                256x16x1x1                4x1x1x1     7.70     6.22     1.66     0.41     0.96     1.18
+ 1542    1 ROPE             Kcur_roped-23                            f32                 256x2x1x1                4x1x1x1     3.78     2.45     0.18     0.52     0.91     1.07
+ 1544    1 CPY              cache_k_l23 (view) (copy of Kcur_roped-23) f32                 256x2x1x1              256x2x1x1     8.34     5.59     4.53     2.53     0.96     1.44
+ 1546    1 CPY              v_cache_view-23 (copy of Vcur-23)        f32                 512x1x1x1              512x1x1x1     6.40     4.53     3.30     1.32     1.29     1.78
+ 1550    1 FLASH_ATTN_EXT   fa-23                                    f32                256x1x16x1            256x256x2x1   418.19   415.99   403.73     1.36     1.02     1.33
+ 1553    1 CONT             gate_cont-23                             f32                256x16x1x1                0x0x0x0     5.18     1.33     0.55     1.92     1.50     2.25
+ 1554    1 UNARY            gate-23                                  f32                4096x1x1x1                0x0x0x0     3.83     1.34     0.34     1.31     1.32     1.81
+ 1555    1 MUL              qkv_gated-23                             f32                4096x1x1x1             4096x1x1x1     6.08     4.43     0.33     0.24     1.23     1.77
+ 1556    1 MUL_MAT          attn_out-23                              q4_K            4096x2048x1x1             4096x1x1x1    46.05    44.33    32.52     0.35     1.18     1.73
+ 1557    1 ADD              node_1557                                f32                2048x1x1x1             2048x1x1x1     3.22     1.76     0.15     0.40     0.95     1.14
+ 1558    1 FUSED_RMS_NORM   ffn_inp_normed-23                        f32                2048x1x1x1             2048x1x1x1     4.57     3.98     0.15     0.29     0.95     1.15
+ 1559    1 MUL_MAT          ffn_moe_logits-23                        f32              2048x256x1x1             2048x1x1x1    17.57    15.48    12.25     1.19     0.87     1.11
+ 1560    5 SOFT_MAX         ffn_moe_probs-23                         f32                 256x1x1x1                0x0x0x0     4.86     3.43     0.14     0.42     0.94     1.14
+ 1566    2 SUM_ROWS         ffn_moe_weights_sum-23                   f32                   8x1x1x1                0x0x0x0     4.50     1.47     0.50     1.98     0.98     1.23
+ 1570    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-23                      q4_K           2048x512x256x1         2048x512x256x1   137.93   135.58   119.75     1.49     0.99     1.16
+ 1579    1 FUSED_RMS_NORM   node_1579                                f32                2048x1x1x1             2048x1x1x1     7.05     5.22     0.19     0.45     1.20     1.67
+ 1580    3 MUL_MAT          qkv_mixed-24                             q4_K            2048x8192x1x1             2048x1x1x1    57.34    55.48    49.64     0.82     0.98     1.20
+ 1584    1 MUL_MAT          alpha-24                                 q4_K              2048x32x1x1             2048x1x1x1    11.48    10.17     6.24     0.30     0.93     1.24
+ 1593    1 SSM_CONV         conv_output_raw-24                       f32                3x8192x1x1             8192x1x1x1    16.35    14.73     9.77     0.54     1.09     1.41
+ 1595    1 UNARY            conv_output_silu-24                      f32                8192x1x1x1                0x0x0x0     6.37     3.73     0.51     1.61     0.93     1.13
+ 1597    1 L2_NORM          node_1597                                f32                128x16x1x1                0x0x0x0     5.07     1.76     0.49     2.02     1.62     2.10
+ 1600    1 L2_NORM          node_1600                                f32                128x16x1x1                0x0x0x0     4.80     1.31     0.28     2.06     1.27     1.68
+ 1604    1 ADD              alpha_biased-24                          f32                  32x1x1x1               32x1x1x1     4.28     0.84     0.13     1.89     1.59     2.20
+ 1605    1 UNARY            a_softplus-24                            f32                  32x1x1x1                0x0x0x0     3.26     0.75     0.14     1.41     1.09     1.41
+ 1606    1 MUL              g_in-24                                  f32                  32x1x1x1               32x1x1x1     3.67     0.83     0.32     1.90     0.99     1.18
+ 1610    6 DELTA_NET        delta_net_fused_raw-24                   f32                128x1x16x1             128x1x16x1    80.38    78.65    31.01     0.80     1.02     1.37
+ 1617    1 CONT             new_conv_states_cont-24                  f32                3x8192x1x1                0x0x0x0     6.60     4.36     2.55     1.05     0.98     1.57
+ 1620    1 CPY              conv_state_cpy-24                        f32               24576x1x1x1            24576x1x1x1     6.04     2.49     1.31     2.51     1.01     1.32
+ 1624    1 FUSED_RMS_NORM   attn_rms_norm-24                         f32                128x32x1x1              128x1x1x1     5.95     1.57     0.62     2.36     1.51     2.33
+ 1625    1 FUSED_MUL_UNARY  attn_out_norm-24                         f32                128x32x1x1             128x32x1x1     5.32     2.93     0.74     0.88     1.58     2.19
+ 1627    1 MUL_MAT          linear_attn_out-24                       q4_K            4096x2048x1x1             4096x1x1x1    37.86    35.63    31.40     0.77     1.70     2.20
+ 1629    1 ADD              ssm_output-24                            f32                2048x1x1x1             2048x1x1x1     5.09     3.37     0.22     0.40     1.30     1.74
+ 1630    1 FUSED_RMS_NORM   ffn_inp_normed-24                        f32                2048x1x1x1             2048x1x1x1     4.23     3.98     0.11     0.22     0.98     1.18
+ 1631    1 MUL_MAT          ffn_moe_logits-24                        f32              2048x256x1x1             2048x1x1x1    17.25    15.00    11.57     1.33     0.94     1.12
+ 1632    5 SOFT_MAX         ffn_moe_probs-24                         f32                 256x1x1x1                0x0x0x0     5.18     4.03     0.16     0.13     0.96     1.17
+ 1638    2 SUM_ROWS         ffn_moe_weights_sum-24                   f32                   8x1x1x1                0x0x0x0     3.19     0.96     0.25     1.69     0.94     1.10
+ 1642    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-24                      q4_K           2048x512x256x1         2048x512x256x1   131.88   129.13   119.97     1.83     1.00     2.05
+ 1651    1 FUSED_RMS_NORM   node_1651                                f32                2048x1x1x1             2048x1x1x1     9.08     6.98     0.22     0.57     1.47     2.07
+ 1652    3 MUL_MAT          qkv_mixed-25                             q6_K            2048x8192x1x1             2048x1x1x1    63.90    61.80    58.79     1.27     1.24     1.54
+ 1656    1 MUL_MAT          alpha-25                                 q4_K              2048x32x1x1             2048x1x1x1    11.18     9.96     6.13     0.30     0.94     1.19
+ 1665    1 SSM_CONV         conv_output_raw-25                       f32                3x8192x1x1             8192x1x1x1    19.48    18.03    12.48     0.38     1.10     1.66
+ 1667    1 UNARY            conv_output_silu-25                      f32                8192x1x1x1                0x0x0x0     6.36     4.06     0.54     1.27     0.95     1.12
+ 1669    1 L2_NORM          node_1669                                f32                128x16x1x1                0x0x0x0     4.68     1.66     0.44     1.75     1.56     1.95
+ 1672    1 L2_NORM          node_1672                                f32                128x16x1x1                0x0x0x0     5.68     1.34     0.32     3.09     1.21     1.55
+ 1676    1 ADD              alpha_biased-25                          f32                  32x1x1x1               32x1x1x1     5.59     1.30     0.18     2.12     2.27     3.07
+ 1677    1 UNARY            a_softplus-25                            f32                  32x1x1x1                0x0x0x0     3.65     1.11     0.32     1.52     1.20     1.55
+ 1678    1 MUL              g_in-25                                  f32                  32x1x1x1               32x1x1x1     3.66     0.78     0.24     1.92     0.99     1.17
+ 1682    6 DELTA_NET        delta_net_fused_raw-25                   f32                128x1x16x1             128x1x16x1    84.55    83.16    32.66     0.31     1.02     1.52
+ 1689    1 CONT             new_conv_states_cont-25                  f32                3x8192x1x1                0x0x0x0     8.04     5.63     3.16     0.92     0.94     1.81
+ 1692    1 CPY              conv_state_cpy-25                        f32               24576x1x1x1            24576x1x1x1     6.37     2.75     1.43     2.59     1.03     1.38
+ 1696    1 FUSED_RMS_NORM   attn_rms_norm-25                         f32                128x32x1x1              128x1x1x1     5.93     1.42     0.56     2.22     1.68     2.56
+ 1697    1 FUSED_MUL_UNARY  attn_out_norm-25                         f32                128x32x1x1             128x32x1x1     5.58     2.79     0.80     1.15     1.59     2.12
+ 1699    1 MUL_MAT          linear_attn_out-25                       q4_K            4096x2048x1x1             4096x1x1x1    45.39    42.93    37.27     0.70     1.80     2.29
+ 1701    1 ADD              ssm_output-25                            f32                2048x1x1x1             2048x1x1x1     4.12     2.64     0.29     0.41     0.95     1.14
+ 1702    1 FUSED_RMS_NORM   ffn_inp_normed-25                        f32                2048x1x1x1             2048x1x1x1     4.23     3.92     0.13     0.28     0.93     1.07
+ 1703    1 MUL_MAT          ffn_moe_logits-25                        f32              2048x256x1x1             2048x1x1x1    21.28    19.64    15.86     0.71     0.94     1.09
+ 1704    5 SOFT_MAX         ffn_moe_probs-25                         f32                 256x1x1x1                0x0x0x0     5.25     4.09     0.13     0.07     0.96     1.15
+ 1710    2 SUM_ROWS         ffn_moe_weights_sum-25                   f32                   8x1x1x1                0x0x0x0     3.61     1.49     0.47     1.16     0.93     1.09
+ 1714    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-25                      q4_K           2048x512x256x1         2048x512x256x1   143.31   140.04   127.51     2.25     1.02     1.74
+ 1723    1 FUSED_RMS_NORM   node_1723                                f32                2048x1x1x1             2048x1x1x1     8.29     6.16     0.25     0.58     1.56     2.12
+ 1724    3 MUL_MAT          qkv_mixed-26                             q4_K            2048x8192x1x1             2048x1x1x1    53.45    51.39    48.03     1.12     1.13     1.45
+ 1728    1 MUL_MAT          alpha-26                                 q4_K              2048x32x1x1             2048x1x1x1    11.72    10.35     6.37     0.35     0.96     1.18
+ 1737    1 SSM_CONV         conv_output_raw-26                       f32                3x8192x1x1             8192x1x1x1    19.29    17.85    12.34     0.31     1.16     2.16
+ 1739    1 UNARY            conv_output_silu-26                      f32                8192x1x1x1                0x0x0x0     7.30     4.60     0.59     1.68     0.95     1.14
+ 1741    1 L2_NORM          node_1741                                f32                128x16x1x1                0x0x0x0     4.64     1.86     0.57     1.42     1.63     2.03
+ 1744    1 L2_NORM          node_1744                                f32                128x16x1x1                0x0x0x0     6.17     1.51     0.31     3.52     1.10     1.36
+ 1748    1 ADD              alpha_biased-26                          f32                  32x1x1x1               32x1x1x1     4.62     1.19     0.17     1.38     2.20     2.90
+ 1749    1 UNARY            a_softplus-26                            f32                  32x1x1x1                0x0x0x0     3.13     0.82     0.15     1.30     1.13     1.37
+ 1750    1 MUL              g_in-26                                  f32                  32x1x1x1               32x1x1x1     3.07     0.92     0.35     1.27     0.95     1.12
+ 1754    6 DELTA_NET        delta_net_fused_raw-26                   f32                128x1x16x1             128x1x16x1    73.56    72.20    32.92     0.42     0.99     1.17
+ 1761    1 CONT             new_conv_states_cont-26                  f32                3x8192x1x1                0x0x0x0     7.53     5.58     3.10     0.93     0.93     1.34
+ 1764    1 CPY              conv_state_cpy-26                        f32               24576x1x1x1            24576x1x1x1     7.58     2.59     1.27     3.91     1.00     1.28
+ 1768    1 FUSED_RMS_NORM   attn_rms_norm-26                         f32                128x32x1x1              128x1x1x1     8.97     1.96     0.66     3.92     2.77     3.67
+ 1769    1 FUSED_MUL_UNARY  attn_out_norm-26                         f32                128x32x1x1             128x32x1x1     8.49     4.59     1.13     1.44     2.78     3.81
+ 1771    1 MUL_MAT          linear_attn_out-26                       q4_K            4096x2048x1x1             4096x1x1x1    44.45    42.23    35.71     0.38     1.73     2.27
+ 1773    1 ADD              ssm_output-26                            f32                2048x1x1x1             2048x1x1x1     4.03     2.62     0.36     0.36     0.96     1.16
+ 1774    1 FUSED_RMS_NORM   ffn_inp_normed-26                        f32                2048x1x1x1             2048x1x1x1     4.17     3.90     0.11     0.20     0.94     1.08
+ 1775    1 MUL_MAT          ffn_moe_logits-26                        f32              2048x256x1x1             2048x1x1x1    24.47    22.84    18.46     0.68     0.92     1.07
+ 1776    5 SOFT_MAX         ffn_moe_probs-26                         f32                 256x1x1x1                0x0x0x0     5.04     3.92     0.16     0.06     0.97     1.15
+ 1782    2 SUM_ROWS         ffn_moe_weights_sum-26                   f32                   8x1x1x1                0x0x0x0     3.22     1.03     0.26     1.65     0.94     1.11
+ 1786    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-26                      q4_K           2048x512x256x1         2048x512x256x1   145.91   142.05   128.45     2.90     1.04     1.97
+ 1795    1 FUSED_RMS_NORM   attn_norm-27                             f32                2048x1x1x1             2048x1x1x1     9.99     7.42     0.23     0.54     1.85     2.43
+ 1796    3 MUL_MAT          Qaux-27                                  q4_K            2048x8192x1x1             2048x1x1x1    62.08    60.01    56.53     0.98     1.07     1.35
+ 1800    1 CONT             Qcur_cont-27                             f32                256x16x1x1                0x0x0x0     4.20     1.51     0.61     1.57     0.98     1.27
+ 1801    1 FUSED_RMS_NORM   Qcur_normed-27                           f32                256x16x1x1              256x1x1x1     3.56     1.60     0.37     0.95     0.97     1.23
+ 1803    1 FUSED_RMS_NORM   Kcur_normed-27                           f32                 256x2x1x1              256x1x1x1     3.27     1.01     0.10     1.31     0.94     1.14
+ 1804    1 ROPE             Qcur_roped-27                            f32                256x16x1x1                4x1x1x1     7.82     6.28     1.68     0.43     0.97     1.22
+ 1805    1 ROPE             Kcur_roped-27                            f32                 256x2x1x1                4x1x1x1     3.84     2.54     0.15     0.46     0.91     1.06
+ 1807    1 CPY              cache_k_l27 (view) (copy of Kcur_roped-27) f32                 256x2x1x1              256x2x1x1     7.81     4.74     3.58     2.75     0.94     1.20
+ 1809    1 CPY              v_cache_view-27 (copy of Vcur-27)        f32                 512x1x1x1              512x1x1x1     6.61     4.79     3.37     1.40     1.43     1.76
+ 1813    1 FLASH_ATTN_EXT   fa-27                                    f32                256x1x16x1            256x256x2x1   430.25   428.14   415.88     1.25     1.00     1.33
+ 1816    1 CONT             gate_cont-27                             f32                256x16x1x1                0x0x0x0     5.37     1.41     0.61     2.08     1.54     2.31
+ 1817    1 UNARY            gate-27                                  f32                4096x1x1x1                0x0x0x0     4.01     1.31     0.32     1.36     1.41     1.93
+ 1818    1 MUL              qkv_gated-27                             f32                4096x1x1x1             4096x1x1x1     8.00     6.15     0.29     0.28     1.38     1.88
+ 1819    1 MUL_MAT          attn_out-27                              q4_K            4096x2048x1x1             4096x1x1x1    34.05    32.74    27.82     0.38     1.23     1.64
+ 1820    1 ADD              node_1820                                f32                2048x1x1x1             2048x1x1x1     3.45     1.86     0.17     0.51     0.95     1.32
+ 1821    1 FUSED_RMS_NORM   ffn_inp_normed-27                        f32                2048x1x1x1             2048x1x1x1     4.69     4.12     0.13     0.26     0.96     1.18
+ 1822    1 MUL_MAT          ffn_moe_logits-27                        f32              2048x256x1x1             2048x1x1x1    17.99    15.85    12.61     1.14     0.88     1.26
+ 1823    5 SOFT_MAX         ffn_moe_probs-27                         f32                 256x1x1x1                0x0x0x0     4.58     3.50     0.12     0.08     0.95     1.13
+ 1829    2 SUM_ROWS         ffn_moe_weights_sum-27                   f32                   8x1x1x1                0x0x0x0     4.54     1.02     0.24     2.67     0.96     1.11
+ 1833    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-27                      q4_K           2048x512x256x1         2048x512x256x1   128.41   125.48   112.40     1.95     1.00     1.18
+ 1842    1 FUSED_RMS_NORM   node_1842                                f32                2048x1x1x1             2048x1x1x1    10.12     7.88     0.24     0.64     1.61     2.23
+ 1843    3 MUL_MAT          qkv_mixed-28                             q6_K            2048x8192x1x1             2048x1x1x1    67.45    65.45    61.91     1.01     1.17     1.49
+ 1847    1 MUL_MAT          alpha-28                                 q4_K              2048x32x1x1             2048x1x1x1    11.30     9.99     6.26     0.33     0.95     1.35
+ 1856    1 SSM_CONV         conv_output_raw-28                       f32                3x8192x1x1             8192x1x1x1    17.42    15.95    10.81     0.38     1.09     1.99
+ 1858    1 UNARY            conv_output_silu-28                      f32                8192x1x1x1                0x0x0x0     6.09     3.73     0.48     1.29     0.94     1.17
+ 1860    1 L2_NORM          node_1860                                f32                128x16x1x1                0x0x0x0     4.37     1.54     0.32     1.68     1.49     1.92
+ 1863    1 L2_NORM          node_1863                                f32                128x16x1x1                0x0x0x0     4.81     1.40     0.26     2.07     1.35     1.77
+ 1867    1 ADD              alpha_biased-28                          f32                  32x1x1x1               32x1x1x1     4.31     0.94     0.19     1.75     1.68     2.33
+ 1868    1 UNARY            a_softplus-28                            f32                  32x1x1x1                0x0x0x0     3.34     0.77     0.17     1.48     1.08     1.41
+ 1869    1 MUL              g_in-28                                  f32                  32x1x1x1               32x1x1x1     3.62     0.83     0.29     1.93     0.96     1.14
+ 1873    6 DELTA_NET        delta_net_fused_raw-28                   f32                128x1x16x1             128x1x16x1    77.00    75.52    32.23     0.47     1.03     1.68
+ 1880    1 CONT             new_conv_states_cont-28                  f32                3x8192x1x1                0x0x0x0     7.00     4.65     2.77     1.21     0.92     1.34
+ 1883    1 CPY              conv_state_cpy-28                        f32               24576x1x1x1            24576x1x1x1     6.27     2.94     1.44     2.29     1.01     1.44
+ 1887    1 FUSED_RMS_NORM   attn_rms_norm-28                         f32                128x32x1x1              128x1x1x1     6.63     1.63     0.66     2.99     1.69     2.36
+ 1888    1 FUSED_MUL_UNARY  attn_out_norm-28                         f32                128x32x1x1             128x32x1x1     5.80     3.02     0.82     0.87     1.72     2.42
+ 1890    1 MUL_MAT          linear_attn_out-28                       q4_K            4096x2048x1x1             4096x1x1x1    33.43    31.49    27.90     0.58     1.68     2.12
+ 1892    1 ADD              ssm_output-28                            f32                2048x1x1x1             2048x1x1x1     3.91     2.49     0.20     0.39     0.98     1.23
+ 1893    1 FUSED_RMS_NORM   ffn_inp_normed-28                        f32                2048x1x1x1             2048x1x1x1     4.01     3.80     0.11     0.18     0.93     1.07
+ 1894    1 MUL_MAT          ffn_moe_logits-28                        f32              2048x256x1x1             2048x1x1x1    17.76    15.19    12.10     1.68     0.93     1.07
+ 1895    5 SOFT_MAX         ffn_moe_probs-28                         f32                 256x1x1x1                0x0x0x0     4.74     3.70     0.11     0.08     0.94     1.12
+ 1901    2 SUM_ROWS         ffn_moe_weights_sum-28                   f32                   8x1x1x1                0x0x0x0     3.78     1.61     0.57     1.17     0.94     1.08
+ 1905    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-28                      q4_K           2048x512x256x1         2048x512x256x1   126.30   123.37   110.80     1.95     0.99     1.47
+ 1914    1 FUSED_RMS_NORM   node_1914                                f32                2048x1x1x1             2048x1x1x1     7.71     5.93     0.23     0.40     1.37     1.85
+ 1915    3 MUL_MAT          qkv_mixed-29                             q4_K            2048x8192x1x1             2048x1x1x1    50.52    48.47    45.26     1.13     0.97     1.14
+ 1919    1 MUL_MAT          alpha-29                                 q4_K              2048x32x1x1             2048x1x1x1    12.88    11.52     7.87     0.37     0.94     1.29
+ 1928    1 SSM_CONV         conv_output_raw-29                       f32                3x8192x1x1             8192x1x1x1    18.44    16.96    11.51     0.45     1.05     1.28
+ 1930    1 UNARY            conv_output_silu-29                      f32                8192x1x1x1                0x0x0x0     6.67     4.25     0.52     1.32     0.96     1.18
+ 1932    1 L2_NORM          node_1932                                f32                128x16x1x1                0x0x0x0     4.92     2.05     0.49     1.60     1.67     2.09
+ 1935    1 L2_NORM          node_1935                                f32                128x16x1x1                0x0x0x0     4.73     1.41     0.30     2.13     1.25     1.56
+ 1939    1 ADD              alpha_biased-29                          f32                  32x1x1x1               32x1x1x1     3.73     0.75     0.13     1.49     1.49     2.00
+ 1940    1 UNARY            a_softplus-29                            f32                  32x1x1x1                0x0x0x0     3.06     0.72     0.16     1.34     1.04     1.32
+ 1941    1 MUL              g_in-29                                  f32                  32x1x1x1               32x1x1x1     3.08     0.74     0.28     1.41     0.97     1.14
+ 1945    6 DELTA_NET        delta_net_fused_raw-29                   f32                128x1x16x1             128x1x16x1    80.68    79.22    34.95     0.47     1.03     1.35
+ 1952    1 CONT             new_conv_states_cont-29                  f32                3x8192x1x1                0x0x0x0     8.37     6.53     3.45     0.83     0.91     1.35
+ 1955    1 CPY              conv_state_cpy-29                        f32               24576x1x1x1            24576x1x1x1     5.89     2.56     1.40     2.23     0.98     1.30
+ 1959    1 FUSED_RMS_NORM   attn_rms_norm-29                         f32                128x32x1x1              128x1x1x1     5.97     1.57     0.63     2.36     1.67     2.52
+ 1960    1 FUSED_MUL_UNARY  attn_out_norm-29                         f32                128x32x1x1             128x32x1x1     5.34     2.75     0.70     1.00     1.58     2.14
+ 1962    1 MUL_MAT          linear_attn_out-29                       q4_K            4096x2048x1x1             4096x1x1x1    36.10    33.97    30.33     0.76     1.62     2.16
+ 1964    1 ADD              ssm_output-29                            f32                2048x1x1x1             2048x1x1x1     4.16     2.80     0.25     0.38     0.98     1.23
+ 1965    1 FUSED_RMS_NORM   ffn_inp_normed-29                        f32                2048x1x1x1             2048x1x1x1     4.11     3.87     0.11     0.20     0.93     1.08
+ 1966    1 MUL_MAT          ffn_moe_logits-29                        f32              2048x256x1x1             2048x1x1x1    16.27    13.61    11.06     1.78     0.94     1.09
+ 1967    5 SOFT_MAX         ffn_moe_probs-29                         f32                 256x1x1x1                0x0x0x0     4.42     3.36     0.12     0.08     0.97     1.14
+ 1973    2 SUM_ROWS         ffn_moe_weights_sum-29                   f32                   8x1x1x1                0x0x0x0     4.05     1.70     0.60     1.31     0.97     1.17
+ 1977    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-29                      q4_K           2048x512x256x1         2048x512x256x1   135.96   133.46   126.05     1.52     0.98     1.18
+ 1986    1 FUSED_RMS_NORM   node_1986                                f32                2048x1x1x1             2048x1x1x1     8.89     6.83     0.20     0.76     1.32     1.83
+ 1987    3 MUL_MAT          qkv_mixed-30                             q4_K            2048x8192x1x1             2048x1x1x1    48.30    46.40    43.34     1.03     1.25     1.47
+ 1991    1 MUL_MAT          alpha-30                                 q4_K              2048x32x1x1             2048x1x1x1    11.30     9.98     6.21     0.40     0.94     1.17
+ 2000    1 SSM_CONV         conv_output_raw-30                       f32                3x8192x1x1             8192x1x1x1    20.28    18.83    12.99     0.33     1.13     2.24
+ 2002    1 UNARY            conv_output_silu-30                      f32                8192x1x1x1                0x0x0x0     7.50     5.04     0.60     1.41     0.94     1.15
+ 2004    1 L2_NORM          node_2004                                f32                128x16x1x1                0x0x0x0     6.00     1.76     0.44     1.62     2.32     3.85
+ 2007    1 L2_NORM          node_2007                                f32                128x16x1x1                0x0x0x0     4.41     1.23     0.31     1.95     1.13     1.45
+ 2011    1 ADD              alpha_biased-30                          f32                  32x1x1x1               32x1x1x1     3.79     0.77     0.13     1.49     1.57     2.07
+ 2012    1 UNARY            a_softplus-30                            f32                  32x1x1x1                0x0x0x0     3.11     0.86     0.22     1.24     1.06     1.37
+ 2013    1 MUL              g_in-30                                  f32                  32x1x1x1               32x1x1x1     3.17     0.72     0.27     1.56     0.96     1.16
+ 2017    6 DELTA_NET        delta_net_fused_raw-30                   f32                128x1x16x1             128x1x16x1    73.06    71.67    30.42     0.35     1.00     1.56
+ 2024    1 CONT             new_conv_states_cont-30                  f32                3x8192x1x1                0x0x0x0     7.18     5.31     3.18     0.89     0.90     1.20
+ 2027    1 CPY              conv_state_cpy-30                        f32               24576x1x1x1            24576x1x1x1     6.52     2.76     1.31     2.76     0.97     1.30
+ 2031    1 FUSED_RMS_NORM   attn_rms_norm-30                         f32                128x32x1x1              128x1x1x1     6.12     1.59     0.63     2.41     1.59     2.43
+ 2032    1 FUSED_MUL_UNARY  attn_out_norm-30                         f32                128x32x1x1             128x32x1x1     5.30     2.95     0.72     0.91     1.55     2.12
+ 2034    1 MUL_MAT          linear_attn_out-30                       q4_K            4096x2048x1x1             4096x1x1x1    88.32    86.27    55.83     0.24     1.68     2.18
+ 2036    1 ADD              ssm_output-30                            f32                2048x1x1x1             2048x1x1x1     4.30     2.75     0.21     0.35     1.00     1.48
+ 2037    1 FUSED_RMS_NORM   ffn_inp_normed-30                        f32                2048x1x1x1             2048x1x1x1     4.12     3.91     0.13     0.16     0.93     1.08
+ 2038    1 MUL_MAT          ffn_moe_logits-30                        f32              2048x256x1x1             2048x1x1x1    17.18    14.56    11.58     1.72     0.92     1.06
+ 2039    5 SOFT_MAX         ffn_moe_probs-30                         f32                 256x1x1x1                0x0x0x0     4.63     3.59     0.12     0.06     0.98     1.17
+ 2045    2 SUM_ROWS         ffn_moe_weights_sum-30                   f32                   8x1x1x1                0x0x0x0     3.54     1.33     0.40     1.31     0.97     1.16
+ 2049    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-30                      q4_K           2048x512x256x1         2048x512x256x1   109.93   107.14    99.04     1.73     1.02     1.60
+ 2058    1 FUSED_RMS_NORM   attn_norm-31                             f32                2048x1x1x1             2048x1x1x1     8.94     6.88     0.21     0.86     1.48     2.17
+ 2059    3 MUL_MAT          Qaux-31                                  q4_K            2048x8192x1x1             2048x1x1x1    43.39    41.54    37.87     0.73     1.26     1.52
+ 2063    1 CONT             Qcur_cont-31                             f32                256x16x1x1                0x0x0x0     5.49     1.40     0.46     3.06     1.04     1.30
+ 2064    1 FUSED_RMS_NORM   Qcur_normed-31                           f32                256x16x1x1              256x1x1x1     4.09     1.95     0.36     1.02     1.06     1.41
+ 2066    1 FUSED_RMS_NORM   Kcur_normed-31                           f32                 256x2x1x1              256x1x1x1     2.85     0.83     0.14     1.07     0.94     1.15
+ 2067    1 ROPE             Qcur_roped-31                            f32                256x16x1x1                4x1x1x1     7.77     6.25     1.68     0.40     0.98     1.25
+ 2068    1 ROPE             Kcur_roped-31                            f32                 256x2x1x1                4x1x1x1     4.01     2.70     0.18     0.44     0.93     1.08
+ 2070    1 CPY              cache_k_l31 (view) (copy of Kcur_roped-31) f32                 256x2x1x1              256x2x1x1     7.17     4.13     3.13     2.78     0.93     1.12
+ 2072    1 CPY              v_cache_view-31 (copy of Vcur-31)        f32                 512x1x1x1              512x1x1x1     5.78     3.93     2.88     1.52     1.09     1.45
+ 2076    1 FLASH_ATTN_EXT   fa-31                                    f32                256x1x16x1            256x256x2x1   421.30   418.85   411.30     1.60     0.99     1.41
+ 2079    1 CONT             gate_cont-31                             f32                256x16x1x1                0x0x0x0     5.23     1.28     0.54     1.98     1.64     2.29
+ 2080    1 UNARY            gate-31                                  f32                4096x1x1x1                0x0x0x0     4.04     1.33     0.29     1.44     1.49     1.92
+ 2081    1 MUL              qkv_gated-31                             f32                4096x1x1x1             4096x1x1x1     6.57     4.68     0.31     0.24     1.44     1.89
+ 2082    1 MUL_MAT          attn_out-31                              q4_K            4096x2048x1x1             4096x1x1x1    32.48    31.07    26.47     0.39     1.13     1.41
+ 2083    1 ADD              node_2083                                f32                2048x1x1x1             2048x1x1x1     3.20     1.70     0.16     0.45     0.95     1.21
+ 2084    1 FUSED_RMS_NORM   ffn_inp_normed-31                        f32                2048x1x1x1             2048x1x1x1     4.39     3.74     0.12     0.28     0.96     1.17
+ 2085    1 MUL_MAT          ffn_moe_logits-31                        f32              2048x256x1x1             2048x1x1x1    17.48    15.22    12.17     1.43     0.84     1.06
+ 2086    5 SOFT_MAX         ffn_moe_probs-31                         f32                 256x1x1x1                0x0x0x0     4.98     3.94     0.15     0.07     0.94     1.12
+ 2092    2 SUM_ROWS         ffn_moe_weights_sum-31                   f32                   8x1x1x1                0x0x0x0     3.60     1.37     0.46     1.22     0.95     1.09
+ 2096    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-31                      q4_K           2048x512x256x1         2048x512x256x1   121.32   118.39   105.81     1.88     1.00     1.19
+ 2105    1 FUSED_RMS_NORM   node_2105                                f32                2048x1x1x1             2048x1x1x1     8.40     6.66     0.24     0.47     1.28     1.53
+ 2106    3 MUL_MAT          qkv_mixed-32                             q4_K            2048x8192x1x1             2048x1x1x1    47.14    45.28    42.49     1.21     1.00     1.17
+ 2110    1 MUL_MAT          alpha-32                                 q4_K              2048x32x1x1             2048x1x1x1    11.43    10.09     6.16     0.38     0.95     1.18
+ 2119    1 SSM_CONV         conv_output_raw-32                       f32                3x8192x1x1             8192x1x1x1    15.93    14.38     9.70     0.45     1.09     1.42
+ 2121    1 UNARY            conv_output_silu-32                      f32                8192x1x1x1                0x0x0x0     6.67     4.42     0.60     1.27     0.91     1.09
+ 2123    1 L2_NORM          node_2123                                f32                128x16x1x1                0x0x0x0     4.71     1.70     0.50     1.55     1.52     2.02
+ 2126    1 L2_NORM          node_2126                                f32                128x16x1x1                0x0x0x0     4.54     1.31     0.25     2.02     1.19     1.48
+ 2130    1 ADD              alpha_biased-32                          f32                  32x1x1x1               32x1x1x1     3.67     0.77     0.13     1.46     1.49     1.94
+ 2131    1 UNARY            a_softplus-32                            f32                  32x1x1x1                0x0x0x0     3.23     0.90     0.26     1.46     1.05     1.27
+ 2132    1 MUL              g_in-32                                  f32                  32x1x1x1               32x1x1x1     3.14     0.84     0.26     1.44     0.96     1.16
+ 2136    6 DELTA_NET        delta_net_fused_raw-32                   f32                128x1x16x1             128x1x16x1    80.83    79.57    35.03     0.34     1.02     1.30
+ 2143    1 CONT             new_conv_states_cont-32                  f32                3x8192x1x1                0x0x0x0     6.59     4.61     2.53     1.00     0.96     1.25
+ 2146    1 CPY              conv_state_cpy-32                        f32               24576x1x1x1            24576x1x1x1     6.87     2.99     1.76     2.71     1.08     1.47
+ 2150    1 FUSED_RMS_NORM   attn_rms_norm-32                         f32                128x32x1x1              128x1x1x1     6.33     1.60     0.59     2.69     1.70     2.43
+ 2151    1 FUSED_MUL_UNARY  attn_out_norm-32                         f32                128x32x1x1             128x32x1x1     5.78     3.02     0.79     0.95     1.74     2.30
+ 2153    1 MUL_MAT          linear_attn_out-32                       q4_K            4096x2048x1x1             4096x1x1x1    34.88    33.02    29.27     0.51     1.78     2.27
+ 2155    1 ADD              ssm_output-32                            f32                2048x1x1x1             2048x1x1x1     3.89     2.52     0.14     0.36     0.97     1.17
+ 2156    1 FUSED_RMS_NORM   ffn_inp_normed-32                        f32                2048x1x1x1             2048x1x1x1     4.12     3.89     0.11     0.20     0.95     1.10
+ 2157    1 MUL_MAT          ffn_moe_logits-32                        f32              2048x256x1x1             2048x1x1x1    17.04    14.50    11.50     1.67     0.93     1.09
+ 2158    5 SOFT_MAX         ffn_moe_probs-32                         f32                 256x1x1x1                0x0x0x0     4.58     3.55     0.11     0.07     0.94     1.13
+ 2164    2 SUM_ROWS         ffn_moe_weights_sum-32                   f32                   8x1x1x1                0x0x0x0     3.65     1.36     0.38     1.29     0.93     1.16
+ 2168    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-32                      q4_K           2048x512x256x1         2048x512x256x1   105.19   102.06    92.76     2.11     0.99     1.43
+ 2177    1 FUSED_RMS_NORM   node_2177                                f32                2048x1x1x1             2048x1x1x1     9.47     7.70     0.23     0.48     1.46     1.85
+ 2178    3 MUL_MAT          qkv_mixed-33                             q4_K            2048x8192x1x1             2048x1x1x1    48.86    46.96    44.23     1.16     1.06     1.25
+ 2182    1 MUL_MAT          alpha-33                                 q4_K              2048x32x1x1             2048x1x1x1    11.54    10.19     6.45     0.38     0.94     1.14
+ 2191    1 SSM_CONV         conv_output_raw-33                       f32                3x8192x1x1             8192x1x1x1    20.36    18.95    12.49     0.36     1.08     1.95
+ 2193    1 UNARY            conv_output_silu-33                      f32                8192x1x1x1                0x0x0x0     9.46     6.90     0.76     1.48     0.95     1.17
+ 2195    1 L2_NORM          node_2195                                f32                128x16x1x1                0x0x0x0     4.45     1.86     0.51     1.38     1.56     1.95
+ 2198    1 L2_NORM          node_2198                                f32                128x16x1x1                0x0x0x0     4.50     1.28     0.25     2.07     1.06     1.38
+ 2202    1 ADD              alpha_biased-33                          f32                  32x1x1x1               32x1x1x1     3.55     0.74     0.11     1.45     1.45     1.90
+ 2203    1 UNARY            a_softplus-33                            f32                  32x1x1x1                0x0x0x0     3.08     0.80     0.21     1.31     1.05     1.30
+ 2204    1 MUL              g_in-33                                  f32                  32x1x1x1               32x1x1x1     3.94     0.78     0.25     2.37     0.96     1.13
+ 2208    6 DELTA_NET        delta_net_fused_raw-33                   f32                128x1x16x1             128x1x16x1    74.70    73.44    32.24     0.32     1.02     1.81
+ 2215    1 CONT             new_conv_states_cont-33                  f32                3x8192x1x1                0x0x0x0     7.80     5.94     3.49     0.83     1.03     2.37
+ 2218    1 CPY              conv_state_cpy-33                        f32               24576x1x1x1            24576x1x1x1     6.24     2.80     1.41     2.35     1.02     1.36
+ 2222    1 FUSED_RMS_NORM   attn_rms_norm-33                         f32                128x32x1x1              128x1x1x1     5.80     1.32     0.54     2.36     1.61     2.38
+ 2223    1 FUSED_MUL_UNARY  attn_out_norm-33                         f32                128x32x1x1             128x32x1x1     5.62     2.79     0.74     1.13     1.62     2.21
+ 2225    1 MUL_MAT          linear_attn_out-33                       q4_K            4096x2048x1x1             4096x1x1x1    43.27    40.88    37.00     0.92     1.70     2.19
+ 2227    1 ADD              ssm_output-33                            f32                2048x1x1x1             2048x1x1x1     5.33     3.46     0.17     0.44     1.35     1.76
+ 2228    1 FUSED_RMS_NORM   ffn_inp_normed-33                        f32                2048x1x1x1             2048x1x1x1     4.27     4.07     0.11     0.17     0.96     1.14
+ 2229    1 MUL_MAT          ffn_moe_logits-33                        f32              2048x256x1x1             2048x1x1x1    16.79    14.04    11.40     1.86     0.95     1.12
+ 2230    5 SOFT_MAX         ffn_moe_probs-33                         f32                 256x1x1x1                0x0x0x0     4.58     3.49     0.12     0.11     0.99     1.17
+ 2236    2 SUM_ROWS         ffn_moe_weights_sum-33                   f32                   8x1x1x1                0x0x0x0     3.06     0.90     0.19     1.68     0.94     1.15
+ 2240    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-33                      q4_K           2048x512x256x1         2048x512x256x1   112.21   109.15   100.54     1.98     1.02     1.93
+ 2249    1 FUSED_RMS_NORM   node_2249                                f32                2048x1x1x1             2048x1x1x1     9.23     7.17     0.24     0.86     1.51     2.10
+ 2250    3 MUL_MAT          qkv_mixed-34                             q6_K            2048x8192x1x1             2048x1x1x1    63.98    61.87    58.76     1.21     1.30     1.54
+ 2254    1 MUL_MAT          alpha-34                                 q4_K              2048x32x1x1             2048x1x1x1    11.15     9.88     6.28     0.33     0.94     1.18
+ 2263    1 SSM_CONV         conv_output_raw-34                       f32                3x8192x1x1             8192x1x1x1    20.37    18.99    13.35     0.33     1.08     1.37
+ 2265    1 UNARY            conv_output_silu-34                      f32                8192x1x1x1                0x0x0x0     9.22     6.30     0.71     1.86     0.95     1.15
+ 2267    1 L2_NORM          node_2267                                f32                128x16x1x1                0x0x0x0     4.68     2.12     0.56     1.41     1.52     1.94
+ 2270    1 L2_NORM          node_2270                                f32                128x16x1x1                0x0x0x0     4.31     1.15     0.21     1.94     1.13     1.43
+ 2274    1 ADD              alpha_biased-34                          f32                  32x1x1x1               32x1x1x1     3.85     0.89     0.28     1.50     1.53     2.06
+ 2275    1 UNARY            a_softplus-34                            f32                  32x1x1x1                0x0x0x0     3.24     0.92     0.30     1.23     1.07     1.40
+ 2276    1 MUL              g_in-34                                  f32                  32x1x1x1               32x1x1x1     3.06     0.71     0.23     1.54     0.97     1.18
+ 2280    6 DELTA_NET        delta_net_fused_raw-34                   f32                128x1x16x1             128x1x16x1    65.64    64.22    24.62     0.40     1.01     1.46
+ 2287    1 CONT             new_conv_states_cont-34                  f32                3x8192x1x1                0x0x0x0     8.33     6.33     3.11     1.02     0.91     1.14
+ 2290    1 CPY              conv_state_cpy-34                        f32               24576x1x1x1            24576x1x1x1     6.68     3.01     1.60     2.57     1.02     1.28
+ 2294    1 FUSED_RMS_NORM   attn_rms_norm-34                         f32                128x32x1x1              128x1x1x1     7.44     1.83     0.62     3.37     2.11     2.94
+ 2295    1 FUSED_MUL_UNARY  attn_out_norm-34                         f32                128x32x1x1             128x32x1x1     7.32     3.48     0.85     1.51     2.17     2.87
+ 2297    1 MUL_MAT          linear_attn_out-34                       q4_K            4096x2048x1x1             4096x1x1x1    41.27    39.69    34.70     0.34     1.98     2.52
+ 2299    1 ADD              ssm_output-34                            f32                2048x1x1x1             2048x1x1x1     3.85     2.50     0.16     0.41     0.90     1.07
+ 2300    1 FUSED_RMS_NORM   ffn_inp_normed-34                        f32                2048x1x1x1             2048x1x1x1     4.15     3.85     0.11     0.27     0.93     1.07
+ 2301    1 MUL_MAT          ffn_moe_logits-34                        f32              2048x256x1x1             2048x1x1x1    17.33    14.74    11.66     1.62     0.94     1.19
+ 2302    5 SOFT_MAX         ffn_moe_probs-34                         f32                 256x1x1x1                0x0x0x0     4.65     3.59     0.12     0.10     0.95     1.13
+ 2308    2 SUM_ROWS         ffn_moe_weights_sum-34                   f32                   8x1x1x1                0x0x0x0     3.57     1.49     0.42     1.08     0.95     1.50
+ 2312    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-34                      q4_K           2048x512x256x1         2048x512x256x1   132.93   128.64   108.41     3.24     0.98     1.16
+ 2321    1 FUSED_RMS_NORM   attn_norm-35                             f32                2048x1x1x1             2048x1x1x1     9.21     7.10     0.29     0.55     1.46     1.86
+ 2322    3 MUL_MAT          Qaux-35                                  q4_K            2048x8192x1x1             2048x1x1x1    53.74    52.12    47.95     0.68     0.97     1.14
+ 2326    1 CONT             Qcur_cont-35                             f32                256x16x1x1                0x0x0x0     5.19     1.76     0.69     2.47     0.97     1.17
+ 2327    1 FUSED_RMS_NORM   Qcur_normed-35                           f32                256x16x1x1              256x1x1x1     3.52     1.37     0.27     1.14     0.95     1.15
+ 2329    1 FUSED_RMS_NORM   Kcur_normed-35                           f32                 256x2x1x1              256x1x1x1     2.93     0.77     0.07     1.29     0.92     1.09
+ 2330    1 ROPE             Qcur_roped-35                            f32                256x16x1x1                4x1x1x1     7.87     6.36     1.73     0.41     0.98     1.23
+ 2331    1 ROPE             Kcur_roped-35                            f32                 256x2x1x1                4x1x1x1     4.01     2.44     0.16     0.73     0.92     1.08
+ 2333    1 CPY              cache_k_l35 (view) (copy of Kcur_roped-35) f32                 256x2x1x1              256x2x1x1     6.76     4.19     3.14     2.16     0.97     1.21
+ 2335    1 CPY              v_cache_view-35 (copy of Vcur-35)        f32                 512x1x1x1              512x1x1x1     5.88     3.96     2.86     1.59     1.18     1.64
+ 2339    1 FLASH_ATTN_EXT   fa-35                                    f32                256x1x16x1            256x256x2x1   424.32   421.40   412.87     2.00     1.00     1.74
+ 2342    1 CONT             gate_cont-35                             f32                256x16x1x1                0x0x0x0     6.08     1.58     0.62     2.36     1.95     2.77
+ 2343    1 UNARY            gate-35                                  f32                4096x1x1x1                0x0x0x0     4.82     1.55     0.34     1.61     1.77     2.34
+ 2344    1 MUL              qkv_gated-35                             f32                4096x1x1x1             4096x1x1x1     8.51     6.26     0.43     0.28     1.75     2.35
+ 2345    1 MUL_MAT          attn_out-35                              q4_K            4096x2048x1x1             4096x1x1x1    33.09    31.63    26.82     0.42     1.17     1.48
+ 2346    1 ADD              node_2346                                f32                2048x1x1x1             2048x1x1x1     3.15     1.66     0.15     0.51     0.94     1.13
+ 2347    1 FUSED_RMS_NORM   ffn_inp_normed-35                        f32                2048x1x1x1             2048x1x1x1     4.59     3.86     0.12     0.30     0.97     1.18
+ 2348    1 MUL_MAT          ffn_moe_logits-35                        f32              2048x256x1x1             2048x1x1x1    17.95    15.86    12.74     1.31     0.82     1.09
+ 2349    5 SOFT_MAX         ffn_moe_probs-35                         f32                 256x1x1x1                0x0x0x0     4.76     3.71     0.14     0.06     0.95     1.16
+ 2355    2 SUM_ROWS         ffn_moe_weights_sum-35                   f32                   8x1x1x1                0x0x0x0     4.01     1.56     0.62     1.41     0.95     1.11
+ 2359    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-35                      q4_K           2048x512x256x1         2048x512x256x1   133.38   129.78   114.25     2.56     1.00     1.29
+ 2368    1 FUSED_RMS_NORM   node_2368                                f32                2048x1x1x1             2048x1x1x1    10.32     8.22     0.31     0.51     1.57     2.07
+ 2369    3 MUL_MAT          qkv_mixed-36                             q6_K            2048x8192x1x1             2048x1x1x1    70.43    68.41    65.60     1.27     1.02     1.42
+ 2373    1 MUL_MAT          alpha-36                                 q4_K              2048x32x1x1             2048x1x1x1    11.28     9.97     6.09     0.36     0.95     1.17
+ 2382    1 SSM_CONV         conv_output_raw-36                       f32                3x8192x1x1             8192x1x1x1    16.10    14.48     9.67     0.50     1.10     1.86
+ 2384    1 UNARY            conv_output_silu-36                      f32                8192x1x1x1                0x0x0x0     6.08     3.70     0.54     1.33     0.95     1.15
+ 2386    1 L2_NORM          node_2386                                f32                128x16x1x1                0x0x0x0     4.68     1.70     0.58     1.49     1.56     2.04
+ 2389    1 L2_NORM          node_2389                                f32                128x16x1x1                0x0x0x0     7.13     1.46     0.26     4.31     1.23     1.58
+ 2393    1 ADD              alpha_biased-36                          f32                  32x1x1x1               32x1x1x1     3.94     1.09     0.16     1.60     1.62     2.02
+ 2394    1 UNARY            a_softplus-36                            f32                  32x1x1x1                0x0x0x0     3.10     0.93     0.25     1.17     1.08     1.37
+ 2395    1 MUL              g_in-36                                  f32                  32x1x1x1               32x1x1x1     3.08     0.72     0.24     1.49     0.97     1.15
+ 2399    6 DELTA_NET        delta_net_fused_raw-36                   f32                128x1x16x1             128x1x16x1    81.82    80.60    35.20     0.24     1.02     1.55
+ 2406    1 CONT             new_conv_states_cont-36                  f32                3x8192x1x1                0x0x0x0     6.67     4.66     2.79     1.00     0.96     1.39
+ 2409    1 CPY              conv_state_cpy-36                        f32               24576x1x1x1            24576x1x1x1     6.23     2.39     1.04     2.78     1.02     1.36
+ 2413    1 FUSED_RMS_NORM   attn_rms_norm-36                         f32                128x32x1x1              128x1x1x1     6.52     1.56     0.57     2.66     1.84     2.63
+ 2414    1 FUSED_MUL_UNARY  attn_out_norm-36                         f32                128x32x1x1             128x32x1x1     6.03     3.17     0.78     1.05     1.86     2.47
+ 2416    1 MUL_MAT          linear_attn_out-36                       q4_K            4096x2048x1x1             4096x1x1x1    37.01    34.85    31.06     0.66     1.90     2.46
+ 2418    1 ADD              ssm_output-36                            f32                2048x1x1x1             2048x1x1x1     4.26     2.67     0.24     0.42     1.13     1.44
+ 2419    1 FUSED_RMS_NORM   ffn_inp_normed-36                        f32                2048x1x1x1             2048x1x1x1     4.07     3.83     0.11     0.19     0.93     1.10
+ 2420    1 MUL_MAT          ffn_moe_logits-36                        f32              2048x256x1x1             2048x1x1x1    30.82    29.52    21.52     0.35     0.92     1.07
+ 2421    5 SOFT_MAX         ffn_moe_probs-36                         f32                 256x1x1x1                0x0x0x0     4.72     3.61     0.13     0.09     0.91     1.12
+ 2427    2 SUM_ROWS         ffn_moe_weights_sum-36                   f32                   8x1x1x1                0x0x0x0     3.35     1.50     0.49     1.01     0.94     1.10
+ 2431    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-36                      q4_K           2048x512x256x1         2048x512x256x1   127.76   124.46   109.04     2.24     1.01     1.32
+ 2440    1 FUSED_RMS_NORM   node_2440                                f32                2048x1x1x1             2048x1x1x1     9.19     7.31     0.26     0.62     1.35     1.71
+ 2441    3 MUL_MAT          qkv_mixed-37                             q6_K            2048x8192x1x1             2048x1x1x1    64.57    62.62    59.78     1.18     1.05     1.24
+ 2445    1 MUL_MAT          alpha-37                                 q4_K              2048x32x1x1             2048x1x1x1    11.17     9.79     6.20     0.40     0.94     1.16
+ 2454    1 SSM_CONV         conv_output_raw-37                       f32                3x8192x1x1             8192x1x1x1    18.26    16.79    11.88     0.36     1.13     1.73
+ 2456    1 UNARY            conv_output_silu-37                      f32                8192x1x1x1                0x0x0x0     6.49     4.19     0.58     1.25     0.96     1.17
+ 2458    1 L2_NORM          node_2458                                f32                128x16x1x1                0x0x0x0     4.65     1.69     0.52     1.57     1.53     2.05
+ 2461    1 L2_NORM          node_2461                                f32                128x16x1x1                0x0x0x0     4.76     1.29     0.30     2.29     1.20     1.58
+ 2465    1 ADD              alpha_biased-37                          f32                  32x1x1x1               32x1x1x1     3.84     0.89     0.20     1.39     1.59     2.14
+ 2466    1 UNARY            a_softplus-37                            f32                  32x1x1x1                0x0x0x0     3.22     0.92     0.20     1.33     1.13     1.42
+ 2467    1 MUL              g_in-37                                  f32                  32x1x1x1               32x1x1x1     3.42     0.79     0.29     1.76     0.98     1.17
+ 2471    6 DELTA_NET        delta_net_fused_raw-37                   f32                128x1x16x1             128x1x16x1    74.91    73.68    32.40     0.31     1.02     1.38
+ 2478    1 CONT             new_conv_states_cont-37                  f32                3x8192x1x1                0x0x0x0     7.54     5.68     3.45     0.80     0.95     1.47
+ 2481    1 CPY              conv_state_cpy-37                        f32               24576x1x1x1            24576x1x1x1     6.01     2.25     1.02     2.68     0.99     1.25
+ 2485    1 FUSED_RMS_NORM   attn_rms_norm-37                         f32                128x32x1x1              128x1x1x1     5.92     1.53     0.59     2.09     1.70     2.66
+ 2486    1 FUSED_MUL_UNARY  attn_out_norm-37                         f32                128x32x1x1             128x32x1x1     5.36     2.80     0.73     1.01     1.61     2.19
+ 2488    1 MUL_MAT          linear_attn_out-37                       q4_K            4096x2048x1x1             4096x1x1x1    37.88    35.39    30.92     1.08     1.69     2.20
+ 2490    1 ADD              ssm_output-37                            f32                2048x1x1x1             2048x1x1x1     6.11     3.91     0.25     0.49     1.71     2.33
+ 2491    1 FUSED_RMS_NORM   ffn_inp_normed-37                        f32                2048x1x1x1             2048x1x1x1     4.27     4.00     0.12     0.21     1.00     1.23
+ 2492    1 MUL_MAT          ffn_moe_logits-37                        f32              2048x256x1x1             2048x1x1x1    16.30    13.74    10.99     1.70     0.93     1.12
+ 2493    5 SOFT_MAX         ffn_moe_probs-37                         f32                 256x1x1x1                0x0x0x0     4.53     3.50     0.13     0.09     0.96     1.14
+ 2499    2 SUM_ROWS         ffn_moe_weights_sum-37                   f32                   8x1x1x1                0x0x0x0     3.53     1.50     0.45     1.08     0.96     1.37
+ 2503    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-37                      q4_K           2048x512x256x1         2048x512x256x1   133.85   130.63   116.41     2.12     1.08     2.53
+ 2512    1 FUSED_RMS_NORM   node_2512                                f32                2048x1x1x1             2048x1x1x1     9.94     7.87     0.27     0.79     1.59     2.19
+ 2513    3 MUL_MAT          qkv_mixed-38                             q6_K            2048x8192x1x1             2048x1x1x1    72.43    70.09    66.83     1.27     1.28     1.58
+ 2517    1 MUL_MAT          alpha-38                                 q4_K              2048x32x1x1             2048x1x1x1    11.99    10.68     7.01     0.32     0.97     1.23
+ 2526    1 SSM_CONV         conv_output_raw-38                       f32                3x8192x1x1             8192x1x1x1    19.92    18.51    13.07     0.35     1.08     1.70
+ 2528    1 UNARY            conv_output_silu-38                      f32                8192x1x1x1                0x0x0x0     6.41     3.89     0.57     1.48     0.96     1.16
+ 2530    1 L2_NORM          node_2530                                f32                128x16x1x1                0x0x0x0     4.61     1.63     0.52     1.58     1.51     1.96
+ 2533    1 L2_NORM          node_2533                                f32                128x16x1x1                0x0x0x0     4.74     1.39     0.39     2.00     1.22     1.60
+ 2537    1 ADD              alpha_biased-38                          f32                  32x1x1x1               32x1x1x1     3.69     0.76     0.14     1.43     1.51     1.98
+ 2538    1 UNARY            a_softplus-38                            f32                  32x1x1x1                0x0x0x0     3.25     0.95     0.29     1.44     1.08     1.35
+ 2539    1 MUL              g_in-38                                  f32                  32x1x1x1               32x1x1x1     3.14     1.10     0.45     1.13     0.95     1.15
+ 2543    6 DELTA_NET        delta_net_fused_raw-38                   f32                128x1x16x1             128x1x16x1    69.54    68.14    29.26     0.36     1.01     1.55
+ 2550    1 CONT             new_conv_states_cont-38                  f32                3x8192x1x1                0x0x0x0     7.04     5.10     2.85     0.93     0.90     1.21
+ 2553    1 CPY              conv_state_cpy-38                        f32               24576x1x1x1            24576x1x1x1     6.13     2.87     1.44     2.25     1.00     1.30
+ 2557    1 FUSED_RMS_NORM   attn_rms_norm-38                         f32                128x32x1x1              128x1x1x1     6.19     1.69     0.61     2.52     1.66     2.31
+ 2558    1 FUSED_MUL_UNARY  attn_out_norm-38                         f32                128x32x1x1             128x32x1x1     5.71     3.09     0.77     1.09     1.72     2.35
+ 2560    1 MUL_MAT          linear_attn_out-38                       q4_K            4096x2048x1x1             4096x1x1x1    34.97    33.08    29.01     0.47     1.85     2.46
+ 2562    1 ADD              ssm_output-38                            f32                2048x1x1x1             2048x1x1x1     3.88     2.47     0.24     0.46     0.91     1.12
+ 2563    1 FUSED_RMS_NORM   ffn_inp_normed-38                        f32                2048x1x1x1             2048x1x1x1     4.15     3.88     0.18     0.26     0.94     1.08
+ 2564    1 MUL_MAT          ffn_moe_logits-38                        f32              2048x256x1x1             2048x1x1x1    17.30    14.82    11.72     1.65     0.90     1.05
+ 2565    5 SOFT_MAX         ffn_moe_probs-38                         f32                 256x1x1x1                0x0x0x0     4.45     3.40     0.12     0.09     0.95     1.15
+ 2571    2 SUM_ROWS         ffn_moe_weights_sum-38                   f32                   8x1x1x1                0x0x0x0     3.90     1.73     0.56     1.14     0.97     1.22
+ 2575    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-38                      q4_K           2048x512x256x1         2048x512x256x1   134.38   130.92   118.11     2.44     0.99     1.49
+ 2584    1 FUSED_RMS_NORM   attn_norm-39                             f32                2048x1x1x1             2048x1x1x1    10.11     7.99     0.30     0.69     1.54     2.11
+ 2585    3 MUL_MAT          Qaux-39                                  q4_K            2048x8192x1x1             2048x1x1x1    49.75    48.10    44.05     0.65     1.13     1.40
+ 2589    1 CONT             Qcur_cont-39                             f32                256x16x1x1                0x0x0x0     5.14     1.61     0.67     2.47     0.97     1.21
+ 2590    1 FUSED_RMS_NORM   Qcur_normed-39                           f32                256x16x1x1              256x1x1x1     4.21     1.40     0.25     1.82     0.97     1.16
+ 2592    1 FUSED_RMS_NORM   Kcur_normed-39                           f32                 256x2x1x1              256x1x1x1     3.73     0.93     0.20     1.84     0.90     1.13
+ 2593    1 ROPE             Qcur_roped-39                            f32                256x16x1x1                4x1x1x1     7.76     6.31     1.70     0.38     0.98     1.15
+ 2594    1 ROPE             Kcur_roped-39                            f32                 256x2x1x1                4x1x1x1     4.47     2.71     0.17     0.93     0.92     1.07
+ 2596    1 CPY              cache_k_l39 (view) (copy of Kcur_roped-39) f32                 256x2x1x1              256x2x1x1     8.48     5.05     3.94     3.18     0.95     1.18
+ 2598    1 CPY              v_cache_view-39 (copy of Vcur-39)        f32                 512x1x1x1              512x1x1x1     7.48     5.59     3.54     1.48     2.12     2.80
+ 2602    1 FLASH_ATTN_EXT   fa-39                                    f32                256x1x16x1            256x256x2x1   431.27   429.40   421.07     1.01     0.99     1.35
+ 2605    1 CONT             gate_cont-39                             f32                256x16x1x1                0x0x0x0     5.19     1.31     0.54     1.93     1.68     2.37
+ 2606    1 UNARY            gate-39                                  f32                4096x1x1x1                0x0x0x0     4.26     1.41     0.29     1.55     1.53     2.11
+ 2607    1 MUL              qkv_gated-39                             f32                4096x1x1x1             4096x1x1x1     9.74     7.50     0.36     0.58     1.48     2.01
+ 2608    1 MUL_MAT          attn_out-39                              q4_K            4096x2048x1x1             4096x1x1x1    39.67    37.83    32.60     0.62     1.36     1.79
+ 2609    1 ADD              node_2609                                f32                2048x1x1x1             2048x1x1x1     3.55     1.81     0.17     0.43     0.97     1.43
+ 2610    1 FUSED_RMS_NORM   ffn_inp_normed-39                        f32                2048x1x1x1             2048x1x1x1     3.47     3.09     0.12     0.19     0.96     1.19
+ 2611    1 MUL_MAT          ffn_moe_logits-39                        f32              2048x256x1x1             2048x1x1x1    18.06    15.52    12.54     1.75     0.92     1.07
+ 2612    5 SOFT_MAX         ffn_moe_probs-39                         f32                 256x1x1x1                0x0x0x0     4.52     3.43     0.14     0.13     0.94     1.13
+ 2618    2 SUM_ROWS         ffn_moe_weights_sum-39                   f32                   8x1x1x1                0x0x0x0     3.89     1.42     0.51     1.43     0.96     1.26
+ 2622    9 MOE_FUSED_UP_GATE ffn_moe_gate_par-39                      q4_K           2048x512x256x1         2048x512x256x1   266.82   265.10   218.92     0.87     0.99     1.37
+ 2631    1 FUSED_RMS_NORM   result_norm                              f32                2048x1x1x1             2048x1x1x1     6.36     4.48     0.26     0.50     1.16     1.49
+ 2632    1 MUL_MAT          result_output                            q6_K          2048x248144x1x1             2048x1x1x1  1838.88  1837.50  1792.92     0.31     1.01     1.25

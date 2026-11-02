@@ -1,0 +1,12 @@
+{
+ "out": "runs/04-dynprof",
+ "config": [
+  "dyn75=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-dyn/bin/llama-server:32:base:IK_R5_DYN=1"
+ ],
+ "cases": "medium,long",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": false,
+ "prof": true,
+ "perf": false
+}

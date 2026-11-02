@@ -1,0 +1,9 @@
+m64-medium-r0                            ok=True decode=40.864 prompt=526.70
+s32-medium-r0                            ok=True decode=35.195 prompt=405.21
+m64-long-r0                              ok=True decode=34.763 prompt=459.87
+s32-long-r0                              ok=True decode=30.889 prompt=354.01
+SUMMARY
+m64|medium                               decode mean 40.864 [40.864]  prompt mean 526.70
+s32|medium                               decode mean 35.195 [35.195]  prompt mean 405.21
+m64|long                                 decode mean 34.763 [34.763]  prompt mean 459.87
+s32|long                                 decode mean 30.889 [30.889]  prompt mean 354.01

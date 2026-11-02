@@ -1,0 +1,528 @@
+warning: not compiled with GPU offload support, --gpu-layers option will be ignored
+warning: see main README.md for information on enabling GPU BLAS support
+INFO [                    main] build info | tid="139562309632512" timestamp=1793501216 build=11 commit="cf5162b6"
+INFO [                    main] system info | tid="139562309632512" timestamp=1793501216 n_threads=32 n_threads_batch=48 total_threads=192 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 1 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 1 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | "
+CPU: using device CPU - 47493 MiB free
+llama_model_loader: loaded meta data with 45 key-value pairs and 733 tensors from /home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen35moe
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                     general.sampling.top_k i32              = 20
+llama_model_loader: - kv   3:                     general.sampling.top_p f32              = 0.950000
+llama_model_loader: - kv   4:                      general.sampling.temp f32              = 1.000000
+llama_model_loader: - kv   5:                               general.name str              = 35a3_hf_v47_0923
+llama_model_loader: - kv   6:                           general.finetune str              = 35a3_hf_v47_0923
+llama_model_loader: - kv   7:                         general.size_label str              = 256x2.6B
+llama_model_loader: - kv   8:                      qwen35moe.block_count u32              = 40
+llama_model_loader: - kv   9:                   qwen35moe.context_length u32              = 262144
+llama_model_loader: - kv  10:                 qwen35moe.embedding_length u32              = 2048
+llama_model_loader: - kv  11:             qwen35moe.attention.head_count u32              = 16
+llama_model_loader: - kv  12:          qwen35moe.attention.head_count_kv u32              = 2
+llama_model_loader: - kv  13:          qwen35moe.rope.dimension_sections arr[i32,4]       = [11, 11, 10, 0]
+llama_model_loader: - kv  14:                   qwen35moe.rope.freq_base f32              = 10000000.000000
+llama_model_loader: - kv  15: qwen35moe.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  16:                     qwen35moe.expert_count u32              = 256
+llama_model_loader: - kv  17:                qwen35moe.expert_used_count u32              = 8
+llama_model_loader: - kv  18:             qwen35moe.attention.key_length u32              = 256
+llama_model_loader: - kv  19:           qwen35moe.attention.value_length u32              = 256
+llama_model_loader: - kv  20:       qwen35moe.expert_feed_forward_length u32              = 512
+llama_model_loader: - kv  21: qwen35moe.expert_shared_feed_forward_length u32              = 512
+llama_model_loader: - kv  22:                  qwen35moe.ssm.conv_kernel u32              = 4
+llama_model_loader: - kv  23:                   qwen35moe.ssm.state_size u32              = 128
+llama_model_loader: - kv  24:                  qwen35moe.ssm.group_count u32              = 16
+llama_model_loader: - kv  25:               qwen35moe.ssm.time_step_rank u32              = 32
+llama_model_loader: - kv  26:                   qwen35moe.ssm.inner_size u32              = 4096
+llama_model_loader: - kv  27:       qwen35moe.attention.recurrent_layers arr[bool,40]     = [true, true, true, false, true, true,...
+llama_model_loader: - kv  28:          qwen35moe.full_attention_interval u32              = 4
+llama_model_loader: - kv  29:             qwen35moe.rope.dimension_count u32              = 64
+llama_model_loader: - kv  30:               qwen35moe.rope.section_order str              = zyxt
+llama_model_loader: - kv  31:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  32:                         tokenizer.ggml.pre str              = qwen35
+llama_model_loader: - kv  33:                      tokenizer.ggml.tokens arr[str,248144]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  34:                  tokenizer.ggml.token_type arr[i32,248144]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  35:                      tokenizer.ggml.merges arr[str,247587]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  36:                tokenizer.ggml.bos_token_id u32              = 248045
+llama_model_loader: - kv  37:                tokenizer.ggml.eos_token_id u32              = 248046
+llama_model_loader: - kv  38:            tokenizer.ggml.unknown_token_id u32              = 248077
+llama_model_loader: - kv  39:            tokenizer.ggml.padding_token_id u32              = 248044
+llama_model_loader: - kv  40:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  41:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  42:                    tokenizer.chat_template str              = {%- macro render_content(content, is_...
+llama_model_loader: - kv  43:               general.quantization_version u32              = 2
+llama_model_loader: - kv  44:                          general.file_type u32              = 15
+llama_model_loader: - type  f32:  301 tensors
+llama_model_loader: - type q4_K:  371 tensors
+llama_model_loader: - type q6_K:   61 tensors
+load: 0 unused tokens
+load: printing all EOG tokens:
+load:   - 248044 ('<|endoftext|>')
+load:   - 248046 ('<|im_end|>')
+load:   - 248063 ('<|fim_pad|>')
+load:   - 248064 ('<|repo_name|>')
+load:   - 248065 ('<|file_sep|>')
+load: special tokens cache size = 100
+load: token to piece cache size = 1.7588 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = qwen35moe
+llm_load_print_meta: n_ctx_train      = 262144
+llm_load_print_meta: n_embd           = 2048
+llm_load_print_meta: n_layer          = 40
+llm_load_print_meta: n_head           = 16
+llm_load_print_meta: n_head_kv        = 2
+llm_load_print_meta: n_rot            = 64
+llm_load_print_meta: n_swa            = 0
+llm_load_print_meta: n_swa_pattern    = 1
+llm_load_print_meta: n_embd_head_k    = 256
+llm_load_print_meta: n_embd_head_v    = 256
+llm_load_print_meta: n_gqa            = 8
+llm_load_print_meta: n_embd_k_gqa     = 512
+llm_load_print_meta: n_embd_v_gqa     = 512
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 0
+llm_load_print_meta: n_expert         = 256
+llm_load_print_meta: n_expert_used    = 8
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 40
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 262144
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: mrope sections   = [11, 11, 10, 0]
+llm_load_print_meta: ssm_d_conv       = 4
+llm_load_print_meta: ssm_d_inner      = 4096
+llm_load_print_meta: ssm_d_state      = 128
+llm_load_print_meta: ssm_dt_rank      = 32
+llm_load_print_meta: ssm_n_group      = 16
+llm_load_print_meta: model type       = 35B.A3B
+llm_load_print_meta: model ftype      = Q4_K - Medium
+llm_load_print_meta: model params     = 34.660 B
+llm_load_print_meta: model size       = 19.702 GiB (4.883 BPW) 
+llm_load_print_meta: repeating layers = 19.048 GiB (4.863 BPW, 33.643 B parameters)
+llm_load_print_meta: general.name     = 35a3_hf_v47_0923
+print_info: vocab type            = BPE
+print_info: n_vocab               = 248144
+print_info: n_merges              = 247587
+print_info: BOS token             = 248045 '<|im_start|>'
+print_info: EOS token             = 248046 '<|im_end|>'
+print_info: EOT token             = 248046 '<|im_end|>'
+print_info: UNK token             = 248077 '<unk>'
+print_info: PAD token             = 248044 '<|endoftext|>'
+print_info: LF token              = 198 'Ċ'
+print_info: FIM PRE token         = 248060 '<|fim_prefix|>'
+print_info: FIM SUF token         = 248062 '<|fim_suffix|>'
+print_info: FIM MID token         = 248061 '<|fim_middle|>'
+print_info: FIM PAD token         = 248063 '<|fim_pad|>'
+print_info: FIM REP token         = 248064 '<|repo_name|>'
+print_info: FIM SEP token         = 248065 '<|file_sep|>'
+print_info: EOG token             = 248044 '<|endoftext|>'
+print_info: EOG token             = 248046 '<|im_end|>'
+print_info: EOG token             = 248063 '<|fim_pad|>'
+print_info: EOG token             = 248064 '<|repo_name|>'
+print_info: EOG token             = 248065 '<|file_sep|>'
+print_info: max token length      = 256
+======================================= HAVE_FANCY_SIMD is NOT defined
+------------------- Layer sizes:
+Layer  0:    524.29,      2.09,    526.38       56.00  MiB
+Layer  1:    524.29,      2.09,    526.38       56.00  MiB
+Layer  2:    524.29,      2.09,    526.38       56.00  MiB
+Layer  3:    516.85,     32.00,    548.85       56.00  MiB
+Layer  4:    524.29,      2.09,    526.38       56.00  MiB
+Layer  5:    453.91,      2.09,    456.00       56.00  MiB
+Layer  6:    453.91,      2.09,    456.00       56.00  MiB
+Layer  7:    516.85,     32.00,    548.85       56.00  MiB
+Layer  8:    453.91,      2.09,    456.00       56.00  MiB
+Layer  9:    453.91,      2.09,    456.00       56.00  MiB
+Layer 10:    524.29,      2.09,    526.38       56.00  MiB
+Layer 11:    450.34,     32.00,    482.34       56.00  MiB
+Layer 12:    453.91,      2.09,    456.00       56.00  MiB
+Layer 13:    524.29,      2.09,    526.38       56.00  MiB
+Layer 14:    453.91,      2.09,    456.00       56.00  MiB
+Layer 15:    450.34,     32.00,    482.34       56.00  MiB
+Layer 16:    524.29,      2.09,    526.38       56.00  MiB
+Layer 17:    453.91,      2.09,    456.00       56.00  MiB
+Layer 18:    453.91,      2.09,    456.00       56.00  MiB
+Layer 19:    516.85,     32.00,    548.85       56.00  MiB
+Layer 20:    453.91,      2.09,    456.00       56.00  MiB
+Layer 21:    453.91,      2.09,    456.00       56.00  MiB
+Layer 22:    524.29,      2.09,    526.38       56.00  MiB
+Layer 23:    450.34,     32.00,    482.34       56.00  MiB
+Layer 24:    453.91,      2.09,    456.00       56.00  MiB
+Layer 25:    524.29,      2.09,    526.38       56.00  MiB
+Layer 26:    453.91,      2.09,    456.00       56.00  MiB
+Layer 27:    450.34,     32.00,    482.34       56.00  MiB
+Layer 28:    524.29,      2.09,    526.38       56.00  MiB
+Layer 29:    453.91,      2.09,    456.00       56.00  MiB
+Layer 30:    453.91,      2.09,    456.00       56.00  MiB
+Layer 31:    516.85,     32.00,    548.85       56.00  MiB
+Layer 32:    453.91,      2.09,    456.00       56.00  MiB
+Layer 33:    453.91,      2.09,    456.00       56.00  MiB
+Layer 34:    524.29,      2.09,    526.38       56.00  MiB
+Layer 35:    516.85,     32.00,    548.85       56.00  MiB
+Layer 36:    524.29,      2.09,    526.38       56.00  MiB
+Layer 37:    524.29,      2.09,    526.38       56.00  MiB
+Layer 38:    524.29,      2.09,    526.38       56.00  MiB
+Layer 39:    516.85,     32.00,    548.85       56.00  MiB
+Layer 40:    397.57,    428.66,    826.23 MiB (output layer)
+--------------------------------------------------------------------------
+Total   :  19505.04,    811.47,  20316.51 MiB
+Memory required for model tensors + cache: 20714 MiB
+Memory available on all devices - compute: 46330 MiB
+llm_load_tensors: ggml ctx size =    0.35 MiB
+llm_load_tensors:        CPU buffer size = 20175.24 MiB (total of 1 resident buffers)
+.................................................................................................
+llama_init_from_model: n_ctx         = 16384
+llama_init_from_model: n_batch       = 2048
+llama_init_from_model: n_ubatch      = 512
+llama_init_from_model: flash_attn    = 1
+llama_init_from_model: attn_max_b    = 256
+llama_init_from_model: fused_moe     = 1
+llama_init_from_model: grouped er    = 0
+llama_init_from_model: fused_up_gate = 1
+llama_init_from_model: fused_mmad    = 1
+llama_init_from_model: rope_cache    = 0
+llama_init_from_model: graph_reuse   = 1
+llama_init_from_model: k_cache_hadam = 0
+llama_init_from_model: v_cache_hadam = 0
+llama_init_from_model: split_mode_graph_scheduling = 0
+llama_init_from_model: reduce_type   = f16
+llama_init_from_model: sched_async   = 0
+llama_init_from_model: ser           = -1, 0
+llama_init_from_model: freq_base     = 10000000.0
+llama_init_from_model: freq_scale    = 1
+llama_kv_cache_init:        CPU KV buffer size =   382.81 MiB
+llama_init_from_model: KV self size  =  320.00 MiB, K (f16):  160.00 MiB, V (f16):  160.00 MiB
+llama_init_from_model:        CPU  output buffer size =     0.95 MiB
+llama_init_from_model:        CPU compute buffer size =   488.66 MiB
+llama_init_from_model: graph nodes  = 2673
+llama_init_from_model: graph splits = 1
+llama_init_from_model: enabling only_active_experts scheduling
+llama_init_from_gpt_params: pinning CPU worker threads to logical CPUs: 48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95
+INFO [                    init] initializing slots | tid="139562309632512" timestamp=1793501218 n_slots=1
+srv          init: Exclude reasoning tokens when selecting slot based on similarity: start: <think>, end: </think>
+use `--reasoning-tokens none` to disable.
+INFO [                    init] new slot | tid="139562309632512" timestamp=1793501218 id_slot=0 n_ctx_slot=16384
+prompt cache is enabled, size limit: 8192 MiB
+use `--cache-ram 0` to disable the prompt cache
+INFO [                    main] model loaded | tid="139562309632512" timestamp=1793501218
+init: chat template, example_format: '<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+'
+INFO [                    main] HTTP server listening | tid="139562309632512" timestamp=1793501218 n_threads_http="191" port="19185" hostname="127.0.0.1"
+INFO [              slots_idle] all slots are idle | tid="139562309632512" timestamp=1793501218
+INFO [     process_single_task] slot data | tid="139562309632512" timestamp=1793501218 id_task=0 n_idle_slots=1 n_processing_slots=0
+INFO [              slots_idle] all slots are idle | tid="139562309632512" timestamp=1793501218
+INFO [      log_server_request] request | tid="139538990651072" timestamp=1793501218 remote_addr="127.0.0.1" remote_port=34996 status=200 method="GET" path="/health" params={}
+INFO [      log_server_request] request | tid="139538982258368" timestamp=1793501218 remote_addr="127.0.0.1" remote_port=35008 status=200 method="POST" path="/tokenize" params={}
+======== Prompt cache: cache size: 0, n_keep: 0, n_discarded_prompt: 0, cache_ram_n_min: 0, f_keep: 0.00, cache_ram_similarity: 0.50
+WARN [   launch_slot_with_task] %s
+ | ="ctx_shift is not supported by recurrent model, it will be disabled"
+INFO [   launch_slot_with_task] slot is processing task | tid="139562309632512" timestamp=1793501218 id_slot=0 id_task=1
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="139562309632512" timestamp=1793501218 id_slot=0 id_task=1 p0=0
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="139562309632512" timestamp=1793501218 id_slot=0 id_task=1 p0=4
+INFO [           release_slots] slot released | tid="139562309632512" timestamp=1793501219 id_slot=0 id_task=1 n_ctx=16384 n_past=40 n_system_tokens=0 n_cache_tokens=40 truncated=false
+INFO [              slots_idle] all slots are idle | tid="139562309632512" timestamp=1793501219
+slot print_timing: id  0 | task 1 | 
+prompt eval time =      90.22 ms /     9 tokens (   10.02 ms per token,    99.75 tokens per second)
+       eval time =     844.49 ms /    32 tokens (   26.39 ms per token,    37.89 tokens per second)
+      total time =     934.72 ms /    41 tokens
+INFO [      log_server_request] request | tid="139538973865664" timestamp=1793501219 remote_addr="127.0.0.1" remote_port=35024 status=200 method="POST" path="/completion" params={}
+======== Prompt cache: cache size: 40, n_keep: 0, n_discarded_prompt: 0, cache_ram_n_min: 0, f_keep: 0.00, cache_ram_similarity: 0.50
+updating prompt cache
+ - saving prompt with length 40, total state size = 63.596 MiB
+prompt cache save took 16.89 ms
+ - looking for better prompt, base f_keep = 0.000, sim = 0.000, n_keep = 0, n_discarded_prompt = 0
+ - cache state: 1 prompts, 63.596 MiB (limits: 8192.000 MiB, 0 tokens, 5152 est)
+   - prompt 0x5e4ea4fd2b10:      40 tokens,       0 discarded, checkpoints:  0,    63.596 MiB
+prompt cache load took 0.28 ms
+INFO [   launch_slot_with_task] slot is processing task | tid="139562309632512" timestamp=1793501219 id_slot=0 id_task=35
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="139562309632512" timestamp=1793501219 id_slot=0 id_task=35 p0=0
+slot create_check: id  0 | task 35 | created context checkpoint 1 of 32 (pos_min = 2047, pos_max = 2047, n_tokens = 2048, size = 62.830 MiB, took 16.80 ms)
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="139562309632512" timestamp=1793501224 id_slot=0 id_task=35 p0=2048
+slot create_check: id  0 | task 35 | created context checkpoint 2 of 32 (pos_min = 2828, pos_max = 2828, n_tokens = 2829, size = 62.836 MiB, took 15.84 ms)
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="139562309632512" timestamp=1793501226 id_slot=0 id_task=35 p0=2829
+slot create_check: id  0 | task 35 | created context checkpoint 3 of 32 (pos_min = 2834, pos_max = 2834, n_tokens = 2835, size = 62.836 MiB, took 15.69 ms)
+r5fa: calls 640 nek1 3072 n_eff 2866 per 96 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 260163 mean 227221  wait mean 51655 | k % 4096 = 32
+r5fa-phase ith 0 (positions 96): setup 48710  scores 115908  softmax 5217  V 85224  merge 23126 ticks/call
+r5fa-phase ith 24 (positions 96): setup 52636  scores 102011  softmax 5532  V 90504  merge 24261 ticks/call
+r5fa-phase ith 1 (positions 96): setup 54142  scores 110888  softmax 5676  V 88720  merge 23270 ticks/call
+r5fa-phase ith 18 (positions 96): setup 49285  scores 104456  softmax 6693  V 89188  merge 24148 ticks/call
+r5fa-phase ith 19 (positions 96): setup 54981  scores 102572  softmax 6597  V 89751  merge 25755 ticks/call
+r5fa-phase ith 8 (positions 96): setup 21641  scores 100091  softmax 5520  V 72325  merge 17415 ticks/call
+r5fa-phase ith 6 (positions 96): setup 50553  scores 103645  softmax 6648  V 76448  merge 19236 ticks/call
+r5fa-phase ith 26 (positions 96): setup 49221  scores 103851  softmax 6098  V 76175  merge 19629 ticks/call
+r5fa-phase ith 7 (positions 96): setup 49926  scores 103980  softmax 4849  V 74836  merge 19585 ticks/call
+r5fa-phase ith 20 (positions 96): setup 51032  scores 102634  softmax 7217  V 76681  merge 20256 ticks/call
+r5fa-phase ith 11 (positions 96): setup 21846  scores 101335  softmax 5000  V 73155  merge 19012 ticks/call
+r5fa-phase ith 27 (positions 96): setup 49228  scores 102514  softmax 7098  V 77695  merge 21997 ticks/call
+r5fa-phase ith 9 (positions 96): setup 50639  scores 103209  softmax 6238  V 75265  merge 23186 ticks/call
+r5fa-phase ith 21 (positions 96): setup 50589  scores 101329  softmax 7792  V 79618  merge 22402 ticks/call
+r5fa-phase ith 10 (positions 96): setup 49576  scores 103368  softmax 5833  V 75950  merge 22172 ticks/call
+r5fa-phase ith 31 (positions 0): setup 23643  scores 0  softmax 0  V 0  merge 20668 ticks/call
+r5fa-phase ith 5 (positions 96): setup 34052  scores 109712  softmax 4429  V 78332  merge 20847 ticks/call
+r5fa-phase ith 30 (positions 0): setup 24537  scores 0  softmax 0  V 0  merge 20488 ticks/call
+r5fa-phase ith 2 (positions 96): setup 38620  scores 113542  softmax 7498  V 79120  merge 20355 ticks/call
+r5fa-phase ith 13 (positions 96): setup 27139  scores 105371  softmax 3786  V 79756  merge 21967 ticks/call
+r5fa-phase ith 15 (positions 96): setup 29023  scores 105684  softmax 5160  V 77448  merge 20925 ticks/call
+r5fa-phase ith 4 (positions 96): setup 59707  scores 103565  softmax 5289  V 87783  merge 24813 ticks/call
+r5fa-phase ith 14 (positions 96): setup 54167  scores 104302  softmax 6656  V 84229  merge 26337 ticks/call
+r5fa-phase ith 29 (positions 82): setup 57312  scores 78423  softmax 5487  V 69827  merge 26221 ticks/call
+r5fa-phase ith 17 (positions 96): setup 55937  scores 103341  softmax 5598  V 84246  merge 26590 ticks/call
+r5fa-phase ith 23 (positions 96): setup 56036  scores 102120  softmax 8733  V 84077  merge 25696 ticks/call
+r5fa-phase ith 22 (positions 96): setup 54930  scores 104180  softmax 6461  V 84992  merge 25818 ticks/call
+r5fa-phase ith 28 (positions 96): setup 55491  scores 102595  softmax 7408  V 85906  merge 25455 ticks/call
+r5fa-phase ith 12 (positions 96): setup 55274  scores 103192  softmax 9247  V 85666  merge 26295 ticks/call
+r5fa-phase ith 16 (positions 96): setup 55602  scores 102461  softmax 7311  V 86835  merge 25814 ticks/call
+r5fa-phase ith 25 (positions 96): setup 55545  scores 102473  softmax 5668  V 89477  merge 25455 ticks/call
+r5fa-phase ith 3 (positions 96): setup 60281  scores 100354  softmax 8180  V 91295  merge 25127 ticks/call
+r5fa: calls 1280 nek1 3072 n_eff 2930 per 96 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 476893 mean 428770  wait mean 64793 | k % 4096 = 32
+r5fa-phase ith 0 (positions 96): setup 60505  scores 223999  softmax 8666  V 169328  merge 43334 ticks/call
+r5fa-phase ith 8 (positions 96): setup 28520  scores 194997  softmax 9829  V 145018  merge 26849 ticks/call
+r5fa-phase ith 6 (positions 96): setup 66916  scores 208820  softmax 12368  V 150970  merge 31025 ticks/call
+r5fa-phase ith 7 (positions 96): setup 66732  scores 210278  softmax 10293  V 147994  merge 30828 ticks/call
+r5fa-phase ith 26 (positions 96): setup 66317  scores 209619  softmax 12392  V 149910  merge 32114 ticks/call
+r5fa-phase ith 20 (positions 96): setup 69362  scores 206544  softmax 13668  V 152465  merge 33004 ticks/call
+r5fa-phase ith 15 (positions 96): setup 40279  scores 208668  softmax 10866  V 156488  merge 33771 ticks/call
+r5fa-phase ith 13 (positions 96): setup 35606  scores 207278  softmax 8233  V 160316  merge 33288 ticks/call
+r5fa-phase ith 11 (positions 96): setup 29990  scores 200292  softmax 8489  V 146578  merge 30895 ticks/call
+r5fa-phase ith 9 (positions 96): setup 73836  scores 209043  softmax 13168  V 148578  merge 37272 ticks/call
+r5fa-phase ith 10 (positions 96): setup 72875  scores 207557  softmax 11418  V 151514  merge 36771 ticks/call
+r5fa-phase ith 27 (positions 96): setup 71421  scores 207085  softmax 14898  V 153843  merge 37460 ticks/call
+r5fa-phase ith 21 (positions 96): setup 74654  scores 205818  softmax 13385  V 157444  merge 37302 ticks/call
+r5fa-phase ith 30 (positions 50): setup 50275  scores 49210  softmax 4813  V 48599  merge 37935 ticks/call
+r5fa-phase ith 2 (positions 96): setup 51598  scores 224276  softmax 11695  V 153385  merge 36552 ticks/call
+r5fa-phase ith 31 (positions 0): setup 26985  scores 0  softmax 0  V 0  merge 37828 ticks/call
+r5fa-phase ith 5 (positions 96): setup 44765  scores 221601  softmax 9836  V 154614  merge 37453 ticks/call
+r5fa-phase ith 23 (positions 96): setup 76797  scores 209688  softmax 11903  V 167349  merge 43340 ticks/call
+r5fa-phase ith 17 (positions 96): setup 76529  scores 209240  softmax 10273  V 169561  merge 42573 ticks/call
+r5fa-phase ith 14 (positions 96): setup 73138  scores 212737  softmax 12723  V 167523  merge 42776 ticks/call
+r5fa-phase ith 29 (positions 96): setup 80108  scores 206932  softmax 11435  V 162989  merge 43795 ticks/call
+r5fa-phase ith 24 (positions 96): setup 74266  scores 205346  softmax 11506  V 185076  merge 45460 ticks/call
+r5fa-phase ith 1 (positions 96): setup 69167  scores 214453  softmax 7760  V 177190  merge 43370 ticks/call
+r5fa-phase ith 18 (positions 96): setup 68373  scores 209436  softmax 13356  V 184210  merge 45470 ticks/call
+r5fa-phase ith 22 (positions 96): setup 75747  scores 209467  softmax 13166  V 172296  merge 43597 ticks/call
+r5fa-phase ith 12 (positions 96): setup 76586  scores 208320  softmax 12920  V 172385  merge 42913 ticks/call
+r5fa-phase ith 28 (positions 96): setup 77945  scores 207045  softmax 13068  V 174594  merge 43621 ticks/call
+r5fa-phase ith 16 (positions 96): setup 76857  scores 207464  softmax 13442  V 173374  merge 42825 ticks/call
+r5fa-phase ith 25 (positions 96): setup 79421  scores 207096  softmax 11436  V 178762  merge 46704 ticks/call
+r5fa-phase ith 3 (positions 96): setup 83663  scores 199230  softmax 11805  V 180214  merge 44109 ticks/call
+r5fa-phase ith 19 (positions 96): setup 78981  scores 208163  softmax 9991  V 179275  merge 46631 ticks/call
+r5fa-phase ith 4 (positions 96): setup 83562  scores 207621  softmax 8470  V 173623  merge 44111 ticks/call
+r5fa: calls 1920 nek1 3072 n_eff 2994 per 96 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 496263 mean 444063  wait mean 63719 | k % 4096 = 32
+r5fa-phase ith 0 (positions 96): setup 62060  scores 226729  softmax 7552  V 184984  merge 42847 ticks/call
+r5fa-phase ith 8 (positions 96): setup 28123  scores 195398  softmax 10647  V 143554  merge 26276 ticks/call
+r5fa-phase ith 13 (positions 96): setup 34780  scores 207707  softmax 7085  V 160570  merge 33384 ticks/call
+r5fa-phase ith 20 (positions 96): setup 69969  scores 206046  softmax 14409  V 154508  merge 32540 ticks/call
+r5fa-phase ith 7 (positions 96): setup 67261  scores 208845  softmax 10421  V 149032  merge 31090 ticks/call
+r5fa-phase ith 26 (positions 96): setup 67094  scores 210187  softmax 12630  V 152354  merge 32291 ticks/call
+r5fa-phase ith 6 (positions 96): setup 67305  scores 209621  softmax 11395  V 151966  merge 31262 ticks/call
+r5fa-phase ith 15 (positions 96): setup 40151  scores 208332  softmax 10339  V 158687  merge 33042 ticks/call
+r5fa-phase ith 11 (positions 96): setup 29449  scores 202197  softmax 9759  V 145852  merge 30854 ticks/call
+r5fa-phase ith 2 (positions 96): setup 54093  scores 232539  softmax 11553  V 162704  merge 37238 ticks/call
+r5fa-phase ith 30 (positions 96): setup 59125  scores 195604  softmax 15142  V 150147  merge 38705 ticks/call
+r5fa-phase ith 27 (positions 96): setup 72493  scores 206749  softmax 13551  V 157059  merge 38098 ticks/call
+r5fa-phase ith 21 (positions 96): setup 75551  scores 205942  softmax 12898  V 160435  merge 37832 ticks/call
+r5fa-phase ith 10 (positions 96): setup 73703  scores 210313  softmax 11136  V 152665  merge 36561 ticks/call
+r5fa-phase ith 9 (positions 96): setup 74627  scores 209402  softmax 12777  V 149211  merge 37003 ticks/call
+r5fa-phase ith 31 (positions 18): setup 34124  scores 6363  softmax 1180  V 7504  merge 37541 ticks/call
+r5fa-phase ith 5 (positions 96): setup 47400  scores 222586  softmax 9717  V 157254  merge 37162 ticks/call
+r5fa-phase ith 22 (positions 96): setup 75912  scores 210667  softmax 15153  V 172984  merge 43579 ticks/call
+r5fa-phase ith 28 (positions 96): setup 78393  scores 211006  softmax 12668  V 171330  merge 43603 ticks/call
+r5fa-phase ith 12 (positions 96): setup 76437  scores 210387  softmax 15103  V 172297  merge 42682 ticks/call
+r5fa-phase ith 16 (positions 96): setup 77233  scores 208360  softmax 14250  V 175318  merge 43473 ticks/call
+r5fa-phase ith 1 (positions 96): setup 71360  scores 216722  softmax 8197  V 191565  merge 42517 ticks/call
+r5fa-phase ith 18 (positions 96): setup 70434  scores 212527  softmax 15901  V 196635  merge 44920 ticks/call
+r5fa-phase ith 24 (positions 96): setup 76760  scores 207166  softmax 10137  V 199648  merge 44888 ticks/call
+r5fa-phase ith 29 (positions 96): setup 79980  scores 212129  softmax 10750  V 166007  merge 43503 ticks/call
+r5fa-phase ith 17 (positions 96): setup 76934  scores 210630  softmax 12013  V 171237  merge 43105 ticks/call
+r5fa-phase ith 23 (positions 96): setup 76679  scores 211685  softmax 12457  V 170051  merge 43381 ticks/call
+r5fa-phase ith 14 (positions 96): setup 73170  scores 214200  softmax 11863  V 170349  merge 42297 ticks/call
+r5fa-phase ith 25 (positions 96): setup 80993  scores 211966  softmax 13339  V 177070  merge 46825 ticks/call
+r5fa-phase ith 4 (positions 96): setup 85564  scores 212684  softmax 8244  V 172979  merge 44194 ticks/call
+r5fa-phase ith 19 (positions 96): setup 80738  scores 212386  softmax 12776  V 179617  merge 46565 ticks/call
+r5fa-phase ith 3 (positions 96): setup 85314  scores 205220  softmax 12901  V 179030  merge 44170 ticks/call
+r5fa: calls 2560 nek1 3072 n_eff 3058 per 96 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 508885 mean 462053  wait mean 58193 | k % 4096 = 32
+r5fa-phase ith 0 (positions 96): setup 63562  scores 234518  softmax 7801  V 188541  merge 43135 ticks/call
+r5fa-phase ith 20 (positions 96): setup 71175  scores 208051  softmax 13424  V 156036  merge 32450 ticks/call
+r5fa-phase ith 6 (positions 96): setup 68259  scores 211675  softmax 12366  V 152479  merge 31211 ticks/call
+r5fa-phase ith 26 (positions 96): setup 67744  scores 211455  softmax 12340  V 154183  merge 32462 ticks/call
+r5fa-phase ith 7 (positions 96): setup 67751  scores 209814  softmax 10604  V 150202  merge 31093 ticks/call
+r5fa-phase ith 8 (positions 96): setup 28180  scores 198835  softmax 10216  V 144048  merge 26475 ticks/call
+r5fa-phase ith 11 (positions 96): setup 30018  scores 204497  softmax 9211  V 147990  merge 31458 ticks/call
+r5fa-phase ith 13 (positions 96): setup 34962  scores 208501  softmax 7961  V 162042  merge 33566 ticks/call
+r5fa-phase ith 31 (positions 82): setup 52211  scores 126649  softmax 12485  V 107036  merge 37945 ticks/call
+r5fa-phase ith 5 (positions 96): setup 53000  scores 232547  softmax 9021  V 167597  merge 37773 ticks/call
+r5fa-phase ith 2 (positions 96): setup 55085  scores 238967  softmax 9348  V 169130  merge 37831 ticks/call
+r5fa-phase ith 30 (positions 96): setup 60776  scores 234428  softmax 10531  V 172118  merge 39384 ticks/call
+r5fa-phase ith 15 (positions 96): setup 39465  scores 209422  softmax 10530  V 160061  merge 33007 ticks/call
+r5fa-phase ith 10 (positions 96): setup 74302  scores 211382  softmax 10447  V 156947  merge 36910 ticks/call
+r5fa-phase ith 21 (positions 96): setup 76394  scores 209438  softmax 15309  V 162756  merge 38214 ticks/call
+r5fa-phase ith 27 (positions 96): setup 72897  scores 208830  softmax 15708  V 159983  merge 38522 ticks/call
+r5fa-phase ith 9 (positions 96): setup 74991  scores 212495  softmax 13009  V 152955  merge 37343 ticks/call
+r5fa-phase ith 16 (positions 96): setup 77228  scores 213977  softmax 12758  V 176667  merge 43513 ticks/call
+r5fa-phase ith 28 (positions 96): setup 78309  scores 214855  softmax 16743  V 172740  merge 43621 ticks/call
+r5fa-phase ith 12 (positions 96): setup 76566  scores 214640  softmax 16226  V 172948  merge 42667 ticks/call
+r5fa-phase ith 22 (positions 96): setup 75938  scores 215309  softmax 15137  V 175288  merge 43709 ticks/call
+r5fa-phase ith 29 (positions 96): setup 82624  scores 213388  softmax 11660  V 167625  merge 43689 ticks/call
+r5fa-phase ith 14 (positions 96): setup 74858  scores 217882  softmax 11214  V 171858  merge 42076 ticks/call
+r5fa-phase ith 17 (positions 96): setup 78873  scores 214089  softmax 11973  V 173033  merge 42928 ticks/call
+r5fa-phase ith 1 (positions 96): setup 72673  scores 223588  softmax 8588  V 196263  merge 42974 ticks/call
+r5fa-phase ith 24 (positions 96): setup 78043  scores 212932  softmax 13356  V 203844  merge 45574 ticks/call
+r5fa-phase ith 18 (positions 96): setup 72144  scores 218146  softmax 14511  V 201933  merge 45474 ticks/call
+r5fa-phase ith 23 (positions 96): setup 78436  scores 213898  softmax 14835  V 172151  merge 43348 ticks/call
+r5fa-phase ith 4 (positions 96): setup 89108  scores 218552  softmax 9206  V 184315  merge 44616 ticks/call
+r5fa-phase ith 3 (positions 96): setup 87739  scores 211947  softmax 10742  V 190796  merge 44548 ticks/call
+r5fa-phase ith 19 (positions 96): setup 84100  scores 217445  softmax 13183  V 190970  merge 47297 ticks/call
+r5fa-phase ith 25 (positions 96): setup 83339  scores 219281  softmax 12292  V 188747  merge 47507 ticks/call
+r5fa: calls 3200 nek1 3328 n_eff 3122 per 104 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 503953 mean 450447  wait mean 69803 | k % 4096 = 32
+r5fa-phase ith 0 (positions 104): setup 59751  scores 237536  softmax 10858  V 175950  merge 42323 ticks/call
+r5fa-phase ith 11 (positions 104): setup 31374  scores 216728  softmax 10945  V 150731  merge 29755 ticks/call
+r5fa-phase ith 6 (positions 104): setup 69102  scores 217852  softmax 14041  V 159131  merge 30496 ticks/call
+r5fa-phase ith 26 (positions 104): setup 68879  scores 216473  softmax 15396  V 158316  merge 31699 ticks/call
+r5fa-phase ith 7 (positions 104): setup 68454  scores 220898  softmax 10632  V 153978  merge 30379 ticks/call
+r5fa-phase ith 20 (positions 104): setup 71434  scores 217646  softmax 15986  V 160288  merge 31763 ticks/call
+r5fa-phase ith 8 (positions 104): setup 26976  scores 211851  softmax 14727  V 153139  merge 26004 ticks/call
+r5fa-phase ith 15 (positions 104): setup 37357  scores 222378  softmax 14038  V 160493  merge 32547 ticks/call
+r5fa-phase ith 13 (positions 104): setup 33406  scores 221648  softmax 11695  V 164973  merge 32795 ticks/call
+r5fa-phase ith 10 (positions 104): setup 75251  scores 216931  softmax 11116  V 159660  merge 35040 ticks/call
+r5fa-phase ith 27 (positions 104): setup 74089  scores 214410  softmax 16771  V 162438  merge 36550 ticks/call
+r5fa-phase ith 9 (positions 104): setup 75807  scores 216001  softmax 14646  V 155681  merge 35547 ticks/call
+r5fa-phase ith 21 (positions 104): setup 76824  scores 214045  softmax 16370  V 163921  merge 36197 ticks/call
+r5fa-phase ith 30 (positions 2): setup 35060  scores 52128  softmax 2557  V 38192  merge 36847 ticks/call
+r5fa-phase ith 2 (positions 104): setup 46330  scores 236576  softmax 16687  V 160813  merge 35148 ticks/call
+r5fa-phase ith 31 (positions 0): setup 31417  scores 48336  softmax 4134  V 35915  merge 36110 ticks/call
+r5fa-phase ith 5 (positions 104): setup 45880  scores 235565  softmax 12124  V 164505  merge 36091 ticks/call
+r5fa-phase ith 16 (positions 104): setup 78136  scores 217603  softmax 16203  V 181736  merge 42213 ticks/call
+r5fa-phase ith 12 (positions 104): setup 77317  scores 218891  softmax 14974  V 180805  merge 41669 ticks/call
+r5fa-phase ith 22 (positions 104): setup 77098  scores 215562  softmax 17201  V 183634  merge 42209 ticks/call
+r5fa-phase ith 28 (positions 104): setup 79155  scores 215322  softmax 17302  V 182222  merge 42410 ticks/call
+r5fa-phase ith 17 (positions 104): setup 78060  scores 217637  softmax 15031  V 176928  merge 42226 ticks/call
+r5fa-phase ith 14 (positions 104): setup 74522  scores 217976  softmax 15467  V 178718  merge 41601 ticks/call
+r5fa-phase ith 23 (positions 104): setup 78482  scores 218559  softmax 14230  V 178992  merge 42322 ticks/call
+r5fa-phase ith 29 (positions 104): setup 80910  scores 181535  softmax 12086  V 159691  merge 42776 ticks/call
+r5fa-phase ith 1 (positions 104): setup 68887  scores 227631  softmax 10645  V 183069  merge 42305 ticks/call
+r5fa-phase ith 18 (positions 104): setup 67817  scores 219635  softmax 15237  V 191743  merge 44413 ticks/call
+r5fa-phase ith 4 (positions 104): setup 85520  scores 218844  softmax 10673  V 183415  merge 42705 ticks/call
+r5fa-phase ith 19 (positions 104): setup 80810  scores 218002  softmax 12323  V 192144  merge 45316 ticks/call
+r5fa-phase ith 24 (positions 104): setup 73885  scores 217188  softmax 15343  V 191042  merge 44482 ticks/call
+r5fa-phase ith 25 (positions 104): setup 81097  scores 217121  softmax 14850  V 190005  merge 45401 ticks/call
+r5fa-phase ith 3 (positions 104): setup 84660  scores 212980  softmax 14507  V 189211  merge 42550 ticks/call
+r5fa: calls 3840 nek1 3328 n_eff 3186 per 104 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 500079 mean 448480  wait mean 68344 | k % 4096 = 32
+r5fa-phase ith 0 (positions 104): setup 63072  scores 233411  softmax 11198  V 180230  merge 43467 ticks/call
+r5fa-phase ith 8 (positions 104): setup 26514  scores 209590  softmax 14621  V 153396  merge 26489 ticks/call
+r5fa-phase ith 11 (positions 104): setup 31853  scores 215004  softmax 12489  V 148933  merge 30043 ticks/call
+r5fa-phase ith 30 (positions 66): setup 57284  scores 64814  softmax 6132  V 64131  merge 37606 ticks/call
+r5fa-phase ith 13 (positions 104): setup 32543  scores 220711  softmax 13230  V 162642  merge 32986 ticks/call
+r5fa-phase ith 2 (positions 104): setup 51869  scores 237388  softmax 15314  V 158910  merge 35758 ticks/call
+r5fa-phase ith 21 (positions 104): setup 76401  scores 213084  softmax 14893  V 162315  merge 37541 ticks/call
+r5fa-phase ith 27 (positions 104): setup 72891  scores 215246  softmax 15658  V 162258  merge 37703 ticks/call
+r5fa-phase ith 9 (positions 104): setup 75243  scores 213755  softmax 14813  V 154925  merge 36722 ticks/call
+r5fa-phase ith 10 (positions 104): setup 74674  scores 217477  softmax 11095  V 157405  merge 36139 ticks/call
+r5fa-phase ith 16 (positions 104): setup 77272  scores 218291  softmax 17279  V 178305  merge 43310 ticks/call
+r5fa-phase ith 28 (positions 104): setup 78887  scores 213542  softmax 15181  V 182981  merge 43452 ticks/call
+r5fa-phase ith 12 (positions 104): setup 76314  scores 217038  softmax 15700  V 181061  merge 42775 ticks/call
+r5fa-phase ith 22 (positions 104): setup 76034  scores 214763  softmax 15673  V 184199  merge 43371 ticks/call
+r5fa-phase ith 15 (positions 104): setup 36312  scores 221309  softmax 14969  V 160408  merge 33076 ticks/call
+r5fa-phase ith 7 (positions 104): setup 66417  scores 222186  softmax 10987  V 151985  merge 30851 ticks/call
+r5fa-phase ith 26 (positions 104): setup 66885  scores 215760  softmax 15052  V 158273  merge 32300 ticks/call
+r5fa-phase ith 20 (positions 104): setup 69137  scores 218497  softmax 16413  V 158855  merge 32435 ticks/call
+r5fa-phase ith 6 (positions 104): setup 66582  scores 218791  softmax 15323  V 157049  merge 31090 ticks/call
+r5fa-phase ith 31 (positions 0): setup 30957  scores 0  softmax 0  V 0  merge 37013 ticks/call
+r5fa-phase ith 5 (positions 104): setup 46230  scores 232697  softmax 13420  V 159629  merge 36391 ticks/call
+r5fa-phase ith 24 (positions 104): setup 75831  scores 215109  softmax 15265  V 193299  merge 45513 ticks/call
+r5fa-phase ith 1 (positions 104): setup 71844  scores 224172  softmax 11319  V 185676  merge 43476 ticks/call
+r5fa-phase ith 18 (positions 104): setup 70481  scores 217563  softmax 17223  V 192541  merge 45533 ticks/call
+r5fa-phase ith 14 (positions 104): setup 72164  scores 217544  softmax 15050  V 177585  merge 42522 ticks/call
+r5fa-phase ith 29 (positions 104): setup 78774  scores 197981  softmax 13287  V 175481  merge 43435 ticks/call
+r5fa-phase ith 23 (positions 104): setup 75545  scores 219423  softmax 14359  V 177017  merge 43111 ticks/call
+r5fa-phase ith 17 (positions 104): setup 75598  scores 218288  softmax 15267  V 175023  merge 42952 ticks/call
+r5fa-phase ith 3 (positions 104): setup 86081  scores 210126  softmax 12968  V 185586  merge 43737 ticks/call
+r5fa-phase ith 25 (positions 104): setup 82084  scores 213206  softmax 14958  V 187004  merge 46582 ticks/call
+r5fa-phase ith 19 (positions 104): setup 81907  scores 214800  softmax 11606  V 188076  merge 46322 ticks/call
+r5fa-phase ith 4 (positions 104): setup 86719  scores 216302  softmax 10979  V 179152  merge 43885 ticks/call
+r5fa: calls 4480 nek1 3328 n_eff 3250 per 104 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 508680 mean 457596  wait mean 63744 | k % 4096 = 32
+r5fa-phase ith 0 (positions 104): setup 63425  scores 235525  softmax 11742  V 185682  merge 43000 ticks/call
+r5fa-phase ith 8 (positions 104): setup 26374  scores 209698  softmax 13928  V 154754  merge 26540 ticks/call
+r5fa-phase ith 7 (positions 104): setup 65970  scores 220929  softmax 11237  V 152865  merge 30979 ticks/call
+r5fa-phase ith 26 (positions 104): setup 66518  scores 216077  softmax 14227  V 158990  merge 32222 ticks/call
+r5fa-phase ith 6 (positions 104): setup 66195  scores 218717  softmax 15358  V 156391  merge 31171 ticks/call
+r5fa-phase ith 20 (positions 104): setup 68527  scores 218043  softmax 17438  V 158999  merge 32366 ticks/call
+r5fa-phase ith 11 (positions 104): setup 31534  scores 214417  softmax 12870  V 148512  merge 30230 ticks/call
+r5fa-phase ith 17 (positions 104): setup 74911  scores 220408  softmax 13713  V 175445  merge 43244 ticks/call
+r5fa-phase ith 29 (positions 104): setup 77388  scores 199827  softmax 12906  V 175891  merge 43797 ticks/call
+r5fa-phase ith 15 (positions 104): setup 36061  scores 221922  softmax 14391  V 160787  merge 32920 ticks/call
+r5fa-phase ith 14 (positions 104): setup 71713  scores 219520  softmax 15935  V 176763  merge 42642 ticks/call
+r5fa-phase ith 2 (positions 104): setup 52703  scores 240756  softmax 15405  V 164603  merge 36818 ticks/call
+r5fa-phase ith 30 (positions 104): setup 58987  scores 174737  softmax 16960  V 133941  merge 38309 ticks/call
+r5fa-phase ith 23 (positions 104): setup 74903  scores 220972  softmax 16599  V 177549  merge 43457 ticks/call
+r5fa-phase ith 13 (positions 104): setup 32734  scores 220845  softmax 12916  V 162830  merge 33214 ticks/call
+r5fa-phase ith 31 (positions 26): setup 41021  scores 8650  softmax 1559  V 11012  merge 37290 ticks/call
+r5fa-phase ith 5 (positions 104): setup 48953  scores 234849  softmax 14099  V 158376  merge 36932 ticks/call
+r5fa-phase ith 9 (positions 104): setup 74197  scores 213761  softmax 16526  V 155395  merge 37091 ticks/call
+r5fa-phase ith 10 (positions 104): setup 73724  scores 217638  softmax 11305  V 156631  merge 36595 ticks/call
+r5fa-phase ith 27 (positions 104): setup 72013  scores 214556  softmax 15980  V 161753  merge 38167 ticks/call
+r5fa-phase ith 21 (positions 104): setup 75213  scores 213201  softmax 17637  V 161485  merge 38024 ticks/call
+r5fa-phase ith 22 (positions 104): setup 75808  scores 216905  softmax 15849  V 183395  merge 43448 ticks/call
+r5fa-phase ith 12 (positions 104): setup 76434  scores 220495  softmax 14156  V 180883  merge 42679 ticks/call
+r5fa-phase ith 28 (positions 104): setup 78535  scores 215847  softmax 16630  V 180251  merge 43431 ticks/call
+r5fa-phase ith 16 (positions 104): setup 76989  scores 220380  softmax 17316  V 175858  merge 43258 ticks/call
+r5fa-phase ith 4 (positions 104): setup 88030  scores 218488  softmax 10490  V 178008  merge 44270 ticks/call
+r5fa-phase ith 19 (positions 104): setup 83891  scores 218175  softmax 12219  V 185355  merge 46725 ticks/call
+r5fa-phase ith 25 (positions 104): setup 83429  scores 217697  softmax 13742  V 185377  merge 46907 ticks/call
+r5fa-phase ith 24 (positions 104): setup 75274  scores 216831  softmax 16034  V 199883  merge 45237 ticks/call
+r5fa-phase ith 18 (positions 104): setup 70686  scores 219916  softmax 16899  V 199479  merge 45088 ticks/call
+r5fa-phase ith 3 (positions 104): setup 87169  scores 213129  softmax 17206  V 182408  merge 44163 ticks/call
+r5fa-phase ith 1 (positions 104): setup 71897  scores 227128  softmax 11188  V 192119  merge 42930 ticks/call
+r5fa: calls 5120 nek1 3328 n_eff 3314 per 104 stride_k 1024 nbk2 512 stride_v 1024 nbv2 512 nbq2 1024 nb1 1024 rk 8 | partial ticks/call max 512123 mean 464138  wait mean 60944 | k % 4096 = 32
+r5fa-phase ith 0 (positions 104): setup 64583  scores 236227  softmax 11073  V 186932  merge 43691 ticks/call
+r5fa-phase ith 8 (positions 104): setup 26419  scores 205855  softmax 14503  V 151300  merge 26553 ticks/call
+r5fa-phase ith 6 (positions 104): setup 66406  scores 216524  softmax 14876  V 155485  merge 31258 ticks/call
+r5fa-phase ith 20 (positions 104): setup 68322  scores 217434  softmax 15170  V 156776  merge 32709 ticks/call
+r5fa-phase ith 26 (positions 104): setup 66276  scores 211827  softmax 14655  V 156422  merge 32618 ticks/call
+r5fa-phase ith 7 (positions 104): setup 65745  scores 220764  softmax 10957  V 150440  merge 31163 ticks/call
+r5fa-phase ith 15 (positions 104): setup 36542  scores 218221  softmax 13690  V 159475  merge 32953 ticks/call
+r5fa-phase ith 11 (positions 104): setup 31784  scores 211842  softmax 12485  V 145485  merge 30766 ticks/call
+r5fa-phase ith 13 (positions 104): setup 33053  scores 217570  softmax 12936  V 161162  merge 34430 ticks/call
+r5fa-phase ith 2 (positions 104): setup 52598  scores 242266  softmax 15974  V 165097  merge 37102 ticks/call
+r5fa-phase ith 30 (positions 104): setup 59232  scores 191060  softmax 15549  V 149871  merge 38751 ticks/call
+r5fa-phase ith 1 (positions 104): setup 73288  scores 226345  softmax 11352  V 192414  merge 43552 ticks/call
+r5fa-phase ith 18 (positions 104): setup 71839  scores 220800  softmax 15979  V 199588  merge 46492 ticks/call
+r5fa-phase ith 31 (positions 90): setup 56151  scores 102327  softmax 13646  V 82161  merge 37700 ticks/call
+r5fa-phase ith 5 (positions 104): setup 53813  scores 237205  softmax 13699  V 163750  merge 37317 ticks/call
+r5fa-phase ith 21 (positions 104): setup 74913  scores 212375  softmax 14693  V 161720  merge 38416 ticks/call
+r5fa-phase ith 27 (positions 104): setup 71896  scores 213475  softmax 16951  V 160863  merge 38733 ticks/call
+r5fa-phase ith 9 (positions 104): setup 73799  scores 212683  softmax 15574  V 154455  merge 38347 ticks/call
+r5fa-phase ith 10 (positions 104): setup 73277  scores 216658  softmax 11502  V 156358  merge 37866 ticks/call
+r5fa-phase ith 24 (positions 104): setup 76695  scores 217151  softmax 19759  V 197930  merge 46829 ticks/call
+r5fa-phase ith 14 (positions 104): setup 72356  scores 217641  softmax 14510  V 176942  merge 43445 ticks/call
+r5fa-phase ith 17 (positions 104): setup 75289  scores 218628  softmax 13745  V 174456  merge 43874 ticks/call
+r5fa-phase ith 29 (positions 104): setup 77935  scores 197479  softmax 13824  V 173226  merge 44592 ticks/call
+r5fa-phase ith 23 (positions 104): setup 75692  scores 219353  softmax 14278  V 176985  merge 43454 ticks/call
+r5fa-phase ith 28 (positions 104): setup 78745  scores 214022  softmax 17345  V 179246  merge 43590 ticks/call
+r5fa-phase ith 16 (positions 104): setup 77320  scores 218015  softmax 18921  V 175707  merge 44096 ticks/call
+r5fa-phase ith 22 (positions 104): setup 75699  scores 214864  softmax 16828  V 181151  merge 44303 ticks/call
+r5fa-phase ith 19 (positions 104): setup 87188  scores 217568  softmax 12319  V 191741  merge 47502 ticks/call
+r5fa-phase ith 4 (positions 104): setup 91247  scores 219120  softmax 10571  V 183071  merge 44309 ticks/call
+r5fa-phase ith 3 (positions 104): setup 89235  scores 215785  softmax 14428  V 187441  merge 44253 ticks/call
+r5fa-phase ith 25 (positions 104): setup 85727  scores 217038  softmax 13938  V 191582  merge 47026 ticks/call
+r5fa-phase ith 12 (positions 104): setup 77172  scores 218558  softmax 15470  V 178278  merge 43042 ticks/call
+INFO [      log_server_request] request | tid="139538965472960" timestamp=1793501241 remote_addr="127.0.0.1" remote_port=35032 status=200 method="POST" path="/completion" params={}
+slot print_timing: id  0 | task 35 | 
+prompt eval time =    7136.96 ms /  2834 tokens (    2.52 ms per token,   397.09 tokens per second)
+       eval time =   15062.11 ms /   512 tokens (   29.42 ms per token,    33.99 tokens per second)
+      total time =   22199.07 ms /  3346 tokens
+slot create_check: id  0 | task 35 | created context checkpoint 4 of 32 (pos_min = 3344, pos_max = 3344, n_tokens = 3345, size = 62.840 MiB, took 17.48 ms)
+INFO [           release_slots] slot released | tid="139562309632512" timestamp=1793501241 id_slot=0 id_task=35 n_ctx=16384 n_past=3345 n_system_tokens=0 n_cache_tokens=3345 truncated=false
+INFO [              slots_idle] all slots are idle | tid="139562309632512" timestamp=1793501241

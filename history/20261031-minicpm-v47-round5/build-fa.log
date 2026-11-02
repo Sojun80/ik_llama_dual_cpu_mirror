@@ -1,0 +1,16 @@
+[  0%] Generating build details from Git
+-- Found Git: /usr/bin/git (found version "2.53.0")
+[  0%] Built target cpp-httplib
+[  0%] Building CXX object ggml/src/CMakeFiles/ggml.dir/ggml-backend.cpp.o
+[  0%] Building CXX object common/CMakeFiles/build_info.dir/build-info.cpp.o
+[  0%] Built target build_info
+[  0%] Linking CXX shared library libggml.so
+[ 16%] Built target ggml
+[ 16%] Linking CXX shared library libllama.so
+[ 72%] Built target llama
+[ 74%] Linking CXX shared library libmtmd.so
+[ 76%] Linking CXX static library libcommon.a
+[ 78%] Built target mtmd
+[ 94%] Built target common
+[ 94%] Linking CXX executable ../../bin/llama-server
+[100%] Built target llama-server

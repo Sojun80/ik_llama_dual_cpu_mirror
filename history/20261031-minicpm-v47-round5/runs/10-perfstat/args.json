@@ -1,0 +1,13 @@
+{
+ "out": "runs/10-perfstat",
+ "config": [
+  "base32=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server:32:base",
+  "dynfa=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-fa/bin/llama-server:32:base:IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1"
+ ],
+ "cases": "long",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": false,
+ "prof": false,
+ "perf": true
+}

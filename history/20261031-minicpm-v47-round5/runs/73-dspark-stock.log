@@ -1,0 +1,14 @@
+stock-r0       code   decode= 32.950 n=512
+stock-r0       logs   decode= 32.111 n=512
+stock-r0       prose  decode= 33.057 n=512
+sds8-r0        code   decode= 18.326 n=512 draft 202/485
+sds8-r0        logs   decode= 13.309 n=512 draft 137/576
+sds8-r0        prose  decode= 18.830 n=512 draft 212/524
+SUMMARY
+stock      code   decode mean  32.950 [32.95]  same_as_stock=True
+stock      logs   decode mean  32.111 [32.11]  same_as_stock=True
+stock      prose  decode mean  33.057 [33.06]  same_as_stock=True
+sds8       code   decode mean  18.326 [18.33]  accepted 202/485 = 42%  same_as_stock=False
+sds8       logs   decode mean  13.309 [13.31]  accepted 137/576 = 24%  same_as_stock=False
+sds8       prose  decode mean  18.830 [18.83]  accepted 212/524 = 40%  same_as_stock=False
+DONE

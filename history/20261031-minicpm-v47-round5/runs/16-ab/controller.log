@@ -1,0 +1,25 @@
+base32-medium-r0                         ok=True decode=31.320 prompt=387.49
+s32x-medium-r0                           ok=True decode=33.396 prompt=416.84
+m64w-medium-r0                           ok=True decode=34.070 prompt=504.63
+m64kv-medium-r0                          ok=True decode=34.940 prompt=511.41
+base32-long-r0                           ok=True decode=27.210 prompt=343.93
+s32x-long-r0                             ok=True decode=30.584 prompt=361.88
+m64w-long-r0                             ok=True decode=28.395 prompt=466.99
+m64kv-long-r0                            ok=True decode=32.568 prompt=457.96
+m64kv-medium-r1                          ok=True decode=36.132 prompt=507.62
+m64w-medium-r1                           ok=True decode=33.743 prompt=495.59
+s32x-medium-r1                           ok=True decode=29.957 prompt=410.85
+base32-medium-r1                         ok=True decode=32.265 prompt=389.89
+m64kv-long-r1                            ok=True decode=30.994 prompt=459.16
+m64w-long-r1                             ok=True decode=28.176 prompt=459.14
+s32x-long-r1                             ok=True decode=28.500 prompt=360.54
+base32-long-r1                           ok=True decode=28.493 prompt=344.12
+SUMMARY
+base32|medium                            decode mean 31.793 [31.32, 32.265]  prompt mean 388.69
+s32x|medium                              decode mean 31.677 [33.396, 29.957]  prompt mean 413.85
+m64w|medium                              decode mean 33.907 [34.07, 33.743]  prompt mean 500.11
+m64kv|medium                             decode mean 35.536 [34.94, 36.132]  prompt mean 509.51
+base32|long                              decode mean 27.852 [27.21, 28.493]  prompt mean 344.02
+s32x|long                                decode mean 29.542 [30.584, 28.5]  prompt mean 361.21
+m64w|long                                decode mean 28.285 [28.395, 28.176]  prompt mean 463.06
+m64kv|long                               decode mean 31.781 [32.568, 30.994]  prompt mean 458.56

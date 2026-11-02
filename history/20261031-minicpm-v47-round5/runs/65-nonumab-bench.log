@@ -1,0 +1,21 @@
+m64-medium-r0                            ok=True decode=42.289 prompt=516.94
+m64n-medium-r0                           ok=True decode=41.069 prompt=519.68
+m64-long-r0                              ok=True decode=36.983 prompt=463.33
+m64n-long-r0                             ok=True decode=35.166 prompt=458.52
+m64n-medium-r1                           ok=True decode=42.381 prompt=528.87
+m64-medium-r1                            ok=True decode=40.666 prompt=516.74
+m64n-long-r1                             ok=True decode=35.372 prompt=461.25
+m64-long-r1                              ok=True decode=34.676 prompt=454.48
+m64-medium-r2                            ok=True decode=42.352 prompt=513.88
+m64n-medium-r2                           ok=True decode=41.136 prompt=529.69
+m64-long-r2                              ok=True decode=36.470 prompt=462.48
+m64n-long-r2                             ok=True decode=35.676 prompt=456.01
+m64n-medium-r3                           ok=True decode=41.791 prompt=530.51
+m64-medium-r3                            ok=True decode=40.810 prompt=513.57
+m64n-long-r3                             ok=True decode=36.458 prompt=459.07
+m64-long-r3                              ok=True decode=34.854 prompt=462.54
+SUMMARY
+m64|medium                               decode mean 41.529 [42.289, 40.666, 42.352, 40.81]  prompt mean 515.28
+m64n|medium                              decode mean 41.594 [41.069, 42.381, 41.136, 41.791]  prompt mean 527.19
+m64|long                                 decode mean 35.746 [36.983, 34.676, 36.47, 34.854]  prompt mean 460.71
+m64n|long                                decode mean 35.668 [35.166, 35.372, 35.676, 36.458]  prompt mean 458.71

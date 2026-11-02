@@ -1,0 +1,63 @@
+{
+ "tag": "m64pin-medium-r0",
+ "config": {
+  "name": "m64pin",
+  "bin": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server",
+  "threads": 64,
+  "cpus": "16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,19,27,35,43,23,31,39,47,48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61",
+  "env": {
+   "IK_R5_DYN": "1",
+   "IK_R5_FA": "1",
+   "IK_R5_HUGE": "1",
+   "IK_R5_PINONCE": "1"
+  },
+  "mode": "mirror",
+  "mirror": "all"
+ },
+ "case": "medium",
+ "round": 0,
+ "cmd": [
+  "numactl",
+  "--physcpubind=16-95",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server",
+  "-m",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "-ngl",
+  "0",
+  "--no-mmap",
+  "--numa",
+  "mirror",
+  "--numa-mirror",
+  "all",
+  "-t",
+  "64",
+  "-tb",
+  "64",
+  "--cpu-range",
+  "16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,19,27,35,43,23,31,39,47,48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61",
+  "-c",
+  "16384",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "19185",
+  "--parallel",
+  "1"
+ ],
+ "start": 1793502779.1188972,
+ "numastat": "---\nHuge                         0.00            0.00            0.00\nHeap                         0.00           70.71           70.71\nStack                        0.04            0.09            0.13\nPrivate                  20574.32        20625.68        41200.00\n----------------  --------------- --------------- ---------------\nTotal                    20574.36        20696.48        41270.85\n",
+ "timings": {
+  "prompt_n": 2834,
+  "prompt_ms": 5350.367,
+  "prompt_per_token_ms": 1.88792060691602,
+  "prompt_per_second": 529.6832908845319,
+  "predicted_n": 512,
+  "predicted_ms": 13137.053,
+  "predicted_per_token_ms": 25.658306640625,
+  "predicted_per_second": 38.97373330228629,
+  "n_ctx": 16384,
+  "n_past": 3345
+ },
+ "content": "\nThe meadow paper silent cloudy autumn planet winter silver mirror planet winter quiet circle orange yellow field quiet mountain meadow velvet valley shadow copper valley honey silent forest morning mountain window purple shadow distant ocean forest meadow field field honey mirror honey lantern velvet river window meadow bright velvet valley spring candle valley distant spring distant summer comet bird circle silver stone morning valley crystal garden garden distant honey lantern silver honey silver water purple valley garden garden shadow river thunder garden field water velvet bright paper candle morning field lantern paper planet valley paper silver garden cloudy quiet cloudy forest morning marble circle shadow lantern valley silver spring silent meadow silver candle planet circle river garden open purple river planet shadow water cloudy garden quiet planet planet distant mirror valley autumn open stone candle mountain wind circle meadow quiet crystal wind distant window stone lantern comet forest mountain winter distant silver valley water star winter bird paper spring planet cloudy winter autumn garden meadow silver window crystal shadow cloudy thunder spring silent autumn ocean silver circle orchard quiet morning valley morning shadow field garden mirror spring shadow quiet field field flower spring silver planet forest mirror field meadow garden island forest silver bright mountain silent autumn velvet circle bird purple bright velvet window field summer island planet orange cloudy paper silver meadow water autumn circle field valley comet star star valley yellow island shadow morning garden distant meadow spring circle honey ocean bright purple river valley water silent candle shadow meadow stone star ocean bird distant valley quiet morning quiet planet distant window bird circle garden flower marble mountain meadow star meadow bright quiet paper crystal honey circle velvet water yellow window morning open spring star meadow ocean thunder thunder velvet copper thunder purple meadow summer bird crystal candle winter forest spring stone water winter lantern mountain forest meadow open meadow velvet star yellow comet ocean stone mirror comet ocean bright paper flower meadow open forest garden silent meadow bird bird marble crystal shadow marble purple island open lantern meadow copper orchard star water morning lantern silent marble stone paper forest stone orchard quiet autumn quiet window velvet velvet circle morning garden water stone ocean autumn winter planet circle water marble water paper autumn velvet meadow star ocean cloudy flower silver winter quiet garden distant marble stone planet lantern spring meadow circle crystal bright marble island garden valley summer thunder mountain bird cloudy planet forest open stone bird cloudy window mountain silent marble honey island water shadow orange orange spring comet thunder quiet shadow bird silent water valley thunder quiet meadow spring yellow valley ocean river honey comet candle bird orchard orange honey shadow candle mountain autumn garden planet meadow spring garden autumn lantern cloudy morning autumn spring distant bright garden honey shadow mountain orchard morning velvet lantern stone field quiet silent ocean valley shadow summer shadow river comet planet orange",
+ "ok": true
+}

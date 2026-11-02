@@ -1,0 +1,12 @@
+{
+ "out": "runs/06-fadbg",
+ "config": [
+  "dbg=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-fa/bin/llama-server:32:base:IK_R5_DYN=1,IK_R5_FA=1,IK_R5_FA_DEBUG=1"
+ ],
+ "cases": "medium,long",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": false,
+ "prof": false,
+ "perf": false
+}

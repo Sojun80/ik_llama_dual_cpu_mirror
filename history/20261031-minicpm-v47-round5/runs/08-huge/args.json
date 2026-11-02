@@ -1,0 +1,12 @@
+{
+ "out": "runs/08-huge",
+ "config": [
+  "huge=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-fa/bin/llama-server:32:base:IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1"
+ ],
+ "cases": "medium,long",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": false,
+ "prof": true,
+ "perf": false
+}

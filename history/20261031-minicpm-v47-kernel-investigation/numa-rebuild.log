@@ -1,0 +1,15 @@
+[  0%] Generating build details from Git
+-- Found Git: /usr/bin/git (found version "2.53.0")
+[  0%] Built target cpp-httplib
+[ 16%] Built target ggml
+[ 16%] Generating build details from Git
+-- Found Git: /usr/bin/git (found version "2.53.0")
+[ 16%] Built target build_info
+[ 18%] Building CXX object src/CMakeFiles/llama.dir/llama-model-loader.cpp.o
+[ 18%] Linking CXX shared library libllama.so
+[ 72%] Built target llama
+[ 74%] Linking CXX shared library libmtmd.so
+[ 92%] Built target common
+[ 94%] Built target mtmd
+[ 94%] Linking CXX executable ../../bin/llama-server
+[100%] Built target llama-server

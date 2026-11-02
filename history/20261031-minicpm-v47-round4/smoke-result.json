@@ -1,0 +1,1059 @@
+{
+  "finish_reason": "stop",
+  "elapsed_seconds": 3.071503771992866,
+  "prompt_tokens": 34,
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 34,
+    "prompt_ms": 265.039,
+    "prompt_per_token_ms": 7.795264705882353,
+    "prompt_per_second": 128.2830074064572,
+    "predicted_n": 59,
+    "predicted_ms": 2798.692,
+    "predicted_per_token_ms": 48.25331034482759,
+    "predicted_per_second": 20.723966767332737
+  },
+  "content": "**Known:**\n*   An error occurred.\n*   The service restarted successfully.\n\n**Unknown:**\n*   The specific nature or cause of the error.\n*   Whether the error was transient or critical.\n*   The impact on users or data during the downtime.",
+  "reasoning": "",
+  "events": [
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "role": "assistant",
+            "content": null
+          }
+        }
+      ],
+      "created": 1793467098,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk",
+      "prompt_progress": {
+        "total": 34,
+        "cache": 0,
+        "processed": 0,
+        "time_ms": 0
+      }
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "role": "assistant",
+            "content": null
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk",
+      "prompt_progress": {
+        "total": 34,
+        "cache": 0,
+        "processed": 30,
+        "time_ms": 191
+      }
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "role": "assistant",
+            "content": null
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk",
+      "prompt_progress": {
+        "total": 34,
+        "cache": 0,
+        "processed": 34,
+        "time_ms": 261
+      }
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "role": "assistant",
+            "content": null
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "**"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "Known"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": ":**"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "\n"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "*"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "  "
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " An"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " error"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " occurred"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "."
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "\n"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "*"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "  "
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " The"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " service"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " restarted"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " successfully"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "."
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "\n\n"
+          }
+        }
+      ],
+      "created": 1793467099,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "**"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "Unknown"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": ":**"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "\n"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "*"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "  "
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " The"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " specific"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " nature"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " or"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " cause"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " of"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " the"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " error"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "."
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "\n"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "*"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "  "
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " Whether"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " the"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " error"
+          }
+        }
+      ],
+      "created": 1793467100,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " was"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " transient"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " or"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " critical"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "."
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "\n"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "*"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "  "
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " The"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " impact"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " on"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " users"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " or"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " data"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " during"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " the"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": " downtime"
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": null,
+          "index": 0,
+          "delta": {
+            "content": "."
+          }
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk"
+    },
+    {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "delta": {}
+        }
+      ],
+      "created": 1793467101,
+      "id": "chatcmpl-5iVvjy11L8Cnq7Co5wTSCcKfqRimR1Uo",
+      "model": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+      "system_fingerprint": "b1-0ec4027",
+      "object": "chat.completion.chunk",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 265.039,
+        "prompt_per_token_ms": 7.795264705882353,
+        "prompt_per_second": 128.2830074064572,
+        "predicted_n": 59,
+        "predicted_ms": 2798.692,
+        "predicted_per_token_ms": 48.25331034482759,
+        "predicted_per_second": 20.723966767332737
+      }
+    }
+  ]
+}

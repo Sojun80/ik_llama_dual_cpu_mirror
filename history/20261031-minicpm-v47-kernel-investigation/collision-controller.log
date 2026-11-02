@@ -1,0 +1,6 @@
+START unique 1793481835.9800596
+DONE unique seconds 0.33 timings {'prompt_n': 17, 'prompt_ms': 144.012, 'prompt_per_token_ms': 8.471294117647059, 'prompt_per_second': 118.04571841235452, 'predicted_n': 8, 'predicted_ms': 179.885, 'predicted_per_token_ms': 22.485625, 'predicted_per_second': 44.472857659059954, 'n_ctx': 4096, 'n_past': 24} content '\n\n1, 2, 3'
+START collision 1793481837.9432585
+DONE collision seconds 39.87 timings {'prompt_n': 17, 'prompt_ms': 9102.198, 'prompt_per_token_ms': 535.4234117647059, 'prompt_per_second': 1.8676807513965308, 'predicted_n': 8, 'predicted_ms': 30766.52, 'predicted_per_token_ms': 3845.815, 'predicted_per_second': 0.2600229080181964, 'n_ctx': 4096, 'n_past': 24} content '\n\n1, 2, 3'
+START collision_passive 1793481888.4538147
+DONE collision_passive seconds 0.66 timings {'prompt_n': 17, 'prompt_ms': 257.844, 'prompt_per_token_ms': 15.167294117647058, 'prompt_per_second': 65.9313383286018, 'predicted_n': 8, 'predicted_ms': 404.701, 'predicted_per_token_ms': 50.587625, 'predicted_per_second': 19.767680336841273, 'n_ctx': 4096, 'n_past': 24} content '\n\n1, 2, 3'

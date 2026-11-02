@@ -1,0 +1,12 @@
+START 24 1793478466.122381
+DONE 24 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7333.924, 'prompt_per_token_ms': 2.6080810810810813, 'prompt_per_second': 383.4236624213723, 'predicted_n': 64, 'predicted_ms': 1740.294, 'predicted_per_token_ms': 27.19209375, 'predicted_per_second': 36.77539542169311, 'n_ctx': 16384, 'n_past': 2875}
+DONE 24 524 match True timings {'prompt_n': 9436, 'prompt_ms': 27237.032, 'prompt_per_token_ms': 2.8865019075879608, 'prompt_per_second': 346.44009670363494, 'predicted_n': 64, 'predicted_ms': 2001.395, 'predicted_per_token_ms': 31.271796875, 'predicted_per_second': 31.97769555734875, 'n_ctx': 16384, 'n_past': 9499}
+STOPPED 24
+START 32 1793478506.1947684
+DONE 32 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7099.092, 'prompt_per_token_ms': 2.524570412517781, 'prompt_per_second': 396.1069950917667, 'predicted_n': 64, 'predicted_ms': 1716.307, 'predicted_per_token_ms': 26.817296875, 'predicted_per_second': 37.289366063297535, 'n_ctx': 16384, 'n_past': 2875}
+DONE 32 524 match True timings {'prompt_n': 9436, 'prompt_ms': 26965.2, 'prompt_per_token_ms': 2.8576939381093687, 'prompt_per_second': 349.9325055998101, 'predicted_n': 64, 'predicted_ms': 1989.059, 'predicted_per_token_ms': 31.079046875, 'predicted_per_second': 32.17601891145512, 'n_ctx': 16384, 'n_past': 9499}
+STOPPED 32
+START 48 1793478545.6781502
+DONE 48 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7108.465, 'prompt_per_token_ms': 2.527903627311522, 'prompt_per_second': 395.58470077576527, 'predicted_n': 64, 'predicted_ms': 1731.358, 'predicted_per_token_ms': 27.05246875, 'predicted_per_second': 36.96520303715349, 'n_ctx': 16384, 'n_past': 2875}
+DONE 48 524 match True timings {'prompt_n': 9436, 'prompt_ms': 27020.415, 'prompt_per_token_ms': 2.863545464179737, 'prompt_per_second': 349.2174342992141, 'predicted_n': 64, 'predicted_ms': 2033.527, 'predicted_per_token_ms': 31.773859375, 'predicted_per_second': 31.472412217787124, 'n_ctx': 16384, 'n_past': 9499}
+STOPPED 48

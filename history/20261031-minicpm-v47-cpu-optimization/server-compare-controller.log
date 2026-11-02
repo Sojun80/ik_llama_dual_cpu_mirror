@@ -1,0 +1,39 @@
+START upstream
+DONE upstream 156 0 prompt 2812 timings {'cache_n': 0, 'prompt_n': 2812, 'prompt_ms': 19915.51, 'prompt_per_token_ms': 7.082329302987197, 'prompt_per_second': 141.19648454897717, 'predicted_n': 64, 'predicted_ms': 3371.581, 'predicted_per_token_ms': 53.517158730158734, 'predicted_per_second': 18.685595867339387}
+DONE upstream 156 1 prompt 2812 timings {'cache_n': 0, 'prompt_n': 2812, 'prompt_ms': 20494.484, 'prompt_per_token_ms': 7.28822332859175, 'prompt_per_second': 137.20765060491397, 'predicted_n': 64, 'predicted_ms': 3365.682, 'predicted_per_token_ms': 53.42352380952381, 'predicted_per_second': 18.718345939990765}
+DONE upstream 524 0 prompt 9436 timings {'cache_n': 0, 'prompt_n': 9436, 'prompt_ms': 74230.868, 'prompt_per_token_ms': 7.866772785078424, 'prompt_per_second': 127.11692930762982, 'predicted_n': 64, 'predicted_ms': 3944.263, 'predicted_per_token_ms': 62.607349206349205, 'predicted_per_second': 15.972565723938793}
+DONE upstream 524 1 prompt 9436 timings {'cache_n': 0, 'prompt_n': 9436, 'prompt_ms': 74010.558, 'prompt_per_token_ms': 7.843424968206868, 'prompt_per_second': 127.4953230321544, 'predicted_n': 64, 'predicted_ms': 4008.188, 'predicted_per_token_ms': 63.622031746031745, 'predicted_per_second': 15.717825610974336}
+START ik
+DONE ik 156 0 prompt 2812 timings {'prompt_n': 2812, 'prompt_ms': 15532.416, 'prompt_per_token_ms': 5.523618776671408, 'prompt_per_second': 181.04073442277107, 'predicted_n': 64, 'predicted_ms': 1869.94, 'predicted_per_token_ms': 29.2178125, 'predicted_per_second': 34.22569708118977, 'n_ctx': 16384, 'n_past': 2875}
+DONE ik 156 1 prompt 2812 timings {'prompt_n': 2812, 'prompt_ms': 13956.847, 'prompt_per_token_ms': 4.963316856330014, 'prompt_per_second': 201.47817053522192, 'predicted_n': 64, 'predicted_ms': 1867.124, 'predicted_per_token_ms': 29.1738125, 'predicted_per_second': 34.277316343210195, 'n_ctx': 16384, 'n_past': 2875}
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/server-compare.py", line 18, in <module>
+    r=req('/completion',payload); result={'engine':engine,'count':count,'rep':rep,'tokens':toks,'response':r};(p/f'server-compare-{engine}-{count}-{rep}.json').write_text(json.dumps(result,indent=2));print('DONE',engine,count,rep,'prompt',len(toks),'timings',r.get('timings'),flush=True)
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/server-compare.py", line 5, in req
+    def req(path,obj):return json.load(urllib.request.urlopen(urllib.request.Request(base+path,json.dumps(obj).encode(),{'Content-Type':'application/json'}),timeout=900))
+                                       ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 487, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.14/urllib/request.py", line 504, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+                              '_open', req)
+  File "/usr/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.14/urllib/request.py", line 1350, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/urllib/request.py", line 1325, in do_open
+    r = h.getresponse()
+  File "/usr/lib/python3.14/http/client.py", line 1459, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/client.py", line 305, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+                             " response")
+http.client.RemoteDisconnected: Remote end closed connection without response

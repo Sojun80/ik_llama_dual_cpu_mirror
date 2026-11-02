@@ -1,0 +1,35 @@
+[  0%] Generating build details from Git
+[  0%] Built target cpp-httplib
+-- Found Git: /usr/bin/git (found version "2.53.0")
+[  1%] Building C object ggml/src/CMakeFiles/ggml.dir/ggml.c.o
+[  1%] Generating build details from Git
+-- Found Git: /usr/bin/git (found version "2.53.0")
+[  1%] Built target build_info
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c: In function ‘r5d_begin’:
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c:18970:28: warning: cast discards ‘_Atomic’ qualifier from pointer target type [-Wcast-qual]
+18970 |     if (r5d_active) memset((void *)r5d_counters, 0, sizeof(atomic_int)*R5D_STRIDE*cgraph->n_nodes);
+      |                            ^
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c: In function ‘r5d_set’:
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c:18977:25: warning: cast discards ‘_Atomic’ qualifier from pointer target type [-Wcast-qual]
+18977 |     iqk_r5_set_dyn(ok ? (void *)(r5d_counters + (size_t)node_n*R5D_STRIDE) : NULL);
+      |                         ^
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c: In function ‘ggml_compute_forward_delta_net_f32’:
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c:25344:32: warning: cast discards ‘const’ qualifier from pointer target type [-Wcast-qual]
+25344 |                 ggml_numa_bind((void *)ptrs[p], (size_t)(h1 - h0)*hsz, ggml_numa_node_for_thread(ith, nth));
+      |                                ^
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c: In function ‘ggml_graph_compute’:
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c:30979:5: warning: missing initializer for field ‘r5_node_chunk’ of ‘struct ggml_compute_state_shared’ [-Wmissing-field-initializers]
+30979 |     };
+      |     ^
+/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/ik-src/ggml/src/ggml.c:3093:16: note: ‘r5_node_chunk’ declared here
+ 3093 |     atomic_int r5_node_chunk[GGML_NUMA_MAX_NODES*16]; // round-5: per-NUMA-node chunk counters (stride: one cache line)
+      |                ^~~~~~~~~~~~~
+[  1%] Linking CXX shared library libggml.so
+[ 16%] Built target ggml
+[ 16%] Linking CXX shared library libllama.so
+[ 72%] Built target llama
+[ 74%] Linking CXX shared library libmtmd.so
+[ 92%] Built target common
+[ 94%] Built target mtmd
+[ 94%] Linking CXX executable ../../bin/llama-server
+[100%] Built target llama-server

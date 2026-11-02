@@ -1,0 +1,10 @@
+SELECT 32 {24: 68.75309097904186, 32: 69.46538497475265, 48: 68.43761525494062}
+START ik 1793481892.1068628
+REQUEST ik medium 0 tokens 2834
+DONE ik medium 0 timings {'prompt_n': 2834, 'prompt_ms': 7020.238, 'prompt_per_token_ms': 2.47714820042343, 'prompt_per_second': 403.69001734699026, 'predicted_n': 256, 'predicted_ms': 7268.767, 'predicted_per_token_ms': 28.39362109375, 'predicted_per_second': 35.21917816322906, 'n_ctx': 16384, 'n_past': 3089} truncated False
+REQUEST ik medium 1 tokens 2834
+DONE ik medium 1 timings {'prompt_n': 2834, 'prompt_ms': 7017.597, 'prompt_per_token_ms': 2.476216302046577, 'prompt_per_second': 403.84194190689493, 'predicted_n': 256, 'predicted_ms': 7274.653, 'predicted_per_token_ms': 28.41661328125, 'predicted_per_second': 35.19068194730388, 'n_ctx': 16384, 'n_past': 3089} truncated False
+REQUEST ik long 0 tokens 9455
+DONE ik long 0 timings {'prompt_n': 9455, 'prompt_ms': 26586.831, 'prompt_per_token_ms': 2.811933474352194, 'prompt_per_second': 355.627190017494, 'predicted_n': 256, 'predicted_ms': 8247.58, 'predicted_per_token_ms': 32.217109375, 'predicted_per_second': 31.039407923293865, 'n_ctx': 16384, 'n_past': 9710} truncated False
+REQUEST ik long 1 tokens 9455
+DONE ik long 1 timings {'prompt_n': 9455, 'prompt_ms': 26579.471, 'prompt_per_token_ms': 2.8111550502379696, 'prompt_per_second': 355.7256651195202, 'predicted_n': 256, 'predicted_ms': 8213.756, 'predicted_per_token_ms': 32.084984375, 'predicted_per_second': 31.167227270934273, 'n_ctx': 16384, 'n_past': 9710} truncated False

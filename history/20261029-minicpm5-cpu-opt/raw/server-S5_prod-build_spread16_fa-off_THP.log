@@ -1,0 +1,9 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+0.00.004.039 I srv  llama_server: initializing ...
+0.00.004.055 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.004.754 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.004.853 E srv         start: couldn't bind HTTP server socket, hostname: 127.0.0.1, port: 19160
+0.00.004.858 I srv    operator(): operator(): cleaning up before exit...
+0.00.004.968 E srv  server_run_i: exiting due to HTTP server error

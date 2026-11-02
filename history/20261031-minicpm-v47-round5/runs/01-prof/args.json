@@ -1,0 +1,13 @@
+{
+ "out": "runs/01-prof",
+ "config": [
+  "base=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server:32:base",
+  "prof=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-prof/bin/llama-server:32:base"
+ ],
+ "cases": "medium,long",
+ "rounds": 2,
+ "n_predict": 512,
+ "probs": false,
+ "prof": true,
+ "perf": false
+}

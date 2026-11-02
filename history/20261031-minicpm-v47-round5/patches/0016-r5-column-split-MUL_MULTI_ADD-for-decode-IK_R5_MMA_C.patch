@@ -1,0 +1,67 @@
+From 2b81967e92e1c576bf71ae5984b875a911e3908c Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sat, 31 Oct 2026 20:58:13 -0700
+Subject: [PATCH 16/25] r5: column-split MUL_MULTI_ADD for decode
+ (IK_R5_MMA_COLS)
+
+---
+ ggml/src/iqk/iqk_cpu_ops.cpp | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
+
+diff --git a/ggml/src/iqk/iqk_cpu_ops.cpp b/ggml/src/iqk/iqk_cpu_ops.cpp
+index 8fd51f1c..bf48d1e3 100644
+--- a/ggml/src/iqk/iqk_cpu_ops.cpp
++++ b/ggml/src/iqk/iqk_cpu_ops.cpp
+@@ -449,6 +449,16 @@ void iqk_mul_multi_add(struct ggml_tensor * dst, int ith, int nth) {
+     int ne01 = src0->ne[1];
+     int ne00 = src0->ne[0];
+ 
++    // round-5: with fewer rows than threads (single-token decode) split the columns instead
++    int k0 = 0, k1 = ne00;
++    static const bool r5_cols = [] { auto e = getenv("IK_R5_MMA_COLS"); return e ? atoi(e) > 0 : true; }();
++    if (r5_cols && nrows < nth) {
++        const int kpt = ((ne00 + nth - 1)/nth + 15) & ~15;   // multiple of 16 floats = one cache line
++        k0 = std::min(ne00, ith*kpt);
++        k1 = std::min(ne00, k0 + kpt);
++        first = 0; last = k1 > k0 ? nrows : 0;
++    }
++
+     auto src2 = dst->src[2];
+     auto src3 = dst->src[3];
+     if (src2 && src3) {
+@@ -467,14 +477,14 @@ void iqk_mul_multi_add(struct ggml_tensor * dst, int ith, int nth) {
+             auto x1 = (const float *)c1;
+             auto ids = (const int *)(cids + ir*src3->nb[1]);
+             float s = scales[ids[0]] * x1[0];
+-            for (int k = 0; k < ne00; ++k) y[k] = x0[k] * s;
++            for (int k = k0; k < k1; ++k) y[k] = x0[k] * s;
+             for (int j = 1; j < ne01; ++j) {
+                 c0 += src0->nb[1];
+                 c1 += src1->nb[1];
+                 x0 = (const float *)c0;
+                 x1 = (const float *)c1;
+                 s  = x1[0] * scales[ids[j]];
+-                for (int k = 0; k < ne00; ++k) y[k] += x0[k] * s;
++                for (int k = k0; k < k1; ++k) y[k] += x0[k] * s;
+             }
+         }
+ 
+@@ -489,13 +499,13 @@ void iqk_mul_multi_add(struct ggml_tensor * dst, int ith, int nth) {
+         auto  y = (     float *)cy;
+         auto x0 = (const float *)c0;
+         auto x1 = (const float *)c1;
+-        for (int k = 0; k < ne00; ++k) y[k] = x0[k] * x1[0];
++        for (int k = k0; k < k1; ++k) y[k] = x0[k] * x1[0];
+         for (int j = 1; j < ne01; ++j) {
+             c0 += src0->nb[1];
+             c1 += src1->nb[1];
+             x0 = (const float *)c0;
+             x1 = (const float *)c1;
+-            for (int k = 0; k < ne00; ++k) y[k] += x0[k] * x1[0];
++            for (int k = k0; k < k1; ++k) y[k] += x0[k] * x1[0];
+         }
+     }
+ }
+-- 
+2.53.0
+

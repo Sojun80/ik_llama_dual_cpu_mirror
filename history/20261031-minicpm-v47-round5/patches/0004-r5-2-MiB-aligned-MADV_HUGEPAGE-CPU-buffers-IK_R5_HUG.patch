@@ -1,0 +1,48 @@
+From e5cac78ddec4833c331d89617ba4fe754ff9bfff Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sat, 31 Oct 2026 18:37:29 -0700
+Subject: [PATCH 04/25] r5: 2 MiB aligned MADV_HUGEPAGE CPU buffers
+ (IK_R5_HUGE)
+
+---
+ ggml/src/ggml-backend.cpp | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/ggml/src/ggml-backend.cpp b/ggml/src/ggml-backend.cpp
+index d2a74454..9f4c6cd8 100644
+--- a/ggml/src/ggml-backend.cpp
++++ b/ggml/src/ggml-backend.cpp
+@@ -702,9 +702,29 @@ GGML_CALL static const char * ggml_backend_cpu_buffer_type_get_name(ggml_backend
+     GGML_UNUSED(buft);
+ }
+ 
++#if defined(__gnu_linux__)
++#include <sys/mman.h>
++static bool r5_huge_enabled() {
++    static const bool e = [] { const char * s = getenv("IK_R5_HUGE"); return s && atoi(s) > 0; }();
++    return e;
++}
++#endif
++
+ GGML_CALL static ggml_backend_buffer_t ggml_backend_cpu_buffer_type_alloc_buffer(ggml_backend_buffer_type_t buft, size_t size) {
+     size += TENSOR_ALIGNMENT;   // malloc may return an address that is not aligned
+-    void * data = malloc(size); // TODO: use GGML_ALIGNED_MALLOC (move to ggml-impl.h)
++    void * data = nullptr;
++#if defined(__gnu_linux__)
++    if (r5_huge_enabled() && size >= ((size_t)32 << 20)) {
++        const size_t huge = (size_t)2 << 20;
++        const size_t rounded = (size + huge - 1) & ~(huge - 1);
++        data = aligned_alloc(huge, rounded);
++        if (data) {
++            madvise(data, rounded, MADV_HUGEPAGE);
++            size = rounded;
++        }
++    }
++#endif
++    if (!data) data = malloc(size); // TODO: use GGML_ALIGNED_MALLOC (move to ggml-impl.h)
+     if (data == NULL) {
+         fprintf(stderr, "%s: failed to allocate buffer of size %zu\n", __func__, size);
+         return NULL;
+-- 
+2.53.0
+

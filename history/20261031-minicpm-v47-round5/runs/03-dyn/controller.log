@@ -1,0 +1,19 @@
+base32-medium-r0                         ok=True decode=35.562 prompt=402.70
+dyn75-medium-r0                          ok=True decode=37.000 prompt=400.17
+dyn50-medium-r0                          ok=True decode=37.065 prompt=399.73
+base32-long-r0                           ok=True decode=31.720 prompt=354.73
+dyn75-long-r0                            ok=True decode=32.077 prompt=349.05
+dyn50-long-r0                            ok=True decode=31.704 prompt=351.33
+dyn50-medium-r1                          ok=True decode=36.369 prompt=399.49
+dyn75-medium-r1                          ok=True decode=36.656 prompt=401.16
+base32-medium-r1                         ok=True decode=36.168 prompt=400.83
+dyn50-long-r1                            ok=True decode=32.089 prompt=351.51
+dyn75-long-r1                            ok=True decode=32.121 prompt=351.61
+base32-long-r1                           ok=True decode=31.370 prompt=354.19
+SUMMARY
+base32|medium                            decode mean 35.865 [35.562, 36.168]  prompt mean 401.76
+dyn75|medium                             decode mean 36.828 [37.0, 36.656]  prompt mean 400.67
+dyn50|medium                             decode mean 36.717 [37.065, 36.369]  prompt mean 399.61
+base32|long                              decode mean 31.545 [31.72, 31.37]  prompt mean 354.46
+dyn75|long                               decode mean 32.099 [32.077, 32.121]  prompt mean 350.33
+dyn50|long                               decode mean 31.896 [31.704, 32.089]  prompt mean 351.42

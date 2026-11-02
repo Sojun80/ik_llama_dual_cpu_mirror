@@ -1,0 +1,140 @@
+{
+  "small-1234": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": [
+      "network",
+      "disk_io",
+      "app_crash",
+      "gpu_driver",
+      "out_of_memory",
+      "auth_failures"
+    ],
+    "missed": [],
+    "false_positives": "Treats retries as minor observation, not a separate major incident.",
+    "evidence_and_reasoning": "Calls GPU hardware fault and storage hardware/driver cause confirmed; asserts image processing halted, data integrity risk, and underlying timeout recovery without evidence."
+  },
+  "small-2345": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": [
+      "network",
+      "disk_io",
+      "app_crash",
+      "gpu_driver",
+      "out_of_memory",
+      "auth_failures"
+    ],
+    "missed": [],
+    "false_positives": "Treats recurring successful retries as performance degradation without a baseline.",
+    "evidence_and_reasoning": "Calls hardware failure and code bug confirmed; asserts GPU device recovered and implies memory limits without supporting evidence."
+  },
+  "small-3456": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": [
+      "network",
+      "disk_io",
+      "app_crash",
+      "gpu_driver",
+      "out_of_memory",
+      "auth_failures"
+    ],
+    "missed": [],
+    "false_positives": "Treats successful retries as minor observation, not a separate major incident.",
+    "evidence_and_reasoning": "Calls GPU hardware instability and orders code defect established; presents memory leak or insufficient RAM as exhaustive cause."
+  },
+  "large-1234": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": [
+      "network",
+      "disk_io",
+      "app_crash",
+      "gpu_driver",
+      "out_of_memory",
+      "auth_failures"
+    ],
+    "missed": [],
+    "false_positives": "No distinct invented major incident.",
+    "evidence_and_reasoning": "Calls GPU hardware failure confirmed; infers timeout recovery and normal operations throughout from sparse records."
+  },
+  "large-2345": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": [
+      "network",
+      "disk_io",
+      "app_crash",
+      "gpu_driver",
+      "out_of_memory",
+      "auth_failures"
+    ],
+    "missed": [],
+    "false_positives": "Calls periodic successful retries latency issues without a baseline.",
+    "evidence_and_reasoning": "Mislabels OOM evidence L901/L902 as L900/L901; says 10 seconds for 20-second SSH interval and for 30-second link-down to connected interval; asserts memory leak/resource contention confirmed."
+  },
+  "large-3456": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": [
+      "network",
+      "disk_io",
+      "app_crash",
+      "gpu_driver",
+      "out_of_memory",
+      "auth_failures"
+    ],
+    "missed": [],
+    "false_positives": "No distinct invented major incident.",
+    "evidence_and_reasoning": "Mislabels OOM evidence L901/L902 as L900/L901; says worker killed because it consumed excessive memory, treats GPU as physically detached, and infers compromised data integrity."
+  },
+  "normal-1234": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": null,
+    "missed": null,
+    "false_positives": "No significant false incident.",
+    "evidence_and_reasoning": "Matches timeout to retry; asserts resource/health normality and underlying recovery beyond what logs establish."
+  },
+  "normal-2345": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": null,
+    "missed": null,
+    "false_positives": "No significant false incident.",
+    "evidence_and_reasoning": "Matches timeout to retry; claims all services healthy and timeout self-resolved without proof."
+  },
+  "normal-3456": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": null,
+    "missed": null,
+    "false_positives": "No significant false incident.",
+    "evidence_and_reasoning": "Matches timeout to retry; conflates inventory and API health, claims whole system self-healed in one second."
+  },
+  "ambiguous-1234": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": null,
+    "missed": null,
+    "false_positives": "No distinct fabricated incident, but infers full recovery and duration threshold.",
+    "evidence_and_reasoning": "Identifies both 504s and both retries; asserts proxy generated timeouts, outage invisible to users, normal resources and full recovery from sparse evidence."
+  },
+  "ambiguous-2345": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": null,
+    "missed": null,
+    "false_positives": "Infers sustained slowness between two observations without proof.",
+    "evidence_and_reasoning": "Identifies both 504s and retries; incorrectly says r100 retry followed schedule by one second rather than two; rules out resource exhaustion and asserts user operations succeeded."
+  },
+  "ambiguous-3456": {
+    "method": "manual final-answer review against original Round 3 incident and control keys",
+    "completion": "stop",
+    "mentioned": null,
+    "missed": null,
+    "false_positives": "No distinct fabricated incident, but infers healthy recovery without a baseline.",
+    "evidence_and_reasoning": "Identifies both 504s and retries; asserts proxy configured timeout, healthy metrics and full recovery, no user-facing errors or data loss without evidence."
+  }
+}

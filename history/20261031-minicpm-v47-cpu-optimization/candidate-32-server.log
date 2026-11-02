@@ -1,0 +1,37 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+0.00.003.050 I srv  llama_server: initializing ...
+0.00.003.061 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.003.538 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.017.679 I srv    load_model: loading model '/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf'
+0.08.680.881 I cmn          init: llama threadpool init, n_threads = 32
+0.08.873.335 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 16384, kv_unified = 'false'
+0.08.878.545 I srv  server_run_i: model loaded
+0.08.878.556 I srv  server_on_li: listening on http://127.0.0.1:19166
+0.09.033.211 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 0, t_last = -1
+0.09.033.242 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+0.17.582.671 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   2048, progress = 0.73, t =   8.55 s / 239.55 tokens per second
+0.18.799.393 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   2296, progress = 0.82, t =   9.77 s / 235.10 tokens per second
+0.21.096.964 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   2808, progress = 1.00, t =  12.06 s / 232.77 tokens per second
+0.24.285.605 I slot print_timing: id  0 | task 0 | prompt eval time =   12159.80 ms /  2812 tokens (    4.32 ms per token,   231.25 tokens per second)
+0.24.285.676 I slot print_timing: id  0 | task 0 |        eval time =    3092.51 ms /    64 tokens (   49.09 ms per token,    20.37 tokens per second)
+0.24.285.697 I slot print_timing: id  0 | task 0 |       total time =   15252.30 ms /  2876 tokens
+0.24.285.733 I slot print_timing: id  0 | task 0 |    graphs reused =         62
+0.24.285.754 I slot print_timing: id  0 | task 0 |   graph reallocs =          0    /     0        (same size) / (changed size)
+0.24.285.884 I slot      release: id  0 | task 0 | stop processing: n_tokens = 2875, truncated = 0
+0.24.314.892 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.298 (> 0.100 thold), f_keep = 0.977
+0.24.314.928 I slot launch_slot_: id  0 | task 68 | processing task, is_child = 0
+0.32.938.963 I slot print_timing: id  0 | task 68 | prompt processing, n_tokens =   2048, progress = 0.22, t =   8.62 s / 237.48 tokens per second
+0.42.225.732 I slot print_timing: id  0 | task 68 | prompt processing, n_tokens =   4096, progress = 0.43, t =  17.91 s / 228.69 tokens per second
+0.52.248.039 I slot print_timing: id  0 | task 68 | prompt processing, n_tokens =   6144, progress = 0.65, t =  27.93 s / 219.95 tokens per second
+1.03.101.972 I slot print_timing: id  0 | task 68 | prompt processing, n_tokens =   8192, progress = 0.87, t =  38.79 s / 211.20 tokens per second
+1.07.554.161 I slot print_timing: id  0 | task 68 | prompt processing, n_tokens =   8920, progress = 0.95, t =  43.24 s / 206.29 tokens per second
+1.10.495.788 I slot print_timing: id  0 | task 68 | prompt processing, n_tokens =   9432, progress = 1.00, t =  46.18 s / 204.24 tokens per second
+1.14.177.125 I slot print_timing: id  0 | task 68 | prompt eval time =   46315.08 ms /  9436 tokens (    4.91 ms per token,   203.73 tokens per second)
+1.14.177.201 I slot print_timing: id  0 | task 68 |        eval time =    3547.08 ms /    64 tokens (   56.30 ms per token,    17.76 tokens per second)
+1.14.177.227 I slot print_timing: id  0 | task 68 |       total time =   49862.16 ms /  9500 tokens
+1.14.177.252 I slot print_timing: id  0 | task 68 |    graphs reused =        123
+1.14.177.275 I slot print_timing: id  0 | task 68 |   graph reallocs =          0    /     0        (same size) / (changed size)
+1.14.177.553 I slot      release: id  0 | task 68 | stop processing: n_tokens = 9499, truncated = 0
+1.14.181.942 I srv    operator(): operator(): cleaning up before exit...

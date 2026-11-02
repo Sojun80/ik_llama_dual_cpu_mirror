@@ -1,0 +1,28 @@
+n1-packed16 (prod layout)                     prod          t=16  rc=0 pp1024@d0=267.6 tg128@d0=29.3 pp1024@d2048=207.8 tg128@d2048=23.6
+n1-packed16 (prod layout)                     znver2-omp    t=16  rc=0 pp1024@d0=268.7 tg128@d0=28.6 pp1024@d2048=213.5 tg128@d2048=23.7
+n1-packed8 (1 CCD)                            znver2-omp    t=8   rc=0 pp1024@d0=139.5 tg128@d0=19.3 pp1024@d2048=109.6 tg128@d2048=15.2
+n1-spread12 (1/CCX)                           znver2-omp    t=12  rc=0 pp1024@d0=187.2 tg128@d0=14.7 pp1024@d2048=147.7 tg128@d2048=28.2
+n1-spread16 (2-3/CCD)                         znver2-omp    t=16  rc=0 pp1024@d0=269.4 tg128@d0=42.1 pp1024@d2048=213.2 tg128@d2048=30.6
+n1-spread16 (2-3/CCD)                         prod          t=16  rc=0 pp1024@d0=210.8 tg128@d0=36.1 pp1024@d2048=210.6 tg128@d2048=30.0
+n1-spread18 (3/CCD)                           znver2-omp    t=18  rc=0 pp1024@d0=279.4 tg128@d0=39.4 pp1024@d2048=211.0 tg128@d2048=22.0
+n1-spread24 (2/CCX)                           znver2-omp    t=24  rc=0 pp1024@d0=332.3 tg128@d0=38.9 pp1024@d2048=238.1 tg128@d2048=29.7
+n1-spread32                                   znver2-omp    t=32  rc=0 pp1024@d0=428.6 tg128@d0=38.6 pp1024@d2048=343.9 tg128@d2048=30.0
+n1-all48                                      znver2-omp    t=48  rc=0 pp1024@d0=490.4 tg128@d0=36.8 pp1024@d2048=355.6 tg128@d2048=30.6
+n1-all48+SMT (96t)                            znver2-omp    t=96  rc=0 pp1024@d0=449.8 tg128@d0=31.0 pp1024@d2048=270.1 tg128@d2048=27.3
+n1-spread24+SMT (48t)                         znver2-omp    t=48  rc=0 pp1024@d0=337.5 tg128@d0=33.0 pp1024@d2048=249.3 tg128@d2048=24.7
+n1-packed16 (prod layout) fa=1                prod          t=16  rc=0 pp1024@d0=261.6 tg128@d0=17.3 pp1024@d2048=205.6 tg128@d2048=14.6
+n1-spread16 fa=1                              znver2-omp    t=16  rc=0 pp1024@d0=268.8 tg128@d0=31.9 pp1024@d2048=213.3 tg128@d2048=24.8
+n1-spread24 fa=1                              znver2-omp    t=24  rc=0 pp1024@d0=335.4 tg128@d0=34.3 pp1024@d2048=242.9 tg128@d2048=26.7
+n1-spread16 fa=1 kv=q8_0                      znver2-omp    t=16  rc=0 pp1024@d0=158.6 tg128@d0=21.8 pp1024@d2048=69.2 tg128@d2048=19.7
+n1-spread16 noomp                             znver2-noomp  t=16  rc=0 pp1024@d0=247.3 tg128@d0=30.6 pp1024@d2048=210.0 tg128@d2048=24.0
+n1-spread24 noomp                             znver2-noomp  t=24  rc=0 pp1024@d0=331.6 tg128@d0=31.6 pp1024@d2048=237.0 tg128@d2048=25.4
+n1-spread16 THP (glibc hugetlb=1)             znver2-omp    t=16  rc=0 pp1024@d0=271.8 tg128@d0=57.2 pp1024@d2048=214.1 tg128@d2048=37.7
+n1-spread24 THP (glibc hugetlb=1)             znver2-omp    t=24  rc=0 pp1024@d0=335.9 tg128@d0=57.7 pp1024@d2048=240.2 tg128@d2048=39.0
+n1-spread16 OMP pinned                        znver2-omp    t=16  rc=0 pp1024@d0=267.4 tg128@d0=28.9 pp1024@d2048=210.6 tg128@d2048=23.5
+n1-spread16 poll=0                            znver2-omp    t=16  rc=0 pp1024@d0=267.9 tg128@d0=28.7 pp1024@d2048=210.6 tg128@d2048=16.9
+x32 interleave                                znver2-omp    t=32  rc=0 pp1024@d0=433.6 tg128@d0=37.2 pp1024@d2048=342.6 tg128@d2048=29.0
+x32 --numa distribute, interleave             znver2-omp    t=32  rc=0 pp1024@d0=443.7 tg128@d0=34.5 pp1024@d2048=362.5 tg128@d2048=26.4
+x32 --numa distribute, first-touch            znver2-omp    t=32  rc=0 pp1024@d0=439.5 tg128@d0=26.7 pp1024@d2048=357.1 tg128@d2048=21.7
+x64 interleave (32+32)                        znver2-omp    t=64  rc=0 pp1024@d0=591.1 tg128@d0=26.3 pp1024@d2048=440.0 tg128@d2048=22.7
+n1-spread16 --numa isolate                    znver2-omp    t=16  rc=0 pp1024@d0=261.4 tg128@d0=16.0 pp1024@d2048=197.7 tg128@d2048=8.3
+n1-spread16 node-local CPUs, remote memory    znver2-omp    t=16  rc=0 pp1024@d0=249.1 tg128@d0=17.4 pp1024@d2048=183.0 tg128@d2048=17.9

@@ -1,0 +1,237 @@
+0x5edf066f7000       4 MiB  rss       3 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False  /home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server  local N1=939 kernelpagesize_kB=4
+0x5edf06c6d000       4 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False  /home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server  local N1=9 kernelpagesize_kB=4
+0x5edf15600000      72 MiB  rss      72 MiB  THP      72 MiB (100.0%)  2MiB-aligned start True  [heap]  local N0=512 N1=17920 kernelpagesize_kB=4
+0x7ba0e8000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba0e8200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba0ec000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba0ec200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba0f0000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba0f0200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba0f4000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba0f4200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba0f8000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba0f8200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba0fc000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba0fc200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba100000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba100200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba104000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba104200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba108000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba108200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba10c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba10c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba110000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba110200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba114000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba114200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba118000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba118200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba11c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba11c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba120000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba120200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba124000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba124200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba128000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba128200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba12c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba12c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba130000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba130200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba134000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba134200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba138000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba138200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba13c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba13c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba140000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba140200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba144000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba144200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba148000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba148200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba14c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba14c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba150000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba150200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba154000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba154200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba158000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba158200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba15c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba15c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba160000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba160200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba164000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba164200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba168000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba168200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba16c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba16c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba170000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba170200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba174000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba174200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba17c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba17c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba184000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba184200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba18c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba18c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba194000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba194200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba19c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba19c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1a4000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1a4200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1ac000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1ac200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1b4000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1b4200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1bc000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1bc200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1c4000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1c4200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1cc000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba1cc200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1d4000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1d4200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1dc000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1dc200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1e4000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1e4200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1ec000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1ec200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1f4000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1f4200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba1fc000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba1fc200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba204000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba204200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba20c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba20c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba214000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba214200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba21c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba21c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba224000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba224200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba22c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba22c200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba230000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba230200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba234000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba234200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba238000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba238200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba23c067000      65 MiB  rss      65 MiB  THP      64 MiB ( 98.5%)  2MiB-aligned start False    local N0=16793 kernelpagesize_kB=4
+0x7ba240200000       2 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local N0=13 kernelpagesize_kB=4
+0x7ba240400000      60 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba24650d000    1936 MiB  rss      13 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    local N0=2246 N1=1256 kernelpagesize_kB=4
+0x7ba2bf62a000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=369 kernelpagesize_kB=4
+0x7ba2bf79b000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N1=256 kernelpagesize_kB=4
+0x7ba2bf89b000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=287 kernelpagesize_kB=4
+0x7ba2bfa9b000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=288 kernelpagesize_kB=4
+0x7ba2bfbbb000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N1=256 kernelpagesize_kB=4
+0x7ba2bfcbb000       6 MiB  rss       6 MiB  THP       4 MiB ( 66.7%)  2MiB-aligned start False    local N0=14 N1=1522 kernelpagesize_kB=4
+0x7ba2c02bb000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=256 kernelpagesize_kB=4
+0x7ba2c03bb000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N1=256 kernelpagesize_kB=4
+0x7ba2c04bb000      49 MiB  rss      49 MiB  THP      48 MiB ( 98.0%)  2MiB-aligned start False    local N0=3155 N1=9625 kernelpagesize_kB=4
+0x7ba2c36a7000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=260 kernelpagesize_kB=4
+0x7ba2c37ab000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N1=284 kernelpagesize_kB=4
+0x7ba2c38c7000     425 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    local
+0x7ba2de200000   20176 MiB  rss   20176 MiB  THP   20176 MiB (100.0%)  2MiB-aligned start True    bind:1 N1=5165056 kernelpagesize_kB=4
+0x7ba7cb322000     200 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    local N1=1 kernelpagesize_kB=4
+0x7ba7d7c00000     384 MiB  rss     384 MiB  THP     384 MiB (100.0%)  2MiB-aligned start True    bind:1 N1=98304 kernelpagesize_kB=4
+0x7ba7efe00000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7eff18000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba7f0018000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f0130000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=201 N1=55 kernelpagesize_kB=4
+0x7ba7f0230000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f0348000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=184 N1=72 kernelpagesize_kB=4
+0x7ba7f0448000      33 MiB  rss      32 MiB  THP      30 MiB ( 93.8%)  2MiB-aligned start False    bind:0 N0=7960 N1=440 kernelpagesize_kB=4
+0x7ba7f2560000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=240 N1=16 kernelpagesize_kB=4
+0x7ba7f2660000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f2778000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba7f2878000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f2990000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=100 N1=156 kernelpagesize_kB=4
+0x7ba7f2a90000      33 MiB  rss      32 MiB  THP      30 MiB ( 93.8%)  2MiB-aligned start False    bind:0 N0=7960 N1=368 kernelpagesize_kB=4
+0x7ba7f4ba8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba7f4ca8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f4dc0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba7f4ec0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f4fd8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=40 N1=216 kernelpagesize_kB=4
+0x7ba7f50d8000      33 MiB  rss      33 MiB  THP      30 MiB ( 90.9%)  2MiB-aligned start False    bind:0 N0=7680 N1=792 kernelpagesize_kB=4
+0x7ba7f71f0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=240 N1=16 kernelpagesize_kB=4
+0x7ba7f72f0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f7408000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=208 N1=48 kernelpagesize_kB=4
+0x7ba7f7508000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f7620000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba7f7720000      33 MiB  rss      32 MiB  THP      32 MiB (100.0%)  2MiB-aligned start False    bind:0 N0=8376 kernelpagesize_kB=4
+0x7ba7f9838000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba7f9938000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f9a50000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=240 N1=16 kernelpagesize_kB=4
+0x7ba7f9b50000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7f9c68000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=208 N1=48 kernelpagesize_kB=4
+0x7ba7f9d68000      33 MiB  rss      33 MiB  THP      32 MiB ( 97.0%)  2MiB-aligned start False    bind:0 N0=8448 kernelpagesize_kB=4
+0x7ba7fbe80000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=224 N1=32 kernelpagesize_kB=4
+0x7ba7fbf80000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7fc098000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=112 N1=144 kernelpagesize_kB=4
+0x7ba7fc198000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7fc2b0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=227 N1=29 kernelpagesize_kB=4
+0x7ba7fc3b0000      33 MiB  rss      33 MiB  THP      32 MiB ( 97.0%)  2MiB-aligned start False    bind:0 N0=8472 kernelpagesize_kB=4
+0x7ba7fe4c8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=112 N1=144 kernelpagesize_kB=4
+0x7ba7fe5c8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7fe6e0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=250 N1=6 kernelpagesize_kB=4
+0x7ba7fe7e0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba7fe8f8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=247 N1=9 kernelpagesize_kB=4
+0x7ba7fe9f8000      33 MiB  rss      33 MiB  THP      32 MiB ( 97.0%)  2MiB-aligned start False    bind:0 N0=8472 kernelpagesize_kB=4
+0x7ba800b10000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba800c10000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba800d28000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba800e28000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba800f40000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=192 N1=64 kernelpagesize_kB=4
+0x7ba801040000      33 MiB  rss      32 MiB  THP      30 MiB ( 93.8%)  2MiB-aligned start False    bind:0 N0=7960 N1=448 kernelpagesize_kB=4
+0x7ba803158000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba803258000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba803370000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba803470000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba803588000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=120 N1=136 kernelpagesize_kB=4
+0x7ba803688000      33 MiB  rss      32 MiB  THP      30 MiB ( 93.8%)  2MiB-aligned start False    bind:0 N0=7960 N1=376 kernelpagesize_kB=4
+0x7ba8057a0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba8058a0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba8059b8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=256 kernelpagesize_kB=4
+0x7ba805ab8000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:0 N0=280 kernelpagesize_kB=4
+0x7ba805bd0000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    bind:1 N0=48 N1=208 kernelpagesize_kB=4
+0x7ba805cd0000      33 MiB  rss      33 MiB  THP      32 MiB ( 97.0%)  2MiB-aligned start False    bind:0 N0=8192 N1=304 kernelpagesize_kB=4
+0x7ba807e00000       4 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba808200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba80c277000       5 MiB  rss       3 MiB  THP       2 MiB ( 66.7%)  2MiB-aligned start False    local N0=144 N1=761 kernelpagesize_kB=4
+0x7ba80c7f9000      56 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    local N0=186 N1=59 kernelpagesize_kB=4
+0x7ba810000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba810200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba814000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba814200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba818000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba818200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba81c000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba81c200000       2 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local N0=10 kernelpagesize_kB=4
+0x7ba81c400000      60 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba820000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba820200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba824000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N0=512 kernelpagesize_kB=4
+0x7ba824200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba828000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    local N1=512 kernelpagesize_kB=4
+0x7ba828200000      62 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start True    local
+0x7ba82c159000      40 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    local N0=106 N1=43 kernelpagesize_kB=4
+0x7ba82eed8000      16 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False    local N0=53 N1=17 kernelpagesize_kB=4
+0x7ba82feda000      11 MiB  rss      10 MiB  THP       8 MiB ( 80.0%)  2MiB-aligned start False    local N1=2698 kernelpagesize_kB=4
+0x7ba830a00000   20176 MiB  rss   20176 MiB  THP   20176 MiB (100.0%)  2MiB-aligned start True    bind:0 N0=5165056 kernelpagesize_kB=4
+0x7bad1da00000      18 MiB  rss      17 MiB  THP      14 MiB ( 82.4%)  2MiB-aligned start True    local N1=4363 kernelpagesize_kB=4
+0x7bad1f000000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    bind:1 N1=512 kernelpagesize_kB=4
+0x7bad1f200000       2 MiB  rss       2 MiB  THP       2 MiB (100.0%)  2MiB-aligned start True    bind:0 N0=512 kernelpagesize_kB=4
+0x7bad1f428000       1 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False  /usr/lib/x86_64-linux-gnu/libc.so.6  local N0=33 N1=319 kernelpagesize_kB=4
+0x7bad1f8a3000       1 MiB  rss       0 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35  local N0=197 N1=8 kernelpagesize_kB=4
+0x7bad1fc1b000      24 MiB  rss       4 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False  /home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/ggml/src/libggml.so  local N1=1221 kernelpagesize_kB=4
+0x7bad2164a000       2 MiB  rss       1 MiB  THP       0 MiB (  0.0%)  2MiB-aligned start False  /home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/src/libllama.so  local N1=486 kernelpagesize_kB=4

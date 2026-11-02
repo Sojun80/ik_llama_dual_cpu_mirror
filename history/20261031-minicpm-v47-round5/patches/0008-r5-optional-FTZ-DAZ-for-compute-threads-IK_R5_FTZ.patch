@@ -1,0 +1,54 @@
+From 94cf62e80917f7b8e320711c8f8754b69c3013a7 Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sat, 31 Oct 2026 19:40:59 -0700
+Subject: [PATCH 08/25] r5: optional FTZ/DAZ for compute threads (IK_R5_FTZ)
+
+---
+ ggml/src/ggml.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index 3331f28e..f0acba43 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -30675,6 +30675,15 @@ static void r5p_end(const struct ggml_cgraph * cgraph, const struct ggml_cplan *
+ #endif
+ // ---- end round-5 profiler ----------------------------------------------------------------
+ 
++#if defined(__SSE__)
++#include <xmmintrin.h>
++static int r5_ftz_enabled(void) {
++    static int e = -1;
++    if (e < 0) { const char * v = getenv("IK_R5_FTZ"); e = v && atoi(v) > 0; }
++    return e;
++}
++#endif
++
+ static thread_ret_t ggml_graph_compute_thread(void * data) {
+     struct ggml_compute_state * state = (struct ggml_compute_state *) data;
+ 
+@@ -30684,6 +30693,11 @@ static thread_ret_t ggml_graph_compute_thread(void * data) {
+     set_numa_thread_affinity(state->ith, state->shared->n_threads);
+     set_cpu_thread_affinity(cplan, state->ith); // explicit affinity takes precedence over NUMA
+ 
++#if defined(__SSE__)
++    const unsigned int r5_csr = _mm_getcsr();
++    if (r5_ftz_enabled()) _mm_setcsr(r5_csr | 0x8040);   // FTZ (bit 15) | DAZ (bit 6)
++#endif
++
+     struct ggml_compute_params params = {
+         /*.ith   =*/ state->ith,
+         /*.nth   =*/ state->shared->n_threads,
+@@ -30741,6 +30755,9 @@ static thread_ret_t ggml_graph_compute_thread(void * data) {
+     int64_t t_end = ggml_time_us();
+     if (state->ith == 0) printf("ggml_barrier(...): %d us\n", (int)(t_end - t_start - t_eval));
+ #endif
++#if defined(__SSE__)
++    _mm_setcsr(r5_csr);
++#endif
+ 
+     return 0;
+ }
+-- 
+2.53.0
+

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/tools/spectest.py", line 128, in <module>
+    main()
+    ~~~~^^
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/tools/spectest.py", line 110, in main
+    allr += run(n, extra, out, rnd, a.n_predict)
+            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/tools/spectest.py", line 64, in run
+    raise RuntimeError(f'server exited {srv.returncode}')
+RuntimeError: server exited 1

@@ -1,0 +1,13 @@
+{
+ "out": "runs/37-fa2pass-dbg",
+ "config": [
+  "online=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server:32:base:IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1,IK_R5_FA_DEBUG=1",
+  "twopass=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server:32:base:IK_R5_DYN=1,IK_R5_FA=1,IK_R5_HUGE=1,IK_R5_FA_DEBUG=1,IK_R5_FA_2PASS=1"
+ ],
+ "cases": "long",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": false,
+ "prof": false,
+ "perf": false
+}

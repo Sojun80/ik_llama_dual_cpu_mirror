@@ -1,0 +1,8 @@
+r5: optional socket-local fused MoE step (IK_R5_FMOE_LOCAL)
+
+Each NUMA node runs up/gate, down-input quantization and down rows of its
+own half of the selected experts (and half of the shared expert up/gate rows)
+with node-local barriers, leaving one cross-node barrier per MoE layer.
+Bit-exact; measured ~1% slower than the default path, so off by default.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

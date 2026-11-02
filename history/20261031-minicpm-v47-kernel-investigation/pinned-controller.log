@@ -1,0 +1,11 @@
+COMMAND ['numactl', '--physcpubind=48-95', '--membind=1', '/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server', '-m', '/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf', '--no-mmap', '-ngl', '0', '-t', '16', '-tb', '48', '--cpu-range', '48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,50,51,53,54,55,58,59,61,62,63,66,67,69,70,71,74,75,77,78,79,81,82,83,85,86,87,89,90,91,93,94,95', '-c', '16384', '--host', '127.0.0.1', '--port', '19172', '--parallel', '1']
+PID 571536
+START 0 156 1793478386.4871235
+DONE 0 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7119.574, 'prompt_per_token_ms': 2.5318541963015644, 'prompt_per_second': 394.96745170427334, 'predicted_n': 64, 'predicted_ms': 1823.909, 'predicted_per_token_ms': 28.498578125, 'predicted_per_second': 35.089469924212224, 'n_ctx': 16384, 'n_past': 2875}
+START 1 524 1793478395.4382536
+DONE 1 524 match True timings {'prompt_n': 9436, 'prompt_ms': 27074.156, 'prompt_per_token_ms': 2.8692407799915216, 'prompt_per_second': 348.5242531660082, 'predicted_n': 64, 'predicted_ms': 2079.519, 'predicted_per_token_ms': 32.492484375, 'predicted_per_second': 30.776347799659444, 'n_ctx': 16384, 'n_past': 9499}
+START 2 156 1793478424.6308227
+DONE 2 156 match True timings {'prompt_n': 2812, 'prompt_ms': 7137.267, 'prompt_per_token_ms': 2.538146159317212, 'prompt_per_second': 393.9883431571216, 'predicted_n': 64, 'predicted_ms': 1847.048, 'predicted_per_token_ms': 28.860125, 'predicted_per_second': 34.64988457257202, 'n_ctx': 16384, 'n_past': 2875}
+START 3 524 1793478433.757651
+DONE 3 524 match True timings {'prompt_n': 9436, 'prompt_ms': 27887.13, 'prompt_per_token_ms': 2.9553974141585417, 'prompt_per_second': 338.36396932922105, 'predicted_n': 64, 'predicted_ms': 2128.741, 'predicted_per_token_ms': 33.261578125, 'predicted_per_second': 30.06471900527119, 'n_ctx': 16384, 'n_past': 9499}
+SERVER_STOPPED 0

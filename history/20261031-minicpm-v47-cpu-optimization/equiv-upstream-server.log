@@ -1,0 +1,22 @@
+warning: no usable GPU found, --gpu-layers option will be ignored
+warning: one possible reason is that llama.cpp was compiled without GPU support
+warning: consult docs/build.md for compilation instructions
+0.00.002.588 I srv  llama_server: initializing ...
+0.00.002.599 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.003.050 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.013.571 I srv    load_model: loading model '/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf'
+0.08.764.059 I cmn          init: llama threadpool init, n_threads = 16
+0.25.682.202 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'
+0.25.687.282 I srv  server_run_i: model loaded
+0.25.687.292 I srv  server_on_li: listening on http://127.0.0.1:19162
+0.26.070.610 I slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 0, t_last = -1
+0.26.070.654 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+0.31.057.499 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =    640, progress = 0.55, t =   4.99 s / 128.34 tokens per second
+0.34.614.743 I slot print_timing: id  0 | task 0 | prompt processing, n_tokens =   1152, progress = 1.00, t =   8.54 s / 134.83 tokens per second
+0.38.184.399 I slot print_timing: id  0 | task 0 | prompt eval time =    8650.35 ms /  1156 tokens (    7.48 ms per token,   133.64 tokens per second)
+0.38.184.479 I slot print_timing: id  0 | task 0 |        eval time =    3463.32 ms /    64 tokens (   54.97 ms per token,    18.19 tokens per second)
+0.38.184.505 I slot print_timing: id  0 | task 0 |       total time =   12113.68 ms /  1220 tokens
+0.38.184.534 I slot print_timing: id  0 | task 0 |    graphs reused =         63
+0.38.184.557 I slot print_timing: id  0 | task 0 |   graph reallocs =          0    /     0        (same size) / (changed size)
+0.38.185.019 I slot      release: id  0 | task 0 | stop processing: n_tokens = 1219, truncated = 0
+0.38.186.590 I srv    operator(): operator(): cleaning up before exit...

@@ -1,0 +1,21 @@
+pair-medium-r0                           ok=True decode=46.386 prompt=529.55
+sh-medium-r0                             ok=True decode=48.500 prompt=536.88
+pair-long-r0                             ok=True decode=41.385 prompt=469.84
+sh-long-r0                               ok=True decode=45.236 prompt=473.90
+sh-medium-r1                             ok=True decode=46.997 prompt=533.49
+pair-medium-r1                           ok=True decode=46.836 prompt=536.01
+sh-long-r1                               ok=True decode=45.056 prompt=475.05
+pair-long-r1                             ok=True decode=40.800 prompt=468.93
+pair-medium-r2                           ok=True decode=47.118 prompt=532.34
+sh-medium-r2                             ok=True decode=47.676 prompt=535.77
+pair-long-r2                             ok=True decode=40.991 prompt=473.65
+sh-long-r2                               ok=True decode=45.048 prompt=475.58
+sh-medium-r3                             ok=True decode=47.094 prompt=535.49
+pair-medium-r3                           ok=True decode=46.773 prompt=532.08
+sh-long-r3                               ok=True decode=44.331 prompt=468.98
+pair-long-r3                             ok=True decode=39.878 prompt=474.24
+SUMMARY
+pair|medium                              decode mean 46.778 [46.386, 46.836, 47.118, 46.773]  prompt mean 532.50
+sh|medium                                decode mean 47.567 [48.5, 46.997, 47.676, 47.094]  prompt mean 535.41
+pair|long                                decode mean 40.764 [41.385, 40.8, 40.991, 39.878]  prompt mean 471.66
+sh|long                                  decode mean 44.918 [45.236, 45.056, 45.048, 44.331]  prompt mean 473.38

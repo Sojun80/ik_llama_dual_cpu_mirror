@@ -1,0 +1,12 @@
+pid 595647 bytes 268435456
+
+Per-node process memory usage (in MBs) for PID 595647 (python3)
+                           Node 0          Node 1           Total
+                  --------------- --------------- ---------------
+Huge                         0.00            0.00            0.00
+Heap                         0.00            1.49            1.49
+Stack                        0.00            0.08            0.08
+Private                      4.43          261.77          266.20
+----------------  --------------- --------------- ---------------
+Total                        4.43          263.34          267.77
+794096e00000 bind:1 anon=65536 dirty=65536 active=0 N1=65536 kernelpagesize_kB=4

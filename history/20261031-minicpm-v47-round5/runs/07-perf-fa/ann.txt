@@ -1,0 +1,1331 @@
+ Percent |	Source code & Disassembly of libggml.so for cpu/cycles/P (60232 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3      Disassembly of section .text:
+         :
+         : 5      0000000000105c40 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)>:
+    0.00 :   105c40: lea    0x8(%rsp),%r10
+    0.00 :   105c45: and    $0xffffffffffffffe0,%rsp
+    0.00 :   105c49: push   -0x8(%r10)
+    0.00 :   105c4d: push   %rbp
+    0.00 :   105c4e: mov    %rsp,%rbp
+    0.00 :   105c51: push   %r15
+    0.00 :   105c53: push   %r14
+    0.00 :   105c55: push   %r13
+    0.00 :   105c57: push   %r12
+    0.00 :   105c59: push   %r10
+    0.00 :   105c5b: push   %rbx
+    0.00 :   105c5c: lea    -0x4000(%rsp),%r11
+    0.00 :   105c64: sub    $0x1000,%rsp
+    0.00 :   105c6b: orq    $0x0,(%rsp)
+    0.00 :   105c70: cmp    %r11,%rsp
+    0.00 :   105c73: jne    105c64 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x24>
+    0.00 :   105c75: sub    $0xaa0,%rsp
+    0.00 :   105c7c: mov    (%r10),%rax
+    0.00 :   105c7f: mov    0x38(%r10),%r12
+    0.00 :   105c83: mov    0x40(%r10),%r14
+    0.00 :   105c87: mov    %rax,-0x4a30(%rbp)
+    0.00 :   105c8e: mov    0x8(%r10),%rax
+    0.00 :   105c92: mov    %edx,-0x49c4(%rbp)
+    0.00 :   105c98: mov    %esi,-0x49c8(%rbp)
+    0.00 :   105c9e: imul   %ecx,%edx
+    0.00 :   105ca1: mov    %ecx,-0x49ec(%rbp)
+    0.00 :   105ca7: mov    %edi,%r13d
+    0.00 :   105caa: mov    %rax,-0x4988(%rbp)
+    0.00 :   105cb1: mov    0x10(%r10),%rax
+    0.00 :   105cb5: mov    %edx,%r11d
+    0.00 :   105cb8: mov    %rax,-0x4a18(%rbp)
+    0.00 :   105cbf: mov    0x18(%r10),%rax
+    0.00 :   105cc3: mov    %rax,-0x4a38(%rbp)
+    0.00 :   105cca: mov    0x20(%r10),%rax
+    0.00 :   105cce: mov    %rax,-0x49d0(%rbp)
+    0.00 :   105cd5: mov    0x28(%r10),%rax
+    0.00 :   105cd9: mov    %rax,-0x4a40(%rbp)
+    0.00 :   105ce0: mov    0x30(%r10),%rax
+    0.00 :   105ce4: mov    %rax,-0x4a88(%rbp)
+    0.00 :   105ceb: mov    0x48(%r10),%rax
+    0.00 :   105cef: mov    %rax,-0x49e8(%rbp)
+    0.00 :   105cf6: mov    %fs:0x28,%rax
+    0.00 :   105cff: mov    %rax,-0x38(%rbp)
+    0.00 :   105d03: xor    %eax,%eax
+    0.00 :   105d05: test   %edx,%edx
+    0.00 :   105d07: jle    1072fd <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x16bd>
+    0.00 :   105d0d: movslq %r11d,%rbx
+    0.00 :   105d10: vbroadcastss %xmm0,%ymm0
+    0.00 :   105d15: mov    %r8,%rdx
+    0.00 :   105d18: lea    -0x4050(%rbp),%rcx
+    0.00 :   105d1f: mov    %rbx,%rdi
+    0.00 :   105d22: xor    %esi,%esi
+    0.00 :   105d24: shl    $0x8,%rdi
+    0.00 :   105d28: xor    %eax,%eax
+    0.44 :   105d2a: vmulps (%rdx,%rax,1),%ymm0,%ymm1
+    0.46 :   105d2f: vmovaps %ymm1,(%rcx,%rax,1)
+    0.31 :   105d34: add    $0x20,%rax
+    0.31 :   105d38: cmp    $0x400,%rax
+    0.07 :   105d3e: jne    105d2a <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xea>
+    0.02 :   105d40: add    $0x100,%rsi
+    0.01 :   105d47: add    %r9,%rdx
+    0.00 :   105d4a: add    $0x400,%rcx
+    0.00 :   105d51: cmp    %rdi,%rsi
+    0.00 :   105d54: jne    105d28 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xe8>
+    0.00 :   105d56: lea    -0x1(%r11),%eax
+    0.00 :   105d5a: cmp    $0x6,%eax
+    0.00 :   105d5d: jbe    107334 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x16f4>
+    0.00 :   105d63: vbroadcastss 0x175a294(%rip),%ymm0        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   105d6c: mov    %r11d,%eax
+    0.00 :   105d6f: shr    $0x3,%eax
+    0.00 :   105d72: vmovaps %ymm0,-0x4950(%rbp)
+    0.00 :   105d7a: cmp    $0x1,%eax
+    0.00 :   105d7d: jne    1072f0 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x16b0>
+    0.00 :   105d83: mov    %r11d,%eax
+    0.00 :   105d86: and    $0xfffffff8,%eax
+    0.00 :   105d89: mov    %eax,%ecx
+    0.00 :   105d8b: cmp    %r11d,%eax
+    0.00 :   105d8e: je     105df4 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1b4>
+    0.00 :   105d90: mov    %r11d,%edx
+    0.00 :   105d93: sub    %ecx,%edx
+    0.00 :   105d95: lea    -0x1(%rdx),%esi
+    0.00 :   105d98: cmp    $0x2,%esi
+    0.00 :   105d9b: jbe    105db9 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x179>
+    0.00 :   105d9d: vbroadcastss 0x175a25a(%rip),%xmm0        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   105da6: vmovaps %xmm0,-0x4950(%rbp,%rcx,4)
+    0.00 :   105daf: test   $0x3,%dl
+    0.00 :   105db2: je     105df4 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1b4>
+    0.00 :   105db4: and    $0xfffffffc,%edx
+    0.00 :   105db7: add    %edx,%eax
+    0.00 :   105db9: vmovss 0x175a23f(%rip),%xmm0        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   105dc1: movslq %eax,%rdx
+    0.00 :   105dc4: vmovss %xmm0,-0x4950(%rbp,%rdx,4)
+    0.00 :   105dcd: lea    0x1(%rax),%edx
+    0.00 :   105dd0: cmp    %edx,%r11d
+    0.00 :   105dd3: jle    105df4 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1b4>
+    0.00 :   105dd5: movslq %edx,%rdx
+    0.00 :   105dd8: add    $0x2,%eax
+    0.00 :   105ddb: vmovss %xmm0,-0x4950(%rbp,%rdx,4)
+    0.00 :   105de4: cmp    %eax,%r11d
+    0.00 :   105de7: jle    105df4 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1b4>
+    0.00 :   105de9: cltq
+    0.00 :   105deb: vmovss %xmm0,-0x4950(%rbp,%rax,4)
+    0.00 :   105df4: mov    %r11d,%r15d
+    0.00 :   105df7: mov    %r11d,-0x4970(%rbp)
+    0.00 :   105dfe: xor    %esi,%esi
+    0.00 :   105e00: lea    -0x4910(%rbp),%rdi
+    0.00 :   105e07: lea    0x0(,%r15,4),%rdx
+    0.00 :   105e0f: vzeroupper
+    0.00 :   105e12: call   1dce0 <memset@plt>
+    0.00 :   105e17: mov    -0x49e8(%rbp),%rdi
+    0.00 :   105e1e: mov    %rbx,%rdx
+    0.00 :   105e21: xor    %esi,%esi
+    0.00 :   105e23: shl    $0xa,%rdx
+    0.00 :   105e27: call   1dce0 <memset@plt>
+    0.00 :   105e2c: cmp    -0x49c8(%rbp),%r13d
+    0.00 :   105e33: mov    -0x4970(%rbp),%r11d
+    0.00 :   105e3a: jge    107178 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1538>
+    0.00 :   105e40: mov    -0x49c4(%rbp),%eax
+    0.00 :   105e46: mov    -0x4a18(%rbp),%rsi
+    0.00 :   105e4d: mov    %rbx,%r15
+    0.00 :   105e50: mov    %r12,-0x4aa0(%rbp)
+    0.00 :   105e57: mov    -0x49c8(%rbp),%edi
+    0.00 :   105e5d: shl    $0x5,%r15
+    0.00 :   105e61: mov    %r11d,-0x4a44(%rbp)
+    0.00 :   105e68: mov    %r14,-0x4aa8(%rbp)
+    0.00 :   105e6f: mov    %r15,%r12
+    0.00 :   105e72: mov    -0x49d0(%rbp),%rdx
+    0.00 :   105e79: mov    -0x4a38(%rbp),%rcx
+    0.00 :   105e80: dec    %eax
+    0.00 :   105e82: cltq
+    0.00 :   105e84: imul   %rax,%rsi
+    0.00 :   105e88: imul   -0x4a40(%rbp),%rax
+    0.00 :   105e90: mov    %rsi,-0x49f8(%rbp)
+    0.00 :   105e97: mov    %rdx,%rsi
+    0.00 :   105e9a: shl    $0x5,%rsi
+    0.00 :   105e9e: mov    %rsi,-0x4a70(%rbp)
+    0.01 :   105ea5: mov    %rdx,%rsi
+    0.00 :   105ea8: mov    %rax,-0x4a00(%rbp)
+    0.00 :   105eaf: lea    -0x20(%rdi),%eax
+    0.00 :   105eb2: sub    %r13d,%eax
+    0.00 :   105eb5: mov    %eax,-0x4a20(%rbp)
+    0.00 :   105ebb: movslq %r13d,%rax
+    0.00 :   105ebe: imul   %rax,%rdx
+    0.00 :   105ec2: mov    %rax,-0x49c0(%rbp)
+    0.00 :   105ec9: lea    (%rcx,%rdx,1),%r9
+    0.00 :   105ecd: mov    -0x4988(%rbp),%rdx
+    0.00 :   105ed4: mov    %r9,%rbx
+    0.00 :   105ed7: mov    %rdx,%rcx
+    0.00 :   105eda: shl    $0x5,%rcx
+    0.00 :   105ede: mov    %rcx,-0x4a78(%rbp)
+    0.00 :   105ee5: mov    %rax,%rcx
+    0.00 :   105ee8: imul   %rdx,%rax
+    0.00 :   105eec: mov    %rax,-0x4a28(%rbp)
+    0.00 :   105ef3: lea    -0x1(%rdi),%eax
+    0.00 :   105ef6: sub    %r13,%rax
+    0.00 :   105ef9: and    $0xffffffe0,%eax
+    0.00 :   105efc: lea    0x20(%rcx,%rax,1),%rax
+    0.00 :   105f01: mov    %rax,-0x4a80(%rbp)
+    0.01 :   105f08: lea    (%rdx,%rdx,1),%rax
+    0.01 :   105f0c: mov    %rax,-0x49b8(%rbp)
+    0.01 :   105f13: lea    (%rsi,%rsi,1),%rax
+    0.01 :   105f17: mov    %rax,-0x49d8(%rbp)
+    0.00 :   105f1e: mov    -0x49c0(%rbp),%rsi
+    0.00 :   105f25: mov    -0x49c8(%rbp),%eax
+    0.00 :   105f2b: mov    -0x49c4(%rbp),%edi
+    0.00 :   105f31: mov    %esi,-0x4a10(%rbp)
+    0.00 :   105f37: sub    %esi,%eax
+    0.00 :   105f39: mov    %eax,%edx
+    0.00 :   105f3b: mov    %eax,-0x49f0(%rbp)
+    0.00 :   105f41: mov    $0x20,%eax
+    0.01 :   105f46: cmp    %eax,%edx
+    0.00 :   105f48: cmovle %edx,%eax
+    0.00 :   105f4b: mov    -0x4a20(%rbp),%edx
+    0.00 :   105f51: mov    %eax,%r15d
+    0.00 :   105f54: xor    %eax,%eax
+    0.00 :   105f56: test   %edx,%edx
+    0.00 :   105f58: cmovs  %eax,%edx
+    0.00 :   105f5b: mov    $0x20,%eax
+    0.00 :   105f60: cmp    %eax,%edx
+    0.00 :   105f62: cmovle %edx,%eax
+    0.00 :   105f65: mov    %eax,-0x4a1c(%rbp)
+    0.00 :   105f6b: test   %edi,%edi
+    0.00 :   105f6d: jle    10678f <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xb4f>
+    0.00 :   105f73: cmp    %eax,%r15d
+    0.00 :   105f76: mov    -0x49d0(%rbp),%rcx
+    0.02 :   105f7d: movl   $0x0,-0x4980(%rbp)
+    0.01 :   105f87: mov    %r12,-0x4a50(%rbp)
+    0.00 :   105f8e: cmovle %r15d,%eax
+    0.00 :   105f92: mov    %eax,%edx
+    0.00 :   105f94: mov    %eax,-0x49e0(%rbp)
+    0.00 :   105f9a: lea    0x20(%rsi),%eax
+    0.00 :   105f9d: cltq
+    0.00 :   105f9f: imul   %rax,%rcx
+    0.00 :   105fa3: sub    %rsi,%rax
+    0.00 :   105fa6: imul   -0x4988(%rbp),%rax
+    0.00 :   105fae: mov    %rcx,-0x4a58(%rbp)
+    0.01 :   105fb5: mov    %rax,-0x4a68(%rbp)
+    0.00 :   105fbc: lea    -0x1(%rdx),%eax
+    0.00 :   105fbf: and    $0xfffffffe,%eax
+    0.00 :   105fc2: add    $0x2,%eax
+    0.01 :   105fc5: test   %edx,%edx
+    0.00 :   105fc7: mov    $0x2,%edx
+    0.00 :   105fcc: cmovne %eax,%edx
+    0.00 :   105fcf: mov    -0x4a30(%rbp),%rax
+    0.00 :   105fd6: xor    %r9d,%r9d
+    0.00 :   105fd9: mov    %edx,%r11d
+    0.00 :   105fdc: mov    %rax,-0x4990(%rbp)
+    0.00 :   105fe3: mov    -0x49f8(%rbp),%rax
+    0.00 :   105fea: add    $0x1ff,%rax
+    0.00 :   105ff0: and    $0xffffffffffffffc0,%rax
+    0.00 :   105ff4: mov    %rax,-0x4a90(%rbp)
+    0.00 :   105ffb: mov    -0x4a00(%rbp),%rax
+    0.00 :   106002: add    $0x1ff,%rax
+    0.00 :   106008: and    $0xffffffffffffffc0,%rax
+    0.01 :   10600c: mov    %rax,-0x4a98(%rbp)
+    0.00 :   106013: mov    -0x4980(%rbp),%eax
+    0.00 :   106019: mov    %r9d,-0x49b0(%rbp)
+    0.00 :   106020: mov    -0x4a1c(%rbp),%esi
+    0.00 :   106026: lea    0x1(%rax),%edx
+    0.00 :   106029: mov    -0x49ec(%rbp),%eax
+    0.00 :   10602f: add    %r9d,%eax
+    0.00 :   106032: mov    %eax,-0x4970(%rbp)
+    0.00 :   106038: test   %esi,%esi
+    0.00 :   10603a: je     107225 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x15e5>
+    0.01 :   106040: mov    -0x4990(%rbp),%rcx
+    0.01 :   106047: mov    %edx,-0x4a48(%rbp)
+    0.01 :   10604d: mov    $0x1,%r12d
+    0.01 :   106053: mov    %r9d,-0x4aac(%rbp)
+    0.01 :   10605a: mov    %r11d,-0x4ab8(%rbp)
+    0.01 :   106061: mov    %rbx,-0x4ac0(%rbp)
+    0.00 :   106068: mov    -0x4a68(%rbp),%rdi
+    0.00 :   10606f: mov    -0x4a28(%rbp),%rax
+    0.00 :   106076: mov    -0x4a58(%rbp),%r14
+    0.00 :   10607d: sub    %rcx,%rdi
+    0.00 :   106080: lea    (%rcx,%rax,1),%rsi
+    0.00 :   106084: mov    %r9d,%eax
+    0.01 :   106087: mov    %rdi,-0x4a60(%rbp)
+    0.00 :   10608e: movslq -0x49b0(%rbp),%rdi
+    0.00 :   106095: shl    $0x5,%eax
+    0.00 :   106098: mov    %r14,%rdx
+    0.00 :   10609b: mov    %rdi,%rcx
+    0.00 :   10609e: mov    %rdi,-0x4ac8(%rbp)
+    0.00 :   1060a5: shl    $0x8,%rcx
+    0.00 :   1060a9: mov    %rcx,-0x4a08(%rbp)
+    0.00 :   1060b0: mov    -0x4970(%rbp),%ecx
+    0.00 :   1060b6: lea    -0x1(%rcx),%r10d
+    0.00 :   1060ba: mov    -0x4980(%rbp),%ecx
+    0.00 :   1060c0: sub    %r9,%r10
+    0.00 :   1060c3: and    $0xfffffffc,%r10d
+    0.00 :   1060c7: lea    0x4(%rdi,%r10,1),%r13
+    0.00 :   1060cc: shl    $0x8,%r13
+    0.00 :   1060d0: test   %ecx,%ecx
+    0.00 :   1060d2: je     106362 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x722>
+    0.02 :   1060d8: mov    %rsi,%rdi
+    0.02 :   1060db: cmp    %r12d,%r15d
+    0.00 :   1060de: jle    1060fc <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x4bc>
+    0.00 :   1060e0: mov    -0x4a10(%rbp),%ebx
+    0.01 :   1060e6: lea    (%r12,%rbx,1),%edi
+    0.01 :   1060ea: movslq %edi,%rdi
+    0.00 :   1060ed: imul   -0x4988(%rbp),%rdi
+    0.01 :   1060f5: add    -0x4990(%rbp),%rdi
+    0.02 :   1060fc: mov    -0x4970(%rbp),%ecx
+    0.01 :   106102: cmp    %ecx,-0x49b0(%rbp)
+    0.00 :   106108: jge    10632e <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x6ee>
+    0.01 :   10610e: mov    -0x4a08(%rbp),%r10
+    0.00 :   106115: lea    0x20(%rax),%r14d
+    0.01 :   106119: lea    0x40(%rax),%ebx
+    0.00 :   10611c: lea    0x60(%rax),%r11d
+    0.00 :   106120: movslq %eax,%rcx
+    0.00 :   106123: movslq %r14d,%r14
+    0.00 :   106126: movslq %ebx,%rbx
+    0.00 :   106129: movslq %r11d,%r11
+    0.00 :   10612c: lea    -0x4850(%rbp,%rcx,4),%r8
+    0.01 :   106134: lea    0x1(%rax),%r9d
+    0.00 :   106138: sub    %rcx,%r14
+    0.00 :   10613b: sub    %rcx,%rbx
+    0.01 :   10613e: sub    %rcx,%r11
+    0.01 :   106141: mov    %eax,-0x4978(%rbp)
+    0.01 :   106147: vxorps %xmm6,%xmm6,%xmm6
+    0.01 :   10614b: lea    -0x4050(%rbp,%r10,4),%rax
+    0.00 :   106153: xor    %ecx,%ecx
+    0.01 :   106155: vmovaps %ymm6,%ymm3
+    0.01 :   106159: vmovaps %ymm6,%ymm7
+    0.01 :   10615d: vmovaps %ymm6,%ymm4
+    0.02 :   106161: vmovaps %ymm6,%ymm8
+    0.01 :   106165: vmovaps %ymm6,%ymm5
+    0.00 :   106169: vmovaps %ymm6,%ymm9
+    0.00 :   10616d: vmovaps %ymm6,%ymm10
+    0.01 :   106171: nopl   0x0(%rax)
+    0.01 :   106175: data16 cs nopw 0x0(%rax,%rax,1)
+    5.41 :   106180: vcvtph2ps (%rsi,%rcx,1),%ymm1
+    7.04 :   106186: vmovaps (%rax),%ymm2
+    3.09 :   10618a: add    $0x20,%rax
+    0.95 :   10618e: vcvtph2ps (%rdi,%rcx,1),%ymm0
+    0.77 :   106194: add    $0x10,%rcx
+    2.90 :   106198: vfmadd231ps %ymm1,%ymm2,%ymm10
+    5.36 :   10619d: vfmadd231ps %ymm0,%ymm2,%ymm9
+    5.36 :   1061a2: vmovaps 0x3e0(%rax),%ymm2
+    2.78 :   1061aa: vfmadd231ps %ymm1,%ymm2,%ymm5
+    0.68 :   1061af: vfmadd231ps %ymm0,%ymm2,%ymm8
+    0.56 :   1061b4: vmovaps 0x7e0(%rax),%ymm2
+    0.93 :   1061bc: vfmadd231ps %ymm1,%ymm2,%ymm4
+    1.42 :   1061c1: vfmadd231ps %ymm0,%ymm2,%ymm7
+    1.40 :   1061c6: vmovaps 0xbe0(%rax),%ymm2
+    2.09 :   1061ce: vfmadd231ps %ymm1,%ymm2,%ymm3
+    4.49 :   1061d3: vfmadd231ps %ymm0,%ymm2,%ymm6
+    4.46 :   1061d8: cmp    $0x200,%rcx
+    0.09 :   1061df: jne    106180 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x540>
+    0.07 :   1061e1: vextractf128 $0x1,%ymm10,%xmm0
+    0.10 :   1061e7: vaddps %xmm10,%xmm0,%xmm0
+    0.11 :   1061ec: vmovhlps %xmm0,%xmm0,%xmm1
+    0.15 :   1061f0: vaddps %xmm1,%xmm0,%xmm0
+    0.65 :   1061f4: vmovshdup %xmm0,%xmm1
+    1.17 :   1061f8: vaddss %xmm1,%xmm0,%xmm0
+    1.11 :   1061fc: vmovss %xmm0,(%r8)
+    0.61 :   106201: vextractf128 $0x1,%ymm5,%xmm0
+    0.04 :   106207: vaddps %xmm5,%xmm0,%xmm0
+    0.04 :   10620b: vmovhlps %xmm0,%xmm0,%xmm1
+    0.02 :   10620f: vaddps %xmm1,%xmm0,%xmm0
+    0.02 :   106213: vmovshdup %xmm0,%xmm1
+    0.02 :   106217: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   10621b: vmovss %xmm0,(%r8,%r14,4)
+    0.01 :   106221: vextractf128 $0x1,%ymm4,%xmm0
+    0.01 :   106227: vaddps %xmm4,%xmm0,%xmm0
+    0.01 :   10622b: vmovhlps %xmm0,%xmm0,%xmm1
+    0.01 :   10622f: vaddps %xmm1,%xmm0,%xmm0
+    0.02 :   106233: vmovshdup %xmm0,%xmm1
+    0.01 :   106237: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   10623b: vmovss %xmm0,(%r8,%rbx,4)
+    0.02 :   106241: vextractf128 $0x1,%ymm3,%xmm0
+    0.01 :   106247: vaddps %xmm3,%xmm0,%xmm0
+    0.02 :   10624b: vmovhlps %xmm0,%xmm0,%xmm1
+    0.01 :   10624f: vaddps %xmm1,%xmm0,%xmm0
+    0.01 :   106253: vmovshdup %xmm0,%xmm1
+    0.01 :   106257: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   10625b: vmovss %xmm0,(%r8,%r11,4)
+    0.01 :   106261: cmp    %r12d,%r15d
+    0.00 :   106264: jle    10630d <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x6cd>
+    0.01 :   10626a: vextractf128 $0x1,%ymm9,%xmm0
+    0.01 :   106270: movslq %r9d,%rax
+    0.01 :   106273: vaddps %xmm9,%xmm0,%xmm0
+    0.02 :   106278: vmovhlps %xmm0,%xmm0,%xmm1
+    0.02 :   10627c: vaddps %xmm1,%xmm0,%xmm0
+    0.01 :   106280: vmovshdup %xmm0,%xmm1
+    0.01 :   106284: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   106288: vmovss %xmm0,-0x4850(%rbp,%rax,4)
+    0.01 :   106291: vextractf128 $0x1,%ymm8,%xmm0
+    0.02 :   106297: lea    0x20(%r9),%eax
+    0.02 :   10629b: vaddps %xmm8,%xmm0,%xmm0
+    0.01 :   1062a0: cltq
+    0.02 :   1062a2: vmovhlps %xmm0,%xmm0,%xmm1
+    0.02 :   1062a6: vaddps %xmm1,%xmm0,%xmm0
+    0.02 :   1062aa: vmovshdup %xmm0,%xmm1
+    0.02 :   1062ae: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   1062b2: vmovss %xmm0,-0x4850(%rbp,%rax,4)
+    0.02 :   1062bb: vextractf128 $0x1,%ymm7,%xmm0
+    0.03 :   1062c1: lea    0x40(%r9),%eax
+    0.02 :   1062c5: vaddps %xmm7,%xmm0,%xmm0
+    0.01 :   1062c9: cltq
+    0.01 :   1062cb: vmovhlps %xmm0,%xmm0,%xmm1
+    0.01 :   1062cf: vaddps %xmm1,%xmm0,%xmm0
+    0.02 :   1062d3: vmovshdup %xmm0,%xmm1
+    0.01 :   1062d7: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   1062db: vmovss %xmm0,-0x4850(%rbp,%rax,4)
+    0.02 :   1062e4: vextractf128 $0x1,%ymm6,%xmm0
+    0.01 :   1062ea: lea    0x60(%r9),%eax
+    0.02 :   1062ee: vaddps %xmm6,%xmm0,%xmm0
+    0.01 :   1062f2: cltq
+    0.00 :   1062f4: vmovhlps %xmm0,%xmm0,%xmm1
+    0.01 :   1062f8: vaddps %xmm1,%xmm0,%xmm0
+    0.03 :   1062fc: vmovshdup %xmm0,%xmm1
+    0.01 :   106300: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   106304: vmovss %xmm0,-0x4850(%rbp,%rax,4)
+    0.00 :   10630d: add    $0x400,%r10
+    0.01 :   106314: add    $0x200,%r8
+    0.01 :   10631b: sub    $0xffffff80,%r9d
+    0.00 :   10631f: cmp    %r10,%r13
+    0.00 :   106322: jne    106147 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x507>
+    0.00 :   106328: mov    -0x4978(%rbp),%eax
+    0.01 :   10632e: add    -0x49b8(%rbp),%rsi
+    0.00 :   106335: add    -0x49d8(%rbp),%rdx
+    0.01 :   10633c: add    $0x2,%eax
+    0.01 :   10633f: lea    0x1(%r12),%ecx
+    0.00 :   106344: cmp    -0x49e0(%rbp),%ecx
+    0.00 :   10634a: jge    106445 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x805>
+    0.00 :   106350: mov    -0x4980(%rbp),%ecx
+    0.00 :   106356: add    $0x2,%r12d
+    0.00 :   10635a: test   %ecx,%ecx
+    0.00 :   10635c: jne    1060d8 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x498>
+    0.00 :   106362: mov    -0x4a60(%rbp),%rcx
+    0.00 :   106369: lea    -0x1(%r12),%ebx
+    0.00 :   10636e: mov    %rdx,%r8
+    0.00 :   106371: mov    %ebx,%r10d
+    0.00 :   106374: lea    (%rsi,%rcx,1),%r9
+    0.00 :   106378: cmpq   $0xfffffffffffffe01,-0x49f8(%rbp)
+    0.01 :   106383: jl     1063c7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x787>
+    0.00 :   106385: mov    -0x4a90(%rbp),%rdi
+    0.01 :   10638c: mov    -0x4a30(%rbp),%r14
+    0.01 :   106393: add    %r9,%rdi
+    0.01 :   106396: lea    (%r14,%r9,1),%rcx
+    0.00 :   10639a: lea    0x40(%r14,%rdi,1),%rdi
+    0.01 :   10639f: mov    %rdi,%r11
+    0.02 :   1063a2: sub    %rcx,%r11
+    0.00 :   1063a5: and    $0x40,%r11d
+    0.01 :   1063a9: je     1063b7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x777>
+    0.00 :   1063ab: prefetcht1 (%rcx)
+    0.00 :   1063ae: add    $0x40,%rcx
+    0.00 :   1063b2: cmp    %rcx,%rdi
+    0.00 :   1063b5: je     1063c7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x787>
+    0.08 :   1063b7: prefetcht1 (%rcx)
+    0.08 :   1063ba: prefetcht1 0x40(%rcx)
+    0.05 :   1063be: sub    $0xffffffffffffff80,%rcx
+    0.06 :   1063c2: cmp    %rcx,%rdi
+    0.00 :   1063c5: jne    1063b7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x777>
+    0.01 :   1063c7: cmpq   $0xfffffffffffffe01,-0x4a00(%rbp)
+    0.01 :   1063d2: jl     106416 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x7d6>
+    0.00 :   1063d4: mov    -0x4a98(%rbp),%rdi
+    0.00 :   1063db: mov    -0x4a38(%rbp),%r14
+    0.01 :   1063e2: add    %r8,%rdi
+    0.01 :   1063e5: lea    (%r14,%r8,1),%rcx
+    0.00 :   1063e9: lea    0x40(%r14,%rdi,1),%rdi
+    0.01 :   1063ee: mov    %rdi,%r11
+    0.01 :   1063f1: sub    %rcx,%r11
+    0.00 :   1063f4: and    $0x40,%r11d
+    0.00 :   1063f8: je     106406 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x7c6>
+    0.00 :   1063fa: prefetcht1 (%rcx)
+    0.00 :   1063fd: add    $0x40,%rcx
+    0.00 :   106401: cmp    %rcx,%rdi
+    0.00 :   106404: je     106416 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x7d6>
+    0.08 :   106406: prefetcht1 (%rcx)
+    0.10 :   106409: prefetcht1 0x40(%rcx)
+    0.06 :   10640d: sub    $0xffffffffffffff80,%rcx
+    0.04 :   106411: cmp    %rcx,%rdi
+    0.00 :   106414: jne    106406 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x7c6>
+    0.01 :   106416: add    -0x49d0(%rbp),%r8
+    0.01 :   10641d: add    -0x4988(%rbp),%r9
+    0.01 :   106424: lea    0x1(%r10),%ecx
+    0.00 :   106428: cmp    %r10d,%ebx
+    0.00 :   10642b: jl     1060d8 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x498>
+    0.00 :   106431: cmp    -0x4a1c(%rbp),%ecx
+    0.00 :   106437: jge    1060d8 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x498>
+    0.00 :   10643d: mov    %ecx,%r10d
+    0.02 :   106440: jmp    106378 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x738>
+    0.01 :   106445: mov    -0x4ab8(%rbp),%r11d
+    0.00 :   10644c: mov    -0x4a48(%rbp),%edx
+    0.00 :   106452: mov    -0x4ac0(%rbp),%rbx
+    0.00 :   106459: mov    -0x4ac8(%rbp),%rdi
+    0.00 :   106460: cmp    %r11d,%r15d
+    0.00 :   106463: jle    1075ae <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x196e>
+    0.00 :   106469: mov    -0x4aac(%rbp),%r10d
+    0.00 :   106470: mov    -0x4970(%rbp),%r9d
+    0.00 :   106477: mov    %edx,-0x4980(%rbp)
+    0.00 :   10647d: mov    %r11d,%r13d
+    0.00 :   106480: mov    %rdi,%rsi
+    0.00 :   106483: movslq %r13d,%rcx
+    0.00 :   106486: add    -0x49c0(%rbp),%rcx
+    0.00 :   10648d: mov    %r10d,%eax
+    0.00 :   106490: shl    $0x8,%rsi
+    0.00 :   106494: imul   -0x4988(%rbp),%rcx
+    0.00 :   10649c: shl    $0x5,%eax
+    0.00 :   10649f: mov    %edx,-0x4a60(%rbp)
+    0.00 :   1064a5: mov    %rsi,-0x4a08(%rbp)
+    0.00 :   1064ac: mov    -0x4970(%rbp),%esi
+    0.00 :   1064b2: add    %r13d,%eax
+    0.00 :   1064b5: mov    %r9d,-0x4a48(%rbp)
+    0.00 :   1064bc: mov    %r11d,-0x4aac(%rbp)
+    0.00 :   1064c3: mov    %rbx,-0x4ab8(%rbp)
+    0.00 :   1064ca: add    -0x4990(%rbp),%rcx
+    0.00 :   1064d1: dec    %esi
+    0.00 :   1064d3: sub    %r10,%rsi
+    0.00 :   1064d6: and    $0xfffffffc,%esi
+    0.00 :   1064d9: lea    0x4(%rdi,%rsi,1),%rsi
+    0.00 :   1064de: shl    $0x8,%rsi
+    0.00 :   1064e2: mov    %rsi,-0x4978(%rbp)
+    0.00 :   1064e9: lea    0x1(%r13),%r12d
+    0.00 :   1064ed: mov    %rcx,%rdi
+    0.00 :   1064f0: cmp    %r12d,%r15d
+    0.00 :   1064f3: jle    106512 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x8d2>
+    0.00 :   1064f5: mov    -0x4a10(%rbp),%ebx
+    0.00 :   1064fb: lea    0x1(%r13,%rbx,1),%edi
+    0.01 :   106500: movslq %edi,%rdi
+    0.00 :   106503: imul   -0x4988(%rbp),%rdi
+    0.00 :   10650b: add    -0x4990(%rbp),%rdi
+    0.00 :   106512: mov    -0x4970(%rbp),%edx
+    0.00 :   106518: cmp    %edx,-0x49b0(%rbp)
+    0.00 :   10651e: jge    10673c <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xafc>
+    0.00 :   106524: lea    0x60(%rax),%esi
+    0.00 :   106527: mov    -0x4a08(%rbp),%r10
+    0.00 :   10652e: movslq %eax,%rdx
+    0.00 :   106531: lea    0x20(%rax),%ebx
+    0.00 :   106534: lea    0x40(%rax),%r11d
+    0.00 :   106538: movslq %esi,%rsi
+    0.00 :   10653b: movslq %ebx,%rbx
+    0.00 :   10653e: lea    -0x4850(%rbp,%rdx,4),%r8
+    0.00 :   106546: movslq %r11d,%r11
+    0.00 :   106549: sub    %rdx,%rsi
+    0.00 :   10654c: lea    0x1(%rax),%r9d
+    0.00 :   106550: sub    %rdx,%rbx
+    0.00 :   106553: sub    %rdx,%r11
+    0.00 :   106556: mov    %rsi,%r14
+    0.00 :   106559: vxorps %xmm5,%xmm5,%xmm5
+    0.00 :   10655d: lea    -0x4050(%rbp,%r10,4),%rdx
+    0.00 :   106565: xor    %esi,%esi
+    0.00 :   106567: vmovaps %ymm5,%ymm3
+    0.00 :   10656b: vmovaps %ymm5,%ymm6
+    0.00 :   10656f: vmovaps %ymm5,%ymm4
+    0.00 :   106573: vmovaps %ymm5,%ymm7
+    0.00 :   106577: vmovaps %ymm5,%ymm9
+    0.00 :   10657b: vmovaps %ymm5,%ymm8
+    0.00 :   10657f: vmovaps %ymm5,%ymm10
+    0.01 :   106583: xchg   %ax,%ax
+    0.00 :   106585: data16 cs nopw 0x0(%rax,%rax,1)
+    0.25 :   106590: vcvtph2ps (%rcx,%rsi,1),%ymm1
+    0.14 :   106596: vmovaps (%rdx),%ymm2
+    0.04 :   10659a: add    $0x20,%rdx
+    0.05 :   10659e: vcvtph2ps (%rdi,%rsi,1),%ymm0
+    0.06 :   1065a4: add    $0x10,%rsi
+    0.07 :   1065a8: vfmadd231ps %ymm1,%ymm2,%ymm10
+    0.17 :   1065ad: vfmadd231ps %ymm0,%ymm2,%ymm8
+    0.23 :   1065b2: vmovaps 0x3e0(%rdx),%ymm2
+    0.31 :   1065ba: vfmadd231ps %ymm1,%ymm2,%ymm9
+    0.25 :   1065bf: vfmadd231ps %ymm0,%ymm2,%ymm7
+    0.13 :   1065c4: vmovaps 0x7e0(%rdx),%ymm2
+    0.04 :   1065cc: vfmadd231ps %ymm1,%ymm2,%ymm4
+    0.03 :   1065d1: vfmadd231ps %ymm0,%ymm2,%ymm6
+    0.14 :   1065d6: vmovaps 0xbe0(%rdx),%ymm2
+    0.24 :   1065de: vfmadd231ps %ymm1,%ymm2,%ymm3
+    0.27 :   1065e3: vfmadd231ps %ymm0,%ymm2,%ymm5
+    0.31 :   1065e8: cmp    $0x200,%rsi
+    0.01 :   1065ef: jne    106590 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x950>
+    0.00 :   1065f1: vextractf128 $0x1,%ymm10,%xmm1
+    0.00 :   1065f7: vaddps %xmm1,%xmm10,%xmm0
+    0.01 :   1065fb: vmovhlps %xmm0,%xmm0,%xmm1
+    0.02 :   1065ff: vaddps %xmm0,%xmm1,%xmm0
+    0.02 :   106603: vmovshdup %xmm0,%xmm1
+    0.01 :   106607: vaddss %xmm1,%xmm0,%xmm0
+    0.01 :   10660b: vextractf128 $0x1,%ymm9,%xmm1
+    0.00 :   106611: vmovss %xmm0,(%r8)
+    0.01 :   106616: vaddps %xmm1,%xmm9,%xmm0
+    0.00 :   10661a: vmovhlps %xmm0,%xmm0,%xmm1
+    0.00 :   10661e: vaddps %xmm0,%xmm1,%xmm0
+    0.00 :   106622: vmovshdup %xmm0,%xmm1
+    0.00 :   106626: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   10662a: vextractf128 $0x1,%ymm4,%xmm1
+    0.00 :   106630: vmovss %xmm0,(%r8,%rbx,4)
+    0.00 :   106636: vaddps %xmm1,%xmm4,%xmm0
+    0.00 :   10663a: vmovhlps %xmm0,%xmm0,%xmm1
+    0.00 :   10663e: vaddps %xmm0,%xmm1,%xmm0
+    0.00 :   106642: vmovshdup %xmm0,%xmm1
+    0.00 :   106646: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   10664a: vextractf128 $0x1,%ymm3,%xmm1
+    0.00 :   106650: vmovss %xmm0,(%r8,%r11,4)
+    0.00 :   106656: vaddps %xmm1,%xmm3,%xmm0
+    0.00 :   10665a: vmovhlps %xmm0,%xmm0,%xmm1
+    0.00 :   10665e: vaddps %xmm0,%xmm1,%xmm0
+    0.00 :   106662: vmovshdup %xmm0,%xmm1
+    0.00 :   106666: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   10666a: vmovss %xmm0,(%r8,%r14,4)
+    0.00 :   106670: cmp    %r12d,%r15d
+    0.00 :   106673: jle    10671d <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xadd>
+    0.00 :   106679: vextractf128 $0x1,%ymm8,%xmm1
+    0.01 :   10667f: movslq %r9d,%rdx
+    0.00 :   106682: vaddps %xmm1,%xmm8,%xmm0
+    0.00 :   106686: vmovhlps %xmm0,%xmm0,%xmm1
+    0.00 :   10668a: vaddps %xmm0,%xmm1,%xmm0
+    0.00 :   10668e: vmovshdup %xmm0,%xmm1
+    0.00 :   106692: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   106696: vextractf128 $0x1,%ymm7,%xmm1
+    0.00 :   10669c: vmovss %xmm0,-0x4850(%rbp,%rdx,4)
+    0.00 :   1066a5: vaddps %xmm1,%xmm7,%xmm0
+    0.00 :   1066a9: lea    0x20(%r9),%edx
+    0.00 :   1066ad: movslq %edx,%rdx
+    0.00 :   1066b0: vmovhlps %xmm0,%xmm0,%xmm1
+    0.00 :   1066b4: vaddps %xmm0,%xmm1,%xmm0
+    0.00 :   1066b8: vmovshdup %xmm0,%xmm1
+    0.00 :   1066bc: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   1066c0: vextractf128 $0x1,%ymm6,%xmm1
+    0.00 :   1066c6: vmovss %xmm0,-0x4850(%rbp,%rdx,4)
+    0.00 :   1066cf: vaddps %xmm1,%xmm6,%xmm0
+    0.00 :   1066d3: lea    0x40(%r9),%edx
+    0.00 :   1066d7: movslq %edx,%rdx
+    0.00 :   1066da: vmovhlps %xmm0,%xmm0,%xmm1
+    0.01 :   1066de: vaddps %xmm0,%xmm1,%xmm0
+    0.00 :   1066e2: vmovshdup %xmm0,%xmm1
+    0.00 :   1066e6: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   1066ea: vextractf128 $0x1,%ymm5,%xmm1
+    0.00 :   1066f0: vmovss %xmm0,-0x4850(%rbp,%rdx,4)
+    0.00 :   1066f9: vaddps %xmm1,%xmm5,%xmm0
+    0.00 :   1066fd: lea    0x60(%r9),%edx
+    0.00 :   106701: movslq %edx,%rdx
+    0.00 :   106704: vmovhlps %xmm0,%xmm0,%xmm1
+    0.00 :   106708: vaddps %xmm0,%xmm1,%xmm0
+    0.00 :   10670c: vmovshdup %xmm0,%xmm1
+    0.00 :   106710: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   106714: vmovss %xmm0,-0x4850(%rbp,%rdx,4)
+    0.00 :   10671d: add    $0x200,%r8
+    0.00 :   106724: sub    $0xffffff80,%r9d
+    0.00 :   106728: add    $0x400,%r10
+    0.00 :   10672f: cmp    %r10,-0x4978(%rbp)
+    0.00 :   106736: jne    106559 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x919>
+    0.00 :   10673c: add    $0x2,%r13d
+    0.00 :   106740: add    -0x49b8(%rbp),%rcx
+    0.00 :   106747: add    $0x2,%eax
+    0.00 :   10674a: cmp    %r13d,%r15d
+    0.00 :   10674d: jg     1064e9 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x8a9>
+    0.00 :   106753: mov    -0x4a60(%rbp),%edx
+    0.00 :   106759: mov    -0x4a18(%rbp),%rsi
+    0.00 :   106760: add    %rsi,-0x4990(%rbp)
+    0.00 :   106767: cmp    %edx,-0x49c4(%rbp)
+    0.00 :   10676d: mov    -0x4a48(%rbp),%r9d
+    0.00 :   106774: mov    -0x4aac(%rbp),%r11d
+    0.00 :   10677b: mov    -0x4ab8(%rbp),%rbx
+    0.00 :   106782: jne    106013 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x3d3>
+    0.01 :   106788: mov    -0x4a50(%rbp),%r12
+    0.00 :   10678f: mov    -0x4a88(%rbp),%rax
+    0.00 :   106796: mov    -0x49c0(%rbp),%rdx
+    0.00 :   10679d: movslq %r15d,%r8
+    0.00 :   1067a0: lea    0x0(,%r8,4),%r9
+    0.00 :   1067a8: lea    -0x48d0(%rbp,%r9,1),%r11
+    0.00 :   1067b0: lea    (%rax,%rdx,2),%rdx
+    0.00 :   1067b4: lea    -0x48d0(%rbp),%rax
+    0.02 :   1067bb: vpxor  %xmm6,%xmm6,%xmm6
+    0.00 :   1067bf: vpinsrw $0x0,(%rdx),%xmm6,%xmm0
+    0.00 :   1067c4: add    $0x4,%rax
+    0.01 :   1067c8: add    $0x2,%rdx
+    0.01 :   1067cc: vcvtph2ps %xmm0,%xmm0
+    0.01 :   1067d1: vmovss %xmm0,-0x4(%rax)
+    0.04 :   1067d6: cmp    %rax,%r11
+    0.00 :   1067d9: jne    1067bb <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xb7b>
+    0.01 :   1067db: cmpl   $0x1f,-0x49f0(%rbp)
+    0.02 :   1067e2: jg     1068a7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xc67>
+    0.00 :   1067e8: lea    -0x19(%r15),%eax
+    0.00 :   1067ec: cmp    $0x6,%eax
+    0.00 :   1067ef: jbe    107251 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1611>
+    0.00 :   1067f5: vmovaps 0x1759803(%rip),%ymm6        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   1067fd: mov    $0x20,%eax
+    0.00 :   106802: sub    %r15d,%eax
+    0.00 :   106805: mov    %eax,%ecx
+    0.00 :   106807: shr    $0x3,%ecx
+    0.00 :   10680a: vmovups %ymm6,-0x48d0(%rbp,%r8,4)
+    0.00 :   106814: cmp    $0x1,%ecx
+    0.00 :   106817: je     106832 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xbf2>
+    0.00 :   106819: vmovups %ymm6,-0x48b0(%rbp,%r8,4)
+    0.00 :   106823: cmp    $0x3,%ecx
+    0.00 :   106826: jne    106832 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xbf2>
+    0.00 :   106828: vmovups %ymm6,-0x4890(%rbp,%r8,4)
+    0.00 :   106832: test   $0x7,%al
+    0.00 :   106834: je     1068a7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xc67>
+    0.00 :   106836: and    $0xfffffff8,%eax
+    0.00 :   106839: lea    (%rax,%r15,1),%ecx
+    0.00 :   10683d: mov    %ecx,%edx
+    0.00 :   10683f: lea    -0x1d(%rcx),%edi
+    0.00 :   106842: cmp    $0x2,%edi
+    0.00 :   106845: jbe    10686d <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xc2d>
+    0.00 :   106847: vmovaps 0x17597b1(%rip),%xmm6        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   10684f: mov    $0x20,%edi
+    0.00 :   106854: add    %r8,%rax
+    0.00 :   106857: sub    %ecx,%edi
+    0.00 :   106859: vmovups %xmm6,-0x48d0(%rbp,%rax,4)
+    0.00 :   106862: test   $0x3,%dil
+    0.00 :   106866: je     1068a7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xc67>
+    0.00 :   106868: and    $0xfffffffc,%edi
+    0.00 :   10686b: add    %edi,%edx
+    0.00 :   10686d: vmovss 0x175978b(%rip),%xmm10        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   106875: movslq %edx,%rax
+    0.00 :   106878: vmovss %xmm10,-0x48d0(%rbp,%rax,4)
+    0.00 :   106881: lea    0x1(%rdx),%eax
+    0.00 :   106884: cmp    $0x1f,%edx
+    0.00 :   106887: je     1068a7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xc67>
+    0.00 :   106889: cltq
+    0.00 :   10688b: vmovss %xmm10,-0x48d0(%rbp,%rax,4)
+    0.00 :   106894: lea    0x2(%rdx),%eax
+    0.00 :   106897: cmp    $0x1e,%edx
+    0.00 :   10689a: je     1068a7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xc67>
+    0.00 :   10689c: cltq
+    0.00 :   10689e: vmovss %xmm10,-0x48d0(%rbp,%rax,4)
+    0.00 :   1068a7: mov    -0x4a44(%rbp),%edx
+    0.00 :   1068ad: test   %edx,%edx
+    0.00 :   1068af: jle    106f1e <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x12de>
+    0.00 :   1068b5: vmovss 0x1759743(%rip),%xmm10        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   1068bd: mov    -0x49e8(%rbp),%rdi
+    0.00 :   1068c4: mov    %rbx,%rax
+    0.00 :   1068c7: mov    %r9,-0x4980(%rbp)
+    0.00 :   1068ce: mov    %r11,%rbx
+    0.00 :   1068d1: mov    %r12,%r9
+    0.00 :   1068d4: lea    -0x4850(%rbp),%r14
+    0.00 :   1068db: lea    -0x4950(%rbp),%r10
+    0.00 :   1068e2: xor    %r13d,%r13d
+    0.00 :   1068e5: lea    -0x4910(%rbp),%r12
+    0.00 :   1068ec: mov    %rax,%r11
+    0.00 :   1068ef: vmovss %xmm10,-0x4978(%rbp)
+    0.00 :   1068f7: vmovss -0x4978(%rbp),%xmm1
+    0.00 :   1068ff: lea    -0x48d0(%rbp),%rdx
+    0.01 :   106906: mov    %r14,%rax
+    0.01 :   106909: nop
+    0.00 :   10690a: data16 cs nopw 0x0(%rax,%rax,1)
+    0.00 :   106915: data16 cs nopw 0x0(%rax,%rax,1)
+    0.11 :   106920: vmovss (%rdx),%xmm0
+    0.15 :   106924: add    $0x4,%rdx
+    0.17 :   106928: add    $0x4,%rax
+    0.17 :   10692c: vaddss -0x4(%rax),%xmm0,%xmm0
+    0.22 :   106931: vmovss %xmm0,-0x4(%rax)
+    0.17 :   106936: vmaxss %xmm1,%xmm0,%xmm1
+    0.17 :   10693a: cmp    %rdx,%rbx
+    0.00 :   10693d: jne    106920 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xce0>
+    0.00 :   10693f: cmpl   $0x1f,-0x49f0(%rbp)
+    0.00 :   106946: jg     106a05 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xdc5>
+    0.00 :   10694c: lea    -0x19(%r15),%eax
+    0.00 :   106950: cmp    $0x6,%eax
+    0.00 :   106953: jbe    107244 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1604>
+    0.00 :   106959: vmovaps 0x175969f(%rip),%ymm6        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   106961: mov    $0x20,%eax
+    0.00 :   106966: sub    %r15d,%eax
+    0.00 :   106969: mov    %eax,%edx
+    0.00 :   10696b: mov    %eax,%ecx
+    0.00 :   10696d: lea    (%r8,%r13,1),%rax
+    0.00 :   106971: shr    $0x3,%edx
+    0.00 :   106974: vmovups %ymm6,-0x4850(%rbp,%rax,4)
+    0.00 :   10697d: cmp    $0x1,%edx
+    0.00 :   106980: je     106999 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xd59>
+    0.00 :   106982: vmovups %ymm6,-0x4830(%rbp,%rax,4)
+    0.00 :   10698b: cmp    $0x3,%edx
+    0.00 :   10698e: jne    106999 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xd59>
+    0.00 :   106990: vmovups %ymm6,-0x4810(%rbp,%rax,4)
+    0.00 :   106999: test   $0x7,%cl
+    0.00 :   10699c: je     106a05 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xdc5>
+    0.00 :   10699e: mov    %ecx,%edx
+    0.00 :   1069a0: and    $0xfffffff8,%edx
+    0.00 :   1069a3: lea    (%rdx,%r15,1),%ecx
+    0.00 :   1069a7: mov    %ecx,%eax
+    0.00 :   1069a9: lea    -0x1d(%rcx),%esi
+    0.00 :   1069ac: cmp    $0x2,%esi
+    0.00 :   1069af: jbe    1069dc <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xd9c>
+    0.00 :   1069b1: vmovaps 0x1759647(%rip),%xmm3        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   1069b9: mov    $0x20,%esi
+    0.00 :   1069be: sub    %ecx,%esi
+    0.00 :   1069c0: lea    0x0(%r13,%r8,1),%rcx
+    0.00 :   1069c5: add    %rdx,%rcx
+    0.00 :   1069c8: vmovups %xmm3,-0x4850(%rbp,%rcx,4)
+    0.00 :   1069d1: test   $0x3,%sil
+    0.00 :   1069d5: je     106a05 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xdc5>
+    0.00 :   1069d7: and    $0xfffffffc,%esi
+    0.00 :   1069da: add    %esi,%eax
+    0.00 :   1069dc: vmovss -0x4978(%rbp),%xmm6
+    0.00 :   1069e4: movslq %eax,%rdx
+    0.00 :   1069e7: vmovss %xmm6,(%r14,%rdx,4)
+    0.00 :   1069ed: cmp    $0x1f,%eax
+    0.00 :   1069f0: je     106a05 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xdc5>
+    0.00 :   1069f2: vmovss %xmm6,0x4(%r14,%rdx,4)
+    0.00 :   1069f9: cmp    $0x1e,%eax
+    0.00 :   1069fc: je     106a05 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xdc5>
+    0.00 :   1069fe: vmovss %xmm6,0x8(%r14,%rdx,4)
+    0.01 :   106a05: vucomiss 0x17595f3(%rip),%xmm1        # 1860000 <GGUF_TYPE_SIZE+0xca0>
+    0.00 :   106a0d: jp     106a15 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xdd5>
+    0.00 :   106a0f: je     106eed <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x12ad>
+    0.00 :   106a15: vmovss (%r10),%xmm6
+    0.01 :   106a1a: vcomiss %xmm6,%xmm1
+    0.00 :   106a1e: ja     107209 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x15c9>
+    0.00 :   106a24: mov    (%r12),%edx
+    0.02 :   106a28: vmovaps (%r14),%ymm0
+    0.01 :   106a2d: vbroadcastss 0x175ba3e(%rip),%ymm1        # 1862474 <GGUF_TYPE_SIZE+0x3114>
+    0.02 :   106a36: vbroadcastss %xmm6,%ymm6
+    0.01 :   106a3b: mov    $0x3f800000,%eax
+    0.00 :   106a40: vbroadcastss 0x175bb3b(%rip),%ymm3        # 1862584 <GGUF_TYPE_SIZE+0x3224>
+    0.01 :   106a49: vbroadcastss 0x175bb36(%rip),%ymm13        # 1862588 <GGUF_TYPE_SIZE+0x3228>
+    0.01 :   106a52: vbroadcastss 0x175bb35(%rip),%ymm9        # 1862590 <GGUF_TYPE_SIZE+0x3230>
+    0.01 :   106a5b: vbroadcastss 0x175bb30(%rip),%ymm12        # 1862594 <GGUF_TYPE_SIZE+0x3234>
+    0.00 :   106a64: vbroadcastss 0x175bb2b(%rip),%ymm11        # 1862598 <GGUF_TYPE_SIZE+0x3238>
+    0.01 :   106a6d: vmovaps 0x175a20b(%rip),%ymm14        # 1860c80 <GGUF_TYPE_SIZE+0x1920>
+    0.01 :   106a75: vbroadcastss 0x175bb46(%rip),%ymm8        # 18625c4 <GGUF_TYPE_SIZE+0x3264>
+    0.00 :   106a7e: vsubps %ymm6,%ymm0,%ymm0
+    0.00 :   106a82: vfmadd213ps 0x17593b5(%rip),%ymm0,%ymm1        # 185fe40 <GGUF_TYPE_SIZE+0xae0>
+    0.01 :   106a8b: vmovaps %ymm9,%ymm10
+    0.01 :   106a90: vaddps 0x17593c8(%rip),%ymm1,%ymm7        # 185fe60 <GGUF_TYPE_SIZE+0xb00>
+    0.00 :   106a98: vpslld $0x17,%ymm1,%ymm5
+    0.01 :   106a9d: vmovdqa %ymm5,-0x4970(%rbp)
+    0.01 :   106aa5: vfnmadd231ps %ymm3,%ymm7,%ymm0
+    0.01 :   106aaa: vandnps %ymm7,%ymm8,%ymm1
+    0.00 :   106aae: vcmpgt_oqps 0x1759409(%rip),%ymm1,%ymm2        # 185fec0 <GGUF_TYPE_SIZE+0xb60>
+    0.00 :   106ab7: vmovaps %ymm0,%ymm4
+    0.01 :   106abb: vmovd  %eax,%xmm0
+    0.00 :   106abf: vmovmskps %ymm2,%eax
+    0.00 :   106ac3: vfnmadd231ps %ymm13,%ymm7,%ymm4
+    0.00 :   106ac8: vpbroadcastd %xmm0,%ymm0
+    0.01 :   106acd: vpaddd %ymm5,%ymm0,%ymm0
+    0.00 :   106ad1: vfmadd132ps %ymm4,%ymm12,%ymm10
+    0.00 :   106ad6: vfmadd132ps %ymm4,%ymm11,%ymm14
+    0.00 :   106adb: vmulps %ymm4,%ymm4,%ymm15
+    0.00 :   106adf: vfmadd132ps %ymm15,%ymm10,%ymm14
+    0.00 :   106ae4: vbroadcastss 0x175baaf(%rip),%ymm10        # 186259c <GGUF_TYPE_SIZE+0x323c>
+    0.01 :   106aed: vmulps %ymm10,%ymm4,%ymm4
+    0.01 :   106af2: vfmadd132ps %ymm14,%ymm4,%ymm15
+    0.01 :   106af7: test   %eax,%eax
+    0.00 :   106af9: je     1071ff <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x15bf>
+    0.00 :   106aff: vxorps %xmm4,%xmm4,%xmm4
+    0.00 :   106b03: mov    $0x82000000,%eax
+    0.00 :   106b08: vbroadcastss 0x175bab7(%rip),%ymm14        # 18625c8 <GGUF_TYPE_SIZE+0x3268>
+    0.00 :   106b11: vfmadd132ps %ymm15,%ymm0,%ymm0
+    0.00 :   106b16: vcmple_oqps %ymm4,%ymm7,%ymm7
+    0.00 :   106b1b: vmovd  %eax,%xmm4
+    0.00 :   106b1f: mov    $0x7f000000,%eax
+    0.00 :   106b24: vpbroadcastd %xmm4,%ymm4
+    0.00 :   106b29: vpand  %ymm4,%ymm7,%ymm7
+    0.00 :   106b2d: vmovd  %eax,%xmm4
+    0.00 :   106b31: vpbroadcastd %xmm4,%ymm4
+    0.00 :   106b36: vpaddd %ymm7,%ymm4,%ymm4
+    0.00 :   106b3a: vpsubd %ymm7,%ymm5,%ymm7
+    0.00 :   106b3e: vandnps %ymm0,%ymm2,%ymm0
+    0.00 :   106b42: vfmadd132ps %ymm15,%ymm7,%ymm7
+    0.00 :   106b47: vcmpgt_oqps %ymm14,%ymm1,%ymm14
+    0.00 :   106b4d: vmulps %ymm4,%ymm7,%ymm7
+    0.00 :   106b51: vmulps %ymm4,%ymm4,%ymm4
+    0.00 :   106b55: vandps %ymm2,%ymm7,%ymm7
+    0.00 :   106b59: vorps  %ymm0,%ymm7,%ymm0
+    0.00 :   106b5d: vandnps %ymm0,%ymm14,%ymm0
+    0.00 :   106b61: vandps %ymm4,%ymm14,%ymm14
+    0.00 :   106b65: vorps  %ymm0,%ymm14,%ymm0
+    0.01 :   106b69: vmovaps 0x20(%r14),%ymm4
+    0.00 :   106b6f: vxorps %xmm7,%xmm7,%xmm7
+    0.00 :   106b73: vmovaps %ymm0,(%r14)
+    0.00 :   106b78: vmovaps 0x175a100(%rip),%ymm2        # 1860c80 <GGUF_TYPE_SIZE+0x1920>
+    0.00 :   106b80: vaddps %ymm7,%ymm0,%ymm5
+    0.00 :   106b84: vbroadcastss 0x175b8e7(%rip),%ymm0        # 1862474 <GGUF_TYPE_SIZE+0x3114>
+    0.00 :   106b8d: mov    $0x3f800000,%eax
+    0.00 :   106b92: vmovaps %ymm9,%ymm14
+    0.00 :   106b97: vmovaps %ymm5,-0x49b0(%rbp)
+    0.00 :   106b9f: vsubps %ymm6,%ymm4,%ymm4
+    0.00 :   106ba3: vfmadd213ps 0x1759294(%rip),%ymm4,%ymm0        # 185fe40 <GGUF_TYPE_SIZE+0xae0>
+    0.00 :   106bac: vaddps 0x17592ac(%rip),%ymm0,%ymm7        # 185fe60 <GGUF_TYPE_SIZE+0xb00>
+    0.00 :   106bb4: vpslld $0x17,%ymm0,%ymm5
+    0.00 :   106bb9: vmovd  %eax,%xmm0
+    0.01 :   106bbd: vmovdqa %ymm5,-0x4970(%rbp)
+    0.01 :   106bc5: vpbroadcastd %xmm0,%ymm0
+    0.00 :   106bca: vpaddd %ymm5,%ymm0,%ymm0
+    0.01 :   106bce: vfnmadd231ps %ymm3,%ymm7,%ymm4
+    0.00 :   106bd3: vandnps %ymm7,%ymm8,%ymm15
+    0.00 :   106bd7: vcmpgt_oqps 0x17592e0(%rip),%ymm15,%ymm5        # 185fec0 <GGUF_TYPE_SIZE+0xb60>
+    0.00 :   106be0: vmovaps %ymm15,%ymm1
+    0.01 :   106be4: vmovmskps %ymm5,%eax
+    0.00 :   106be8: vfnmadd231ps %ymm13,%ymm7,%ymm4
+    0.00 :   106bed: vfmadd132ps %ymm4,%ymm12,%ymm14
+    0.00 :   106bf2: vfmadd132ps %ymm4,%ymm11,%ymm2
+    0.01 :   106bf7: vmulps %ymm4,%ymm4,%ymm15
+    0.00 :   106bfb: vmulps %ymm10,%ymm4,%ymm4
+    0.00 :   106c00: vfmadd231ps %ymm2,%ymm15,%ymm14
+    0.01 :   106c05: vfmadd132ps %ymm14,%ymm4,%ymm15
+    0.02 :   106c0a: test   %eax,%eax
+    0.01 :   106c0c: je     1071f5 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x15b5>
+    0.00 :   106c12: vmovdqa -0x4970(%rbp),%ymm14
+    0.00 :   106c1a: vxorps %xmm4,%xmm4,%xmm4
+    0.00 :   106c1e: mov    $0x82000000,%eax
+    0.00 :   106c23: vfmadd132ps %ymm15,%ymm0,%ymm0
+    0.00 :   106c28: vcmple_oqps %ymm4,%ymm7,%ymm7
+    0.00 :   106c2d: vmovd  %eax,%xmm4
+    0.00 :   106c31: mov    $0x7f000000,%eax
+    0.00 :   106c36: vpbroadcastd %xmm4,%ymm4
+    0.00 :   106c3b: vpand  %ymm4,%ymm7,%ymm7
+    0.00 :   106c3f: vmovd  %eax,%xmm4
+    0.00 :   106c43: vpbroadcastd %xmm4,%ymm4
+    0.00 :   106c48: vpaddd %ymm7,%ymm4,%ymm4
+    0.00 :   106c4c: vandnps %ymm0,%ymm5,%ymm0
+    0.00 :   106c50: vpsubd %ymm7,%ymm14,%ymm7
+    0.00 :   106c54: vbroadcastss 0x175b96b(%rip),%ymm14        # 18625c8 <GGUF_TYPE_SIZE+0x3268>
+    0.00 :   106c5d: vfmadd132ps %ymm15,%ymm7,%ymm7
+    0.00 :   106c62: vmulps %ymm4,%ymm7,%ymm7
+    0.00 :   106c66: vmulps %ymm4,%ymm4,%ymm4
+    0.00 :   106c6a: vcmpgt_oqps %ymm14,%ymm1,%ymm14
+    0.00 :   106c70: vandps %ymm5,%ymm7,%ymm7
+    0.00 :   106c74: vorps  %ymm0,%ymm7,%ymm7
+    0.00 :   106c78: vandnps %ymm7,%ymm14,%ymm0
+    0.00 :   106c7c: vandps %ymm4,%ymm14,%ymm14
+    0.00 :   106c80: vorps  %ymm0,%ymm14,%ymm0
+    0.01 :   106c84: vmovaps 0x40(%r14),%ymm4
+    0.00 :   106c8a: vaddps -0x49b0(%rbp),%ymm0,%ymm7
+    0.00 :   106c92: vmovaps %ymm0,0x20(%r14)
+    0.00 :   106c98: vmovaps %ymm9,%ymm14
+    0.00 :   106c9d: vbroadcastss 0x175b7ce(%rip),%ymm0        # 1862474 <GGUF_TYPE_SIZE+0x3114>
+    0.00 :   106ca6: mov    $0x3f800000,%eax
+    0.00 :   106cab: vmovaps 0x1759fcd(%rip),%ymm1        # 1860c80 <GGUF_TYPE_SIZE+0x1920>
+    0.00 :   106cb3: vsubps %ymm6,%ymm4,%ymm4
+    0.00 :   106cb7: vfmadd213ps 0x1759180(%rip),%ymm4,%ymm0        # 185fe40 <GGUF_TYPE_SIZE+0xae0>
+    0.01 :   106cc0: vmovaps %ymm7,-0x49b0(%rbp)
+    0.00 :   106cc8: vaddps 0x1759190(%rip),%ymm0,%ymm7        # 185fe60 <GGUF_TYPE_SIZE+0xb00>
+    0.00 :   106cd0: vpslld $0x17,%ymm0,%ymm2
+    0.00 :   106cd5: vmovd  %eax,%xmm0
+    0.00 :   106cd9: vpbroadcastd %xmm0,%ymm0
+    0.00 :   106cde: vpaddd %ymm2,%ymm0,%ymm0
+    0.00 :   106ce2: vfnmadd231ps %ymm3,%ymm7,%ymm4
+    0.00 :   106ce7: vandnps %ymm7,%ymm8,%ymm5
+    0.01 :   106ceb: vmovaps %ymm5,-0x4970(%rbp)
+    0.01 :   106cf3: vcmpgt_oqps 0x17591c4(%rip),%ymm5,%ymm5        # 185fec0 <GGUF_TYPE_SIZE+0xb60>
+    0.00 :   106cfc: vmovmskps %ymm5,%eax
+    0.00 :   106d00: vfnmadd231ps %ymm13,%ymm7,%ymm4
+    0.00 :   106d05: vfmadd132ps %ymm4,%ymm12,%ymm14
+    0.00 :   106d0a: vfmadd132ps %ymm4,%ymm11,%ymm1
+    0.01 :   106d0f: vmulps %ymm4,%ymm4,%ymm15
+    0.00 :   106d13: vmulps %ymm10,%ymm4,%ymm4
+    0.00 :   106d18: vfmadd231ps %ymm1,%ymm15,%ymm14
+    0.01 :   106d1d: vfmadd132ps %ymm14,%ymm4,%ymm15
+    0.00 :   106d22: test   %eax,%eax
+    0.00 :   106d24: je     1071eb <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x15ab>
+    0.00 :   106d2a: vxorps %xmm4,%xmm4,%xmm4
+    0.00 :   106d2e: mov    $0x82000000,%eax
+    0.00 :   106d33: vbroadcastss 0x175b88c(%rip),%ymm14        # 18625c8 <GGUF_TYPE_SIZE+0x3268>
+    0.00 :   106d3c: vfmadd132ps %ymm15,%ymm0,%ymm0
+    0.00 :   106d41: vcmple_oqps %ymm4,%ymm7,%ymm7
+    0.00 :   106d46: vmovd  %eax,%xmm4
+    0.00 :   106d4a: mov    $0x7f000000,%eax
+    0.00 :   106d4f: vpbroadcastd %xmm4,%ymm4
+    0.00 :   106d54: vpand  %ymm4,%ymm7,%ymm7
+    0.00 :   106d58: vmovd  %eax,%xmm4
+    0.00 :   106d5c: vpbroadcastd %xmm4,%ymm4
+    0.00 :   106d61: vpaddd %ymm7,%ymm4,%ymm4
+    0.00 :   106d65: vpsubd %ymm7,%ymm2,%ymm7
+    0.00 :   106d69: vmovaps -0x4970(%rbp),%ymm2
+    0.00 :   106d71: vandnps %ymm0,%ymm5,%ymm0
+    0.00 :   106d75: vfmadd132ps %ymm15,%ymm7,%ymm7
+    0.00 :   106d7a: vmulps %ymm4,%ymm7,%ymm7
+    0.00 :   106d7e: vmulps %ymm4,%ymm4,%ymm4
+    0.00 :   106d82: vcmpgt_oqps %ymm14,%ymm2,%ymm14
+    0.00 :   106d88: vandps %ymm5,%ymm7,%ymm7
+    0.00 :   106d8c: vorps  %ymm0,%ymm7,%ymm7
+    0.00 :   106d90: vandnps %ymm7,%ymm14,%ymm0
+    0.00 :   106d94: vandps %ymm4,%ymm14,%ymm14
+    0.00 :   106d98: vorps  %ymm0,%ymm14,%ymm0
+    0.00 :   106d9c: vmovaps 0x60(%r14),%ymm4
+    0.00 :   106da2: vmovaps %ymm11,%ymm5
+    0.01 :   106da6: mov    $0x3f800000,%eax
+    0.00 :   106dab: vmovaps %ymm0,0x40(%r14)
+    0.00 :   106db1: vaddps -0x49b0(%rbp),%ymm0,%ymm0
+    0.00 :   106db9: vsubps %ymm6,%ymm4,%ymm4
+    0.01 :   106dbd: vbroadcastss 0x175b6ae(%rip),%ymm6        # 1862474 <GGUF_TYPE_SIZE+0x3114>
+    0.00 :   106dc6: vfmadd213ps 0x1759071(%rip),%ymm4,%ymm6        # 185fe40 <GGUF_TYPE_SIZE+0xae0>
+    0.00 :   106dcf: vaddps 0x1759089(%rip),%ymm6,%ymm2        # 185fe60 <GGUF_TYPE_SIZE+0xb00>
+    0.00 :   106dd7: vpslld $0x17,%ymm6,%ymm6
+    0.01 :   106ddc: vfnmadd132ps %ymm2,%ymm4,%ymm3
+    0.00 :   106de1: vmovaps %ymm13,%ymm4
+    0.00 :   106de5: vandnps %ymm2,%ymm8,%ymm8
+    0.00 :   106de9: vcmpgt_oqps 0x17590ce(%rip),%ymm8,%ymm1        # 185fec0 <GGUF_TYPE_SIZE+0xb60>
+    0.01 :   106df2: vfnmadd132ps %ymm2,%ymm3,%ymm4
+    0.00 :   106df7: vfmadd231ps 0x1759e80(%rip),%ymm4,%ymm5        # 1860c80 <GGUF_TYPE_SIZE+0x1920>
+    0.00 :   106e00: vmovd  %eax,%xmm3
+    0.01 :   106e04: vmovmskps %ymm1,%eax
+    0.01 :   106e08: vpbroadcastd %xmm3,%ymm3
+    0.00 :   106e0d: vpaddd %ymm3,%ymm6,%ymm3
+    0.00 :   106e11: vfmadd132ps %ymm4,%ymm12,%ymm9
+    0.00 :   106e16: vmulps %ymm4,%ymm4,%ymm7
+    0.00 :   106e1a: vmulps %ymm10,%ymm4,%ymm4
+    0.00 :   106e1f: vfmadd132ps %ymm7,%ymm9,%ymm5
+    0.00 :   106e24: vfmadd231ps %ymm7,%ymm5,%ymm4
+    0.00 :   106e29: test   %eax,%eax
+    0.00 :   106e2b: je     1071e1 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x15a1>
+    0.00 :   106e31: vxorps %xmm5,%xmm5,%xmm5
+    0.00 :   106e35: mov    $0x82000000,%eax
+    0.00 :   106e3a: vfmadd132ps %ymm4,%ymm3,%ymm3
+    0.00 :   106e3f: vcmple_oqps %ymm5,%ymm2,%ymm2
+    0.00 :   106e44: vmovd  %eax,%xmm5
+    0.00 :   106e48: mov    $0x7f000000,%eax
+    0.00 :   106e4d: vpbroadcastd %xmm5,%ymm5
+    0.00 :   106e52: vpand  %ymm5,%ymm2,%ymm2
+    0.00 :   106e56: vmovd  %eax,%xmm5
+    0.00 :   106e5a: vpsubd %ymm2,%ymm6,%ymm6
+    0.00 :   106e5e: vpbroadcastd %xmm5,%ymm5
+    0.00 :   106e63: vfmadd132ps %ymm4,%ymm6,%ymm6
+    0.00 :   106e68: vpaddd %ymm2,%ymm5,%ymm5
+    0.00 :   106e6c: vbroadcastss 0x175b753(%rip),%ymm2        # 18625c8 <GGUF_TYPE_SIZE+0x3268>
+    0.00 :   106e75: vandnps %ymm3,%ymm1,%ymm3
+    0.00 :   106e79: vmulps %ymm5,%ymm6,%ymm6
+    0.00 :   106e7d: vmulps %ymm5,%ymm5,%ymm5
+    0.01 :   106e81: vandps %ymm6,%ymm1,%ymm1
+    0.01 :   106e85: vcmpgt_oqps %ymm2,%ymm8,%ymm2
+    0.01 :   106e8a: vorps  %ymm3,%ymm1,%ymm1
+    0.00 :   106e8e: vandnps %ymm1,%ymm2,%ymm1
+    0.00 :   106e92: vandps %ymm5,%ymm2,%ymm2
+    0.00 :   106e96: vorps  %ymm1,%ymm2,%ymm3
+    0.01 :   106e9a: vaddps %ymm3,%ymm0,%ymm1
+    0.00 :   106e9e: vmovaps %ymm3,0x60(%r14)
+    0.01 :   106ea4: vmovd  %edx,%xmm3
+    0.00 :   106ea8: add    $0x20,%r13
+    0.00 :   106eac: vextractf128 $0x1,%ymm1,%xmm0
+    0.01 :   106eb2: vaddps %xmm1,%xmm0,%xmm0
+    0.01 :   106eb6: vmovhlps %xmm0,%xmm0,%xmm1
+    0.01 :   106eba: vaddps %xmm1,%xmm0,%xmm0
+    0.00 :   106ebe: vmovshdup %xmm0,%xmm1
+    0.01 :   106ec2: vaddss %xmm1,%xmm0,%xmm0
+    0.00 :   106ec6: vaddss %xmm3,%xmm0,%xmm0
+    0.01 :   106eca: vmovss %xmm0,(%r12)
+    0.00 :   106ed0: cmp    %r13,%r9
+    0.00 :   106ed3: je     106f11 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x12d1>
+    0.00 :   106ed5: sub    $0xffffffffffffff80,%r14
+    0.00 :   106ed9: add    $0x4,%r12
+    0.01 :   106edd: add    $0x4,%r10
+    0.01 :   106ee1: add    $0x400,%rdi
+    0.00 :   106ee8: jmp    1068f7 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xcb7>
+    0.00 :   106eed: vpxor  %xmm0,%xmm0,%xmm0
+    0.00 :   106ef1: add    $0x20,%r13
+    0.00 :   106ef5: vmovdqa %ymm0,(%r14)
+    0.00 :   106efa: vmovdqa %ymm0,0x20(%r14)
+    0.00 :   106f00: vmovdqa %ymm0,0x40(%r14)
+    0.00 :   106f06: vmovdqa %ymm0,0x60(%r14)
+    0.00 :   106f0c: cmp    %r13,%r9
+    0.00 :   106f0f: jne    106ed5 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1295>
+    0.00 :   106f11: mov    %r9,%r12
+    0.00 :   106f14: mov    -0x4980(%rbp),%r9
+    0.00 :   106f1b: mov    %r11,%rbx
+    0.00 :   106f1e: mov    -0x49c4(%rbp),%eax
+    0.00 :   106f24: test   %eax,%eax
+    0.00 :   106f26: jle    10711c <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x14dc>
+    0.00 :   106f2c: mov    -0x49ec(%rbp),%esi
+    0.00 :   106f32: lea    -0x4850(%rbp,%r9,1),%rdi
+    0.00 :   106f3a: mov    -0x49d0(%rbp),%r9
+    0.00 :   106f41: xor    %eax,%eax
+    0.00 :   106f43: xor    %r10d,%r10d
+    0.00 :   106f46: xor    %ecx,%ecx
+    0.00 :   106f48: mov    %r12,-0x4978(%rbp)
+    0.00 :   106f4f: lea    -0x1(%rsi),%edx
+    0.00 :   106f52: shr    $0x2,%edx
+    0.00 :   106f55: lea    0x0(,%rdx,4),%r15d
+    0.00 :   106f5d: movslq %esi,%rdx
+    0.00 :   106f60: mov    -0x49ec(%rbp),%esi
+    0.00 :   106f66: inc    %ecx
+    0.00 :   106f68: add    %eax,%esi
+    0.00 :   106f6a: cmp    %eax,%esi
+    0.00 :   106f6c: jle    1070ff <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x14bf>
+    0.00 :   106f72: mov    -0x49e8(%rbp),%r14
+    0.00 :   106f79: mov    %rax,%rsi
+    0.00 :   106f7c: mov    %rax,%r8
+    0.00 :   106f7f: mov    %ecx,-0x49b0(%rbp)
+    0.00 :   106f85: shl    $0xa,%rsi
+    0.00 :   106f89: shl    $0x7,%r8
+    0.00 :   106f8d: mov    %r10,-0x4970(%rbp)
+    0.00 :   106f94: mov    %rdi,-0x4980(%rbp)
+    0.00 :   106f9b: lea    -0x4850(%rbp,%r8,1),%r13
+    0.00 :   106fa3: mov    %rax,%rcx
+    0.00 :   106fa6: add    %rdi,%r8
+    0.00 :   106fa9: lea    0x400(%r14,%rsi,1),%r12
+    0.00 :   106fb1: lea    0x1(%rax),%rsi
+    0.00 :   106fb5: lea    0x5(%rax,%r15,1),%r14
+    0.00 :   106fba: shl    $0x5,%rsi
+    0.00 :   106fbe: shl    $0x5,%r14
+    0.01 :   106fc2: mov    -0x4970(%rbp),%r11
+    0.00 :   106fc9: lea    -0x400(%r12),%rdi
+    0.00 :   106fd1: nopl   0x0(%rax)
+    0.01 :   106fd5: data16 cs nopw 0x0(%rax,%rax,1)
+    0.02 :   106fe0: vmovups (%rdi),%ymm10
+    0.01 :   106fe4: vmovups 0x20(%rdi),%ymm9
+    0.02 :   106fe9: lea    (%r11,%rbx,1),%r10
+    0.02 :   106fed: mov    %r13,%rax
+    0.02 :   106ff0: vmovups 0x400(%rdi),%ymm8
+    0.05 :   106ff8: vmovups 0x420(%rdi),%ymm7
+    0.06 :   107000: vmovups 0x800(%rdi),%ymm6
+    0.03 :   107008: vmovups 0x820(%rdi),%ymm5
+    0.04 :   107010: vmovups 0xc00(%rdi),%ymm4
+    0.02 :   107018: vmovups 0xc20(%rdi),%ymm3
+    1.03 :   107020: vcvtph2ps (%r10),%ymm1
+    1.45 :   107025: vbroadcastss (%rax),%ymm2
+    1.70 :   10702a: add    $0x4,%rax
+    2.22 :   10702e: vcvtph2ps 0x10(%r10),%ymm0
+    2.75 :   107034: add    %r9,%r10
+    3.33 :   107037: vfmadd231ps %ymm1,%ymm2,%ymm10
+    3.56 :   10703c: vfmadd231ps %ymm0,%ymm2,%ymm9
+    2.74 :   107041: vbroadcastss 0x7c(%rax),%ymm2
+    2.36 :   107047: vfmadd231ps %ymm1,%ymm2,%ymm8
+    2.34 :   10704c: vfmadd231ps %ymm0,%ymm2,%ymm7
+    2.69 :   107051: vbroadcastss 0xfc(%rax),%ymm2
+    3.06 :   10705a: vfmadd231ps %ymm1,%ymm2,%ymm6
+    2.54 :   10705f: vfmadd231ps %ymm0,%ymm2,%ymm5
+    1.75 :   107064: vbroadcastss 0x17c(%rax),%ymm2
+    0.95 :   10706d: vfmadd231ps %ymm1,%ymm2,%ymm4
+    0.85 :   107072: vfmadd231ps %ymm0,%ymm2,%ymm3
+    1.01 :   107077: cmp    %r8,%rax
+    0.03 :   10707a: jne    107020 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x13e0>
+    0.04 :   10707c: vmovups %ymm10,(%rdi)
+    0.05 :   107080: vmovups %ymm9,0x20(%rdi)
+    0.05 :   107085: vmovups %ymm8,0x400(%rdi)
+    0.04 :   10708d: add    $0x40,%rdi
+    0.06 :   107091: vmovups %ymm7,0x3e0(%rdi)
+    0.04 :   107099: vmovups %ymm6,0x7c0(%rdi)
+    0.05 :   1070a1: vmovups %ymm5,0x7e0(%rdi)
+    0.04 :   1070a9: add    $0x20,%r11
+    0.05 :   1070ad: vmovups %ymm4,0xbc0(%rdi)
+    0.04 :   1070b5: vmovups %ymm3,0xbe0(%rdi)
+    0.00 :   1070bd: cmp    %r12,%rdi
+    0.00 :   1070c0: jne    106fe0 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x13a0>
+    0.00 :   1070c6: sub    $0xffffffffffffff80,%rsi
+    0.00 :   1070ca: add    $0x1000,%r12
+    0.00 :   1070d1: add    $0x200,%r13
+    0.01 :   1070d8: add    $0x200,%r8
+    0.01 :   1070df: cmp    %r14,%rsi
+    0.00 :   1070e2: jne    106fc2 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1382>
+    0.00 :   1070e8: mov    %rcx,%rax
+    0.00 :   1070eb: mov    -0x4970(%rbp),%r10
+    0.00 :   1070f2: mov    -0x4980(%rbp),%rdi
+    0.00 :   1070f9: mov    -0x49b0(%rbp),%ecx
+    0.00 :   1070ff: add    -0x4a40(%rbp),%r10
+    0.00 :   107106: add    %rdx,%rax
+    0.00 :   107109: cmp    %ecx,-0x49c4(%rbp)
+    0.00 :   10710f: jne    106f60 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1320>
+    0.00 :   107115: mov    -0x4978(%rbp),%r12
+    0.00 :   10711c: addq   $0x20,-0x49c0(%rbp)
+    0.00 :   107124: subl   $0x20,-0x4a20(%rbp)
+    0.00 :   10712b: add    -0x4a70(%rbp),%rbx
+    0.00 :   107132: mov    -0x49c0(%rbp),%rax
+    0.00 :   107139: mov    -0x4a78(%rbp),%rdx
+    0.00 :   107140: add    %rdx,-0x4a28(%rbp)
+    0.00 :   107147: cmp    -0x4a80(%rbp),%rax
+    0.00 :   10714e: jne    105f1e <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x2de>
+    0.00 :   107154: mov    -0x4a44(%rbp),%r15d
+    0.00 :   10715b: mov    -0x4aa0(%rbp),%r12
+    0.00 :   107162: mov    -0x4aa8(%rbp),%r14
+    0.00 :   107169: mov    %r15,%r11
+    0.00 :   10716c: test   %r15d,%r15d
+    0.00 :   10716f: jle    10733d <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x16fd>
+    0.00 :   107175: vzeroupper
+    0.00 :   107178: shl    $0x2,%r15
+    0.00 :   10717c: lea    (%r12,%r15,1),%rax
+    0.00 :   107180: cmp    %rax,%r14
+    0.00 :   107183: jae    107192 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1552>
+    0.00 :   107185: lea    (%r14,%r15,1),%rax
+    0.00 :   107189: cmp    %rax,%r12
+    0.00 :   10718c: jb     107345 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1705>
+    0.00 :   107192: lea    -0x4950(%rbp),%rsi
+    0.00 :   107199: mov    %r15,%rdx
+    0.00 :   10719c: mov    %r12,%rdi
+    0.00 :   10719f: call   1e0f0 <memcpy@plt>
+    0.00 :   1071a4: lea    -0x4910(%rbp),%rsi
+    0.00 :   1071ab: mov    %r15,%rdx
+    0.00 :   1071ae: mov    %r14,%rdi
+    0.00 :   1071b1: call   1e0f0 <memcpy@plt>
+    0.00 :   1071b6: mov    -0x38(%rbp),%rax
+    0.00 :   1071ba: sub    %fs:0x28,%rax
+    0.00 :   1071c3: jne    1075f2 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x19b2>
+    0.00 :   1071c9: add    $0x4aa0,%rsp
+    0.00 :   1071d0: pop    %rbx
+    0.00 :   1071d1: pop    %r10
+    0.00 :   1071d3: pop    %r12
+    0.00 :   1071d5: pop    %r13
+    0.00 :   1071d7: pop    %r14
+    0.00 :   1071d9: pop    %r15
+    0.00 :   1071db: pop    %rbp
+    0.00 :   1071dc: lea    -0x8(%r10),%rsp
+    0.00 :   1071e0: ret
+    0.00 :   1071e1: vfmadd132ps %ymm4,%ymm3,%ymm3
+    0.00 :   1071e6: jmp    106e9a <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x125a>
+    0.00 :   1071eb: vfmadd132ps %ymm15,%ymm0,%ymm0
+    0.01 :   1071f0: jmp    106d9c <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x115c>
+    0.01 :   1071f5: vfmadd132ps %ymm15,%ymm0,%ymm0
+    0.00 :   1071fa: jmp    106c84 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1044>
+    0.01 :   1071ff: vfmadd132ps %ymm15,%ymm0,%ymm0
+    0.00 :   107204: jmp    106b69 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xf29>
+    0.02 :   107209: vcomiss 0x175b2c3(%rip),%xmm6        # 18624d4 <GGUF_TYPE_SIZE+0x3174>
+    0.01 :   107211: jae    10725e <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x161e>
+    0.00 :   107213: mov    (%r12),%edx
+    0.00 :   107217: vmovss %xmm1,(%r10)
+    0.00 :   10721c: vmovaps %xmm1,%xmm6
+    0.01 :   107220: jmp    106a28 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xde8>
+    0.00 :   107225: mov    %r9d,%r10d
+    0.00 :   107228: movslq -0x49b0(%rbp),%rdi
+    0.00 :   10722f: mov    -0x4970(%rbp),%r9d
+    0.00 :   107236: mov    %edx,-0x4980(%rbp)
+    0.00 :   10723c: xor    %r13d,%r13d
+    0.00 :   10723f: jmp    106480 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x840>
+    0.00 :   107244: mov    %r15d,%eax
+    0.00 :   107247: xor    %edx,%edx
+    0.00 :   107249: mov    %r15d,%ecx
+    0.00 :   10724c: jmp    1069a9 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xd69>
+    0.00 :   107251: mov    %r15d,%edx
+    0.00 :   107254: xor    %eax,%eax
+    0.00 :   107256: mov    %r15d,%ecx
+    0.00 :   107259: jmp    10683f <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xbff>
+    0.00 :   10725e: vsubss %xmm1,%xmm6,%xmm0
+    0.01 :   107262: mov    %r8,-0x4a10(%rbp)
+    0.01 :   107269: mov    %r11,-0x4a08(%rbp)
+    0.00 :   107270: mov    %rdi,-0x49e0(%rbp)
+    0.01 :   107277: mov    %r9,-0x4990(%rbp)
+    0.00 :   10727e: mov    %r10,-0x49b0(%rbp)
+    0.01 :   107285: vmovss %xmm1,-0x4970(%rbp)
+    0.01 :   10728d: vzeroupper
+    0.00 :   107290: call   1f0b0 <expf@plt>
+    0.00 :   107295: vmulss (%r12),%xmm0,%xmm6
+    0.00 :   10729b: vmovss -0x4970(%rbp),%xmm1
+    0.00 :   1072a3: mov    -0x49e0(%rbp),%rdi
+    0.00 :   1072aa: vbroadcastss %xmm0,%ymm0
+    0.00 :   1072af: mov    -0x49b0(%rbp),%r10
+    0.00 :   1072b6: mov    -0x4990(%rbp),%r9
+    0.00 :   1072bd: mov    -0x4a08(%rbp),%r11
+    0.00 :   1072c4: mov    -0x4a10(%rbp),%r8
+    0.00 :   1072cb: mov    %rdi,%rax
+    0.00 :   1072ce: lea    0x400(%rdi),%rcx
+    0.00 :   1072d5: vmovd  %xmm6,%edx
+    0.02 :   1072d9: vmulps (%rax),%ymm0,%ymm2
+    0.05 :   1072dd: add    $0x20,%rax
+    0.05 :   1072e1: vmovups %ymm2,-0x20(%rax)
+    0.03 :   1072e6: cmp    %rax,%rcx
+    0.00 :   1072e9: jne    1072d9 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1699>
+    0.00 :   1072eb: jmp    107217 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x15d7>
+    0.03 :   1072f0: vmovaps %ymm0,-0x4930(%rbp)
+    0.01 :   1072f8: jmp    105d83 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x143>
+    0.00 :   1072fd: mov    -0x49e8(%rbp),%rdi
+    0.00 :   107304: movslq %edx,%rbx
+    0.00 :   107307: mov    %edx,-0x4970(%rbp)
+    0.00 :   10730d: xor    %esi,%esi
+    0.00 :   10730f: mov    %rbx,%rdx
+    0.00 :   107312: shl    $0xa,%rdx
+    0.00 :   107316: call   1dce0 <memset@plt>
+    0.00 :   10731b: cmp    -0x49c8(%rbp),%r13d
+    0.00 :   107322: mov    -0x4970(%rbp),%r11d
+    0.00 :   107329: jl     105e40 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x200>
+    0.00 :   10732f: jmp    1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   107334: xor    %ecx,%ecx
+    0.00 :   107336: xor    %eax,%eax
+    0.00 :   107338: jmp    105d90 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x150>
+    0.00 :   10733d: vzeroupper
+    0.00 :   107340: jmp    1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   107345: vmovss -0x4950(%rbp),%xmm0
+    0.00 :   10734d: vmovss %xmm0,(%r12)
+    0.00 :   107353: vmovss -0x4910(%rbp),%xmm0
+    0.00 :   10735b: vmovss %xmm0,(%r14)
+    0.00 :   107360: cmp    $0x1,%r11d
+    0.00 :   107364: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   10736a: vmovss -0x494c(%rbp),%xmm0
+    0.00 :   107372: vmovss %xmm0,0x4(%r12)
+    0.00 :   107379: vmovss -0x490c(%rbp),%xmm0
+    0.00 :   107381: vmovss %xmm0,0x4(%r14)
+    0.00 :   107387: cmp    $0x2,%r11d
+    0.00 :   10738b: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   107391: vmovss -0x4948(%rbp),%xmm0
+    0.00 :   107399: vmovss %xmm0,0x8(%r12)
+    0.00 :   1073a0: vmovss -0x4908(%rbp),%xmm0
+    0.00 :   1073a8: vmovss %xmm0,0x8(%r14)
+    0.00 :   1073ae: cmp    $0x3,%r11d
+    0.00 :   1073b2: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   1073b8: vmovss -0x4944(%rbp),%xmm0
+    0.00 :   1073c0: vmovss %xmm0,0xc(%r12)
+    0.00 :   1073c7: vmovss -0x4904(%rbp),%xmm0
+    0.00 :   1073cf: vmovss %xmm0,0xc(%r14)
+    0.00 :   1073d5: cmp    $0x4,%r11d
+    0.00 :   1073d9: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   1073df: vmovss -0x4940(%rbp),%xmm0
+    0.00 :   1073e7: vmovss %xmm0,0x10(%r12)
+    0.00 :   1073ee: vmovss -0x4900(%rbp),%xmm0
+    0.00 :   1073f6: vmovss %xmm0,0x10(%r14)
+    0.00 :   1073fc: cmp    $0x5,%r11d
+    0.00 :   107400: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   107406: vmovss -0x493c(%rbp),%xmm0
+    0.00 :   10740e: vmovss %xmm0,0x14(%r12)
+    0.00 :   107415: vmovss -0x48fc(%rbp),%xmm0
+    0.00 :   10741d: vmovss %xmm0,0x14(%r14)
+    0.00 :   107423: cmp    $0x6,%r11d
+    0.00 :   107427: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   10742d: vmovss -0x4938(%rbp),%xmm0
+    0.00 :   107435: vmovss %xmm0,0x18(%r12)
+    0.00 :   10743c: vmovss -0x48f8(%rbp),%xmm0
+    0.00 :   107444: vmovss %xmm0,0x18(%r14)
+    0.00 :   10744a: cmp    $0x7,%r11d
+    0.00 :   10744e: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   107454: vmovss -0x4934(%rbp),%xmm0
+    0.00 :   10745c: vmovss %xmm0,0x1c(%r12)
+    0.00 :   107463: vmovss -0x48f4(%rbp),%xmm0
+    0.00 :   10746b: vmovss %xmm0,0x1c(%r14)
+    0.00 :   107471: cmp    $0x8,%r11d
+    0.00 :   107475: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   10747b: vmovss -0x4930(%rbp),%xmm0
+    0.00 :   107483: vmovss %xmm0,0x20(%r12)
+    0.00 :   10748a: vmovss -0x48f0(%rbp),%xmm0
+    0.00 :   107492: vmovss %xmm0,0x20(%r14)
+    0.00 :   107498: cmp    $0x9,%r11d
+    0.00 :   10749c: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   1074a2: vmovss -0x492c(%rbp),%xmm0
+    0.00 :   1074aa: vmovss %xmm0,0x24(%r12)
+    0.00 :   1074b1: vmovss -0x48ec(%rbp),%xmm0
+    0.00 :   1074b9: vmovss %xmm0,0x24(%r14)
+    0.00 :   1074bf: cmp    $0xa,%r11d
+    0.00 :   1074c3: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   1074c9: vmovss -0x4928(%rbp),%xmm0
+    0.00 :   1074d1: vmovss %xmm0,0x28(%r12)
+    0.00 :   1074d8: vmovss -0x48e8(%rbp),%xmm0
+    0.00 :   1074e0: vmovss %xmm0,0x28(%r14)
+    0.00 :   1074e6: cmp    $0xb,%r11d
+    0.00 :   1074ea: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   1074f0: vmovss -0x4924(%rbp),%xmm0
+    0.00 :   1074f8: vmovss %xmm0,0x2c(%r12)
+    0.00 :   1074ff: vmovss -0x48e4(%rbp),%xmm0
+    0.00 :   107507: vmovss %xmm0,0x2c(%r14)
+    0.00 :   10750d: cmp    $0xc,%r11d
+    0.00 :   107511: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   107517: vmovss -0x4920(%rbp),%xmm0
+    0.00 :   10751f: vmovss %xmm0,0x30(%r12)
+    0.00 :   107526: vmovss -0x48e0(%rbp),%xmm0
+    0.00 :   10752e: vmovss %xmm0,0x30(%r14)
+    0.00 :   107534: cmp    $0xd,%r11d
+    0.00 :   107538: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   10753e: vmovss -0x491c(%rbp),%xmm0
+    0.00 :   107546: vmovss %xmm0,0x34(%r12)
+    0.00 :   10754d: vmovss -0x48dc(%rbp),%xmm0
+    0.00 :   107555: vmovss %xmm0,0x34(%r14)
+    0.00 :   10755b: cmp    $0xe,%r11d
+    0.00 :   10755f: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   107565: vmovss -0x4918(%rbp),%xmm0
+    0.00 :   10756d: vmovss %xmm0,0x38(%r12)
+    0.00 :   107574: vmovss -0x48d8(%rbp),%xmm0
+    0.00 :   10757c: vmovss %xmm0,0x38(%r14)
+    0.00 :   107582: cmp    $0xf,%r11d
+    0.00 :   107586: je     1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.00 :   10758c: vmovss -0x4914(%rbp),%xmm0
+    0.00 :   107594: vmovss %xmm0,0x3c(%r12)
+    0.00 :   10759b: vmovss -0x48d4(%rbp),%xmm0
+    0.00 :   1075a3: vmovss %xmm0,0x3c(%r14)
+    0.00 :   1075a9: jmp    1071b6 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x1576>
+    0.01 :   1075ae: cmp    %edx,-0x49c4(%rbp)
+    0.00 :   1075b4: je     106788 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0xb48>
+    0.01 :   1075ba: mov    -0x4970(%rbp),%eax
+    0.00 :   1075c0: mov    -0x4a18(%rbp),%rsi
+    0.00 :   1075c7: mov    %edx,-0x4980(%rbp)
+    0.00 :   1075cd: inc    %edx
+    0.00 :   1075cf: add    %rsi,-0x4990(%rbp)
+    0.00 :   1075d6: mov    -0x49ec(%rbp),%esi
+    0.00 :   1075dc: mov    %eax,-0x49b0(%rbp)
+    0.00 :   1075e2: mov    %eax,%r9d
+    0.00 :   1075e5: add    %esi,%eax
+    0.00 :   1075e7: mov    %eax,-0x4970(%rbp)
+    0.00 :   1075ed: jmp    106040 <r5fa::partial(int, int, int, int, char const*, long, char const*, long, long, char const*, long, long, unsigned short const*, float, float*, float*, float*)+0x400>
+    0.00 :   1075f2: call   1e5f0 <__stack_chk_fail@plt>

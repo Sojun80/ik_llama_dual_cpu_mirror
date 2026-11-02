@@ -1,0 +1,85 @@
+5efcd8dd9000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server mapped=42 active=0 N1=42 kernelpagesize_kB=4
+5efcd8e03000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server mapped=930 active=0 N1=930 kernelpagesize_kB=4
+5efcd92ac000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server mapped=65 active=0 N1=65 kernelpagesize_kB=4
+5efcd9371000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server anon=8 dirty=8 active=0 N1=8 kernelpagesize_kB=4
+5efcd9379000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server anon=2 dirty=2 mapped=9 active=0 N1=9 kernelpagesize_kB=4
+5efcd97eb000 bind:1 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+5efce58c7000 bind:1 heap anon=296 dirty=296 active=0 N1=296 kernelpagesize_kB=4
+5efce5a00000 bind:1 heap anon=17408 dirty=17408 active=0 N1=17408 kernelpagesize_kB=4
+78f514ecf000 bind:1 anon=1963 dirty=1963 active=363 N1=1963 kernelpagesize_kB=4
+78f5817a8000 bind:1 anon=100138 dirty=100138 active=0 N1=100138 kernelpagesize_kB=4
+78f5c4200000 bind:1
+78f5c8000000 bind:1 anon=512 dirty=512 active=0 N1=512 kernelpagesize_kB=4
+78f5c8200000 bind:1
+78f5cc000000 bind:1 anon=512 dirty=512 active=0 N1=512 kernelpagesize_kB=4
+78f5cc200000 bind:1
+78f5d07f9000 bind:1 anon=202 dirty=202 active=46 N1=202 kernelpagesize_kB=4
+78f5d4000000 bind:1 anon=512 dirty=512 active=0 N1=512 kernelpagesize_kB=4
+78f5d4200000 bind:1
+78f5d87f9000 bind:1 anon=201 dirty=201 active=69 N1=201 kernelpagesize_kB=4
+78f5dc000000 bind:1 anon=512 dirty=512 active=0 N1=512 kernelpagesize_kB=4
+78f5dc200000 bind:1
+78f5e07f9000 bind:1 anon=199 dirty=199 active=69 N1=199 kernelpagesize_kB=4
+78f5e4000000 bind:1 anon=512 dirty=512 active=0 N1=512 kernelpagesize_kB=4
+78f5e4200000 bind:1
+78f5e8000000 bind:1 anon=512 dirty=512 active=0 N1=512 kernelpagesize_kB=4
+78f5e8200000 bind:1
+78f5ec000000 bind:1 anon=512 dirty=512 active=0 N1=512 kernelpagesize_kB=4
+78f5ec200000 bind:1
+78f5f01f8000 bind:1 anon=41 dirty=41 active=0 N1=41 kernelpagesize_kB=4
+78f5f11fa000 bind:1 anon=5171828 dirty=5171828 active=0 N1=5171828 kernelpagesize_kB=4
+78fae0400000 bind:1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=39 mapmax=25 active=0 N1=39 kernelpagesize_kB=4
+78fae0428000 bind:1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=352 mapmax=27 active=0 N0=33 N1=319 kernelpagesize_kB=4
+78fae05c0000 bind:1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 mapped=62 mapmax=27 active=0 N1=62 kernelpagesize_kB=4
+78fae060e000 bind:1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 anon=4 dirty=4 active=0 N1=4 kernelpagesize_kB=4
+78fae0612000 bind:1 file=/usr/lib/x86_64-linux-gnu/libc.so.6 anon=2 dirty=2 active=0 N1=2 kernelpagesize_kB=4
+78fae0614000 bind:1 anon=5 dirty=5 active=0 N1=5 kernelpagesize_kB=4
+78fae07a1000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 mapped=11 mapmax=2 active=0 N0=11 kernelpagesize_kB=4
+78fae07ac000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 mapped=53 mapmax=2 active=0 N0=53 kernelpagesize_kB=4
+78fae07ee000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 mapped=14 mapmax=2 active=0 N0=14 kernelpagesize_kB=4
+78fae07fe000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae07ff000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae0800000 bind:1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 mapped=163 mapmax=2 active=0 N0=163 kernelpagesize_kB=4
+78fae08a3000 bind:1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 mapped=205 mapmax=2 active=0 N0=197 N1=8 kernelpagesize_kB=4
+78fae09fe000 bind:1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 mapped=27 mapmax=2 active=0 N0=27 kernelpagesize_kB=4
+78fae0a8a000 bind:1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 anon=15 dirty=15 active=0 N1=15 kernelpagesize_kB=4
+78fae0a99000 bind:1 file=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 anon=3 dirty=3 active=0 N1=3 kernelpagesize_kB=4
+78fae0a9c000 bind:1 anon=3 dirty=3 active=0 N1=3 kernelpagesize_kB=4
+78fae0ada000 bind:1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=17 mapmax=20 active=0 N1=17 kernelpagesize_kB=4
+78fae0aec000 bind:1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=103 mapmax=20 active=0 N0=20 N1=83 kernelpagesize_kB=4
+78fae0b8c000 bind:1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 mapped=48 mapmax=20 active=0 N0=34 N1=14 kernelpagesize_kB=4
+78fae0bfe000 bind:1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae0bff000 bind:1 file=/usr/lib/x86_64-linux-gnu/libm.so.6 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae0c00000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so mapped=27 active=0 N1=27 kernelpagesize_kB=4
+78fae0c1b000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so mapped=949 active=0 N1=949 kernelpagesize_kB=4
+78fae244f000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so mapped=46 active=0 N1=46 kernelpagesize_kB=4
+78fae24ee000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so anon=11 dirty=11 mapped=14 active=0 N1=14 kernelpagesize_kB=4
+78fae24fc000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/ggml/src/libggml.so anon=2 dirty=2 active=0 N1=2 kernelpagesize_kB=4
+78fae24fe000 bind:1 anon=135 dirty=135 active=0 N1=135 kernelpagesize_kB=4
+78fae25d2000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 mapped=4 mapmax=4 active=0 N0=4 kernelpagesize_kB=4
+78fae25d6000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 mapped=16 mapmax=4 active=0 N0=16 kernelpagesize_kB=4
+78fae25fa000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 mapped=4 mapmax=4 active=0 N0=4 kernelpagesize_kB=4
+78fae25fe000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae25ff000 bind:1 file=/usr/lib/x86_64-linux-gnu/libgcc_s.so.1 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae2600000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so mapped=74 active=0 N1=74 kernelpagesize_kB=4
+78fae264a000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so mapped=470 active=0 N1=470 kernelpagesize_kB=4
+78fae2943000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so mapped=73 active=0 N1=73 kernelpagesize_kB=4
+78fae29cc000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so anon=5 dirty=5 active=0 N1=5 kernelpagesize_kB=4
+78fae29d1000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/src/libllama.so anon=4 dirty=4 active=0 N1=4 kernelpagesize_kB=4
+78fae29e4000 bind:1 anon=16 dirty=16 active=0 N1=16 kernelpagesize_kB=4
+78fae2a01000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so mapped=17 active=0 N1=17 kernelpagesize_kB=4
+78fae2a12000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so mapped=46 active=0 N1=46 kernelpagesize_kB=4
+78fae2ae2000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so mapped=25 active=0 N1=25 kernelpagesize_kB=4
+78fae2afb000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae2afc000 bind:1 file=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/examples/mtmd/libmtmd.so anon=2 dirty=2 active=0 N1=2 kernelpagesize_kB=4
+78fae2afe000 bind:1 anon=3 dirty=3 active=0 N1=3 kernelpagesize_kB=4
+78fae2b01000 bind:1
+78fae2b05000 bind:1
+78fae2b07000 bind:1
+78fae2b09000 bind:1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=1 mapmax=25 active=0 N1=1 kernelpagesize_kB=4
+78fae2b0a000 bind:1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=46 mapmax=26 active=0 N1=46 kernelpagesize_kB=4
+78fae2b39000 bind:1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 mapped=11 mapmax=25 active=0 N1=11 kernelpagesize_kB=4
+78fae2b44000 bind:1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 anon=2 dirty=2 active=0 N1=2 kernelpagesize_kB=4
+78fae2b46000 bind:1 file=/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+78fae2b47000 bind:1 anon=1 dirty=1 active=0 N1=1 kernelpagesize_kB=4
+7ffddd55a000 bind:1 stack anon=33 dirty=33 active=0 N1=33 kernelpagesize_kB=4

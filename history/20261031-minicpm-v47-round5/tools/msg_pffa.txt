@@ -1,0 +1,7 @@
+r5: optional K/V prefetch for decode flash attention (IK_R5_PF_FA)
+
+With IK_R5_PF=1 and IK_R5_FA=1, IK_R5_PF_FA=1 also queues each thread's
+K/V positions of the next decode FA (r5fa's position split) from the
+node-local KV copy. Measured neutral, so off by default.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

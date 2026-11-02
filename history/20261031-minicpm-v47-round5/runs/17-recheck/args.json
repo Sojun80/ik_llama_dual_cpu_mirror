@@ -1,0 +1,12 @@
+{
+ "out": "runs/17-recheck",
+ "config": [
+  "base32=/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server:32:base"
+ ],
+ "cases": "medium",
+ "rounds": 1,
+ "n_predict": 512,
+ "probs": false,
+ "prof": false,
+ "perf": false
+}

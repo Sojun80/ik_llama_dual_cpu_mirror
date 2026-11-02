@@ -1,0 +1,62 @@
+{
+ "tag": "m48x-long-r0",
+ "config": {
+  "name": "m48x",
+  "bin": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror/bin/llama-server",
+  "threads": 48,
+  "cpus": "16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93",
+  "env": {
+   "IK_R5_DYN": "1",
+   "IK_R5_FA": "1",
+   "IK_R5_HUGE": "1"
+  },
+  "mode": "mirror",
+  "mirror": "weights"
+ },
+ "case": "long",
+ "round": 0,
+ "cmd": [
+  "numactl",
+  "--physcpubind=16-95",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror/bin/llama-server",
+  "-m",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "-ngl",
+  "0",
+  "--no-mmap",
+  "--numa",
+  "mirror",
+  "--numa-mirror",
+  "weights",
+  "-t",
+  "48",
+  "-tb",
+  "48",
+  "--cpu-range",
+  "16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93",
+  "-c",
+  "16384",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "19185",
+  "--parallel",
+  "1"
+ ],
+ "start": 1793498191.968482,
+ "numastat": "---\nHuge                         0.00            0.00            0.00\nHeap                         0.00           70.30           70.30\nStack                        0.04            0.10            0.13\nPrivate                  20217.96        20683.57        40901.52\n----------------  --------------- --------------- ---------------\nTotal                    20217.99        20753.96        40971.96\n",
+ "timings": {
+  "prompt_n": 9455,
+  "prompt_ms": 24071.756,
+  "prompt_per_token_ms": 2.5459287149656267,
+  "prompt_per_second": 392.7839747129374,
+  "predicted_n": 512,
+  "predicted_ms": 16120.541,
+  "predicted_per_token_ms": 31.485431640625,
+  "predicted_per_second": 31.760720685490643,
+  "n_ctx": 16384,
+  "n_past": 9966
+ },
+ "content": "\nThe old man sat by the window, watching the rain fall against the glass. It was a quiet afternoon, the kind that seemed to stretch on forever. He remembered the days when the world was full of noise and color, when he would walk through the meadow and hear the birds singing. Now, the silence was a heavy blanket, wrapping around him like a shroud.\n\nHe picked up the old book from the table, its cover worn and faded. The pages were yellowed with age, and the words were barely legible. He traced the letters with his finger, trying to remember the story he had read so many times before. It was a tale of a young man who traveled across the sea, seeking a hidden treasure. The man in the story was brave and adventurous, full of hope and determination.\n\nThe old man sighed, feeling a pang of sadness. He wished he could be like that young man, full of life and energy. But he was old now, and the world had moved on without him. The rain continued to fall, tapping against the window like a gentle reminder of the passage of time.\n\nHe closed the book and placed it back on the table. The silence in the room was profound, broken only by the sound of the rain. He looked out the window again, watching the drops slide down the glass. They seemed to mirror his own tears, falling silently into the darkness below.\n\nIn the distance, he heard the faint sound of a bell, tolling the hour. It was a somber sound, echoing through the quiet afternoon. The old man closed his eyes, letting the sound wash over him. He thought of the people he had loved and lost, the memories that lingered in his heart like ghosts.\n\nThe rain began to slow, the drops becoming fewer and farther between. The sky started to clear, revealing a sliver of blue. The old man smiled, feeling a sense of peace wash over him. He knew that even in the darkest moments, there was always hope. And as the sun began to peek through the clouds, he felt a renewed sense of purpose, ready to face whatever came next.\n\n***\n\n**Question:** What is the primary emotional tone of the passage?\n\n**Answer:** The primary emotional tone of the passage is **melancholic and reflective**, transitioning towards **hopeful**.\n\n**Explanation:**\n*   **Melancholy/Reflection:** The passage begins with the old man sitting in silence, watching the rain, and remembering the",
+ "ok": true
+}

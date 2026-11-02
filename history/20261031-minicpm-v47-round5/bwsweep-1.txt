@@ -1,0 +1,40 @@
+# streaming
+threads=12 job_bytes=0 pf=0 GBps=103.50
+threads=24 job_bytes=0 pf=0 GBps=114.14
+threads=36 job_bytes=0 pf=0 GBps=118.39
+threads=48 job_bytes=0 pf=0 GBps=120.57
+baseline32 threads=32 job_bytes=0 pf=0 GBps=109.26
+threads=24 job_bytes=0 pf=512 GBps=116.17
+threads=36 job_bytes=0 pf=512 GBps=119.53
+threads=48 job_bytes=0 pf=512 GBps=121.50
+# one CCD (2 CCX)
+threads=2 job_bytes=0 pf=0 GBps=32.04
+threads=4 job_bytes=0 pf=0 GBps=36.15
+threads=8 job_bytes=0 pf=0 GBps=37.10
+# one core
+threads=1 job_bytes=0 pf=0 GBps=19.93
+# decode-like jobs, barrier after each
+threads=24 job_bytes=65536 pf=0 GBps=16.50 us_per_job=3.910
+threads=36 job_bytes=65536 pf=0 GBps=15.41 us_per_job=4.186
+threads=48 job_bytes=65536 pf=0 GBps=15.41 us_per_job=3.986
+baseline32 threads=32 job_bytes=65536 pf=0 GBps=14.49 us_per_job=4.522
+threads=24 job_bytes=262144 pf=0 GBps=45.29 us_per_job=5.765
+threads=36 job_bytes=262144 pf=0 GBps=42.92 us_per_job=6.012
+threads=48 job_bytes=262144 pf=0 GBps=38.42 us_per_job=6.717
+baseline32 threads=32 job_bytes=262144 pf=0 GBps=44.28 us_per_job=5.920
+threads=24 job_bytes=589824 pf=0 GBps=74.73 us_per_job=7.893
+threads=36 job_bytes=589824 pf=0 GBps=70.49 us_per_job=8.368
+threads=48 job_bytes=589824 pf=0 GBps=65.53 us_per_job=9.001
+baseline32 threads=32 job_bytes=589824 pf=0 GBps=72.90 us_per_job=8.091
+threads=24 job_bytes=1048576 pf=0 GBps=88.35 us_per_job=11.857
+threads=36 job_bytes=1048576 pf=0 GBps=86.08 us_per_job=12.152
+threads=48 job_bytes=1048576 pf=0 GBps=83.16 us_per_job=12.559
+baseline32 threads=32 job_bytes=1048576 pf=0 GBps=91.53 us_per_job=11.456
+threads=24 job_bytes=4718592 pf=0 GBps=109.59 us_per_job=43.055
+threads=36 job_bytes=4718592 pf=0 GBps=110.03 us_per_job=42.883
+threads=48 job_bytes=4718592 pf=0 GBps=110.19 us_per_job=42.824
+baseline32 threads=32 job_bytes=4718592 pf=0 GBps=105.96 us_per_job=44.533
+threads=24 job_bytes=13762560 pf=0 GBps=113.78 us_per_job=120.960
+threads=36 job_bytes=13762560 pf=0 GBps=115.18 us_per_job=119.460
+threads=48 job_bytes=13762560 pf=0 GBps=116.03 us_per_job=118.609
+baseline32 threads=32 job_bytes=13762560 pf=0 GBps=107.98 us_per_job=127.455

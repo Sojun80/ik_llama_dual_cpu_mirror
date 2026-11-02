@@ -1,0 +1,69 @@
+From 87c45b2dd7722f57622baab761c08693b50f40ab Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sun, 1 Nov 2026 17:58:43 -0800
+Subject: [PATCH 23/25] r5: optional K/V prefetch for decode flash attention
+ (IK_R5_PF_FA)
+
+With IK_R5_PF=1 and IK_R5_FA=1, IK_R5_PF_FA=1 also queues each thread's
+K/V positions of the next decode FA (r5fa's position split) from the
+node-local KV copy. Measured neutral, so off by default.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ ggml/src/ggml.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index f53e6d29..78b23ff8 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -4984,7 +4984,7 @@ static GGML_THREAD_LOCAL struct r5pf_range r5pf_q[R5PF_MAXR];
+ static GGML_THREAD_LOCAL int r5pf_h, r5pf_t;            // queue [head, tail)
+ static GGML_THREAD_LOCAL int r5pf_next = -1, r5pf_last = -1;
+ static GGML_THREAD_LOCAL const void * r5pf_g;
+-static int    r5pf_mode = -1, r5pf_lines = 4, r5pf_win = 32;
++static int    r5pf_mode = -1, r5pf_lines = 4, r5pf_win = 32, r5pf_fa = 0;
+ static size_t r5pf_budget = 256*1024;
+ 
+ static void r5pf_init(void) {
+@@ -4995,6 +4995,8 @@ static void r5pf_init(void) {
+     if ((e = getenv("IK_R5_PF_WIN")))    win    = atoi(e) > 0 ? atoi(e) : 1;
+     if ((e = getenv("IK_R5_PF_BUDGET"))) budget = (size_t)(atol(e) > 4096 ? atol(e) : 4096);
+     r5pf_lines = lines; r5pf_win = win; r5pf_budget = budget;
++    // K/V prefetch needs the r5 decode FA kernel's position split (IK_R5_FA=1)
++    r5pf_fa = (e = getenv("IK_R5_FA")) && atoi(e) > 0 && (e = getenv("IK_R5_PF_FA")) && atoi(e) > 0;
+     e = getenv("IK_R5_PF");
+     r5pf_mode = e ? atoi(e) : 0;
+ }
+@@ -28078,6 +28080,28 @@ static void r5pf_plan(const struct ggml_cgraph * cg, int i, int ith, int nth) {
+     int j = r5pf_next > i + 1 ? r5pf_next : i + 1;
+     for (; j < jend && r5pf_t < R5PF_MAXR && queued < r5pf_budget; ++j) {
+         const struct ggml_tensor * d = cg->nodes[j];
++        if (d->op == GGML_OP_FLASH_ATTN_EXT && r5pf_fa) {
++            // same eligibility and position split as r5fa::run
++            const struct ggml_tensor * q = d->src[0], * k = d->src[1], * v = d->src[2], * m = d->src[3];
++            if (!m || !m->data || d->src[4] || q->type != GGML_TYPE_F32 || k->type != GGML_TYPE_F16 || v->type != GGML_TYPE_F16 ||
++                m->type != GGML_TYPE_F16 || q->ne[0] != 256 || q->ne[1] != 1 || q->ne[3] != 1 || k->ne[3] != 1) continue;
++            if (k->nb[2] >= k->nb[1] || v->nb[2] >= v->nb[1]) continue;   // heads must lie inside a position row
++            const uint16_t * mk = (const uint16_t *)m->data;
++            int n_eff = (int)k->ne[1];
++            while (n_eff > 0 && mk[n_eff - 1] == 0xFC00) --n_eff;
++            const int per = ((n_eff + nth - 1)/nth + 7) & ~7;
++            const int j0 = ith*per < n_eff ? ith*per : n_eff, j1 = j0 + per < n_eff ? j0 + per : n_eff;
++            const size_t span_k = (size_t)(k->ne[2] - 1)*k->nb[2] + 2*256, span_v = (size_t)(v->ne[2] - 1)*v->nb[2] + 2*256;
++            const char * kb = (const char *)ggml_numa_tensor_data(k, node), * vb = (const char *)ggml_numa_tensor_data(v, node);
++            for (int jb = j0; jb < j1 && r5pf_t + 2 <= R5PF_MAXR && queued < r5pf_budget; jb += 32) {
++                const int nj = j1 - jb < 32 ? j1 - jb : 32;
++                const size_t nk = (size_t)(nj - 1)*k->nb[1] + span_k, nv = (size_t)(nj - 1)*v->nb[1] + span_v;
++                r5pf_push(kb + (size_t)jb*k->nb[1], nk, j);
++                r5pf_push(vb + (size_t)jb*v->nb[1], nv, j);
++                queued += nk + nv;
++            }
++            continue;
++        }
+         if (d->op != GGML_OP_MUL_MAT || d->type != GGML_TYPE_F32) continue;
+         const struct ggml_tensor * a = d->src[0], * b = d->src[1];
+         if (b->ne[1] != 1 || b->ne[2] != 1 || b->ne[3] != 1 || a->ne[2] != 1 || a->ne[3] != 1) continue;
+-- 
+2.53.0
+

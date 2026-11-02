@@ -1,0 +1,25 @@
+[  0%] Building CXX object vendor/cpp-httplib/CMakeFiles/cpp-httplib.dir/httplib.cpp.o
+[  0%] Built target build_info
+[ 16%] Built target ggml
+[ 72%] Built target llama
+[ 72%] Building CXX object examples/mtmd/CMakeFiles/mtmd.dir/clip.cpp.o
+[ 72%] Building CXX object examples/mtmd/CMakeFiles/mtmd.dir/mtmd.cpp.o
+[ 74%] Building CXX object examples/mtmd/CMakeFiles/mtmd.dir/mtmd-audio.cpp.o
+[ 74%] Building CXX object examples/mtmd/CMakeFiles/mtmd.dir/mtmd-helper.cpp.o
+[ 92%] Built target common
+[ 94%] Linking CXX shared library libmtmd.so
+[ 94%] Built target mtmd
+[ 94%] Linking CXX static library libcpp-httplib.a
+[ 94%] Built target cpp-httplib
+[ 96%] Generating loading.html.hpp
+[ 96%] Generating index_llamacpp.html.gz.hpp
+[ 96%] Generating index.html.gz.hpp
+[ 98%] Building CXX object examples/server/CMakeFiles/llama-server.dir/server-chat.cpp.o
+[ 98%] Building CXX object examples/server/CMakeFiles/llama-server.dir/server-queue.cpp.o
+[ 98%] Building CXX object examples/server/CMakeFiles/llama-server.dir/server.cpp.o
+[ 98%] Building CXX object examples/server/CMakeFiles/llama-server.dir/server-common.cpp.o
+[100%] Building CXX object examples/server/CMakeFiles/llama-server.dir/server-decision.cpp.o
+[100%] Building CXX object examples/server/CMakeFiles/llama-server.dir/server-context.cpp.o
+[100%] Building CXX object examples/server/CMakeFiles/llama-server.dir/server-task.cpp.o
+[100%] Linking CXX executable ../../bin/llama-server
+[100%] Built target llama-server

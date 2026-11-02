@@ -1,0 +1,864 @@
+{
+ "tag": "s32u-long-r0",
+ "config": {
+  "name": "s32u",
+  "bin": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server",
+  "threads": 32,
+  "cpus": "48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95",
+  "env": {
+   "IK_R5_DYN": "1",
+   "IK_R5_FA": "1",
+   "IK_R5_HUGE": "1",
+   "IK_R5_PINONCE": "1",
+   "IK_R5_FMOE": "1",
+   "IK_R5_FMOE_UG": "1"
+  },
+  "mode": "node1",
+  "mirror": "weights"
+ },
+ "case": "long",
+ "round": 0,
+ "cmd": [
+  "numactl",
+  "--physcpubind=48-95",
+  "--membind=1",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror3/bin/llama-server",
+  "-m",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "-ngl",
+  "0",
+  "--no-mmap",
+  "-t",
+  "32",
+  "-tb",
+  "48",
+  "--cpu-range",
+  "48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,81,89,50,58,66,74,82,90,51,59,67,75,83,91,53,61,69,77,85,93,54,62,70,78,86,94,55,63,71,79,87,95",
+  "-c",
+  "16384",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "19185",
+  "--parallel",
+  "1"
+ ],
+ "start": 1793554832.8130147,
+ "numastat": "---\nHuge                         0.00            0.00            0.00\nHeap                         0.00           70.24           70.24\nStack                        0.00            0.13            0.13\nPrivate                      2.25        20634.63        20636.88\n----------------  --------------- --------------- ---------------\nTotal                        2.25        20705.00        20707.25\n",
+ "timings": {
+  "prompt_n": 9455,
+  "prompt_ms": 26407.136,
+  "prompt_per_token_ms": 2.7929281861448967,
+  "prompt_per_second": 358.04715816209676,
+  "predicted_n": 32,
+  "predicted_ms": 1083.028,
+  "predicted_per_token_ms": 33.844625,
+  "predicted_per_second": 29.546789187352495,
+  "n_ctx": 16384,
+  "n_past": 9486
+ },
+ "content": "\nThe old man sat by the window, watching the rain fall on the meadow. The sky was a dull gray, and the clouds hung low over the",
+ "completion_probabilities": [
+  {
+   "content": "\n",
+   "probs": [
+    {
+     "tok_str": "\n",
+     "prob": 0.7497332096099854
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.22194093465805054
+    },
+    {
+     "tok_str": " The",
+     "prob": 0.005128396674990654
+    },
+    {
+     "tok_str": " ",
+     "prob": 0.0026186543982475996
+    },
+    {
+     "tok_str": " \"",
+     "prob": 0.0020991272758692503
+    }
+   ]
+  },
+  {
+   "content": "The",
+   "probs": [
+    {
+     "tok_str": "The",
+     "prob": 0.4622560143470764
+    },
+    {
+     "tok_str": "In",
+     "prob": 0.08565191924571991
+    },
+    {
+     "tok_str": "A",
+     "prob": 0.0446682944893837
+    },
+    {
+     "tok_str": "Once",
+     "prob": 0.021873433142900467
+    },
+    {
+     "tok_str": "I",
+     "prob": 0.019527573138475418
+    }
+   ]
+  },
+  {
+   "content": " old",
+   "probs": [
+    {
+     "tok_str": " old",
+     "prob": 0.07771524786949158
+    },
+    {
+     "tok_str": " morning",
+     "prob": 0.05282754451036453
+    },
+    {
+     "tok_str": " valley",
+     "prob": 0.051540203392505646
+    },
+    {
+     "tok_str": " ancient",
+     "prob": 0.02743290178477764
+    },
+    {
+     "tok_str": " sun",
+     "prob": 0.025011932477355003
+    }
+   ]
+  },
+  {
+   "content": " man",
+   "probs": [
+    {
+     "tok_str": " man",
+     "prob": 0.220163956284523
+    },
+    {
+     "tok_str": " l",
+     "prob": 0.11592092365026474
+    },
+    {
+     "tok_str": " clock",
+     "prob": 0.09374813735485077
+    },
+    {
+     "tok_str": " oak",
+     "prob": 0.08950894325971603
+    },
+    {
+     "tok_str": " librarian",
+     "prob": 0.08349176496267319
+    }
+   ]
+  },
+  {
+   "content": " sat",
+   "probs": [
+    {
+     "tok_str": " sat",
+     "prob": 0.6673391461372375
+    },
+    {
+     "tok_str": "\u2019s",
+     "prob": 0.06612633168697357
+    },
+    {
+     "tok_str": "'s",
+     "prob": 0.060966089367866516
+    },
+    {
+     "tok_str": " in",
+     "prob": 0.02955390140414238
+    },
+    {
+     "tok_str": " stood",
+     "prob": 0.02176629938185215
+    }
+   ]
+  },
+  {
+   "content": " by",
+   "probs": [
+    {
+     "tok_str": " by",
+     "prob": 0.45310112833976746
+    },
+    {
+     "tok_str": " on",
+     "prob": 0.286283940076828
+    },
+    {
+     "tok_str": " in",
+     "prob": 0.19508761167526245
+    },
+    {
+     "tok_str": " beneath",
+     "prob": 0.03410303220152855
+    },
+    {
+     "tok_str": " alone",
+     "prob": 0.008234992623329163
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.9970394968986511
+    },
+    {
+     "tok_str": " his",
+     "prob": 0.002791764447465539
+    },
+    {
+     "tok_str": " a",
+     "prob": 4.1679046262288466e-05
+    },
+    {
+     "tok_str": " window",
+     "prob": 3.136336090392433e-05
+    },
+    {
+     "tok_str": "\n",
+     "prob": 2.4927148842834868e-05
+    }
+   ]
+  },
+  {
+   "content": " window",
+   "probs": [
+    {
+     "tok_str": " window",
+     "prob": 0.8256685137748718
+    },
+    {
+     "tok_str": " river",
+     "prob": 0.1250263750553131
+    },
+    {
+     "tok_str": " fire",
+     "prob": 0.025504928082227707
+    },
+    {
+     "tok_str": " quiet",
+     "prob": 0.0032430579885840416
+    },
+    {
+     "tok_str": " me",
+     "prob": 0.002999198157340288
+    }
+   ]
+  },
+  {
+   "content": ",",
+   "probs": [
+    {
+     "tok_str": ",",
+     "prob": 0.9954743981361389
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0014481199905276299
+    },
+    {
+     "tok_str": " of",
+     "prob": 0.0011997896945104003
+    },
+    {
+     "tok_str": " as",
+     "prob": 0.0002380614896537736
+    },
+    {
+     "tok_str": " and",
+     "prob": 0.0002327962138224393
+    }
+   ]
+  },
+  {
+   "content": " watching",
+   "probs": [
+    {
+     "tok_str": " watching",
+     "prob": 0.7431886196136475
+    },
+    {
+     "tok_str": " his",
+     "prob": 0.22206129133701324
+    },
+    {
+     "tok_str": " staring",
+     "prob": 0.011584503576159477
+    },
+    {
+     "tok_str": " the",
+     "prob": 0.010324126109480858
+    },
+    {
+     "tok_str": " g",
+     "prob": 0.005474741570651531
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.9994858503341675
+    },
+    {
+     "tok_str": " rain",
+     "prob": 0.00030297180637717247
+    },
+    {
+     "tok_str": " a",
+     "prob": 6.254264008020982e-05
+    },
+    {
+     "tok_str": " as",
+     "prob": 6.215294706635177e-05
+    },
+    {
+     "tok_str": " his",
+     "prob": 1.0545699296926614e-05
+    }
+   ]
+  },
+  {
+   "content": " rain",
+   "probs": [
+    {
+     "tok_str": " rain",
+     "prob": 0.6931180953979492
+    },
+    {
+     "tok_str": " distant",
+     "prob": 0.06609160453081131
+    },
+    {
+     "tok_str": " river",
+     "prob": 0.0386352501809597
+    },
+    {
+     "tok_str": " silent",
+     "prob": 0.026138676330447197
+    },
+    {
+     "tok_str": " **",
+     "prob": 0.020549142733216286
+    }
+   ]
+  },
+  {
+   "content": " fall",
+   "probs": [
+    {
+     "tok_str": " fall",
+     "prob": 0.5593153834342957
+    },
+    {
+     "tok_str": " streak",
+     "prob": 0.16300928592681885
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.15315057337284088
+    },
+    {
+     "tok_str": " slide",
+     "prob": 0.035146549344062805
+    },
+    {
+     "tok_str": " blur",
+     "prob": 0.01676384173333645
+    }
+   ]
+  },
+  {
+   "content": " on",
+   "probs": [
+    {
+     "tok_str": " on",
+     "prob": 0.3211832046508789
+    },
+    {
+     "tok_str": " against",
+     "prob": 0.30243411660194397
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.26588451862335205
+    },
+    {
+     "tok_str": " in",
+     "prob": 0.03961937874555588
+    },
+    {
+     "tok_str": " softly",
+     "prob": 0.030860193073749542
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.999887228012085
+    },
+    {
+     "tok_str": " his",
+     "prob": 5.3713178203906864e-05
+    },
+    {
+     "tok_str": " me",
+     "prob": 4.0240513044409454e-05
+    },
+    {
+     "tok_str": " a",
+     "prob": 5.1548545343393926e-06
+    },
+    {
+     "tok_str": "\n",
+     "prob": 2.4130288238666253e-06
+    }
+   ]
+  },
+  {
+   "content": " me",
+   "probs": [
+    {
+     "tok_str": " me",
+     "prob": 0.45447108149528503
+    },
+    {
+     "tok_str": " garden",
+     "prob": 0.29586535692214966
+    },
+    {
+     "tok_str": " quiet",
+     "prob": 0.13671591877937317
+    },
+    {
+     "tok_str": " valley",
+     "prob": 0.029443252831697464
+    },
+    {
+     "tok_str": " distant",
+     "prob": 0.023186789825558662
+    }
+   ]
+  },
+  {
+   "content": "adow",
+   "probs": [
+    {
+     "tok_str": "adow",
+     "prob": 0.9999786615371704
+    },
+    {
+     "tok_str": "adows",
+     "prob": 2.0887375285383314e-05
+    },
+    {
+     "tok_str": "ADOW",
+     "prob": 4.2531925714683894e-07
+    },
+    {
+     "tok_str": "ow",
+     "prob": 6.296459797994203e-09
+    },
+    {
+     "tok_str": "ad",
+     "prob": 3.962600469975541e-09
+    }
+   ]
+  },
+  {
+   "content": ".",
+   "probs": [
+    {
+     "tok_str": ".",
+     "prob": 0.804463267326355
+    },
+    {
+     "tok_str": " below",
+     "prob": 0.1463439017534256
+    },
+    {
+     "tok_str": " outside",
+     "prob": 0.044880952686071396
+    },
+    {
+     "tok_str": " beyond",
+     "prob": 0.002063092775642872
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.0014615461695939302
+    }
+   ]
+  },
+  {
+   "content": " The",
+   "probs": [
+    {
+     "tok_str": " The",
+     "prob": 0.3182724714279175
+    },
+    {
+     "tok_str": " ",
+     "prob": 0.2528020739555359
+    },
+    {
+     "tok_str": " He",
+     "prob": 0.2003551721572876
+    },
+    {
+     "tok_str": " It",
+     "prob": 0.11332369595766068
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.035517558455467224
+    }
+   ]
+  },
+  {
+   "content": " sky",
+   "probs": [
+    {
+     "tok_str": " sky",
+     "prob": 0.21400044858455658
+    },
+    {
+     "tok_str": " rain",
+     "prob": 0.17088797688484192
+    },
+    {
+     "tok_str": " clouds",
+     "prob": 0.1017763540148735
+    },
+    {
+     "tok_str": " valley",
+     "prob": 0.07419464737176895
+    },
+    {
+     "tok_str": " river",
+     "prob": 0.066647969186306
+    }
+   ]
+  },
+  {
+   "content": " was",
+   "probs": [
+    {
+     "tok_str": " was",
+     "prob": 0.9996438026428223
+    },
+    {
+     "tok_str": " above",
+     "prob": 0.0002062268613371998
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.00010346998169552535
+    },
+    {
+     "tok_str": " had",
+     "prob": 9.33135743252933e-06
+    },
+    {
+     "tok_str": " seemed",
+     "prob": 5.5136192713689525e-06
+    }
+   ]
+  },
+  {
+   "content": " a",
+   "probs": [
+    {
+     "tok_str": " a",
+     "prob": 0.368217408657074
+    },
+    {
+     "tok_str": " cloudy",
+     "prob": 0.35310089588165283
+    },
+    {
+     "tok_str": " gray",
+     "prob": 0.179963156580925
+    },
+    {
+     "tok_str": " grey",
+     "prob": 0.06298976391553879
+    },
+    {
+     "tok_str": " heavy",
+     "prob": 0.021178841590881348
+    }
+   ]
+  },
+  {
+   "content": " dull",
+   "probs": [
+    {
+     "tok_str": " dull",
+     "prob": 0.664543092250824
+    },
+    {
+     "tok_str": " heavy",
+     "prob": 0.1567411869764328
+    },
+    {
+     "tok_str": " deep",
+     "prob": 0.10438864678144455
+    },
+    {
+     "tok_str": " blanket",
+     "prob": 0.02080470509827137
+    },
+    {
+     "tok_str": " soft",
+     "prob": 0.01644560694694519
+    }
+   ]
+  },
+  {
+   "content": " gray",
+   "probs": [
+    {
+     "tok_str": " gray",
+     "prob": 0.5223631858825684
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.2533336579799652
+    },
+    {
+     "tok_str": " grey",
+     "prob": 0.22174091637134552
+    },
+    {
+     "tok_str": " shade",
+     "prob": 0.0013422983465716243
+    },
+    {
+     "tok_str": " silver",
+     "prob": 0.0006369586917571723
+    }
+   ]
+  },
+  {
+   "content": ",",
+   "probs": [
+    {
+     "tok_str": ",",
+     "prob": 0.9997952580451965
+    },
+    {
+     "tok_str": ".",
+     "prob": 7.547166751464829e-05
+    },
+    {
+     "tok_str": " cloud",
+     "prob": 5.5998872994678095e-05
+    },
+    {
+     "tok_str": " and",
+     "prob": 3.17380327032879e-05
+    },
+    {
+     "tok_str": " color",
+     "prob": 1.215036627399968e-05
+    }
+   ]
+  },
+  {
+   "content": " and",
+   "probs": [
+    {
+     "tok_str": " and",
+     "prob": 0.9127862453460693
+    },
+    {
+     "tok_str": " the",
+     "prob": 0.03462984785437584
+    },
+    {
+     "tok_str": " matching",
+     "prob": 0.020222926512360573
+    },
+    {
+     "tok_str": " like",
+     "prob": 0.020170768722891808
+    },
+    {
+     "tok_str": " mir",
+     "prob": 0.005028443410992622
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.999937891960144
+    },
+    {
+     "tok_str": " a",
+     "prob": 2.2009709937265143e-05
+    },
+    {
+     "tok_str": " his",
+     "prob": 6.5649192038108595e-06
+    },
+    {
+     "tok_str": " clouds",
+     "prob": 6.006066996633308e-06
+    },
+    {
+     "tok_str": " every",
+     "prob": 5.842603059136309e-06
+    }
+   ]
+  },
+  {
+   "content": " clouds",
+   "probs": [
+    {
+     "tok_str": " clouds",
+     "prob": 0.7152878046035767
+    },
+    {
+     "tok_str": " trees",
+     "prob": 0.14639979600906372
+    },
+    {
+     "tok_str": " air",
+     "prob": 0.05031994357705116
+    },
+    {
+     "tok_str": " wind",
+     "prob": 0.023520736023783684
+    },
+    {
+     "tok_str": " river",
+     "prob": 0.018612468615174294
+    }
+   ]
+  },
+  {
+   "content": " hung",
+   "probs": [
+    {
+     "tok_str": " hung",
+     "prob": 0.8232470154762268
+    },
+    {
+     "tok_str": " moved",
+     "prob": 0.15121965110301971
+    },
+    {
+     "tok_str": " seemed",
+     "prob": 0.010982222855091095
+    },
+    {
+     "tok_str": " drifted",
+     "prob": 0.005231853108853102
+    },
+    {
+     "tok_str": " were",
+     "prob": 0.00400975625962019
+    }
+   ]
+  },
+  {
+   "content": " low",
+   "probs": [
+    {
+     "tok_str": " low",
+     "prob": 0.9840080738067627
+    },
+    {
+     "tok_str": " heavy",
+     "prob": 0.015832308679819107
+    },
+    {
+     "tok_str": "\u4f4e",
+     "prob": 0.00010892556747421622
+    },
+    {
+     "tok_str": "low",
+     "prob": 3.4345892345299944e-05
+    },
+    {
+     "tok_str": " Low",
+     "prob": 9.177680112770759e-06
+    }
+   ]
+  },
+  {
+   "content": " over",
+   "probs": [
+    {
+     "tok_str": " over",
+     "prob": 0.644612729549408
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.34834593534469604
+    },
+    {
+     "tok_str": " and",
+     "prob": 0.00299434713087976
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0023794600274413824
+    },
+    {
+     "tok_str": " like",
+     "prob": 0.001137833925895393
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.9999983310699463
+    },
+    {
+     "tok_str": " distant",
+     "prob": 1.1967622413067147e-06
+    },
+    {
+     "tok_str": "the",
+     "prob": 1.4820346905253245e-07
+    },
+    {
+     "tok_str": " his",
+     "prob": 1.1866401194993159e-07
+    },
+    {
+     "tok_str": "\n",
+     "prob": 1.0124406912837003e-07
+    }
+   ]
+  }
+ ],
+ "ok": true
+}

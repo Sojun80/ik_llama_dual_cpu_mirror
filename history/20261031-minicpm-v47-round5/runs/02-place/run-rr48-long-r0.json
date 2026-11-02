@@ -1,0 +1,52 @@
+{
+ "tag": "rr48-long-r0",
+ "config": {
+  "name": "rr48",
+  "bin": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server",
+  "threads": 48,
+  "cpus": "48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93,50,58,66,74,82,90,54,62,70,78,86,94,51,59,67,75,83,91,55,63,71,79,87,95",
+  "env": {}
+ },
+ "case": "long",
+ "round": 0,
+ "cmd": [
+  "numactl",
+  "--physcpubind=48-95",
+  "--membind=1",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-cpu-optimization/ik-build/bin/llama-server",
+  "-m",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "-ngl",
+  "0",
+  "--no-mmap",
+  "-t",
+  "48",
+  "-tb",
+  "48",
+  "--cpu-range",
+  "48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93,50,58,66,74,82,90,54,62,70,78,86,94,51,59,67,75,83,91,55,63,71,79,87,95",
+  "-c",
+  "16384",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "19185",
+  "--parallel",
+  "1"
+ ],
+ "start": 1793495667.9621222,
+ "timings": {
+  "prompt_n": 9455,
+  "prompt_ms": 27096.187,
+  "prompt_per_token_ms": 2.865805076679006,
+  "prompt_per_second": 348.9420854675973,
+  "predicted_n": 512,
+  "predicted_ms": 16325.405,
+  "predicted_per_token_ms": 31.885556640625,
+  "predicted_per_second": 31.362162225071902,
+  "n_ctx": 16384,
+  "n_past": 9966
+ },
+ "content": "\nThe old man sat by the window, watching the rain fall on the meadow. The sky was a dull gray, and the clouds hung low over the distant forest. He remembered the days when the valley was full of life, when the river sang and the birds chirped in the trees. Now, it was quiet, too quiet. The only sound was the gentle patter of rain on the glass.\n\nHe picked up a small, smooth stone from the windowsill. It was cold to the touch, and he turned it over in his hand. It was a marble, white with streaks of gray, like the clouds above. He thought of the children who used to play in the meadow, throwing stones into the river. They had laughed and run, their voices echoing through the valley. Now, the meadow was empty, and the river was still.\n\nThe old man sighed, and placed the stone back on the windowsill. He looked out at the rain, and wondered if the sun would ever shine again. The wind blew gently, rustling the leaves of the trees in the forest. It was a sad sound, like a whisper from the past.\n\nHe closed his eyes, and tried to remember the smell of the flowers in the garden. The scent of honey and lavender, the sweet perfume of the orchard. But the memories were fading, like the colors in the fading light. He opened his eyes, and looked at the mirror on the wall. His reflection was old, and tired. The eyes were deep-set, and the hair was white as snow.\n\nThe old man stood up, and walked to the door. He needed to go outside, to feel the rain on his face, to remember the life that once was. He opened the door, and stepped out into the rain. The water was cold, and it soaked through his clothes. But he didn't care. He wanted to feel something, anything, to remind him that he was still alive.\n\nAs he walked through the meadow, he heard a sound. It was the sound of a bird, singing in the trees. He looked up, and saw a small, blue bird perched on a branch. It was singing a sweet, clear song. The old man smiled, and listened to the bird. For a moment, he forgot about the rain, and the sadness in his heart. He was just an old man, listening to a bird sing in the rain.\n\nAnd then, the bird flew away, and the",
+ "ok": true
+}

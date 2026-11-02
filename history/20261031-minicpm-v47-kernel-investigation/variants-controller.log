@@ -1,0 +1,26 @@
+START upstream32
+DONE upstream32 timings {'cache_n': 0, 'prompt_n': 9455, 'prompt_ms': 45665.119, 'prompt_per_token_ms': 4.829732310946589, 'prompt_per_second': 207.05081267827202, 'predicted_n': 16, 'predicted_ms': 849.113, 'predicted_per_token_ms': 56.607533333333336, 'predicted_per_second': 17.665493285346} output '\nThe old man sat by the window, watching the rain fall. It was'
+START ik-default
+DONE ik-default timings {'prompt_n': 9455, 'prompt_ms': 26714.964, 'prompt_per_token_ms': 2.8254853516657854, 'prompt_per_second': 353.92149508417833, 'predicted_n': 16, 'predicted_ms': 512.862, 'predicted_per_token_ms': 32.053875, 'predicted_per_second': 31.197476124181556, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall on the me'
+START ik-no-fmoe
+DONE ik-no-fmoe timings {'prompt_n': 9455, 'prompt_ms': 26899.26, 'prompt_per_token_ms': 2.8449772607086197, 'prompt_per_second': 351.49665827238374, 'predicted_n': 16, 'predicted_ms': 519.699, 'predicted_per_token_ms': 32.4811875, 'predicted_per_second': 30.787051735716254, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall on the me'
+START ik-no-fug
+DONE ik-no-fug timings {'prompt_n': 9455, 'prompt_ms': 26494.199, 'prompt_per_token_ms': 2.8021363299841355, 'prompt_per_second': 356.87057381881976, 'predicted_n': 16, 'predicted_ms': 516.452, 'predicted_per_token_ms': 32.27825, 'predicted_per_second': 30.98061388086405, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall on the me'
+START ik-no-mmad
+DONE ik-no-mmad timings {'prompt_n': 9455, 'prompt_ms': 27152.901, 'prompt_per_token_ms': 2.871803384452671, 'prompt_per_second': 348.2132535304423, 'predicted_n': 16, 'predicted_ms': 513.511, 'predicted_per_token_ms': 32.0944375, 'predicted_per_second': 31.158047247283896, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall on the garden'
+START ik-no-fa
+DONE ik-no-fa timings {'prompt_n': 9455, 'prompt_ms': 27252.677, 'prompt_per_token_ms': 2.8823561078794286, 'prompt_per_second': 346.938394345627, 'predicted_n': 16, 'predicted_ms': 710.026, 'predicted_per_token_ms': 44.376625, 'predicted_per_second': 22.53438606473566, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall. It was'
+START ik-all-off
+DONE ik-all-off timings {'prompt_n': 9455, 'prompt_ms': 27745.299, 'prompt_per_token_ms': 2.934457852987837, 'prompt_per_second': 340.7784504322696, 'predicted_n': 16, 'predicted_ms': 722.118, 'predicted_per_token_ms': 45.132375, 'predicted_per_second': 22.157043585674362, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall. It was'
+START upstream32-ub128
+DONE upstream32-ub128 timings {'cache_n': 0, 'prompt_n': 9455, 'prompt_ms': 72007.074, 'prompt_per_token_ms': 7.615766684294024, 'prompt_per_second': 131.30654357653808, 'predicted_n': 16, 'predicted_ms': 857.104, 'predicted_per_token_ms': 57.14026666666667, 'predicted_per_second': 17.50079336929941} output '\nThe old man sat by the window, watching the rain fall. It was'
+START ik-ub128
+DONE ik-ub128 timings {'prompt_n': 9455, 'prompt_ms': 29528.637, 'prompt_per_token_ms': 3.123071073506081, 'prompt_per_second': 320.1976440700599, 'predicted_n': 16, 'predicted_ms': 513.268, 'predicted_per_token_ms': 32.07925, 'predicted_per_second': 31.17279861592774, 'n_ctx': 16384, 'n_past': 9470} output '\nThe old man sat by the window, watching the rain fall on the me'
+START upstream32-kvf32
+DONE upstream32-kvf32 timings {'cache_n': 0, 'prompt_n': 9455, 'prompt_ms': 45544.361, 'prompt_per_token_ms': 4.816960444209412, 'prompt_per_second': 207.59979484617207, 'predicted_n': 16, 'predicted_ms': 892.326, 'predicted_per_token_ms': 59.4884, 'predicted_per_second': 16.80999993276} output '\nThe old man sat by the window, watching the rain fall. It was'
+START ik-kvf32
+Traceback (most recent call last):
+  File "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-kernel-investigation/variants.py", line 11, in <module>
+    if srv.poll()!=None:raise RuntimeError('server exited '+str(srv.returncode))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: server exited -6

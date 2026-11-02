@@ -1,0 +1,9 @@
+base-medium-r0                           ok=True decode=45.351 prompt=538.66
+sh-medium-r0                             ok=True decode=46.657 prompt=542.06
+base-long-r0                             ok=True decode=41.674 prompt=477.14
+sh-long-r0                               ok=True decode=45.502 prompt=479.30
+SUMMARY
+base|medium                              decode mean 45.351 [45.351]  prompt mean 538.66
+sh|medium                                decode mean 46.657 [46.657]  prompt mean 542.06
+base|long                                decode mean 41.674 [41.674]  prompt mean 477.14
+sh|long                                  decode mean 45.502 [45.502]  prompt mean 479.30

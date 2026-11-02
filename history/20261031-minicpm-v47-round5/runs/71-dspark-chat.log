@@ -1,0 +1,20 @@
+base-r0        code   decode= 45.882 n=512
+base-r0        logs   decode= 44.010 n=512
+base-r0        prose  decode= 45.919 n=512
+ds-r0          code   decode= 14.482 n=512 draft 179/551
+ds-r0          logs   decode= 11.735 n=512 draft 125/645
+ds-r0          prose  decode= 14.814 n=512 draft 186/539
+ds8-r0         code   decode= 17.154 n=512 draft 188/501
+ds8-r0         logs   decode= 13.868 n=512 draft 138/578
+ds8-r0         prose  decode= 18.755 n=512 draft 217/511
+SUMMARY
+base       code   decode mean  45.882 [45.88]  same_as_base=True
+base       logs   decode mean  44.010 [44.01]  same_as_base=True
+base       prose  decode mean  45.919 [45.92]  same_as_base=True
+ds         code   decode mean  14.482 [14.48]  accepted 179/551 = 32%  same_as_base=False
+ds         logs   decode mean  11.735 [11.74]  accepted 125/645 = 19%  same_as_base=False
+ds         prose  decode mean  14.814 [14.81]  accepted 186/539 = 35%  same_as_base=False
+ds8        code   decode mean  17.154 [17.15]  accepted 188/501 = 38%  same_as_base=False
+ds8        logs   decode mean  13.868 [13.87]  accepted 138/578 = 24%  same_as_base=False
+ds8        prose  decode mean  18.755 [18.75]  accepted 217/511 = 42%  same_as_base=False
+DONE

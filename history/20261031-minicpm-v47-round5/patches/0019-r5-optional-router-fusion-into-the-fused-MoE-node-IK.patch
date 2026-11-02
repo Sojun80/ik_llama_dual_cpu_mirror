@@ -1,0 +1,176 @@
+From 96a1165834a6633712582b86e4743a7384b9d33a Mon Sep 17 00:00:00 2001
+From: r5 <r5@local>
+Date: Sun, 1 Nov 2026 10:05:32 -0800
+Subject: [PATCH 19/25] r5: optional router fusion into the fused MoE node
+ (IK_R5_FMOE_UG=2)
+
+With IK_R5_FMOE_UG=2 the decode match starts at the FFN norm and the fused MoE
+node also runs the router: every thread computes the normed input itself (same
+function on a private copy), the router logits rows are split over the threads,
+and after one barrier every thread runs iqk_topk_moe and iqk_sumrows_div on
+private copies. 8 -> 4 barriers per MoE layer, bit-exact, but no measurable
+decode gain (the repeated per-thread work offsets the saved barriers), so it
+stays opt-in.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ ggml/src/ggml.c | 94 +++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 84 insertions(+), 10 deletions(-)
+
+diff --git a/ggml/src/ggml.c b/ggml/src/ggml.c
+index b2ee843a..07b29482 100644
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -27973,9 +27973,35 @@ static bool r5_fmug_match(const struct ggml_cgraph * g, int i, size_t wsize) {
+     return true;
+ }
+ 
++// router prefix (12 nodes from the FFN norm to the routed up/gate); the work buffer also holds the router logits
++static bool r5_fmrt_match(const struct ggml_cgraph * g, int i, size_t wsize) {
++    if (i + 20 >= g->n_nodes) R5F_FAIL;
++    struct ggml_tensor * const * n = g->nodes + i;
++    const struct ggml_tensor * nrm = n[0], * lg = n[1], * sm = n[2], * srt = n[4], * tk = n[5], * gr = n[6], * w8 = n[7];
++    const struct ggml_tensor * sr = n[8], * dv = n[9], * wn = n[10], * xr = n[11];
++    if (lg->op != GGML_OP_MUL_MAT || sm->op != GGML_OP_SOFT_MAX || n[3]->op != GGML_OP_RESHAPE || srt->op != GGML_OP_ARGSORT ||
++        tk->op != GGML_OP_VIEW || gr->op != GGML_OP_GET_ROWS || w8->op != GGML_OP_RESHAPE || sr->op != GGML_OP_SUM_ROWS ||
++        dv->op != GGML_OP_DIV || wn->op != GGML_OP_RESHAPE || xr->op != GGML_OP_RESHAPE || n[12]->op != GGML_OP_MOE_FUSED_UP_GATE) R5F_FAIL;
++    if (!r5_fmug_match(g, i + 12, SIZE_MAX)) return false;   // nodes 12..20 are the r5_fmug pattern
++    const struct ggml_tensor * ugr = n[12], * down = n[13], * mma = n[14], * ug = n[17];
++    if (nrm->type != GGML_TYPE_F32 || !ggml_is_contiguous(nrm) || ggml_nrows(nrm) != 1 || !nrm->src[1]) R5F_FAIL;
++    if (lg->src[1] != nrm || lg->type != GGML_TYPE_F32 || lg->src[0]->type != GGML_TYPE_F32 || !ggml_is_contiguous(lg) || ggml_nrows(lg) != 1) R5F_FAIL;
++    if (lg->src[0]->ne[0] != nrm->ne[0] || lg->ne[0] > 1024 || ggml_nrows(lg->src[0]) != lg->ne[0]) R5F_FAIL;
++    // the conditions under which the executor fuses SOFT_MAX .. GET_ROWS and SUM_ROWS + DIV
++    if (sm->src[0] != lg || sm->type != GGML_TYPE_F32 || gr->type != GGML_TYPE_F32 || tk->type != GGML_TYPE_I32) R5F_FAIL;
++    if (srt->src[0] != sm || tk->view_src != srt || gr->src[1] != tk || gr->ne[1] != tk->ne[0]) R5F_FAIL;
++    if (w8->src[0] != gr || sr->src[0] != w8 || dv->src[0] != w8 || dv->src[1] != sr || wn->src[0] != dv) R5F_FAIL;
++    if (!ggml_is_contiguous(w8) || ggml_nrows(w8) != 1 || !ggml_is_contiguous(dv) || dv->type != GGML_TYPE_F32) R5F_FAIL;
++    // the fused pattern must consume exactly these ids, weights and normed input
++    if (ugr->src[3] != tk || down->src[2] != tk || mma->src[1] != wn || ug->src[2] != nrm || ugr->src[2] != xr || xr->src[0] != nrm) R5F_FAIL;
++    if (GGML_PAD(r5_fmug_lay(n + 12).need, 64) + lg->ne[0]*sizeof(float) > wsize) R5F_FAIL;
++    return true;
++}
++
+ #undef R5F_FAIL
+ 
+-static int r5_fmug(struct ggml_compute_params * params, const struct ggml_cgraph * g, int i) {
++// i: the routed up/gate node; ir: the FFN norm when the router prefix is fused too (IK_R5_FMOE_UG=2), else -1
++static int r5_fmug(struct ggml_compute_params * params, const struct ggml_cgraph * g, int i, int ir) {
+     struct ggml_tensor * const * n = g->nodes + i;
+     struct ggml_tensor * ugr = n[0], * down = n[1], * mma = n[2], * a1 = n[3], * gt = n[4], * ug = n[5], * sd = n[6], * gated = n[7], * out = n[8];
+     const int ith = params->ith, nth = params->nth;
+@@ -27984,9 +28010,11 @@ static int r5_fmug(struct ggml_compute_params * params, const struct ggml_cgraph
+         // debug: the skipped nodes must have no consumers outside the pattern
+         static int n_checked = 0, n_bad = 0;
+         if (n_checked < 200) {
++            struct ggml_tensor * const * sk = ir >= 0 ? g->nodes + ir : n;
++            const int n_sk = ir >= 0 ? i - ir + 8 : 8;
+             for (int k = i + 9; k < g->n_nodes; ++k) {
+                 for (int s = 0; s < GGML_MAX_SRC; ++s) {
+-                    if (r5_in(g->nodes[k]->src[s], n, 8)) {
++                    if (r5_in(g->nodes[k]->src[s], sk, n_sk)) {
+                         ++n_bad;
+                         fprintf(stderr, "r5_fmug: node %d %s reads a skipped node of the pattern at %d\n", k, g->nodes[k]->name, i);
+                     }
+@@ -28008,22 +28036,43 @@ static int r5_fmug(struct ggml_compute_params * params, const struct ggml_cgraph
+     const int64_t r0 = 16*(int64_t)u0, nr = 16*(int64_t)(u1 - u0);
+ 
+     // P0: quantize the FFN input, shared gate logit, snapshot ids, weights and the residual slice
+-    if (ith == 0) type_traits[l.vt_u].from_float((const float *)x->data, wq, x->ne[0]);
++    // (router version: every thread computes the normed input itself, and the router logits are split over the threads)
++    float xn[ir >= 0 ? x->ne[0] : 1];
++    const float * xd = (const float *)x->data;
++    float * lgb = (float *)(wq + GGML_PAD(l.need, 64));
++    if (ir >= 0) {
++        struct ggml_tensor tn = *g->nodes[ir];
++        tn.data = xn;
++        struct ggml_compute_params p1 = *params;
++        p1.ith = 0;
++        p1.nth = 1;
++        ggml_compute_forward_fused_rms_norm(&p1, &tn);
++        xd = xn;
++    }
++    if (ith == 0) type_traits[l.vt_u].from_float(xd, wq, x->ne[0]);
+     if (ith == nth - 1) {
+         if (!iqk_mul_mat_4d(wg->ne[1], 1, wg->ne[0], wg->ne[2], wg->ne[3], x->ne[2], x->ne[3],
+                             wg->nb[2], wg->nb[3], x->nb[2], x->nb[3], gt->nb[2]/sizeof(float), gt->nb[3]/sizeof(float),
+-                            wg->type, ggml_numa_tensor_data(wg, numa_node), wg->nb[1], x->type, x->data, x->nb[1],
++                            wg->type, ggml_numa_tensor_data(wg, numa_node), wg->nb[1], x->type, xd, x->nb[1],
+                             (float *)(wq + l.off_g), gt->nb[1]/sizeof(float), 0, 1)) GGML_ABORT("r5_fmug: shared gate type not supported");
+     }
+     int32_t sel[16];
+     float wts[16];
+-    for (int j = 0; j < n_ids; ++j) {
+-        sel[j] = *(const int32_t *)((const char *)ids->data + j*ids->nb[0]);
+-        wts[j] = *(const float *)((const char *)W->data + j*W->nb[1]);
++    if (ir >= 0) {
++        const struct ggml_tensor * lg = g->nodes[ir + 1], * wl = lg->src[0], * xl = lg->src[1];
++        if (!iqk_mul_mat_4d(wl->ne[1], 1, wl->ne[0], wl->ne[2], wl->ne[3], xl->ne[2], xl->ne[3],
++                            wl->nb[2], wl->nb[3], xl->nb[2], xl->nb[3], lg->nb[2]/sizeof(float), lg->nb[3]/sizeof(float),
++                            wl->type, ggml_numa_tensor_data(wl, numa_node), wl->nb[1], xl->type, xd, xl->nb[1],
++                            lgb, lg->nb[1]/sizeof(float), ith, nth)) GGML_ABORT("r5_fmug: router logits type not supported");
++    } else {
++        for (int j = 0; j < n_ids; ++j) {
++            sel[j] = *(const int32_t *)((const char *)ids->data + j*ids->nb[0]);
++            wts[j] = *(const float *)((const char *)W->data + j*W->nb[1]);
++        }
+     }
+     float res[nr > 0 ? nr : 1];
+     if (nr > 0) memcpy(res, (const float *)inp->data + r0, nr*sizeof(float));
+-    if (params->shared->cplan && params->shared->cplan->moe_expert_prefetch) {
++    if (ir < 0 && params->shared->cplan && params->shared->cplan->moe_expert_prefetch) {
+         ggml_moe_prefetch_kernel_hook(ugr, ith);
+     }
+     if (ith == 0) {
+@@ -28032,6 +28081,21 @@ static int r5_fmug(struct ggml_compute_params * params, const struct ggml_cgraph
+     }
+     ggml_barrier(params->shared);
+ 
++    if (ir >= 0) {
++        // router: expert ids and normalized weights, computed by every thread with the functions the executor's fused
++        // SOFT_MAX .. GET_ROWS and SUM_ROWS + DIV paths call, on private copies
++        const int n_exp = (int)g->nodes[ir + 1]->ne[0];
++        int32_t ids_all[n_exp];
++        float w_raw[16];
++        iqk_topk_moe(n_exp, n_ids, 1, lgb, w_raw, ids_all, 0, 1);
++        struct ggml_tensor ts = *g->nodes[ir + 7], td = *g->nodes[ir + 9];
++        ts.data = w_raw;
++        td.data = wts;
++        td.src[0] = &ts;
++        iqk_sumrows_div(&td, 0, 1);
++        for (int j = 0; j < n_ids; ++j) sel[j] = ids_all[j];
++    }
++
+     // P1: routed and shared up/gate chunks from one pool (same kernel and row mapping as the original nodes)
+     {
+         const int cr = r5_fmug_rows();
+@@ -28242,7 +28306,17 @@ static int ggml_compute_forward(struct ggml_compute_params * params, struct ggml
+             } break;
+         case GGML_OP_FUSED_RMS_NORM:
+             {
+-                ggml_compute_forward_fused_rms_norm(params, tensor);
++                if (r5_fmoe_mode() > 0 && r5_fmug_mode() > 1 && !(params->shared->cplan && params->shared->cplan->moe_expert_prefetch) &&
++                    r5_fmrt_match(cgraph, i, params->wsize)) {
++                    i = r5_fmug(params, cgraph, i + 12, i);
++                } else {
++                    if (r5_fmoe_mode() == 3 && r5_fmug_mode() > 1 && params->ith == 0 && i + 2 < cgraph->n_nodes &&
++                        cgraph->nodes[i + 2]->op == GGML_OP_SOFT_MAX && ggml_nrows(tensor) == 1) {
++                        static int r5r_m = 0;
++                        if (r5r_m++ < 100) fprintf(stderr, "r5_fmrt: no match at node %d %s (check line %d)\n", i, tensor->name, r5f_line);
++                    }
++                    ggml_compute_forward_fused_rms_norm(params, tensor);
++                }
+             } break;
+         case GGML_OP_FUSED_RMS_RMS_ADD:
+             {
+@@ -28287,7 +28361,7 @@ static int ggml_compute_forward(struct ggml_compute_params * params, struct ggml
+         case GGML_OP_MOE_FUSED_UP_GATE:
+             {
+                 if (r5_fmoe_mode() > 0 && r5_fmug_mode() > 0 && r5_fmug_match(cgraph, i, params->wsize)) {
+-                    i = r5_fmug(params, cgraph, i);
++                    i = r5_fmug(params, cgraph, i, -1);
+                 } else {
+                     if (r5_fmoe_mode() == 3 && r5_fmug_mode() > 0 && params->ith == 0 && tensor->src[2]->ne[1] == 1 && tensor->src[3]->ne[0] <= 16) {
+                         static int r5u_m = 0;
+-- 
+2.53.0
+

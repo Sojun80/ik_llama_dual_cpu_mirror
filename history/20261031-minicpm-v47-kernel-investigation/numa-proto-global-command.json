@@ -1,0 +1,32 @@
+{
+  "cmd": [
+    "numactl",
+    "--physcpubind=16-95",
+    "--membind=1",
+    "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-kernel-investigation/ik-numa-build/bin/llama-server",
+    "-m",
+    "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+    "--no-mmap",
+    "-ngl",
+    "0",
+    "-t",
+    "32",
+    "-tb",
+    "48",
+    "--cpu-range",
+    "16,17,20,21,24,25,28,29,32,33,36,37,40,41,44,45,48,49,52,56,57,60,64,65,68,72,73,76,80,84,88,92,50,51,53,54,55,58,59,61,62,63,66,67,69,70,71,74",
+    "-c",
+    "16384",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "19230",
+    "--parallel",
+    "1"
+  ],
+  "env": {
+    "GLIBC_TUNABLES": "glibc.malloc.hugetlb=1",
+    "IK_EXPERT_NUMA": "1"
+  },
+  "local_scheduler": false
+}

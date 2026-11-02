@@ -1,0 +1,860 @@
+{
+ "tag": "m48-medium-r0",
+ "config": {
+  "name": "m48",
+  "bin": "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror/bin/llama-server",
+  "threads": 48,
+  "cpus": "16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93",
+  "env": {},
+  "mode": "mirror",
+  "mirror": "weights"
+ },
+ "case": "medium",
+ "round": 0,
+ "cmd": [
+  "numactl",
+  "--physcpubind=16-95",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round5/build-mirror/bin/llama-server",
+  "-m",
+  "/home/ubuntu/llm-evaluations/20261031-minicpm-v47-round4/model.complete.gguf",
+  "-ngl",
+  "0",
+  "--no-mmap",
+  "--numa",
+  "mirror",
+  "--numa-mirror",
+  "weights",
+  "-t",
+  "48",
+  "-tb",
+  "48",
+  "--cpu-range",
+  "16,24,32,40,20,28,36,44,17,25,33,41,21,29,37,45,18,26,34,42,22,30,38,46,48,56,64,72,80,88,52,60,68,76,84,92,49,57,65,73,81,89,53,61,69,77,85,93",
+  "-c",
+  "16384",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "19185",
+  "--parallel",
+  "1"
+ ],
+ "start": 1793498555.0809224,
+ "numastat": "---\nHuge                         0.00            0.00            0.00\nHeap                         0.00           68.66           68.66\nStack                        0.04            0.10            0.13\nPrivate                  20209.50        20688.46        40897.96\n----------------  --------------- --------------- ---------------\nTotal                    20209.54        20757.22        40966.76\n",
+ "timings": {
+  "prompt_n": 2834,
+  "prompt_ms": 7299.314,
+  "prompt_per_token_ms": 2.575622441778405,
+  "prompt_per_second": 388.25566347741716,
+  "predicted_n": 32,
+  "predicted_ms": 1002.824,
+  "predicted_per_token_ms": 31.33825,
+  "predicted_per_second": 31.909886480578848,
+  "n_ctx": 16384,
+  "n_past": 2865
+ },
+ "content": "\nThe meadow paper silent cloudy autumn planet winter silver mirror planet winter quiet circle orange yellow field quiet mountain meadow velvet valley shadow copper valley honey silent forest morning",
+ "completion_probabilities": [
+  {
+   "content": "\n",
+   "probs": [
+    {
+     "tok_str": "\n",
+     "prob": 0.8501696586608887
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.12178019434213638
+    },
+    {
+     "tok_str": " The",
+     "prob": 0.004466457758098841
+    },
+    {
+     "tok_str": " ",
+     "prob": 0.0032660416327416897
+    },
+    {
+     "tok_str": " \"",
+     "prob": 0.002525029005482793
+    }
+   ]
+  },
+  {
+   "content": "The",
+   "probs": [
+    {
+     "tok_str": "The",
+     "prob": 0.4953252673149109
+    },
+    {
+     "tok_str": "In",
+     "prob": 0.07245390117168427
+    },
+    {
+     "tok_str": "A",
+     "prob": 0.03876994922757149
+    },
+    {
+     "tok_str": "I",
+     "prob": 0.03447543457150459
+    },
+    {
+     "tok_str": "Once",
+     "prob": 0.01742830127477646
+    }
+   ]
+  },
+  {
+   "content": " me",
+   "probs": [
+    {
+     "tok_str": " me",
+     "prob": 0.3605697751045227
+    },
+    {
+     "tok_str": " valley",
+     "prob": 0.056068215519189835
+    },
+    {
+     "tok_str": " silver",
+     "prob": 0.03881310299038887
+    },
+    {
+     "tok_str": " old",
+     "prob": 0.032024431973695755
+    },
+    {
+     "tok_str": " moon",
+     "prob": 0.029220763593912125
+    }
+   ]
+  },
+  {
+   "content": "adow",
+   "probs": [
+    {
+     "tok_str": "adow",
+     "prob": 0.9995137453079224
+    },
+    {
+     "tok_str": "adows",
+     "prob": 0.00048034568317234516
+    },
+    {
+     "tok_str": "ADOW",
+     "prob": 2.8111157917010132e-06
+    },
+    {
+     "tok_str": "andering",
+     "prob": 9.81622747531219e-07
+    },
+    {
+     "tok_str": "ad",
+     "prob": 8.157084039339679e-07
+    }
+   ]
+  },
+  {
+   "content": " paper",
+   "probs": [
+    {
+     "tok_str": " paper",
+     "prob": 0.37418174743652344
+    },
+    {
+     "tok_str": " was",
+     "prob": 0.25302377343177795
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.151899054646492
+    },
+    {
+     "tok_str": " lay",
+     "prob": 0.08436236530542374
+    },
+    {
+     "tok_str": " stretched",
+     "prob": 0.06645718961954117
+    }
+   ]
+  },
+  {
+   "content": " silent",
+   "probs": [
+    {
+     "tok_str": " silent",
+     "prob": 0.726996898651123
+    },
+    {
+     "tok_str": " was",
+     "prob": 0.17228935658931732
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.03701813519001007
+    },
+    {
+     "tok_str": " lay",
+     "prob": 0.011082576587796211
+    },
+    {
+     "tok_str": " silently",
+     "prob": 0.006166283506900072
+    }
+   ]
+  },
+  {
+   "content": " cloudy",
+   "probs": [
+    {
+     "tok_str": " cloudy",
+     "prob": 0.9794579744338989
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.008071466349065304
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0038825946394354105
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0009707061108201742
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0009628388215787709
+    }
+   ]
+  },
+  {
+   "content": " autumn",
+   "probs": [
+    {
+     "tok_str": " autumn",
+     "prob": 0.9978852868080139
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0004542144015431404
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00029590592021122575
+    },
+    {
+     "tok_str": " planet",
+     "prob": 0.00026847742265090346
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00023215226246975362
+    }
+   ]
+  },
+  {
+   "content": " planet",
+   "probs": [
+    {
+     "tok_str": " planet",
+     "prob": 0.9944809675216675
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0009638954070396721
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0009503399487584829
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.0005702542839571834
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0005347452242858708
+    }
+   ]
+  },
+  {
+   "content": " winter",
+   "probs": [
+    {
+     "tok_str": " winter",
+     "prob": 0.9876870512962341
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.002343844622373581
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0014071767218410969
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.001367878750897944
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0010542955715209246
+    }
+   ]
+  },
+  {
+   "content": " silver",
+   "probs": [
+    {
+     "tok_str": " silver",
+     "prob": 0.9970171451568604
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0004745890328194946
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00037673275801353157
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0003758435195777565
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.0002909971517510712
+    }
+   ]
+  },
+  {
+   "content": " mirror",
+   "probs": [
+    {
+     "tok_str": " mirror",
+     "prob": 0.996640682220459
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0005180080770514905
+    },
+    {
+     "tok_str": " planet",
+     "prob": 0.0004443240468390286
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.00041664420859888196
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0003164065710734576
+    }
+   ]
+  },
+  {
+   "content": " planet",
+   "probs": [
+    {
+     "tok_str": " planet",
+     "prob": 0.9820294976234436
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0036085627507418394
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0031819469295442104
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0016838735900819302
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.0012054742546752095
+    }
+   ]
+  },
+  {
+   "content": " winter",
+   "probs": [
+    {
+     "tok_str": " winter",
+     "prob": 0.9982792139053345
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.00034243613481521606
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00032342513441108167
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00019870235701091588
+    },
+    {
+     "tok_str": " quiet",
+     "prob": 0.0001971759629668668
+    }
+   ]
+  },
+  {
+   "content": " quiet",
+   "probs": [
+    {
+     "tok_str": " quiet",
+     "prob": 0.9976644515991211
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0004154842172283679
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00029022019589319825
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0002552600926719606
+    },
+    {
+     "tok_str": " circle",
+     "prob": 0.0002027625305345282
+    }
+   ]
+  },
+  {
+   "content": " circle",
+   "probs": [
+    {
+     "tok_str": " circle",
+     "prob": 0.9980846643447876
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.000347755616530776
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0003059896407648921
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00026216174592263997
+    },
+    {
+     "tok_str": " orange",
+     "prob": 0.00025800205185078084
+    }
+   ]
+  },
+  {
+   "content": " orange",
+   "probs": [
+    {
+     "tok_str": " orange",
+     "prob": 0.9949052333831787
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0014404731336981058
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0009429733618162572
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0008806645055301487
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.000537099433131516
+    }
+   ]
+  },
+  {
+   "content": " yellow",
+   "probs": [
+    {
+     "tok_str": " yellow",
+     "prob": 0.9992625117301941
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0001938013156177476
+    },
+    {
+     "tok_str": " field",
+     "prob": 8.42023582663387e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 8.240224997280166e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 6.7654371378012e-05
+    }
+   ]
+  },
+  {
+   "content": " field",
+   "probs": [
+    {
+     "tok_str": " field",
+     "prob": 0.9996083378791809
+    },
+    {
+     "tok_str": "\n",
+     "prob": 9.541002509649843e-05
+    },
+    {
+     "tok_str": " me",
+     "prob": 7.245776214404032e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 5.464998321258463e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 4.852134588873014e-05
+    }
+   ]
+  },
+  {
+   "content": " quiet",
+   "probs": [
+    {
+     "tok_str": " quiet",
+     "prob": 0.9986341595649719
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0004605314170476049
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.0003483627806417644
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.0002501861017663032
+    },
+    {
+     "tok_str": "...",
+     "prob": 6.495248817373067e-05
+    }
+   ]
+  },
+  {
+   "content": " mountain",
+   "probs": [
+    {
+     "tok_str": " mountain",
+     "prob": 0.9994206428527832
+    },
+    {
+     "tok_str": " me",
+     "prob": 0.0005069400067441165
+    },
+    {
+     "tok_str": " mountains",
+     "prob": 1.7831580407801084e-05
+    },
+    {
+     "tok_str": "\n",
+     "prob": 1.3869010217604227e-05
+    },
+    {
+     "tok_str": " Mountain",
+     "prob": 9.37635195441544e-06
+    }
+   ]
+  },
+  {
+   "content": " me",
+   "probs": [
+    {
+     "tok_str": " me",
+     "prob": 0.9997466206550598
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00010536432091612369
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 6.410996138583869e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 2.8594089599209838e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 1.8463861124473624e-05
+    }
+   ]
+  },
+  {
+   "content": "adow",
+   "probs": [
+    {
+     "tok_str": "adow",
+     "prob": 0.9999948740005493
+    },
+    {
+     "tok_str": "adows",
+     "prob": 2.9113316486473195e-06
+    },
+    {
+     "tok_str": "ADOW",
+     "prob": 1.3262225593280164e-06
+    },
+    {
+     "tok_str": "...",
+     "prob": 6.610891318814538e-07
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 1.2213173761210783e-07
+    }
+   ]
+  },
+  {
+   "content": " velvet",
+   "probs": [
+    {
+     "tok_str": " velvet",
+     "prob": 0.9973775148391724
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0007492889999412
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.0004880834021605551
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0004489476268645376
+    },
+    {
+     "tok_str": " valley",
+     "prob": 0.000256845960393548
+    }
+   ]
+  },
+  {
+   "content": " valley",
+   "probs": [
+    {
+     "tok_str": " valley",
+     "prob": 0.9994275569915771
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00022438274754676968
+    },
+    {
+     "tok_str": ".",
+     "prob": 7.270441710716113e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 6.00163075432647e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 5.3738582209916785e-05
+    }
+   ]
+  },
+  {
+   "content": " shadow",
+   "probs": [
+    {
+     "tok_str": " shadow",
+     "prob": 0.9997672438621521
+    },
+    {
+     "tok_str": "\n",
+     "prob": 9.610761480871588e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 3.0490884455502965e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 2.7476637114887126e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 2.0265953935449943e-05
+    }
+   ]
+  },
+  {
+   "content": " copper",
+   "probs": [
+    {
+     "tok_str": " copper",
+     "prob": 0.9992569088935852
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0002553790109232068
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00015255923790391535
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.00011071085464209318
+    },
+    {
+     "tok_str": " ...",
+     "prob": 5.016659270040691e-05
+    }
+   ]
+  },
+  {
+   "content": " valley",
+   "probs": [
+    {
+     "tok_str": " valley",
+     "prob": 0.9995380640029907
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.00017952383495867252
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 8.169794455170631e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 4.8560614231973886e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 4.110522786504589e-05
+    }
+   ]
+  },
+  {
+   "content": " honey",
+   "probs": [
+    {
+     "tok_str": " honey",
+     "prob": 0.9997642636299133
+    },
+    {
+     "tok_str": "\n",
+     "prob": 8.753826114116237e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 3.7222675018711016e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 2.3908682123874314e-05
+    },
+    {
+     "tok_str": ".",
+     "prob": 1.8914837710326537e-05
+    }
+   ]
+  },
+  {
+   "content": " silent",
+   "probs": [
+    {
+     "tok_str": " silent",
+     "prob": 0.9974610805511475
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0011757430620491505
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.0006005737232044339
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.00013900824706070125
+    },
+    {
+     "tok_str": " silence",
+     "prob": 8.948142931330949e-05
+    }
+   ]
+  },
+  {
+   "content": " forest",
+   "probs": [
+    {
+     "tok_str": " forest",
+     "prob": 0.9994603991508484
+    },
+    {
+     "tok_str": " morning",
+     "prob": 0.0002691294939722866
+    },
+    {
+     "tok_str": "\n",
+     "prob": 8.280997280962765e-05
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 4.343558975961059e-05
+    },
+    {
+     "tok_str": "...",
+     "prob": 4.030235868413001e-05
+    }
+   ]
+  },
+  {
+   "content": " morning",
+   "probs": [
+    {
+     "tok_str": " morning",
+     "prob": 0.9992576241493225
+    },
+    {
+     "tok_str": "\n",
+     "prob": 0.0001749425136949867
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.0001625656004762277
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.00010821069736266509
+    },
+    {
+     "tok_str": " ...",
+     "prob": 8.146327309077606e-05
+    }
+   ]
+  }
+ ],
+ "ok": true
+}
