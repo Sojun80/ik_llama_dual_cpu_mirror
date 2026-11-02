@@ -22,6 +22,11 @@ IQK_API bool iqk_mul_mat(long Nx, long Ny, long ne00,
 // 2D single-column iqk_mul_mat call; NULL disables. counter must be zero before first use.
 IQK_API void iqk_r5_set_dyn(void * counter);
 
+// round-5 (IK_R5_PF): rows [*first, *first + *nrows) of an Nx-row single-column matmul that the dynamic path
+// assigns statically to thread ith; typeB2 is tried if typeA x typeB is unsupported; false if none
+IQK_API bool iqk_r5_dyn_static_rows(int typeA, int typeB, int typeB2, long ne00, long Nx, int ith, int nth,
+        long * first, long * nrows);
+
 // round-5: C[0..Nx) = A rows [0,Nx) . B (one column), single-threaded; false if unsupported
 IQK_API bool iqk_r5_rows(long Nx, long ne00, int typeA, const void * A, long strideA,
         int typeB, const void * B, long strideB, float * C);

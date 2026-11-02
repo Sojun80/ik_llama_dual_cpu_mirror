@@ -614,6 +614,19 @@ struct R5DynConfig {
 const R5DynConfig & r5_dyn_config() { static R5DynConfig c; return c; }
 }
 
+// round-5 (IK_R5_PF): the static rows iqk_mul_mat's dynamic single-token path gives thread ith (same formula)
+extern "C" IQK_API bool iqk_r5_dyn_static_rows(int typeA, int typeB, int typeB2, long ne00, long Nx, int ith, int nth,
+        long * first, long * nrows) {
+    MulMat mm;
+    if (!MulMat::prepare(typeA, typeB, ne00, mm, 1) && !MulMat::prepare(typeA, typeB2, ne00, mm, 1)) return false;
+    const long align = MulMat::num_rows(ggml_type(typeA));
+    if (nth < 2 || align < 1 || Nx % align) return false;
+    const long s = (Nx/align)*r5_dyn_config().static_pct/(100*nth);
+    *first = ith*s*align;
+    *nrows = s*align;
+    return s > 0;
+}
+
 extern "C" IQK_API bool iqk_mul_mat(long Nx, long Ny, long ne00,
         int typeA, const void * A, long strideA,
         int typeB, const void * B, long strideB,
