@@ -5453,6 +5453,46 @@ void ggml_numa_tensor_clear_mirror(struct ggml_tensor * tensor) {
     }
 }
 
+// ---- round-5: log of KV writes for the decode-FA private K/V copies (IK_R5_FA_SHADOW, see apply_r5fashadow.py) ----
+#define R5KV_LOG 4096
+struct r5kv_entry { const char * a[GGML_NUMA_MAX_NODES], * b[GGML_NUMA_MAX_NODES]; };   // [a, b) per node copy
+static struct r5kv_entry r5kv_log[R5KV_LOG];
+static atomic_ullong r5kv_seq;
+
+// one writer at a time: thread 0 inside a graph node, or the main thread between graphs
+static void r5kv_log_push(const char * const * a, const char * const * b) {
+    const unsigned long long n = atomic_load_explicit(&r5kv_seq, memory_order_relaxed);
+    struct r5kv_entry * e = &r5kv_log[n % R5KV_LOG];
+    for (int i = 0; i < GGML_NUMA_MAX_NODES; ++i) { e->a[i] = a[i]; e->b[i] = b[i]; }
+    atomic_store_explicit(&r5kv_seq, n + 1, memory_order_release);
+}
+
+// read by iqk r5fa (iqk_flash_attn.cpp)
+uint64_t ggml_r5kv_seq(void);
+bool ggml_r5kv_written(uint64_t since, const void * lo, const void * hi, uint64_t * now);
+
+uint64_t ggml_r5kv_seq(void) {
+    return atomic_load_explicit(&r5kv_seq, memory_order_acquire);
+}
+
+// did a KV write logged in [since, now) touch [lo, hi) of any node copy? entries lost to the ring count as touching
+bool ggml_r5kv_written(uint64_t since, const void * lo, const void * hi, uint64_t * now) {
+    const uint64_t n = atomic_load_explicit(&r5kv_seq, memory_order_acquire);
+    *now = n;
+    if (n - since > R5KV_LOG) {
+        return true;
+    }
+    for (uint64_t i = since; i < n; ++i) {
+        const struct r5kv_entry * e = &r5kv_log[i % R5KV_LOG];
+        for (int j = 0; j < GGML_NUMA_MAX_NODES; ++j) {
+            if (e->a[j] && e->a[j] < (const char *) hi && (const char *) lo < e->b[j]) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 // Cold path only (state restore, K-shift, cache clear): re-copy node 0's bytes into every
 // other node copy of a mirrored tensor, so writes that bypass the graph CPY replication don't
 // leave stale node-local data. No-op when the tensor isn't mirrored. Not on any per-token path.
@@ -5468,6 +5508,13 @@ void ggml_numa_tensor_resync(struct ggml_tensor * tensor) {
             memcpy(m->data[n], tensor->data, nbytes);
         }
     }
+    // IK_R5_FA_SHADOW: the whole tensor may have changed
+    const char * a[GGML_NUMA_MAX_NODES] = { NULL }, * b[GGML_NUMA_MAX_NODES] = { NULL };
+    for (int n = 0; n < nodes && n < GGML_NUMA_MAX_NODES; ++n) {
+        const char * d = n == 0 ? (const char *) tensor->data : (const char *) m->data[n];
+        if (d) { a[n] = d; b[n] = d + nbytes; }
+    }
+    r5kv_log_push(a, b);
 }
 
 // NUMA mirror (KV cache): after a cpy/dup has written node 0's copy of a mirrored KV tensor view,
@@ -5497,6 +5544,16 @@ static void ggml_numa_replicate_kv_write(const struct ggml_compute_params * para
     const int64_t n1    = dst->ne[1], n2 = dst->ne[2], n3 = dst->ne[3];
     const int64_t nrows = n1*n2*n3;
     const char *  base0 = (const char *) m->data[0]; // node 0 aliases the root tensor's data
+    if (ith == 0) {
+        // IK_R5_FA_SHADOW: log the written byte range of every node copy
+        const char * lo0 = (const char *) dst->data;
+        const size_t len = (size_t) ((n1 - 1)*dst->nb[1] + (n2 - 1)*dst->nb[2] + (n3 - 1)*dst->nb[3]) + run;
+        const char * a[GGML_NUMA_MAX_NODES] = { NULL }, * b[GGML_NUMA_MAX_NODES] = { NULL };
+        for (int n = 0; n < nodes && n < GGML_NUMA_MAX_NODES; ++n) {
+            if (m->data[n]) { a[n] = (const char *) m->data[n] + (lo0 - base0); b[n] = a[n] + len; }
+        }
+        r5kv_log_push(a, b);
+    }
     for (int64_t r = ith; r < nrows; r += nth) {
         const int64_t i1 = r % n1;
         const int64_t i2 = (r / n1) % n2;

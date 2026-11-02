@@ -345,6 +345,59 @@ static void partial2pass(int j0, int j1, int nkvh, int rk,
     if (dbg_enabled()) { uint64_t t = __rdtsc(); r5ph[3] += t - tp; }
 }
 
+// ---- IK_R5_FA_SHADOW: per-thread private copy of the thread's K/V rows of one FA call site (see apply_r5fashadow.py)
+extern "C" uint64_t ggml_r5kv_seq(void);
+extern "C" bool ggml_r5kv_written(uint64_t since, const void * lo, const void * hi, uint64_t * now);
+
+static bool shadow_enabled() {
+    static const bool e = [] { auto s = getenv("IK_R5_FA_SHADOW"); return s && atoi(s) > 0; }();
+    return e && ggml_numa_mirror_active();
+}
+
+// private copies of K and V rows [j0, j1) (`row` bytes each, packed); false if no slot is left
+static bool shadow_rows(const char * k, const char * v, long stride_k, long stride_v, long row, int j0, int j1,
+                        int n_eff, const char ** kb_out, const char ** vb_out) {
+    struct Shadow { const char * k, * v; char * buf; size_t cap; int j0, j1, n_eff; uint64_t seq; };
+    constexpr int kSites = 64;
+    static thread_local Shadow sh[kSites];
+    static thread_local int n_sh = 0;
+    Shadow * e = nullptr;
+    for (int i = 0; i < n_sh; ++i) if (sh[i].k == k && sh[i].v == v) { e = &sh[i]; break; }
+    if (!e) {
+        if (n_sh == kSites) return false;
+        e = &sh[n_sh++];
+        *e = { k, v, nullptr, 0, 0, 0, 0, 0 };
+    }
+    const size_t need = (size_t)(j1 - j0)*row;   // per K or V
+    bool refill = !e->buf || e->j0 != j0 || j1 < e->j1 || n_eff < e->n_eff || 2*need > e->cap;
+    uint64_t now = 0;
+    if (!refill && e->j1 > e->j0) {
+        // rows already copied, changed by a logged KV write since?
+        uint64_t n2 = 0;
+        refill = ggml_r5kv_written(e->seq, k + (long)e->j0*stride_k, k + (long)(e->j1 - 1)*stride_k + row, &now) ||
+                 ggml_r5kv_written(e->seq, v + (long)e->j0*stride_v, v + (long)(e->j1 - 1)*stride_v + row, &n2);
+    } else {
+        now = ggml_r5kv_seq();
+    }
+    if (2*need > e->cap) {
+        if (e->buf) free(e->buf);
+        const size_t half = ((need + need/2) + (1u << 20) - 1) & ~(size_t)((1u << 20) - 1);
+        e->cap = 2*half;
+        e->buf = (char *)aligned_alloc(2u << 20, e->cap);
+        if (!e->buf) { e->cap = 0; return false; }
+        madvise(e->buf, e->cap, MADV_HUGEPAGE);
+        memset(e->buf, 0, e->cap);
+    }
+    char * kb = e->buf, * vb = e->buf + e->cap/2;
+    for (int j = refill ? j0 : e->j1; j < j1; ++j) {
+        memcpy(kb + (size_t)(j - j0)*row, k + (long)j*stride_k, row);
+        memcpy(vb + (size_t)(j - j0)*row, v + (long)j*stride_v, row);
+    }
+    e->j0 = j0; e->j1 = j1; e->n_eff = n_eff; e->seq = now;
+    *kb_out = kb; *vb_out = vb;
+    return true;
+}
+
 static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, int nek1,
                 int stride_k, int stride_v, const void * q, const void * k, const void * v, const void * mask,
                 float scale, float * qkv, void * work, barrier_t barrier, void * barrier_data, int ith, int nth) {
@@ -419,9 +472,21 @@ static bool run(int neq2, long nbq2, int nek2, long nbk2, long nbv2, long nb1, i
         }
     }
     static const bool two_pass = [] { auto e = getenv("IK_R5_FA_2PASS"); return e && atoi(e) > 0; }();
+    // IK_R5_FA_SHADOW: read this thread's rows from its private copy
+    const char * kp = (const char *)k, * vp = (const char *)v;
+    long sk = stride_k, sv = stride_v;
+    const long row = (long)(nek2 - 1)*nbk2 + 2*D;   // bytes of one position over all KV heads
+    if (j1 > j0 && row == (long)(nek2 - 1)*nbv2 + 2*D && shadow_enabled()) {
+        const char * kb, * vb;
+        if (shadow_rows((const char *)k, (const char *)v, stride_k, stride_v, row, j0, j1, n_eff, &kb, &vb)) {
+            // partial() indexes rows from j0: rebase so that row j0 is the first private row
+            kp = kb - (long)j0*row; vp = vb - (long)j0*row;
+            sk = row; sv = row;
+        }
+    }
     const uint64_t t0 = dbg ? __rdtsc() : 0;
-    (two_pass ? partial2pass : partial)(j0, j1, nek2, rk, (const char *)q, nbq2, (const char *)k, stride_k, nbk2,
-            (const char *)v, stride_v, nbv2, mk, scale, mine, mine + neq2, mine + 2*neq2);
+    (two_pass ? partial2pass : partial)(j0, j1, nek2, rk, (const char *)q, nbq2, kp, sk, nbk2,
+            vp, sv, nbv2, mk, scale, mine, mine + neq2, mine + 2*neq2);
     const uint64_t t1 = dbg ? __rdtsc() : 0;
     static const bool twice = [] { auto e = getenv("IK_R5_FA_TWICE"); return e && atoi(e) > 0; }();
     if (twice) {
