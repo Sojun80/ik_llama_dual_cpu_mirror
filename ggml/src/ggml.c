@@ -4984,12 +4984,12 @@ static GGML_THREAD_LOCAL struct r5pf_range r5pf_q[R5PF_MAXR];
 static GGML_THREAD_LOCAL int r5pf_h, r5pf_t;            // queue [head, tail)
 static GGML_THREAD_LOCAL int r5pf_next = -1, r5pf_last = -1;
 static GGML_THREAD_LOCAL const void * r5pf_g;
-static int    r5pf_mode = -1, r5pf_lines = 4, r5pf_win = 32, r5pf_fa = 0;
+static int    r5pf_mode = -1, r5pf_lines = 2, r5pf_win = 32, r5pf_fa = 0;
 static size_t r5pf_budget = 256*1024;
 
 static void r5pf_init(void) {
     const char * e;
-    int lines = 4, win = 32;
+    int lines = 2, win = 32;
     size_t budget = 256*1024;
     if ((e = getenv("IK_R5_PF_LINES")))  lines  = atoi(e) > 0 ? atoi(e) : 1;
     if ((e = getenv("IK_R5_PF_WIN")))    win    = atoi(e) > 0 ? atoi(e) : 1;
