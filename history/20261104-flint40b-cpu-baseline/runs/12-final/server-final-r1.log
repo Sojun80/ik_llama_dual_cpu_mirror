@@ -1,0 +1,263 @@
+warning: not compiled with GPU offload support, --gpu-layers option will be ignored
+warning: see main README.md for information on enabling GPU BLAS support
+ggml_numa_init: IK_R5_NONUMAB: MPOL_LOCAL task policy set
+WARNING: /proc/sys/kernel/numa_balancing is enabled, this has been observed to impair performance
+INFO [                    main] build info | tid="127825206074240" timestamp=1793812905 build=26 commit="2f69e5e"
+INFO [                    main] system info | tid="127825206074240" timestamp=1793812905 n_threads=64 n_threads_batch=64 total_threads=192 system_info="AVX = 1 | AVX_VNNI = 0 | AVX2 = 1 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | AVX512_BF16 = 0 | FMA = 1 | NEON = 0 | SVE = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | MATMUL_INT8 = 0 | "
+CPU: using device CPU - 58797 MiB free
+llama_model_loader: loaded meta data with 41 key-value pairs and 779 tensors from /home/ubuntu/llm-evaluations/20261104-flint40b-cpu-baseline/flint-int4-q4_1.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = flint
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = Flint INT4 Preview
+llama_model_loader: - kv   3:                          flint.block_count u32              = 49
+llama_model_loader: - kv   4:                       flint.context_length u32              = 262144
+llama_model_loader: - kv   5:                     flint.embedding_length u32              = 2048
+llama_model_loader: - kv   6:                  flint.feed_forward_length u32              = 6144
+llama_model_loader: - kv   7:                 flint.attention.head_count u32              = 32
+llama_model_loader: - kv   8:              flint.attention.head_count_kv u32              = 4
+llama_model_loader: - kv   9:                       flint.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  10:     flint.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  11:                         flint.expert_count u32              = 256
+llama_model_loader: - kv  12:                    flint.expert_used_count u32              = 6
+llama_model_loader: - kv  13:                   flint.expert_gating_func u32              = 2
+llama_model_loader: - kv  14:                 flint.attention.key_length u32              = 128
+llama_model_loader: - kv  15:               flint.attention.value_length u32              = 128
+llama_model_loader: - kv  16:                          general.file_type u32              = 3
+llama_model_loader: - kv  17:           flint.expert_feed_forward_length u32              = 512
+llama_model_loader: - kv  18:    flint.expert_shared_feed_forward_length u32              = 1024
+llama_model_loader: - kv  19:            flint.leading_dense_block_count u32              = 2
+llama_model_loader: - kv  20:                  flint.expert_shared_count u32              = 2
+llama_model_loader: - kv  21:                  flint.expert_weights_norm bool             = true
+llama_model_loader: - kv  22:                 flint.expert_weights_scale f32              = 1.000000
+llama_model_loader: - kv  23:             flint.attention.sliding_window u32              = 513
+llama_model_loader: - kv  24:     flint.attention.sliding_window_pattern arr[bool,49]     = [false, false, true, true, true, fals...
+llama_model_loader: - kv  25:               flint.attention.rope_pattern arr[bool,49]     = [false, false, true, true, true, fals...
+llama_model_loader: - kv  26:               general.quantization_version u32              = 2
+llama_model_loader: - kv  27:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  28:                         tokenizer.ggml.pre str              = flint
+llama_model_loader: - kv  29:                      tokenizer.ggml.tokens arr[str,150144]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  30:                  tokenizer.ggml.token_type arr[i32,150144]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  31:                      tokenizer.ggml.merges arr[str,149744]  = ["Ġ Ġ", "Ġ t", "ĠĠ ĠĠ", "i n",...
+llama_model_loader: - kv  32:                tokenizer.ggml.bos_token_id u32              = 150000
+llama_model_loader: - kv  33:                tokenizer.ggml.eos_token_id u32              = 150001
+llama_model_loader: - kv  34:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  35:               tokenizer.ggml.add_sep_token bool             = false
+llama_model_loader: - kv  36:               tokenizer.ggml.eog_token_ids arr[i32,4]       = [150001, 150003, 150005, 150018]
+llama_model_loader: - kv  37:                    tokenizer.chat_template str              = {%- macro flint_text(t) -%}\n{%- if t ...
+llama_model_loader: - kv  38:                      general.sampling.temp f32              = 1.000000
+llama_model_loader: - kv  39:                     general.sampling.top_p f32              = 0.950000
+llama_model_loader: - kv  40:                     general.sampling.top_k i32              = 20
+llama_model_loader: - type  f32:  294 tensors
+llama_model_loader: - type q4_1:  485 tensors
+load: 0 unused tokens
+load: printing all EOG tokens:
+load:   - 150001 ('<|end_of_text|>')
+load:   - 150003 ('<|user|>')
+load:   - 150005 ('<|observation|>')
+load: special tokens cache size = 144
+load: token to piece cache size = 0.9063 MB
+llm_load_print_meta: format           = GGUF V3 (latest)
+llm_load_print_meta: arch             = flint
+llm_load_print_meta: n_ctx_train      = 262144
+llm_load_print_meta: n_embd           = 2048
+llm_load_print_meta: n_layer          = 49
+llm_load_print_meta: n_head           = 32
+llm_load_print_meta: n_head_kv        = 4
+llm_load_print_meta: n_rot            = 128
+llm_load_print_meta: n_swa            = 513
+llm_load_print_meta: n_swa_pattern    = 1
+llm_load_print_meta: n_embd_head_k    = 128
+llm_load_print_meta: n_embd_head_v    = 128
+llm_load_print_meta: n_gqa            = 8
+llm_load_print_meta: n_embd_k_gqa     = 512
+llm_load_print_meta: n_embd_v_gqa     = 512
+llm_load_print_meta: f_norm_eps       = 0.0e+00
+llm_load_print_meta: f_norm_rms_eps   = 1.0e-06
+llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+llm_load_print_meta: f_logit_scale    = 0.0e+00
+llm_load_print_meta: n_ff             = 6144
+llm_load_print_meta: n_expert         = 256
+llm_load_print_meta: n_expert_used    = 6
+llm_load_print_meta: causal attn      = 1
+llm_load_print_meta: pooling type     = 0
+llm_load_print_meta: rope type        = 2
+llm_load_print_meta: rope scaling     = linear
+llm_load_print_meta: freq_base_train  = 10000.0
+llm_load_print_meta: freq_scale_train = 1
+llm_load_print_meta: n_ctx_orig_yarn  = 262144
+llm_load_print_meta: rope_finetuned   = unknown
+llm_load_print_meta: ssm_d_conv       = 0
+llm_load_print_meta: ssm_d_inner      = 0
+llm_load_print_meta: ssm_d_state      = 0
+llm_load_print_meta: ssm_dt_rank      = 0
+llm_load_print_meta: ssm_n_group      = 0
+llm_load_print_meta: model type       = ?B
+llm_load_print_meta: model ftype      = Q4_1
+llm_load_print_meta: model params     = 39.785 B
+llm_load_print_meta: model size       = 24.203 GiB (5.226 BPW) 
+llm_load_print_meta: repeating layers = 22.878 GiB (5.017 BPW, 39.170 B parameters)
+llm_load_print_meta: general.name     = Flint INT4 Preview
+llm_load_print_meta: n_layer_dense_lead = 2
+llm_load_print_meta: n_ff_exp         = 512
+llm_load_print_meta: n_ff_shexp       = 1024
+llm_load_print_meta: expert_weights_norm  = 1
+llm_load_print_meta: expert_weights_scale = 1.0
+print_info: vocab type            = BPE
+print_info: n_vocab               = 150144
+print_info: n_merges              = 149744
+print_info: BOS token             = 150000 '<|begin_of_text|>'
+print_info: EOS token             = 150001 '<|end_of_text|>'
+print_info: EOT token             = 150001 '<|end_of_text|>'
+print_info: LF token              = 198 'Ċ'
+print_info: EOG token             = 150001 '<|end_of_text|>'
+print_info: EOG token             = 150003 '<|user|>'
+print_info: EOG token             = 150005 '<|observation|>'
+print_info: max token length      = 126
+======================================= HAVE_FANCY_SIMD is NOT defined
+------------------- Layer sizes:
+Layer  0:     33.77,     32.00,     65.77       36.00  MiB
+Layer  1:     33.77,     32.00,     65.77       36.00  MiB
+Layer  2:    497.02,     32.00,    529.02       44.00  MiB
+Layer  3:    497.02,     32.00,    529.02       44.00  MiB
+Layer  4:    497.02,     32.00,    529.02       44.00  MiB
+Layer  5:    497.02,     32.00,    529.02       44.00  MiB
+Layer  6:    497.02,     32.00,    529.02       44.00  MiB
+Layer  7:    497.02,     32.00,    529.02       44.00  MiB
+Layer  8:    497.02,     32.00,    529.02       44.00  MiB
+Layer  9:    497.02,     32.00,    529.02       44.00  MiB
+Layer 10:    497.02,     32.00,    529.02       44.00  MiB
+Layer 11:    497.02,     32.00,    529.02       44.00  MiB
+Layer 12:    497.02,     32.00,    529.02       44.00  MiB
+Layer 13:    497.02,     32.00,    529.02       44.00  MiB
+Layer 14:    497.02,     32.00,    529.02       44.00  MiB
+Layer 15:    497.02,     32.00,    529.02       44.00  MiB
+Layer 16:    497.02,     32.00,    529.02       44.00  MiB
+Layer 17:    497.02,     32.00,    529.02       44.00  MiB
+Layer 18:    497.02,     32.00,    529.02       44.00  MiB
+Layer 19:    497.02,     32.00,    529.02       44.00  MiB
+Layer 20:    497.02,     32.00,    529.02       44.00  MiB
+Layer 21:    497.02,     32.00,    529.02       44.00  MiB
+Layer 22:    497.02,     32.00,    529.02       44.00  MiB
+Layer 23:    497.02,     32.00,    529.02       44.00  MiB
+Layer 24:    497.02,     32.00,    529.02       44.00  MiB
+Layer 25:    497.02,     32.00,    529.02       44.00  MiB
+Layer 26:    497.02,     32.00,    529.02       44.00  MiB
+Layer 27:    497.02,     32.00,    529.02       44.00  MiB
+Layer 28:    497.02,     32.00,    529.02       44.00  MiB
+Layer 29:    497.02,     32.00,    529.02       44.00  MiB
+Layer 30:    497.02,     32.00,    529.02       44.00  MiB
+Layer 31:    497.02,     32.00,    529.02       44.00  MiB
+Layer 32:    497.02,     32.00,    529.02       44.00  MiB
+Layer 33:    497.02,     32.00,    529.02       44.00  MiB
+Layer 34:    497.02,     32.00,    529.02       44.00  MiB
+Layer 35:    497.02,     32.00,    529.02       44.00  MiB
+Layer 36:    497.02,     32.00,    529.02       44.00  MiB
+Layer 37:    497.02,     32.00,    529.02       44.00  MiB
+Layer 38:    497.02,     32.00,    529.02       44.00  MiB
+Layer 39:    497.02,     32.00,    529.02       44.00  MiB
+Layer 40:    497.02,     32.00,    529.02       44.00  MiB
+Layer 41:    497.02,     32.00,    529.02       44.00  MiB
+Layer 42:    497.02,     32.00,    529.02       44.00  MiB
+Layer 43:    497.02,     32.00,    529.02       44.00  MiB
+Layer 44:    497.02,     32.00,    529.02       44.00  MiB
+Layer 45:    497.02,     32.00,    529.02       44.00  MiB
+Layer 46:    497.02,     32.00,    529.02       44.00  MiB
+Layer 47:    497.02,     32.00,    529.02       44.00  MiB
+Layer 48:    497.02,     32.00,    529.02       44.00  MiB
+Layer 49:    183.28,    249.25,    432.53 MiB (output layer)
+--------------------------------------------------------------------------
+Total   :  23427.32,   1817.25,  25244.57 MiB
+Memory required for model tensors + cache: 25428 MiB
+Memory available on all devices - compute: 57679 MiB
+llm_load_tensors: ggml ctx size =    0.38 MiB
+llm_load_tensors:        CPU buffer size = 24784.00 MiB (total of 1 resident buffers)
+.................................................................................................
+llama_init_from_model: n_ctx         = 16384
+llama_init_from_model: n_batch       = 2048
+llama_init_from_model: n_ubatch      = 512
+llama_init_from_model: flash_attn    = 1
+llama_init_from_model: attn_max_b    = 256
+llama_init_from_model: fused_moe     = 1
+llama_init_from_model: grouped er    = 0
+llama_init_from_model: fused_up_gate = 1
+llama_init_from_model: fused_mmad    = 1
+llama_init_from_model: rope_cache    = 0
+llama_init_from_model: graph_reuse   = 1
+llama_init_from_model: k_cache_hadam = 0
+llama_init_from_model: v_cache_hadam = 0
+llama_init_from_model: split_mode_graph_scheduling = 0
+llama_init_from_model: reduce_type   = f16
+llama_init_from_model: sched_async   = 0
+llama_init_from_model: ser           = -1, 0
+llama_init_from_model: freq_base     = 10000.0
+llama_init_from_model: freq_scale    = 1
+llama_kv_cache_init:        CPU KV buffer size =  1570.00 MiB
+llama_mirror_kv_cache: NUMA mirror: KV cache 1.53 GiB; +1.53 GiB for 2-node mirror (95.71 GiB available)
+llama_mirror_kv_cache: NUMA mirror: mirrored 98 KV tensors across 2 nodes
+llama_init_from_model: KV self size  = 1568.00 MiB, K (f16):  784.00 MiB, V (f16):  784.00 MiB
+llama_init_from_model:        CPU  output buffer size =     0.57 MiB
+llama_mirror_model_weights: NUMA mirror: 2 nodes, host weights 24.20 GiB; need +24.20 GiB for mirrors (94.13 GiB available)
+llama_mirror_model_weights: NUMA mirror: duplicated 779 weight tensors across 2 nodes
+llama_init_from_model:        CPU compute buffer size =   298.00 MiB
+llama_init_from_model: graph nodes  = 1907
+llama_init_from_model: graph splits = 1
+llama_init_from_model: enabling only_active_experts scheduling
+llama_init_from_gpt_params: pinning CPU worker threads to logical CPUs: 16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,56,57,58,59,60,61,64,65,66,67,72,73,74,75,80,81,82,83,88,89,90,91,68,76,84,92
+INFO [                    init] initializing slots | tid="127825206074240" timestamp=1793812916 n_slots=1
+INFO [                    init] new slot | tid="127825206074240" timestamp=1793812916 id_slot=0 n_ctx_slot=16384
+srv          init: Exclude reasoning tokens when selecting slot based on similarity: start: <think>, end: </think>
+use `--reasoning-tokens none` to disable.
+prompt cache is enabled, size limit: 8192 MiB
+use `--cache-ram 0` to disable the prompt cache
+INFO [                    main] model loaded | tid="127825206074240" timestamp=1793812916
+init: chat template, example_format: '<|system|>
+You are a helpful assistant<|user|>
+Hello<|assistant|>
+Hi there<|user|>
+How are you?<|assistant|>'
+INFO [                    main] HTTP server listening | tid="127825206074240" timestamp=1793812916 n_threads_http="191" port="19196" hostname="127.0.0.1"
+INFO [              slots_idle] all slots are idle | tid="127825206074240" timestamp=1793812916
+INFO [     process_single_task] slot data | tid="127825206074240" timestamp=1793812916 id_task=0 n_idle_slots=1 n_processing_slots=0
+INFO [     process_single_task] slot data | tid="127825206074240" timestamp=1793812916 id_task=1 n_idle_slots=1 n_processing_slots=0
+INFO [      log_server_request] request | tid="127764556388032" timestamp=1793812916 remote_addr="127.0.0.1" remote_port=37812 status=200 method="GET" path="/health" params={}
+INFO [     process_single_task] slot data | tid="127825206074240" timestamp=1793812916 id_task=2 n_idle_slots=1 n_processing_slots=0
+INFO [      log_server_request] request | tid="127768180106944" timestamp=1793812916 remote_addr="127.0.0.1" remote_port=37820 status=200 method="GET" path="/health" params={}
+INFO [     process_single_task] slot data | tid="127825206074240" timestamp=1793812916 id_task=3 n_idle_slots=1 n_processing_slots=0
+INFO [      log_server_request] request | tid="127768188499648" timestamp=1793812916 remote_addr="127.0.0.1" remote_port=42500 status=200 method="GET" path="/health" params={}
+INFO [              slots_idle] all slots are idle | tid="127825206074240" timestamp=1793812916
+INFO [      log_server_request] request | tid="127768096405184" timestamp=1793812916 remote_addr="127.0.0.1" remote_port=42516 status=200 method="GET" path="/health" params={}
+======== Prompt cache: cache size: 0, n_keep: 0, n_discarded_prompt: 0, cache_ram_n_min: 0, f_keep: 0.00, cache_ram_similarity: 0.50
+INFO [   launch_slot_with_task] slot is processing task | tid="127825206074240" timestamp=1793812916 id_slot=0 id_task=4
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="127825206074240" timestamp=1793812916 id_slot=0 id_task=4 p0=0
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="127825206074240" timestamp=1793812920 id_slot=0 id_task=4 p0=2048
+INFO [           release_slots] slot released | tid="127825206074240" timestamp=1793812931 id_slot=0 id_task=4 n_ctx=16384 n_past=3179 n_system_tokens=0 n_cache_tokens=3179 truncated=false
+INFO [              slots_idle] all slots are idle | tid="127825206074240" timestamp=1793812931
+slot print_timing: id  0 | task 4 | 
+prompt eval time =    4902.85 ms /  2668 tokens (    1.84 ms per token,   544.17 tokens per second)
+       eval time =    9751.07 ms /   512 tokens (   19.05 ms per token,    52.51 tokens per second)
+      total time =   14653.92 ms /  3180 tokens
+INFO [      log_server_request] request | tid="127768079619776" timestamp=1793812931 remote_addr="127.0.0.1" remote_port=42532 status=200 method="POST" path="/completion" params={}
+======== Prompt cache: cache size: 3179, n_keep: 0, n_discarded_prompt: 0, cache_ram_n_min: 0, f_keep: 0.00, cache_ram_similarity: 0.50
+updating prompt cache
+ - saving prompt with length 3179, total state size = 304.266 MiB
+prompt cache save took 69.37 ms
+ - looking for better prompt, base f_keep = 0.003, sim = 0.001, n_keep = 0, n_discarded_prompt = 0
+ - cache state: 1 prompts, 304.266 MiB (limits: 8192.000 MiB, 0 tokens, 85590 est)
+   - prompt 0x626156174ac0:    3179 tokens,       0 discarded, checkpoints:  0,   304.266 MiB
+prompt cache load took 1.16 ms
+INFO [   launch_slot_with_task] slot is processing task | tid="127825206074240" timestamp=1793812931 id_slot=0 id_task=518
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="127825206074240" timestamp=1793812931 id_slot=0 id_task=518 p0=0
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="127825206074240" timestamp=1793812935 id_slot=0 id_task=518 p0=2048
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="127825206074240" timestamp=1793812939 id_slot=0 id_task=518 p0=4096
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="127825206074240" timestamp=1793812943 id_slot=0 id_task=518 p0=6144
+INFO [    batch_pending_prompt] kv cache rm [p0, end) | tid="127825206074240" timestamp=1793812949 id_slot=0 id_task=518 p0=8192
+slot print_timing: id  0 | task 518 | 
+prompt eval time =   19360.47 ms /  8917 tokens (    2.17 ms per token,   460.58 tokens per second)
+       eval time =   10458.21 ms /   512 tokens (   20.43 ms per token,    48.96 tokens per second)
+      total time =   29818.69 ms /  9429 tokens
+INFO [           release_slots] slot released | tid="127825206074240" timestamp=1793812961 id_slot=0 id_task=518 n_ctx=16384 n_past=9428 n_system_tokens=0 n_cache_tokens=9428 truncated=false
+INFO [              slots_idle] all slots are idle | tid="127825206074240" timestamp=1793812961
+INFO [      log_server_request] request | tid="127768071227072" timestamp=1793812961 remote_addr="127.0.0.1" remote_port=52606 status=200 method="POST" path="/completion" params={}
+INFO [              slots_idle] all slots are idle | tid="127825206074240" timestamp=1793812961

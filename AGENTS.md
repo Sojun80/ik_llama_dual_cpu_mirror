@@ -27,6 +27,22 @@ exception is the round-5 FA kernel (`IK_R5_FA`), which changes the reduction ord
 from interleaved (ABBA) rounds at both 2.8K and 9.4K context. The machine drifts, so comparisons across sessions are
 unreliable.
 
+### Flint 40B-A2.5B (second model, 2026-11-04)
+
+Official RecursiveSI Q4_1 GGUF (26 GB). 49 layers (2 dense, 47 MoE), 32 query and 4 KV heads, head dim 128, 35
+sliding-window layers, 14 global layers, attention sinks. Same benchmark method; the corpora tokenize to 2,668 / 8,917.
+
+| | Decode 2.8K ctx | Decode 9.4K ctx | Prompt 2.8K | Prompt 9.4K | Peak RSS |
+|---|---:|---:|---:|---:|---:|
+| Stock ik_llama.cpp, one socket, 48 threads (runs/17-final) | 38.8 | 31.0 | 395 | 326 | 26.3 GiB |
+| Branch `flint`, recommended config, both sockets (runs/17-final) | **58.8** | **53.2** | 548 | 463 | 52.8 GiB |
+
+What worked differs from MiniCPM. The r5 FA kernel loses on Flint (every thread reads all 32 query heads), so do not set
+`IK_R5_FA`. `IK_R5_FA_SHADOW` works inside ik's own FA loop instead, on the 14 global layers, and the fused MoE path
+matches Flint's 7-node layer. Results are bitwise identical to ik's FA and the unfused path at the same thread count.
+Only speed and output identity were tested: no quality evaluation of Flint yet. Details:
+`history/20261104-flint40b-cpu-baseline/PROGRESS.md`.
+
 ## Recommended command (experimental, never deployed)
 
 ```
@@ -43,17 +59,30 @@ numactl --physcpubind=16-95 build/bin/llama-server -m <model.gguf> -ngl 0 --no-m
 - Build: `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DGGML_CUDA=OFF -DLLAMA_CURL=OFF`, then
   `numactl --physcpubind=48-95 cmake --build build -j 48 --target llama-server`.
 
+That command is for MiniCPM-V 4.7. For Flint, use the `flint` branch or `main` and leave out `IK_R5_FA=1`:
+
+```
+GLIBC_TUNABLES=glibc.malloc.hugetlb=1 IK_R5_DYN=1 IK_R5_HUGE=1 IK_R5_FMOE=1 IK_R5_FMOE_UG=1 \
+IK_R5_NONUMAB=1 IK_R5_PF=1 IK_R5_FA_SHADOW=1 \
+numactl --physcpubind=16-95 build/bin/llama-server -m <flint.gguf> -ngl 0 --no-mmap \
+  --numa mirror --numa-mirror all -t 64 -tb 64 \
+  --cpu-range $(cat history/20261031-minicpm-v47-round5/tools/m64pair.txt) -c 16384 --parallel 1
+```
+
 ## Branches
 
 | Branch | Content |
 |---|---|
-| `main` | `round5-mirror` plus this file and `history/` |
-| `round5-mirror` | the source exactly as benchmarked (`2f69e5ee`, built on gigabyte5 as `build-mirror3`) |
+| `main` | `flint` plus this file and `history/` |
+| `flint` | the Flint source exactly as benchmarked (`1e3d8de`, built on gigabyte5 as `build-flint`) |
+| `round5-mirror` | the MiniCPM source exactly as benchmarked (`2f69e5ee`, built on gigabyte5 as `build-mirror3`) |
 | `round5` | the earlier single-socket work, before the mirror port |
 | `upstream-13cffc0` | the unmodified ik_llama.cpp base |
 
-`git log upstream-13cffc0..round5-mirror` lists the 25 `r5:` commits. Each commit message says what changed, its env
-gate and its measured effect.
+`git log upstream-13cffc0..round5-mirror` lists the 25 `r5:` commits, and `git log round5-mirror..flint` the 2 Flint
+commits. Each commit message says what changed, its env gate and its measured effect. MiniCPM was not re-run on `flint`
+or `main`; its recommended config takes an earlier return in the changed FA code, so it should behave as on
+`round5-mirror`.
 
 ## history/: the whole project record
 
@@ -70,7 +99,8 @@ Read in this order:
 4. `history/20261031-minicpm-v47-round5/FA-BOUNDARY.md`: the decode flash-attention investigation that ended with
    `IK_R5_FA_SHADOW`.
 5. `history/20261031-minicpm-v47-round5/RESEARCH.md`: external leads reviewed.
-6. Earlier rounds, for background:
+6. `history/20261104-flint40b-cpu-baseline/PROGRESS.md`: Flint baseline, what carried over, attention and fused MoE work.
+7. Earlier rounds, for background:
    - `20261031-minicpm-v47-kernel-investigation/FINAL-REPORT.md`: ik vs upstream, rejected NUMA/expert splits.
    - `20261031-minicpm-v47-cpu-optimization/REPORT.md`: thread sweeps, counters, the context effect.
    - `20261031-minicpm-v47-round4/REPORT.md`: the quality evaluation of the model.

@@ -1,0 +1,26 @@
+[  0%] Generating build details from Git
+-- Found Git: /usr/bin/git (found version "2.53.0")
+[  0%] Built target cpp-httplib
+[  0%] Building CXX object ggml/src/CMakeFiles/ggml.dir/iqk/iqk_flash_attn.cpp.o
+[  0%] Generating build details from Git
+-- Found Git: /usr/bin/git (found version "2.53.0")
+[  0%] Built target build_info
+/home/ubuntu/llm-evaluations/20261104-flint40b-cpu-baseline/flint-src/ggml/src/iqk/iqk_flash_attn.cpp: In function ‘bool r5fa::run(int, long int, int, long int, long int, long int, int, int, int, const void*, const void*, const void*, const void*, float, float*, void*, barrier_t, void*, int, int)’:
+/home/ubuntu/llm-evaluations/20261104-flint40b-cpu-baseline/flint-src/ggml/src/iqk/iqk_flash_attn.cpp:465:38: warning: unused variable ‘tk’ [-Wunused-variable]
+  465 |         static thread_local uint64_t tk, tr, bytes, nc;
+      |                                      ^~
+/home/ubuntu/llm-evaluations/20261104-flint40b-cpu-baseline/flint-src/ggml/src/iqk/iqk_flash_attn.cpp:465:42: warning: unused variable ‘tr’ [-Wunused-variable]
+  465 |         static thread_local uint64_t tk, tr, bytes, nc;
+      |                                          ^~
+/home/ubuntu/llm-evaluations/20261104-flint40b-cpu-baseline/flint-src/ggml/src/iqk/iqk_flash_attn.cpp:465:46: warning: unused variable ‘bytes’ [-Wunused-variable]
+  465 |         static thread_local uint64_t tk, tr, bytes, nc;
+      |                                              ^~~~~
+[  0%] Linking CXX shared library libggml.so
+[ 16%] Built target ggml
+[ 16%] Linking CXX shared library libllama.so
+[ 72%] Built target llama
+[ 74%] Linking CXX shared library libmtmd.so
+[ 92%] Built target common
+[ 94%] Built target mtmd
+[ 94%] Linking CXX executable ../../bin/llama-server
+[100%] Built target llama-server

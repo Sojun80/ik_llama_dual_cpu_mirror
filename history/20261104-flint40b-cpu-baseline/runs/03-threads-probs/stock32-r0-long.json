@@ -1,0 +1,900 @@
+{
+ "content": " the story should be set in the cloudscape of Venus, in a floating city called Aurelia, where the acid rain falls upward, and the sky is a",
+ "generated_text": " the story should be set in the cloudscape of Venus, in a floating city called Aurelia, where the acid rain falls upward, and the sky is a",
+ "id_slot": 0,
+ "stop": true,
+ "model": "/home/ubuntu/llm-evaluations/20261104-flint40b-cpu-baseline/flint-int4-q4_1.gguf",
+ "tokens_predicted": 32,
+ "tokens_evaluated": 8917,
+ "generation_settings": {
+  "n_ctx": 16384,
+  "n_predict": -1,
+  "model": "/home/ubuntu/llm-evaluations/20261104-flint40b-cpu-baseline/flint-int4-q4_1.gguf",
+  "seed": 1234,
+  "temperature": 0.0,
+  "dynatemp_range": 0.0,
+  "dynatemp_exponent": 1.0,
+  "top_k": 20,
+  "top_p": 0.949999988079071,
+  "min_p": 0.05000000074505806,
+  "tfs_z": 1.0,
+  "typical_p": 1.0,
+  "repeat_last_n": 64,
+  "repeat_penalty": 1.0,
+  "presence_penalty": 0.0,
+  "frequency_penalty": 0.0,
+  "penalty_prompt_tokens": [],
+  "use_penalty_prompt_tokens": false,
+  "dry_multiplier": 0.0,
+  "dry_base": 1.75,
+  "dry_allowed_length": 2,
+  "dry_penalty_last_n": 16384,
+  "dry_sequence_breakers": [
+   "\n",
+   ":",
+   "\"",
+   "*"
+  ],
+  "mirostat": 0,
+  "mirostat_tau": 5.0,
+  "mirostat_eta": 0.10000000149011612,
+  "adaptive_target": -1.0,
+  "adaptive_decay": 0.8999999761581421,
+  "adaptive_updt_w_cur": false,
+  "penalize_nl": false,
+  "stop": [],
+  "max_tokens": 32,
+  "n_keep": 0,
+  "n_discard": 0,
+  "ignore_eos": true,
+  "stream": false,
+  "logit_bias": [
+   [
+    150001,
+    null
+   ]
+  ],
+  "n_probs": 5,
+  "min_keep": 0,
+  "grammar": "",
+  "grammar_triggers": [],
+  "preserved_tokens": [],
+  "chat_format": "Content-only",
+  "reasoning_format": "deepseek",
+  "reasoning_in_content": false,
+  "samplers": [
+   "dry",
+   "top_k",
+   "tfs_z",
+   "typical_p",
+   "top_p",
+   "min_p",
+   "xtc",
+   "top_n_sigma",
+   "temperature",
+   "adaptive_p",
+   ""
+  ]
+ },
+ "prompt": "A fixed collection of ordinary words follows.\ncloudy valley star morning river meadow summer marble forest window honey mirror thunder water orchard star distant star silent island bird thunder field forest window velvet meadow paper winter flower water honey star meadow garden distant forest spring valley mirror paper crystal cloudy lantern autumn water honey river honey island meadow field planet silver purple window field orange meadow yellow silver forest star cloudy thunder flower island circle star mirror autumn marble ocean spring circle shadow meadow stone shadow planet meadow comet bird copper bird silent field spring garden mirror distant mountain meadow bright stone silent summer candle forest orchard honey purple crystal mountain window morning wind honey distant orange crystal orange winter circle planet distant circle flower valley meadow mirror flower river morning valley river bird distant yellow valley comet cloudy forest mirror summer summer forest orange bright bird orchard shadow crystal cloudy distant orange stone morning water mountain honey marble comet mountain bird garden summer comet water garden silent autumn bright garden ocean cloudy quiet candle water water autumn silent water field crystal orchard forest mountain mirror morning window forest distant quiet flower meadow island velvet flower yellow field candle orchard ocean cloudy ocean silver orange island garden orchard spring orange field stone open spring cloudy water distant window purple meadow winter orange circle ocean water silent silent stone silver mirror autumn bird purple bright valley comet valley morning morning ocean distant marble mountain crystal ocean distant orange river meadow autumn silver window shadow silent orchard morning garden copper summer silver distant orange paper circle winter mountain valley garden river ocean window yellow window winter water bird meadow forest thunder bright river wind field circle meadow summer flower silver silent velvet silver island meadow planet copper lantern bright garden winter ocean spring planet meadow shadow marble silver river forest mirror bright meadow lantern orange garden bright morning quiet bird orange spring candle flower honey morning quiet morning paper lantern silent orchard autumn quiet summer window cloudy autumn mirror forest velvet meadow velvet island garden paper valley crystal island spring star marble island cloudy bright honey summer meadow orchard mountain yellow comet crystal bird paper thunder bright garden bird velvet spring morning silver morning bright comet river shadow distant forest meadow purple star field star quiet distant comet silent velvet spring silent orchard garden lantern garden forest bird stone meadow wind velvet island stone stone flower wind distant garden circle orchard lantern valley planet window meadow meadow yellow quiet honey autumn winter orchard quiet quiet cloudy planet quiet comet star field velvet honey honey comet autumn mountain morning crystal garden ocean forest comet yellow window orange spring circle garden yellow candle paper silver candle mirror autumn marble garden garden shadow candle valley purple ocean orange orange ocean planet thunder orange candle cloudy distant river silver lantern garden winter river mountain silent meadow shadow circle window window purple shadow silent velvet candle orange river candle field garden autumn meadow garden planet yellow shadow mountain distant bird bright valley comet wind river ocean circle star meadow planet circle velvet quiet garden garden field window silent open candle shadow bright marble meadow summer winter velvet open mountain quiet star garden valley silver honey orange garden meadow bright bright field velvet planet cloudy marble water planet circle quiet window valley mirror distant garden bright garden silent crystal garden valley thunder honey water copper garden star stone paper copper wind paper thunder forest silent distant meadow paper shadow lantern silent honey summer ocean shadow bird winter morning mirror forest orange silent silent orange stone planet water distant bird morning comet island valley purple paper copper ocean meadow field velvet stone spring comet candle shadow island orchard mountain flower thunder valley circle island field silent water garden field mountain meadow meadow garden comet orchard autumn meadow forest wind honey copper honey meadow distant island marble shadow yellow spring velvet spring river orchard marble mountain meadow orange flower window summer silver lantern spring meadow planet marble forest star lantern mountain circle velvet forest garden silent garden crystal summer paper planet quiet planet wind autumn winter circle cloudy silent star shadow stone autumn star bright orange bright velvet island thunder purple window circle circle copper meadow silent purple garden island stone ocean stone circle distant crystal orchard paper ocean forest star island ocean water purple valley comet orchard purple orchard meadow spring silent field paper star valley quiet paper quiet candle island stone purple distant velvet ocean field shadow morning stone water purple meadow ocean cloudy window garden lantern honey comet mirror meadow comet star planet crystal candle open winter field winter meadow quiet crystal bird velvet bird orange field water shadow garden summer spring bird honey stone comet distant garden island marble flower orange mirror winter lantern comet purple shadow honey flower garden valley circle copper silent marble valley comet spring valley spring star ocean meadow crystal lantern water distant meadow bird quiet forest field island wind island yellow garden bird river cloudy marble stone valley velvet forest water star yellow thunder purple garden star orchard field velvet comet valley shadow purple meadow circle winter marble autumn circle quiet marble bright star comet meadow cloudy open comet marble velvet orange mirror silent island bright thunder velvet candle open water mirror valley planet comet garden purple silent stone valley garden quiet meadow paper window cloudy silver valley silent copper ocean river autumn flower open river orchard morning flower honey forest spring honey crystal planet mountain shadow honey meadow winter circle autumn crystal meadow candle summer lantern valley river silver valley candle velvet flower circle quiet velvet river comet thunder valley island orange bright circle valley candle silver wind orange mirror purple valley orchard orange orange purple meadow orchard cloudy meadow mirror shadow paper valley flower planet paper distant forest wind orange valley distant star window distant crystal silent shadow silent island window mountain mirror river yellow orange silent cloudy forest planet yellow ocean lantern meadow circle open island comet window candle honey autumn stone thunder wind circle open window flower wind autumn velvet orchard paper star orchard silent lantern orchard silent garden bird garden cloudy mountain shadow paper mountain honey comet open yellow silver spring stone crystal candle morning orange honey morning window autumn paper circle marble honey copper wind forest meadow marble honey window honey valley copper orange cloudy autumn thunder open silent purple garden bird valley river river star water morning water meadow shadow copper wind honey field meadow shadow island silver garden valley star yellow paper open field forest paper marble winter mountain morning marble cloudy purple quiet river valley morning comet copper paper circle quiet garden river orange comet purple garden island mountain paper paper purple mirror stone marble meadow valley quiet meadow wind autumn morning comet morning forest spring stone island comet distant planet valley window garden island valley lantern meadow quiet window quiet flower meadow paper distant wind orchard garden valley island water silent yellow ocean water river thunder mirror field meadow purple orchard planet yellow wind garden honey comet mirror cloudy bright garden thunder flower orange valley river bright garden orange shadow mountain honey velvet spring comet distant distant cloudy copper open bright mirror mirror distant window window candle island garden morning circle velvet thunder river planet window copper garden spring orchard garden star shadow field river flower mirror planet paper water garden quiet island purple silent circle open lantern open orchard quiet marble honey spring winter island ocean field window morning garden window meadow winter garden silver stone silver mirror lantern mountain winter thunder river forest field garden velvet cloudy shadow paper bright distant garden summer yellow water stone mirror forest island orange stone crystal copper winter water silver distant bird silent distant mountain island thunder river river garden quiet honey mirror water garden silver garden candle copper summer morning garden distant circle meadow crystal river summer garden orange winter mirror forest spring marble copper forest forest summer wind quiet distant valley morning river lantern candle meadow honey wind quiet silent circle distant thunder meadow marble winter window candle purple thunder spring wind thunder marble field field silent garden summer comet bright river orange mirror crystal bird forest wind silver crystal velvet star forest forest circle shadow cloudy silent meadow velvet silver star garden lantern ocean bird valley garden yellow mountain bright ocean meadow marble velvet lantern autumn shadow lantern honey spring meadow wind planet autumn comet thunder ocean planet yellow silver mountain garden star spring circle quiet quiet bright garden paper silver comet thunder mountain silent paper mountain honey valley winter distant water silver morning distant window garden forest thunder water quiet winter bright copper river meadow velvet circle copper bright honey mountain mountain garden summer wind shadow marble bird garden thunder copper bird velvet stone quiet window wind field thunder orchard shadow yellow forest autumn field winter open island summer autumn stone comet honey purple stone orange velvet river lantern silver paper crystal forest garden winter crystal meadow shadow candle honey bird marble spring valley yellow bird field orchard purple mirror garden island forest bright summer honey distant orchard stone spring yellow circle paper cloudy garden silver comet morning valley summer candle summer bright garden meadow garden spring quiet orchard honey velvet orchard mountain meadow summer candle copper thunder stone distant circle valley silver bird mirror mountain garden lantern orange wind velvet cloudy marble river velvet circle forest circle autumn distant crystal crystal paper silent garden purple bird wind purple distant garden distant valley marble comet autumn flower forest valley thunder honey yellow island candle paper copper honey mirror shadow thunder island autumn stone quiet distant candle mirror flower field orchard flower planet summer window mirror thunder wind silent orchard paper planet summer window forest flower valley water garden summer marble flower purple bright morning candle river silver garden forest velvet open cloudy stone garden bright comet candle stone circle purple garden thunder cloudy stone meadow candle lantern ocean velvet valley comet water river purple planet open valley window open wind garden bright orchard water mirror paper velvet morning orchard candle bird valley paper window garden copper summer candle mirror autumn valley cloudy garden bird river autumn marble water cloudy valley bird candle marble garden valley garden purple yellow valley summer autumn autumn comet thunder silent copper mountain forest copper forest window planet garden orange spring bright paper bright silver thunder marble island spring copper winter silver circle bird distant honey honey quiet garden comet orchard honey valley meadow purple valley velvet shadow planet planet garden purple lantern stone comet summer garden copper candle open shadow valley paper window copper distant winter meadow autumn purple honey morning mirror silver silent candle lantern open water stone crystal spring garden garden orange star cloudy circle garden comet winter garden meadow bird star circle comet orange velvet open quiet garden velvet mountain orchard distant cloudy river silent silver orange planet honey shadow flower spring purple crystal silent candle wind honey meadow marble silent circle thunder field distant crystal garden river quiet garden forest crystal distant candle quiet river mountain shadow circle window comet comet honey wind star garden island silent wind circle open comet crystal distant garden ocean circle silent mirror island shadow winter forest lantern mountain garden garden honey stone star meadow silent river comet lantern autumn thunder marble river yellow copper cloudy river star garden morning comet candle circle meadow island spring silent flower mountain planet mountain purple orange wind mirror marble star winter mountain honey ocean candle spring crystal bird paper quiet field orchard window paper comet ocean cloudy circle lantern distant bird mountain mountain quiet window winter wind honey honey autumn velvet water circle marble meadow star thunder meadow water candle honey purple distant morning forest honey yellow velvet silver paper star star garden bright mirror morning forest spring cloudy garden open yellow open planet honey copper yellow valley mirror quiet garden shadow river shadow crystal distant copper meadow copper shadow meadow window candle forest forest summer morning spring comet garden garden silent morning island meadow mountain island purple crystal bright purple yellow shadow cloudy planet circle garden mountain distant distant garden yellow crystal orange silent purple silent quiet valley planet thunder valley silent valley forest island crystal valley distant valley autumn spring window wind velvet spring lantern orange circle island distant bird flower flower silent yellow river winter open ocean silver circle forest velvet copper planet river copper ocean open garden summer open water meadow meadow cloudy candle paper paper planet garden field meadow island open flower forest bird garden winter planet garden lantern silent orchard window marble valley spring silver mirror forest bright purple yellow water valley orange honey mountain forest open circle marble purple open cloudy silent marble valley river paper window distant silent honey ocean marble orange garden valley distant purple bird summer flower autumn thunder cloudy cloudy comet garden forest stone valley autumn stone meadow orange orange cloudy circle autumn valley mirror orange field morning summer valley ocean garden stone flower autumn meadow comet thunder autumn spring bird window morning yellow wind lantern lantern crystal mountain water summer lantern shadow stone autumn shadow bird paper candle window orange garden river quiet meadow morning cloudy ocean window winter valley summer summer mirror autumn forest valley wind spring candle paper orchard planet circle orange ocean orange comet river window silent lantern velvet ocean river thunder ocean candle winter garden mountain winter comet thunder summer velvet lantern open flower orange mountain mirror island planet candle stone copper flower valley copper meadow star winter stone paper paper honey planet autumn marble silver candle quiet paper comet river crystal crystal circle marble island valley autumn lantern forest thunder orchard morning morning cloudy open stone forest window spring cloudy thunder distant cloudy candle crystal autumn shadow morning comet island bird valley autumn purple island valley thunder autumn paper bright shadow star stone purple summer garden ocean mirror planet autumn distant open ocean candle forest bird yellow distant valley island morning velvet cloudy shadow orchard flower silver flower mirror silent honey morning lantern forest orange lantern velvet mirror mountain circle shadow comet circle valley bright orange mountain autumn planet open yellow comet window spring marble window orchard valley paper mirror honey stone orchard quiet summer mirror flower bright paper forest morning flower forest mountain orchard open honey field meadow circle flower circle valley river field island marble circle quiet valley valley comet window ocean stone spring paper candle candle marble meadow window garden summer island valley shadow honey lantern honey velvet bird silent autumn bright honey honey island orange purple morning flower bird window summer velvet window bird candle mountain copper garden mirror meadow stone winter mirror crystal honey morning water winter summer forest winter copper silver ocean wind thunder field field meadow candle planet flower planet valley star meadow garden meadow comet open meadow garden meadow copper bird marble stone circle bright planet paper bird winter flower open morning honey candle meadow lantern honey silent silver marble bright winter river autumn winter valley paper circle yellow ocean window stone garden quiet garden stone orchard comet wind orchard crystal shadow distant water field circle spring field river spring water river circle orchard mountain garden shadow comet mirror circle thunder paper honey stone stone silent river field garden velvet field mountain island spring orange circle quiet garden field candle field garden river window meadow distant circle river orange autumn bright garden forest mirror comet flower window valley meadow autumn morning autumn orchard silver crystal thunder window orchard distant comet flower planet copper paper window bird yellow marble paper stone open copper garden copper marble star valley island summer orange crystal crystal valley thunder valley flower quiet candle paper purple comet orchard crystal field flower field silent distant river distant meadow star lantern planet water open purple water meadow bright ocean star island thunder copper quiet water circle wind distant garden bright open honey circle river velvet bird cloudy open shadow thunder lantern orange quiet mountain valley planet autumn forest morning wind water garden valley copper shadow star circle forest forest bird shadow bright bird comet water winter summer purple copper garden star bird orange copper candle yellow window garden meadow autumn spring river stone autumn candle window quiet meadow water bright purple morning lantern lantern garden ocean marble garden orange comet open winter flower shadow flower honey paper stone garden garden water candle spring distant circle planet garden meadow candle meadow stone shadow silver bird stone paper autumn meadow silent ocean bird bird winter flower mountain orchard morning crystal valley crystal marble meadow orchard planet honey morning window flower summer orchard open yellow copper autumn cloudy distant yellow spring planet silent quiet forest flower ocean quiet spring marble window flower valley valley field paper garden water stone comet lantern meadow quiet mirror mountain summer circle velvet island bright ocean paper cloudy orange window quiet mirror summer comet water stone star water comet open yellow yellow silver quiet silent summer wind planet quiet distant garden wind autumn yellow summer flower cloudy forest forest purple autumn garden purple distant autumn forest orange spring valley paper forest autumn silver valley mountain stone valley star comet crystal orchard valley ocean window field cloudy shadow honey meadow mountain marble purple island garden silent planet ocean forest mirror forest paper distant purple circle mirror silver distant crystal forest yellow bright window mountain circle silent silent quiet morning valley bird bird distant candle thunder marble garden purple candle wind yellow bird copper crystal silent circle star crystal silver orange velvet cloudy paper garden garden purple paper valley meadow quiet spring island wind orange field water field window shadow meadow purple shadow purple open orchard velvet meadow purple autumn planet bird bright winter shadow crystal summer water comet autumn planet mountain mirror garden river bird water lantern meadow purple orchard forest velvet quiet stone garden velvet bird distant meadow flower star quiet forest flower circle copper ocean bird wind water bird candle flower yellow circle orchard thunder yellow star circle winter thunder purple orange lantern morning morning paper honey purple quiet ocean orange honey orange shadow spring spring garden island mirror wind summer shadow orange valley open crystal bird distant lantern shadow ocean planet spring autumn thunder ocean circle forest ocean paper garden distant comet mountain island copper summer summer valley autumn marble star morning cloudy cloudy ocean comet purple ocean stone purple distant lantern field mirror circle marble cloudy purple paper valley yellow island star copper valley orchard valley flower comet wind island wind river candle flower bird forest garden forest autumn thunder cloudy river garden silver garden forest copper comet cloudy lantern purple bird garden silent wind velvet comet spring velvet purple circle thunder island island honey forest paper marble spring window open forest garden thunder velvet wind crystal valley crystal quiet river copper candle marble meadow winter wind shadow lantern open orchard purple paper cloudy mountain star mirror meadow purple copper honey river island garden star flower purple mirror distant bird field cloudy autumn garden comet shadow yellow open paper copper valley silent open flower island open winter mirror marble mountain paper shadow orange winter crystal purple orchard yellow valley candle cloudy thunder water mirror yellow river mountain autumn summer stone river garden valley ocean island stone water garden marble mirror water meadow thunder paper stone honey quiet thunder meadow winter purple morning forest water crystal mountain field field valley water orange distant marble star spring quiet orange orange silent circle lantern summer morning honey lantern meadow honey orchard marble shadow water meadow yellow autumn paper copper meadow river garden velvet garden lantern orange silent star crystal orchard autumn crystal cloudy honey star garden bright cloudy meadow winter morning spring shadow yellow ocean bright lantern honey paper garden shadow velvet orange honey garden stone bird meadow star meadow yellow circle garden bright mirror summer autumn open mirror candle forest shadow comet orchard orange orange orchard water silent thunder summer winter garden wind cloudy meadow garden distant cloudy orange bright comet orange stone quiet open velvet thunder star bright meadow ocean garden orange cloudy thunder velvet stone lantern bird field river copper garden meadow marble wind crystal purple shadow comet marble flower orange meadow velvet silver orchard honey bird cloudy valley ocean star honey flower river comet summer summer bright comet orange mirror thunder wind thunder island planet comet orchard silver winter meadow flower lantern autumn spring bright valley garden velvet summer open stone velvet silver mountain lantern garden star quiet river copper flower valley star yellow bright honey silver winter quiet garden bird morning mountain honey marble river mirror open meadow honey garden autumn orchard silent yellow island cloudy stone silent comet forest lantern copper valley island distant quiet lantern garden meadow valley quiet marble cloudy autumn lantern star silent valley autumn field purple purple water valley copper orchard morning lantern shadow candle forest window crystal distant valley river valley mountain velvet island circle paper velvet meadow meadow purple stone spring bird valley purple valley shadow garden marble open cloudy bird quiet garden thunder paper quiet island candle autumn winter lantern wind copper river marble yellow planet paper distant river distant candle window bird river paper lantern circle thunder marble morning flower mirror island circle distant river valley star window river orange mountain water marble crystal river wind shadow bird bird garden orchard copper valley garden summer quiet copper island island velvet window winter marble valley valley honey river morning purple orange forest garden crystal shadow mirror planet thunder shadow star bright wind valley valley quiet mirror meadow field planet forest garden candle field mountain circle orchard circle bird yellow valley field silent spring circle ocean velvet thunder winter crystal meadow wind planet forest velvet crystal velvet planet cloudy open silent purple bird winter velvet stone meadow meadow stone copper forest river valley cloudy star island honey crystal valley morning purple copper distant water distant bird summer distant star silent stone candle garden comet garden marble water bird water winter flower ocean meadow circle paper field field orchard bird honey meadow comet silent thunder garden mountain water field bird field window star valley water water silver yellow ocean mirror bright meadow mirror paper honey garden meadow open lantern lantern silent honey paper ocean marble water wind spring cloudy comet morning open thunder field yellow autumn field comet mirror planet wind island stone candle quiet bird marble garden valley window island autumn star candle cloudy river comet comet honey valley stone window orchard mirror distant garden morning bird lantern silent star quiet mountain field honey stone valley river silent paper open quiet mirror orange flower cloudy forest circle valley window shadow paper bird mountain velvet orange velvet marble shadow bird meadow honey bright bright yellow circle forest water circle wind autumn quiet garden yellow bird river meadow mountain honey velvet flower orange wind garden mirror island island forest star valley velvet morning mirror honey crystal orange river purple mountain stone stone valley bird flower summer spring morning spring stone planet star river crystal quiet field flower yellow bright window star summer river distant silver marble copper autumn summer meadow garden silent comet meadow silver stone copper summer open valley mountain garden distant copper cloudy wind circle flower lantern open orchard orange water water morning purple yellow distant shadow candle stone valley velvet wind purple forest meadow mirror yellow thunder orange water forest orchard spring valley honey window marble meadow winter window mirror morning paper honey copper bird field island flower lantern water garden spring honey paper candle planet copper purple yellow orchard copper circle mountain copper comet crystal silent morning spring garden quiet distant paper planet shadow planet island silent island forest wind river meadow field field quiet copper morning mountain planet crystal bird star ocean silent wind meadow crystal window winter paper orange river meadow garden valley spring flower comet valley purple summer stone comet copper garden spring candle valley paper meadow river summer comet garden silent mirror water yellow crystal circle silver forest bright forest water island water paper ocean garden shadow garden meadow shadow crystal stone marble mirror star quiet autumn circle yellow river field flower circle quiet island silent morning marble star morning water island circle valley flower planet wind yellow yellow morning window planet candle stone spring circle copper mountain crystal morning window circle field stone mountain mountain meadow stone orange wind comet autumn circle window copper bird water garden velvet silent bright stone silent honey ocean open star spring silver quiet paper meadow garden garden flower meadow cloudy shadow silver valley comet lantern lantern orange water shadow meadow silent winter yellow spring wind quiet valley velvet cloudy spring bird paper valley spring garden spring crystal morning valley distant wind meadow honey orange forest thunder garden forest field star comet winter valley mountain ocean morning valley spring orchard garden meadow star water purple silent distant wind window orange autumn winter valley meadow bird velvet flower stone valley velvet valley marble crystal valley silver silent copper lantern quiet velvet forest lantern candle silver valley circle open planet honey morning flower shadow meadow valley circle candle forest river honey island cloudy purple garden velvet autumn shadow thunder ocean meadow window valley thunder mountain quiet river shadow mirror window window distant candle purple crystal honey autumn open valley river comet silver quiet meadow field lantern river valley meadow water island mountain mirror water quiet winter yellow distant distant silent cloudy bright yellow river valley summer distant planet circle velvet forest valley island purple silent silver valley spring cloudy open mountain velvet spring orchard shadow garden winter meadow velvet stone marble stone quiet silver paper garden river valley crystal bird silent mountain orange quiet autumn summer ocean stone lantern copper field paper circle distant field meadow honey field wind morning copper open meadow window stone valley valley orchard distant shadow star window river summer river mirror window mirror copper silver meadow planet river valley autumn flower flower window purple mountain winter forest quiet meadow meadow summer planet mountain flower garden valley mirror thunder winter paper planet velvet cloudy forest paper purple purple open velvet window window flower silver morning copper summer silent orchard valley silent thunder orange winter shadow silver field crystal quiet spring planet crystal ocean silver flower circle quiet garden bright morning quiet comet paper garden window garden yellow bright velvet meadow river water lantern lantern open open window field valley garden shadow silent shadow bright garden paper cloudy distant stone copper field valley valley window stone thunder cloudy silent winter summer garden spring garden planet flower crystal circle autumn orchard meadow bright crystal spring crystal orchard winter morning quiet yellow spring distant island lantern spring quiet mountain forest honey morning bright distant shadow silent field window comet mirror mountain meadow lantern orange crystal paper valley silent comet bird velvet shadow summer flower meadow star mountain silver island stone orchard candle stone comet comet yellow valley meadow open wind bright river candle field stone marble honey river planet garden bright valley valley thunder meadow marble forest water copper orchard open bright orange purple garden field field forest morning summer mirror autumn open planet valley river wind shadow purple spring thunder valley forest field bird comet flower valley garden river valley planet summer summer flower valley lantern morning meadow autumn meadow spring cloudy morning spring mountain candle valley shadow autumn quiet shadow winter meadow honey paper thunder winter water star purple shadow circle cloudy river yellow valley wind planet thunder spring comet circle valley autumn wind meadow orchard orange window copper wind water lantern forest paper water wind ocean distant stone window open crystal paper morning valley valley river field meadow winter mountain water quiet yellow spring circle velvet planet stone morning circle window spring bright autumn bird planet stone field candle planet orange silver crystal summer flower bird morning forest winter lantern meadow marble wind water bird spring crystal cloudy yellow copper silent silent silver winter morning mirror flower mountain silent mirror mountain spring water candle winter summer planet morning comet valley summer valley meadow circle meadow candle purple meadow garden ocean distant candle quiet valley shadow field lantern spring silver distant crystal autumn island mountain silent silent ocean bright river comet meadow star candle quiet silent thunder planet water circle marble lantern orange river garden field mountain autumn candle crystal velvet autumn garden summer cloudy paper bird copper silent copper garden spring mountain bird garden garden island valley island valley morning wind copper mirror lantern meadow winter field valley winter autumn crystal winter garden marble circle field paper quiet winter orange stone wind field mountain mountain copper spring marble field garden bird circle open purple planet meadow island cloudy window paper wind garden river distant comet cloudy copper summer window crystal garden field orchard honey silent lantern bird bright valley morning purple bird stone valley circle summer shadow planet bird river cloudy marble honey thunder autumn spring star star purple ocean field thunder purple candle open autumn orchard mirror purple silent orchard velvet candle flower meadow honey autumn flower distant bird summer orchard thunder island garden mountain velvet star morning shadow orchard paper shadow meadow morning garden field field spring meadow paper silver mountain bird copper wind summer field summer river meadow star bird thunder purple flower thunder quiet planet purple bird paper open garden thunder silver mountain window water quiet river yellow window mountain stone mirror copper comet marble silent spring field circle morning mountain silver winter yellow flower orange meadow garden valley meadow open yellow mirror planet spring valley island paper star copper planet flower candle forest spring forest shadow meadow water mountain forest quiet paper spring circle planet orange river copper distant orchard honey valley thunder valley velvet crystal velvet star flower quiet bright shadow valley meadow cloudy velvet silent spring field bird forest orange garden yellow velvet star river field spring window yellow circle mountain wind mountain garden paper meadow bird cloudy crystal lantern morning mountain circle mountain island valley open water circle thunder orchard velvet velvet bright marble open cloudy mountain spring shadow mountain meadow orchard silent stone water forest velvet mountain winter ocean marble mirror window thunder orange stone paper meadow paper thunder paper planet autumn island stone orchard bird silent marble orchard shadow silver quiet mountain ocean meadow silver shadow window circle valley purple valley garden bird garden forest ocean silver paper yellow comet island meadow morning river open garden copper comet shadow bright garden lantern garden crystal yellow garden star open mountain valley valley star autumn paper planet mirror cloudy mountain bright honey garden thunder shadow water comet mountain garden orchard window velvet stone field bright river bright valley bird marble comet cloudy winter mirror river lantern field open marble planet candle purple bright winter meadow star orchard valley stone lantern marble mountain island bird paper yellow planet flower orchard forest planet island orange ocean garden island marble summer open winter meadow yellow silent quiet marble cloudy copper valley star circle autumn open mirror marble quiet quiet bright circle open valley circle autumn garden mountain valley meadow marble window thunder shadow thunder stone velvet distant mountain distant distant distant valley garden marble stone silent candle silver spring cloudy orchard silver bright yellow garden island copper velvet bird paper garden purple circle flower velvet silent orange autumn orange cloudy orchard river wind candle comet flower copper mirror candle summer honey copper shadow thunder silent valley mirror meadow water island water paper quiet cloudy open valley thunder candle island window wind paper velvet quiet shadow paper star candle thunder winter river velvet shadow meadow window spring quiet copper honey bright velvet lantern crystal autumn garden shadow bird purple valley valley candle window orange forest silver silent stone crystal river velvet meadow thunder autumn valley quiet spring autumn paper marble thunder water winter island stone paper mirror orchard circle stone winter valley forest open star honey thunder valley window spring valley thunder autumn flower valley window ocean forest bright crystal silver bright honey garden thunder water meadow quiet meadow honey meadow window cloudy purple garden cloudy mountain thunder paper ocean quiet meadow forest honey candle forest marble open velvet shadow meadow window circle quiet shadow comet field wind shadow spring stone comet valley forest meadow candle purple thunder meadow honey river mountain meadow lantern candle winter shadow candle valley mirror orange orchard morning wind morning field summer field silver valley silent star cloudy star wind wind mirror lantern mirror crystal orchard yellow morning orange spring lantern circle spring lantern garden copper window flower garden marble yellow bright bright valley shadow star lantern spring orchard summer bright field river morning comet valley yellow cloudy garden crystal quiet lantern garden bird planet silent mirror ocean copper mountain ocean silent ocean valley comet summer cloudy spring marble forest thunder comet silver paper crystal planet lantern meadow orchard wind garden open quiet river cloudy mountain honey distant circle paper bird spring circle lantern thunder silver wind winter quiet copper flower summer field ocean star river orange spring island orange silver open spring river planet stone stone quiet lantern shadow circle honey copper silent bright river window quiet marble velvet quiet autumn crystal summer garden window orchard quiet cloudy ocean silent planet distant morning mountain open river open bright autumn wind meadow autumn silent autumn water paper distant copper marble forest velvet island bright garden valley water candle garden summer spring autumn yellow valley circle comet summer honey flower quiet candle ocean silent candle mountain marble winter star silent silent orange marble garden crystal field star planet mirror candle star open flower honey shadow garden summer marble island planet forest summer circle flower valley meadow window paper planet mountain yellow garden velvet marble comet lantern shadow velvet spring paper meadow orchard meadow flower orchard paper marble ocean yellow candle mirror flower wind comet copper garden valley planet orchard thunder purple paper bright summer purple valley velvet bird bird yellow field paper silver marble comet meadow autumn morning circle mountain spring copper island shadow flower mountain ocean garden orange honey crystal river garden comet open wind candle shadow shadow river thunder comet mirror ocean circle flower morning valley stone autumn window comet shadow meadow morning silent orchard window autumn winter winter island ocean lantern valley orchard meadow cloudy summer copper meadow wind star field window field flower flower velvet orange field bright velvet silent garden orchard distant valley garden candle garden thunder spring meadow star garden marble crystal summer lantern shadow island planet island island candle crystal autumn river paper paper honey wind orange lantern garden meadow valley orchard meadow thunder bright comet purple island comet meadow copper silver velvet orchard purple valley bird velvet meadow field purple flower planet wind winter orange summer bright garden silver thunder orchard star spring flower lantern silent paper candle yellow yellow flower autumn shadow paper summer silver bird lantern circle valley silent copper orchard mirror honey crystal mirror autumn candle mirror open marble orange lantern thunder island river water orange mountain wind window yellow paper field crystal meadow thunder thunder mirror purple garden ocean yellow meadow purple orange orchard velvet circle shadow mountain honey river meadow comet bright flower open velvet meadow garden velvet lantern water meadow winter valley garden winter orange spring wind copper garden valley winter garden valley meadow mountain window shadow meadow orange copper island autumn cloudy silver silent flower winter lantern velvet wind distant lantern cloudy meadow winter crystal honey thunder field valley honey lantern mountain paper water circle forest bright honey copper water yellow summer paper marble winter honey forest bright valley morning orchard winter marble morning garden velvet distant purple crystal circle field shadow silent honey bird comet river silent water orange orange river copper candle crystal star crystal bird water honey bird river velvet meadow circle field ocean summer wind meadow meadow purple yellow garden cloudy candle winter candle stone bright meadow marble orchard quiet meadow meadow candle honey winter cloudy valley field orange thunder purple purple winter window marble meadow copper comet mountain bird stone valley comet orchard bird planet crystal water meadow yellow paper stone field summer wind distant distant forest river water silent copper summer ocean forest circle field marble crystal morning marble quiet meadow circle crystal window shadow spring orchard valley stone honey orchard lantern paper star candle thunder yellow valley yellow orange cloudy copper mountain paper candle honey bright winter mirror quiet stone meadow honey bird garden mirror copper paper circle thunder stone meadow forest orchard mountain shadow orchard valley summer quiet wind island field island river wind velvet cloudy bright meadow spring spring autumn paper circle copper meadow silver forest honey honey ocean candle garden water garden open shadow open window bright orange summer flower shadow morning meadow shadow silver wind honey autumn thunder wind planet window water candle yellow summer mountain river candle silver mountain flower spring meadow orchard mirror crystal morning window mirror marble window valley field open valley meadow circle silent orange paper wind quiet orange copper valley bird shadow distant planet forest bright spring open yellow silver circle valley mirror silent shadow meadow river circle marble cloudy cloudy copper meadow star flower quiet orange yellow orchard bright water quiet star lantern field star forest meadow thunder mirror autumn valley river open honey autumn silver valley copper silver spring field morning silver ocean open shadow purple meadow crystal island summer silver orange circle bird spring crystal field garden candle bird water copper water purple cloudy star yellow yellow river spring distant thunder valley crystal silver velvet shadow bright meadow open purple river river valley mountain forest garden valley wind paper summer cloudy morning open silver winter window silver morning purple copper garden ocean mirror wind ocean forest forest silver mirror bird honey thunder silver marble shadow candle meadow honey wind cloudy silent silent orange water spring valley candle field wind autumn window orchard field orchard purple crystal orange silver valley forest meadow island thunder mountain thunder garden flower copper meadow morning garden circle spring ocean island garden stone orchard purple meadow spring shadow shadow shadow crystal purple orchard field morning mirror valley circle river silver star morning island silent spring orchard ocean candle open mirror garden spring paper honey autumn wind spring forest orchard star mirror window garden autumn silver paper yellow orange field spring velvet valley garden quiet flower meadow garden comet meadow mirror summer star marble crystal valley water island honey planet forest copper orange valley field shadow copper distant crystal marble open ocean marble valley planet open copper wind river bright purple shadow garden comet summer marble shadow valley crystal orchard meadow morning window candle mountain purple river wind copper water bird velvet wind valley autumn planet crystal autumn crystal silent garden mountain autumn field lantern open quiet distant meadow garden crystal valley morning quiet valley bird thunder silent cloudy meadow winter velvet star shadow yellow winter mountain wind copper window spring field crystal meadow silver planet flower distant star summer purple valley candle yellow open marble candle paper purple ocean river lantern garden valley island planet copper planet honey silver flower honey honey orchard star crystal star garden stone crystal island summer distant honey comet meadow comet distant autumn field marble wind bright thunder circle valley quiet open autumn distant mirror star valley morning yellow mountain valley orange ocean velvet cloudy stone silver orange valley open meadow flower flower cloudy garden meadow forest ocean river marble copper orchard open shadow planet velvet bird mirror velvet window velvet winter forest morning lantern yellow meadow garden window crystal paper valley orange quiet summer crystal honey star bright stone candle autumn orange star comet summer summer autumn morning valley shadow star mirror silent river garden valley meadow summer lantern copper stone stone star open purple marble garden water morning spring honey flower marble bird orchard honey orange forest shadow forest lantern open winter silver bird island bird distant circle ocean orchard morning meadow circle honey silver field honey flower valley field planet summer spring circle island island planet quiet paper yellow meadow valley meadow open spring ocean cloudy island crystal field wind candle distant cloudy silver distant mirror silver open comet window winter valley orange garden garden window meadow orange orchard honey silent valley orange open bright silent river crystal orchard candle quiet meadow valley water stone velvet valley ocean quiet crystal honey comet stone velvet stone planet copper cloudy field water window circle comet marble valley ocean open thunder purple copper meadow meadow valley meadow valley autumn orchard open ocean quiet meadow purple lantern garden distant autumn silver paper paper ocean silver bright shadow flower winter forest summer garden yellow summer yellow river circle distant silent valley orange window meadow copper quiet ocean summer island valley star planet bird meadow silver quiet lantern silver valley silent summer distant planet winter star orange valley star spring stone valley velvet bird mountain field winter mirror garden morning summer copper silent thunder orchard stone candle flower shadow star wind bird copper quiet star silver bird water spring planet honey orange forest spring water field winter bird silent yellow paper cloudy paper wind yellow candle marble island garden forest comet wind copper meadow copper mountain orange velvet winter window bird paper quiet morning window orchard silver mirror velvet lantern planet island window summer paper valley water flower valley window shadow paper planet ocean mirror wind planet stone forest garden ocean paper ocean candle silver wind stone yellow ocean stone cloudy paper thunder river orchard open forest flower river orange river orange silent velvet silent copper purple garden spring meadow bright spring river meadow thunder marble crystal winter mountain yellow lantern candle marble summer garden river orange orange valley copper stone ocean distant spring copper shadow velvet purple bright morning honey star water comet summer meadow water copper forest spring paper mountain meadow field thunder distant silver silent mirror autumn valley purple bird star meadow garden bird quiet mountain flower paper autumn window water honey stone garden bird valley orange mountain valley silver crystal open meadow lantern river mountain orchard silent paper silver ocean field autumn island open meadow shadow candle stone marble thunder distant silent meadow stone candle yellow open paper planet field wind bright window wind honey distant island honey river comet ocean mountain wind silent circle morning honey orange valley island meadow bird flower ocean field flower island candle yellow orange river orchard stone lantern window wind candle summer quiet purple mirror planet garden copper autumn water spring wind field cloudy lantern distant quiet planet window bright paper comet circle valley bright lantern silent forest mountain silent water mirror orchard crystal candle autumn silver lantern spring wind orange garden distant mirror silent planet open bird copper lantern summer mirror open ocean open quiet mountain mirror summer field shadow valley star shadow valley stone island valley island orange garden marble forest open candle winter yellow ocean summer meadow shadow open morning honey lantern ocean bright planet island marble stone flower crystal water star window circle comet silver distant flower distant river valley valley open copper wind meadow water crystal yellow window distant island river shadow window candle wind orchard quiet comet orange purple yellow marble mountain water cloudy honey spring autumn mountain meadow meadow velvet stone lantern quiet lantern marble honey yellow orange mirror autumn quiet river bird distant river ocean honey lantern meadow paper ocean silent bird spring winter thunder circle autumn cloudy silent morning cloudy candle cloudy marble meadow honey distant quiet circle lantern copper paper ocean garden garden spring field morning velvet yellow paper cloudy silent shadow garden spring summer star velvet water water winter meadow meadow summer autumn quiet crystal candle river water paper copper thunder marble planet crystal flower distant stone meadow lantern orange valley purple orchard forest quiet star purple marble quiet forest garden meadow stone silent ocean field purple shadow quiet crystal velvet winter spring flower honey orchard distant candle garden valley garden morning meadow candle bird island crystal silent silver open meadow copper quiet autumn purple meadow river thunder distant silent spring winter honey valley silent morning open candle spring valley ocean valley ocean silent river island summer orange garden quiet quiet garden ocean wind quiet bird cloudy planet bright spring valley star candle garden shadow winter comet summer orange orange ocean spring silver window flower candle bright winter water velvet silver purple comet mountain wind flower candle stone forest orchard honey velvet wind window river silent wind planet honey ocean quiet velvet meadow spring silent mountain planet mirror mountain purple wind morning summer lantern quiet meadow crystal window island river orchard honey cloudy morning silver circle bright spring bird silver comet honey garden cloudy comet orange marble yellow meadow island bird thunder circle crystal island autumn silver quiet thunder star morning comet field island mountain star ocean river crystal thunder garden open valley spring mountain marble silent purple autumn quiet field field silver garden stone copper meadow copper summer silver window autumn planet field spring bright cloudy flower morning purple candle quiet marble silver shadow autumn yellow field ocean mountain valley garden paper garden thunder valley shadow valley marble copper mirror lantern wind bright planet marble autumn comet winter summer winter forest paper velvet summer comet garden stone comet summer lantern marble paper summer paper garden marble garden yellow forest distant winter cloudy cloudy open crystal river shadow distant spring autumn water mirror copper shadow spring island bird marble meadow planet meadow garden garden meadow valley honey open star circle planet morning valley mirror stone field open flower winter orange water morning distant star orchard garden velvet valley star paper copper purple meadow stone bright garden valley summer bright purple distant mountain purple summer bird cloudy river silver orange autumn orange purple window field forest quiet window river comet field honey wind wind distant shadow garden water morning cloudy water comet thunder window cloudy flower meadow window bird meadow marble marble planet honey circle stone crystal cloudy water marble quiet ocean river flower open cloudy garden candle wind stone meadow bright circle valley bright forest winter river copper orange silver candle lantern garden honey bright open morning field marble shadow spring circle bird circle star velvet comet crystal garden orange candle mirror orange garden summer star lantern window window stone window copper yellow valley candle circle meadow honey forest distant yellow winter purple morning mountain copper stone quiet cloudy open forest flower silver wind valley island open quiet marble morning island velvet open silver purple valley wind mirror purple yellow copper wind valley winter quiet open bright mirror open yellow honey winter valley planet river cloudy paper silver lantern winter open quiet field summer orange flower mountain distant valley field stone spring bird valley valley mountain island crystal meadow planet silent cloudy planet garden bright valley circle bird meadow valley copper shadow forest comet purple autumn window candle bright winter wind forest velvet bird mirror mountain lantern open forest comet shadow spring bright winter river field thunder mountain stone meadow silver field garden summer comet quiet bright orchard thunder thunder bright water crystal meadow thunder velvet garden star garden velvet stone valley lantern orange bird mirror yellow island valley ocean autumn field crystal quiet forest bird water star crystal quiet autumn cloudy valley autumn shadow cloudy comet stone planet marble bird mountain thunder silver thunder purple meadow silver water meadow autumn island meadow bird lantern bright wind mountain comet copper comet valley field crystal silver circle planet ocean forest crystal orange yellow distant water planet circle autumn copper water marble open forest spring wind copper distant field autumn garden lantern summer distant silent marble forest candle mountain spring copper cloudy mountain paper quiet crystal mountain velvet orange yellow meadow bright stone comet island velvet quiet winter window yellow window ocean window summer cloudy meadow circle silent shadow quiet garden garden winter honey comet open shadow mountain meadow summer bright meadow valley ocean marble meadow stone candle mirror copper autumn garden ocean ocean cloudy crystal comet purple water quiet distant valley garden bird garden flower honey meadow honey forest flower orchard crystal flower island river orchard orange garden marble mountain circle flower copper open spring circle silent crystal river spring island open flower field wind ocean cloudy mountain meadow copper stone mountain valley wind mirror field comet honey open orchard valley garden winter bright summer thunder orange orchard quiet crystal marble valley mirror lantern paper spring marble water river open distant garden open purple morning wind morning silent wind bird open velvet wind silent orchard silent spring cloudy copper orchard wind winter window circle yellow open marble autumn valley garden paper quiet garden river window planet flower lantern garden purple bright marble candle river velvet planet planet bird island open river mountain planet circle winter garden honey mountain forest shadow meadow bird meadow star copper valley silent wind crystal forest garden meadow meadow circle wind orange river island shadow open orange wind lantern silver cloudy thunder orange silver crystal quiet thunder marble autumn orange summer candle summer yellow valley honey copper silver cloudy velvet comet purple silent forest summer winter garden bird planet valley candle forest water silent valley stone bright stone meadow candle circle yellow river window winter valley marble field planet crystal field water valley velvet mountain open paper shadow morning island garden valley forest silent open open mirror thunder paper window paper forest distant morning paper bird stone star shadow silver meadow cloudy island comet island crystal open mountain valley velvet silver window orange river orange winter mirror ocean water orchard copper meadow crystal candle forest open mountain forest bird spring forest spring ocean circle bright window flower comet copper forest open morning mountain wind quiet distant comet honey thunder spring mountain field garden bright window silver circle copper valley candle garden circle purple water spring orchard valley silent marble yellow quiet winter orchard forest ocean garden circle orchard distant island mountain field orchard summer quiet open marble quiet planet purple morning open silver river circle garden window crystal field winter window silver garden winter candle star quiet garden stone flower paper river spring bird ocean cloudy mountain shadow cloudy comet planet orange garden quiet island water mountain mountain mirror water planet valley crystal bird distant water marble silver autumn planet velvet field mirror comet circle copper quiet distant star valley crystal orchard distant copper comet water comet shadow orchard candle cloudy thunder silver summer window marble yellow river comet ocean orchard winter ocean flower marble spring river thunder winter purple crystal yellow thunder water circle field distant forest stone paper morning wind circle comet winter window thunder river quiet open field velvet valley meadow meadow valley meadow open garden spring open honey winter lantern stone paper bird valley mountain garden garden orchard stone velvet window island river water purple morning garden valley ocean window island island stone morning mirror mirror crystal spring field orange bird flower quiet yellow lantern bird silver star copper yellow honey flower purple shadow morning river distant orchard stone valley river bird ocean silver orange distant silver planet comet stone yellow lantern bird river yellow comet mirror cloudy candle window water ocean valley summer island autumn wind stone yellow yellow star honey velvet shadow window stone wind field honey crystal meadow silver silent quiet silent ocean honey field stone river distant stone orange valley quiet morning lantern meadow yellow field bright marble wind lantern autumn autumn orange island candle mountain bird mountain thunder honey water yellow orchard forest garden window mountain stone silver bright thunder silver garden garden window orange mountain orchard ocean bird yellow quiet cloudy field lantern river distant orange lantern distant autumn shadow river velvet velvet silver forest cloudy yellow meadow field cloudy candle lantern flower copper candle autumn shadow winter stone orchard star wind ocean forest morning summer distant orchard window yellow autumn thunder purple garden morning garden field orchard thunder spring candle quiet distant copper island yellow honey wind forest velvet silver quiet planet crystal valley stone winter meadow valley planet ocean ocean silver distant mirror summer autumn valley mountain shadow summer lantern bright island autumn thunder field mirror thunder orange crystal meadow bird copper flower velvet island valley lantern quiet bright thunder valley field mountain cloudy stone purple planet orange island silent lantern planet planet comet morning river marble yellow river stone garden thunder purple stone honey shadow summer flower planet honey bird forest island autumn orange spring purple meadow window marble meadow winter comet water velvet forest garden valley distant thunder window purple copper orchard flower window thunder winter crystal honey summer water paper comet bright garden ocean honey yellow circle summer bird summer purple stone bird valley shadow shadow silver meadow crystal purple circle window stone shadow circle valley lantern water field bird water velvet comet comet velvet winter wind silent purple morning valley island meadow bright planet circle valley marble wind spring autumn lantern silent open yellow mirror water meadow garden ocean silver winter comet winter velvet valley comet garden quiet island orange circle lantern yellow cloudy summer water meadow garden copper velvet copper thunder circle garden copper valley yellow autumn forest morning copper orchard winter stone silver thunder garden paper paper silver wind cloudy circle island yellow star stone marble mountain thunder circle shadow meadow silver meadow mirror honey stone copper purple bright silver orange river field quiet stone crystal marble cloudy window candle crystal candle stone flower field morning orchard velvet paper stone thunder summer mirror velvet ocean orchard quiet lantern shadow mirror river mountain window garden water bright candle quiet marble crystal\nContinue with a coherent fictional passage:",
+ "truncated": false,
+ "stopped_eos": false,
+ "stopped_word": false,
+ "stopped_limit": true,
+ "stopping_word": "",
+ "tokens_cached": 8948,
+ "timings": {
+  "prompt_n": 8917,
+  "prompt_ms": 26831.263,
+  "prompt_per_token_ms": 3.0090011214534034,
+  "prompt_per_second": 332.3362004986497,
+  "predicted_n": 32,
+  "predicted_ms": 1014.083,
+  "predicted_per_token_ms": 31.69009375,
+  "predicted_per_second": 31.555602450686976,
+  "n_ctx": 16384,
+  "n_past": 8948
+ },
+ "completion_probabilities": [
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.2521892786026001
+    },
+    {
+     "tok_str": " a",
+     "prob": 0.10880888253450394
+    },
+    {
+     "tok_str": " The",
+     "prob": 0.05585428699851036
+    },
+    {
+     "tok_str": " an",
+     "prob": 0.03033236786723137
+    },
+    {
+     "tok_str": " A",
+     "prob": 0.029338711872696877
+    }
+   ]
+  },
+  {
+   "content": " story",
+   "probs": [
+    {
+     "tok_str": " story",
+     "prob": 0.10804102569818497
+    },
+    {
+     "tok_str": " rain",
+     "prob": 0.039493948221206665
+    },
+    {
+     "tok_str": " next",
+     "prob": 0.03503049910068512
+    },
+    {
+     "tok_str": " words",
+     "prob": 0.031245440244674683
+    },
+    {
+     "tok_str": " quiet",
+     "prob": 0.030579010024666786
+    }
+   ]
+  },
+  {
+   "content": " should",
+   "probs": [
+    {
+     "tok_str": " should",
+     "prob": 0.8088353872299194
+    },
+    {
+     "tok_str": " so",
+     "prob": 0.04880635067820549
+    },
+    {
+     "tok_str": " must",
+     "prob": 0.03190744295716286
+    },
+    {
+     "tok_str": " of",
+     "prob": 0.02616080828011036
+    },
+    {
+     "tok_str": " needs",
+     "prob": 0.020780213177204132
+    }
+   ]
+  },
+  {
+   "content": " be",
+   "probs": [
+    {
+     "tok_str": " be",
+     "prob": 0.32796478271484375
+    },
+    {
+     "tok_str": " have",
+     "prob": 0.12735417485237122
+    },
+    {
+     "tok_str": " feel",
+     "prob": 0.08185825496912003
+    },
+    {
+     "tok_str": " start",
+     "prob": 0.055843647569417953
+    },
+    {
+     "tok_str": " not",
+     "prob": 0.028379643335938454
+    }
+   ]
+  },
+  {
+   "content": " set",
+   "probs": [
+    {
+     "tok_str": " set",
+     "prob": 0.08154565095901489
+    },
+    {
+     "tok_str": " a",
+     "prob": 0.07890927046537399
+    },
+    {
+     "tok_str": " told",
+     "prob": 0.07174378633499146
+    },
+    {
+     "tok_str": " about",
+     "prob": 0.056116290390491486
+    },
+    {
+     "tok_str": " whimsical",
+     "prob": 0.044488564133644104
+    }
+   ]
+  },
+  {
+   "content": " in",
+   "probs": [
+    {
+     "tok_str": " in",
+     "prob": 0.9455314874649048
+    },
+    {
+     "tok_str": " on",
+     "prob": 0.023979373276233673
+    },
+    {
+     "tok_str": " during",
+     "prob": 0.0044343601912260056
+    },
+    {
+     "tok_str": " within",
+     "prob": 0.004224228207021952
+    },
+    {
+     "tok_str": " after",
+     "prob": 0.002903037006035447
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.44580593705177307
+    },
+    {
+     "tok_str": " a",
+     "prob": 0.34350907802581787
+    },
+    {
+     "tok_str": " this",
+     "prob": 0.10213369131088257
+    },
+    {
+     "tok_str": " an",
+     "prob": 0.020783131942152977
+    },
+    {
+     "tok_str": " that",
+     "prob": 0.00963979959487915
+    }
+   ]
+  },
+  {
+   "content": " cloud",
+   "probs": [
+    {
+     "tok_str": " cloud",
+     "prob": 0.09313740581274033
+    },
+    {
+     "tok_str": " chapter",
+     "prob": 0.05414972081780434
+    },
+    {
+     "tok_str": " Sp",
+     "prob": 0.05312683805823326
+    },
+    {
+     "tok_str": "000",
+     "prob": 0.04943015053868294
+    },
+    {
+     "tok_str": " page",
+     "prob": 0.04314495995640755
+    }
+   ]
+  },
+  {
+   "content": "scape",
+   "probs": [
+    {
+     "tok_str": "scape",
+     "prob": 0.21629303693771362
+    },
+    {
+     "tok_str": "scapes",
+     "prob": 0.09600289165973663
+    },
+    {
+     "tok_str": "forest",
+     "prob": 0.09049762785434723
+    },
+    {
+     "tok_str": " forest",
+     "prob": 0.08598141372203827
+    },
+    {
+     "tok_str": "...\n\n",
+     "prob": 0.06724433600902557
+    }
+   ]
+  },
+  {
+   "content": " of",
+   "probs": [
+    {
+     "tok_str": " of",
+     "prob": 0.604541003704071
+    },
+    {
+     "tok_str": "...\n\n",
+     "prob": 0.09861370176076889
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.06438067555427551
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.05461650714278221
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.03570618852972984
+    }
+   ]
+  },
+  {
+   "content": " Venus",
+   "probs": [
+    {
+     "tok_str": " Venus",
+     "prob": 0.41144728660583496
+    },
+    {
+     "tok_str": " the",
+     "prob": 0.14516863226890564
+    },
+    {
+     "tok_str": " V",
+     "prob": 0.06094598025083542
+    },
+    {
+     "tok_str": " a",
+     "prob": 0.0456702895462513
+    },
+    {
+     "tok_str": "...",
+     "prob": 0.029064174741506577
+    }
+   ]
+  },
+  {
+   "content": ",",
+   "probs": [
+    {
+     "tok_str": ",",
+     "prob": 0.5156365036964417
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.1637088805437088
+    },
+    {
+     "tok_str": " and",
+     "prob": 0.07044710963964462
+    },
+    {
+     "tok_str": "?",
+     "prob": 0.05494349077343941
+    },
+    {
+     "tok_str": "\n\n",
+     "prob": 0.03533061593770981
+    }
+   ]
+  },
+  {
+   "content": " in",
+   "probs": [
+    {
+     "tok_str": " in",
+     "prob": 0.3130660057067871
+    },
+    {
+     "tok_str": " where",
+     "prob": 0.25174257159233093
+    },
+    {
+     "tok_str": " and",
+     "prob": 0.1686856746673584
+    },
+    {
+     "tok_str": " with",
+     "prob": 0.035231005400419235
+    },
+    {
+     "tok_str": " the",
+     "prob": 0.02484206296503544
+    }
+   ]
+  },
+  {
+   "content": " a",
+   "probs": [
+    {
+     "tok_str": " a",
+     "prob": 0.6376693844795227
+    },
+    {
+     "tok_str": " the",
+     "prob": 0.27853667736053467
+    },
+    {
+     "tok_str": " an",
+     "prob": 0.03555123880505562
+    },
+    {
+     "tok_str": " which",
+     "prob": 0.019619951024651527
+    },
+    {
+     "tok_str": " its",
+     "prob": 0.00608453806489706
+    }
+   ]
+  },
+  {
+   "content": " floating",
+   "probs": [
+    {
+     "tok_str": " floating",
+     "prob": 0.5455580353736877
+    },
+    {
+     "tok_str": " city",
+     "prob": 0.12008786201477051
+    },
+    {
+     "tok_str": " drifting",
+     "prob": 0.03170287609100342
+    },
+    {
+     "tok_str": " research",
+     "prob": 0.024070940911769867
+    },
+    {
+     "tok_str": " sky",
+     "prob": 0.018311822786927223
+    }
+   ]
+  },
+  {
+   "content": " city",
+   "probs": [
+    {
+     "tok_str": " city",
+     "prob": 0.6254767179489136
+    },
+    {
+     "tok_str": " archipelago",
+     "prob": 0.12519702315330505
+    },
+    {
+     "tok_str": " island",
+     "prob": 0.05001485347747803
+    },
+    {
+     "tok_str": " sky",
+     "prob": 0.023045117035508156
+    },
+    {
+     "tok_str": " research",
+     "prob": 0.01819564960896969
+    }
+   ]
+  },
+  {
+   "content": " called",
+   "probs": [
+    {
+     "tok_str": " called",
+     "prob": 0.7298381328582764
+    },
+    {
+     "tok_str": " above",
+     "prob": 0.0942123755812645
+    },
+    {
+     "tok_str": " built",
+     "prob": 0.06609654426574707
+    },
+    {
+     "tok_str": " of",
+     "prob": 0.027046672999858856
+    },
+    {
+     "tok_str": ",",
+     "prob": 0.013382503762841225
+    }
+   ]
+  },
+  {
+   "content": " Aure",
+   "probs": [
+    {
+     "tok_str": " Aure",
+     "prob": 0.4459419250488281
+    },
+    {
+     "tok_str": " A",
+     "prob": 0.10890228301286697
+    },
+    {
+     "tok_str": " Aer",
+     "prob": 0.04848161339759827
+    },
+    {
+     "tok_str": " K",
+     "prob": 0.03950006887316704
+    },
+    {
+     "tok_str": " Astr",
+     "prob": 0.03336437791585922
+    }
+   ]
+  },
+  {
+   "content": "lia",
+   "probs": [
+    {
+     "tok_str": "lia",
+     "prob": 0.9975963234901428
+    },
+    {
+     "tok_str": "lius",
+     "prob": 0.0006112218252383173
+    },
+    {
+     "tok_str": "lian",
+     "prob": 0.0005213533877395093
+    },
+    {
+     "tok_str": "l",
+     "prob": 0.0004516431945376098
+    },
+    {
+     "tok_str": "lio",
+     "prob": 0.00044686906039714813
+    }
+   ]
+  },
+  {
+   "content": ",",
+   "probs": [
+    {
+     "tok_str": ",",
+     "prob": 0.680010199546814
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.19919125735759735
+    },
+    {
+     "tok_str": ".\n\n",
+     "prob": 0.034523855894804
+    },
+    {
+     "tok_str": " built",
+     "prob": 0.014055893756449223
+    },
+    {
+     "tok_str": ".\n",
+     "prob": 0.013196674175560474
+    }
+   ]
+  },
+  {
+   "content": " where",
+   "probs": [
+    {
+     "tok_str": " where",
+     "prob": 0.3427429497241974
+    },
+    {
+     "tok_str": " which",
+     "prob": 0.22409744560718536
+    },
+    {
+     "tok_str": " built",
+     "prob": 0.09439356625080109
+    },
+    {
+     "tok_str": " in",
+     "prob": 0.08963536471128464
+    },
+    {
+     "tok_str": " and",
+     "prob": 0.08271917700767517
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.5000540614128113
+    },
+    {
+     "tok_str": " air",
+     "prob": 0.044092871248722076
+    },
+    {
+     "tok_str": " people",
+     "prob": 0.040602318942546844
+    },
+    {
+     "tok_str": " floating",
+     "prob": 0.03962603211402893
+    },
+    {
+     "tok_str": " light",
+     "prob": 0.03831062093377113
+    }
+   ]
+  },
+  {
+   "content": " acid",
+   "probs": [
+    {
+     "tok_str": " acid",
+     "prob": 0.41066408157348633
+    },
+    {
+     "tok_str": " pressure",
+     "prob": 0.20095203816890717
+    },
+    {
+     "tok_str": " crushing",
+     "prob": 0.14736492931842804
+    },
+    {
+     "tok_str": " clouds",
+     "prob": 0.05334654822945595
+    },
+    {
+     "tok_str": " rain",
+     "prob": 0.02304273098707199
+    }
+   ]
+  },
+  {
+   "content": " rain",
+   "probs": [
+    {
+     "tok_str": " rain",
+     "prob": 0.5808897018432617
+    },
+    {
+     "tok_str": " clouds",
+     "prob": 0.24291399121284485
+    },
+    {
+     "tok_str": " rains",
+     "prob": 0.1301521509885788
+    },
+    {
+     "tok_str": " fog",
+     "prob": 0.017773307859897614
+    },
+    {
+     "tok_str": "-r",
+     "prob": 0.005875943694263697
+    }
+   ]
+  },
+  {
+   "content": " falls",
+   "probs": [
+    {
+     "tok_str": " falls",
+     "prob": 0.9341983795166016
+    },
+    {
+     "tok_str": " is",
+     "prob": 0.010068882256746292
+    },
+    {
+     "tok_str": " never",
+     "prob": 0.008851735852658749
+    },
+    {
+     "tok_str": " has",
+     "prob": 0.006751935463398695
+    },
+    {
+     "tok_str": "...\n\n",
+     "prob": 0.005983083974570036
+    }
+   ]
+  },
+  {
+   "content": " upward",
+   "probs": [
+    {
+     "tok_str": " upward",
+     "prob": 0.9344563484191895
+    },
+    {
+     "tok_str": " upwards",
+     "prob": 0.06132467836141586
+    },
+    {
+     "tok_str": " in",
+     "prob": 0.0013250578194856644
+    },
+    {
+     "tok_str": " as",
+     "prob": 0.0009017462725751102
+    },
+    {
+     "tok_str": " ...\n\n",
+     "prob": 0.0006542674382217228
+    }
+   ]
+  },
+  {
+   "content": ",",
+   "probs": [
+    {
+     "tok_str": ",",
+     "prob": 0.483410120010376
+    },
+    {
+     "tok_str": ".",
+     "prob": 0.35451826453208923
+    },
+    {
+     "tok_str": " and",
+     "prob": 0.06699702143669128
+    },
+    {
+     "tok_str": ".\n\n",
+     "prob": 0.02702936716377735
+    },
+    {
+     "tok_str": " into",
+     "prob": 0.024891017004847527
+    }
+   ]
+  },
+  {
+   "content": " and",
+   "probs": [
+    {
+     "tok_str": " and",
+     "prob": 0.5469512343406677
+    },
+    {
+     "tok_str": " the",
+     "prob": 0.29488492012023926
+    },
+    {
+     "tok_str": " rain",
+     "prob": 0.12805750966072083
+    },
+    {
+     "tok_str": " a",
+     "prob": 0.004334638826549053
+    },
+    {
+     "tok_str": " but",
+     "prob": 0.0029105565045028925
+    }
+   ]
+  },
+  {
+   "content": " the",
+   "probs": [
+    {
+     "tok_str": " the",
+     "prob": 0.7097301483154297
+    },
+    {
+     "tok_str": " where",
+     "prob": 0.19451431930065155
+    },
+    {
+     "tok_str": " a",
+     "prob": 0.018480446189641953
+    },
+    {
+     "tok_str": " include",
+     "prob": 0.009583083912730217
+    },
+    {
+     "tok_str": " there",
+     "prob": 0.005512504372745752
+    }
+   ]
+  },
+  {
+   "content": " sky",
+   "probs": [
+    {
+     "tok_str": " sky",
+     "prob": 0.15850356221199036
+    },
+    {
+     "tok_str": " people",
+     "prob": 0.1509152501821518
+    },
+    {
+     "tok_str": " clouds",
+     "prob": 0.0988139808177948
+    },
+    {
+     "tok_str": " inhabitants",
+     "prob": 0.06711328774690628
+    },
+    {
+     "tok_str": " city",
+     "prob": 0.04809575900435448
+    }
+   ]
+  },
+  {
+   "content": " is",
+   "probs": [
+    {
+     "tok_str": " is",
+     "prob": 0.9757732152938843
+    },
+    {
+     "tok_str": " burns",
+     "prob": 0.007076719775795937
+    },
+    {
+     "tok_str": " has",
+     "prob": 0.003388573182746768
+    },
+    {
+     "tok_str": " glows",
+     "prob": 0.002467663260176778
+    },
+    {
+     "tok_str": " turns",
+     "prob": 0.0013918982585892081
+    }
+   ]
+  },
+  {
+   "content": " a",
+   "probs": [
+    {
+     "tok_str": " a",
+     "prob": 0.7782626152038574
+    },
+    {
+     "tok_str": " always",
+     "prob": 0.07092520594596863
+    },
+    {
+     "tok_str": " permanently",
+     "prob": 0.01960865966975689
+    },
+    {
+     "tok_str": " not",
+     "prob": 0.017637552693486214
+    },
+    {
+     "tok_str": " the",
+     "prob": 0.01575922779738903
+    }
+   ]
+  }
+ ]
+}
